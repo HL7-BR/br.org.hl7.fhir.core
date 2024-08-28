@@ -26,13 +26,13 @@ RUN ./_updatePublisher.sh -y
 
 RUN mkdir -p /root/.fhir/packages/br.gov.saude.fhir.terminologia#1.0.0
 
-RUN wget -P /root/.fhir/packages/br.gov.saude.fhir.terminologia#1.0.0 https://terminologia-br-ig.web.app/package.tgz
+RUN wget -P /root/.fhir/packages/br.gov.saude.fhir.terminologia#1.0.0 https://terminologia.saude.gov.br/fhir/package.tgz
 
 RUN tar -xvzf /root/.fhir/packages/br.gov.saude.fhir.terminologia#1.0.0/package.tgz -C /root/.fhir/packages/br.gov.saude.fhir.terminologia#1.0.0
 
 RUN mkdir -p /root/.fhir/packages/br.gov.saude.fhir.ips#1.0.0
 
-RUN wget -P /root/.fhir/packages/br.gov.saude.fhir.ips#1.0.0 https://ips-brasil.web.app/package.tgz
+RUN wget -P /root/.fhir/packages/br.gov.saude.fhir.ips#1.0.0 https://ips.saude.gov.br/fhir/package.tgz
 
 RUN tar -xvzf /root/.fhir/packages/br.gov.saude.fhir.ips#1.0.0/package.tgz -C /root/.fhir/packages/br.gov.saude.fhir.ips#1.0.0
 
