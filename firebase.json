@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "output",
+    "public": "web-root/fhir",
     "ignore": [
       "firebase.json",
       "**/.*",

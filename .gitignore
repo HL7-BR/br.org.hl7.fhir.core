@@ -6,6 +6,7 @@ output
 fsh-generated
 node_modules
 log
+packages
 
 # Don't commit this because it's so large #
 ###########################################
@@ -24,3 +25,11 @@ Thumbs.db
 # backup files #
 ################
 *.bak
+
+# webroot files #
+#################
+/web-root/ig-build-zips
+/web-root/publish-counter.json
+/web-root/fhir
+ig-registry
+ig-history

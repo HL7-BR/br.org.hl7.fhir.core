@@ -1,0 +1,13 @@
+services:
+  fhir-ig-publisher:
+    build: .
+    volumes:
+      - .:/app
+      - ../packages:/root/.fhir/packages
+    command: >
+        bash -c "
+                 rm -rf /app/temp;
+                 mkdir /app/temp;                 
+                 git clone https://github.com/HL7/fhir-ig-history-template.git /app/ig-history;
+                 git clone https://github.com/FHIR/ig-registry.git /app/ig-registry;
+                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -ig /app" 

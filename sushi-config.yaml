@@ -7,16 +7,16 @@
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
-id: br.gov.saude.fhir.br-core
-canonical: https://br-core.saude.gov.br
-url: https://br-core.saude.gov.br/ImplementationGuide/br.gov.saude.fhir.br-core
+id: br.gov.saude.br-core.fhir
+canonical: https://br-core.saude.gov.br/fhir
+url: https://br-core.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.br-core.fhir
 name: IPSBrasil
 title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
 license: CC0-1.0
 date: 2023-05-08
-version: 0.0.1
+version: 0.1.1
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -58,8 +58,8 @@ jurisdiction: urn:iso:std:iso:3166#BR "Brazil"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  br.gov.saude.fhir.terminologia: 1.0.0  
-  br.gov.saude.fhir.ips: 1.0.0
+  br.gov.saude.terminologia.fhir: 0.1.0
+  br.gov.saude.ips.fhir: 0.1.0
 
 # The global property corresponds to the IG.global property, but it
 # uses the type as the YAML key and the profile as its value. Since
