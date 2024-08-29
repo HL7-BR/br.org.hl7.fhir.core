@@ -1,0 +1,7 @@
+{
+  "http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0" : null,
+  "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO" : null,
+  "http://www.saude.gov.br/fhir/r4/ValueSet/BRReacoesAdversasMedDRA-1.0" : null,
+  "http://www.saude.gov.br/fhir/r4/ValueSet/BRAlergenos-1.0" : null,
+  "http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoDocumentoIndividuo-1.0" : null
+}
