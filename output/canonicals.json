@@ -1,0 +1,44 @@
+[
+  {
+    "id" : "br.gov.saude.br-core.fhir",
+    "type" : "ImplementationGuide",
+    "url" : "https://br-core.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.br-core.fhir",
+    "version" : "0.1.1",
+    "name" : "IPSBrasil"
+  },
+  {
+    "id" : "br-core-allergy-intolerance",
+    "type" : "StructureDefinition",
+    "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergy-intolerance",
+    "version" : "0.1.1",
+    "name" : "br-core-allergy-intolerance"
+  },
+  {
+    "id" : "br-core-patient",
+    "type" : "StructureDefinition",
+    "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+    "version" : "0.1.1",
+    "name" : "BRCorePatient"
+  },
+  {
+    "id" : "br-core-populacao-tradicional",
+    "type" : "StructureDefinition",
+    "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-populacao-tradicional",
+    "version" : "0.1.1",
+    "name" : "BRCorePopulacaoTradicional"
+  },
+  {
+    "id" : "br-core-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+    "version" : "0.1.1",
+    "name" : "br-core-practitioner"
+  },
+  {
+    "id" : "br-core-practitioner-role",
+    "type" : "StructureDefinition",
+    "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner-role",
+    "version" : "0.1.1",
+    "name" : "br-core-practitioner-role"
+  }
+]
