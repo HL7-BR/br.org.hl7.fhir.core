@@ -1,0 +1,14 @@
+{
+  "package-id": "br.gov.saude.br-core.fhir",
+  "title": "Core do Brasil",
+  "category": "base",
+  "introduction": "Guia de implementação do Core do Brasil que estabelece os perfis para interoperabilidade e transações em território brasileiro",
+  "version": "0.1.1",
+  "desc": "0.1.1 Release",
+  "mode": "milestone",
+  "path": "https://br-core.saude.gov.br/fhir/v0.1.1",
+  "ci-build": "https://br-core-ig.web.app",
+  "first": true,
+  "status": "release",
+  "sequence": "Releases"
+}

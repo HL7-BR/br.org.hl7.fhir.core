@@ -1,0 +1,10 @@
+services:
+  fhir-ig-publisher:
+    build: .
+    volumes:
+      - .:/app
+      - ../packages:/root/.fhir/packages
+    command: >
+        bash -c "                 
+                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -generate-package-registry /app/web-root;
+                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -go-publish -source /app -web /app/web-root -temp /app/temp -registry /app/ig-registry/fhir-ig-list.json -history /app/ig-history -templates /app/web-root/templates" 

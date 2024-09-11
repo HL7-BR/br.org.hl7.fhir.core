@@ -1,0 +1,14 @@
+{
+    "website" : {
+      "style" : "fhir.layout",
+      "url" : "https://br-core.saude.gov.br",
+      "server" : "apache",
+      "org" : "Ministério da Saúde do Brasil",
+      "index-template":"index.template"
+    },
+    "layout-rules" : [{
+      "npm" : "br.gov.saude.br-core.*",
+      "canonical" : "https://br-core.saude.gov.br/{5}",
+      "destination" : "/{5}"
+    }]
+  }

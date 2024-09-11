@@ -1,0 +1,23 @@
+{
+  "packages" : [
+    {
+      "path" : "fhir/package-list.json",
+      "package-id" : "br.gov.saude.br-core.fhir",
+      "title" : "Core do Brasil",
+      "canonical" : "https://br-core.saude.gov.br/fhir",
+      "category" : "base",
+      "ci-build" : "https://br-core-ig.web.app",
+      "version-count" : 1,
+      "latest" : {
+        "version" : "0.1.1",
+        "date" : "2024-08-27",
+        "path" : "https://br-core.saude.gov.br/fhir/v0.1.1"
+      },
+      "milestone" : {
+        "version" : "0.1.1",
+        "date" : "2024-08-27",
+        "path" : "https://br-core.saude.gov.br/fhir/v0.1.1"
+      }
+    }
+  ]
+}
