@@ -7,10 +7,10 @@ Description: "Contém os dados relacionados à condição de saúde ou condiçã
 * category 0..1
 * category from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico (required)
 * subject only Reference(br-core-patient)
-* encounter only Reference(br-core-encounter)
-* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerRole or br-core-relatedPerson)
-* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerRole or br-core-relatedPerson)
-* condition.stage 1..*
+//* encounter only Reference(br-core-encounter)
+//* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerRole or br-core-relatedPerson)
+//* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerRole or br-core-relatedPerson)
+//* condition.stage 1..*
 
 Invariant: br-core-condition-con-3
 Description: "condition.clinicalStatus DEVE estar presente se condition.verificationStatus não for 'entered-in-error' e a categoria for problem-list-item"
