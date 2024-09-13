@@ -1,6 +1,7 @@
 # Temporary folders #
 #####################
 temp
+output
 template
 fsh-generated
 node_modules
