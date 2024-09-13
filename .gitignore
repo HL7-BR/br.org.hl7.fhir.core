@@ -1,8 +1,8 @@
 # Temporary folders #
 #####################
 temp
-template
 output
+template
 fsh-generated
 node_modules
 log

@@ -1,0 +1,30 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "IdentifierUse",
+      "title" : "IdentifierUse",
+      "description" : "Identifies the purpose for this identifier, if known .",
+      "systems" : ["http://hl7.org/fhir/identifier-use"],
+      "oids" : ["2.16.840.1.113883.4.642.3.57"],
+      "sources" : ["2.16.840.1.113883.4.642.3.57"],
+      "uses" : {
+      },
+      "StructureDefinition-br-core-practitioner-role.html" : "br-core-practitioner-role"
+    },
+    {
+      "url" : "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration",
+      "version" : "1.1.0",
+      "status" : "active",
+      "name" : "MedicineRouteOfAdministrationUvIps",
+      "title" : "Medicine Route of Administration - IPS",
+      "description" : "EDQM (European Directorate for the Quality of Medicines and Healthcare) Route of Administration codes.  This Value Set includes all the EDQM Standard Terms having:  \n[Concept Status] = ‘Current’ AND  \n[Concept Class] = 'ROA' AND  \n[Domain] = 'Human and Veterinary'  \n\nROA = 'Route of administration'",
+      "systems" : ["http://standardterms.edqm.eu"],
+      "uses" : {
+      },
+      "StructureDefinition-br-core-allergy-intolerance.html" : "br-core-allergy-intolerance"
+    }
+  ]
+}
