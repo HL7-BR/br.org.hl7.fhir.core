@@ -1,7 +1,0 @@
-Source File	Size	loadResources	load-configure	scan	loadDepInfo	loadInfo	load	generateSnapshots	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
-/fsh-generated/resources/ImplementationGuide-br.gov.saude.br-core.fhir.json	4513	-	0	0	0	0	0	0	7	199	0	0	0	0	0	0	0	1	0	0	196	211	0	0	2	3	0	3
-fsh-generated/resources/StructureDefinition-br-core-allergy-intolerance.json	2887	35	0	0	1	1	0	1025	0	144	0	0	1	0	0	0	0	11	0	0	266	4646	0	5	0	10	0	3
-fsh-generated/resources/StructureDefinition-br-core-patient.json	598	29	1	0	2	0	0	159	0	129	0	0	1	0	0	0	0	9	0	0	722	4721	0	0	0	47	1	5
-fsh-generated/resources/StructureDefinition-br-core-populacao-tradicional.json	2045	24	0	0	0	0	0	33	0	70	0	0	0	0	0	0	0	0	0	0	82	403	0	1	0	8	0	0
-fsh-generated/resources/StructureDefinition-br-core-practitioner-role.json	2405	32	1	0	0	0	0	74	0	87	0	0	12	0	0	0	0	2	0	0	236	1420	0	0	0	13	0	1
-fsh-generated/resources/StructureDefinition-br-core-practitioner.json	4623	25	0	0	0	0	0	287	0	232	0	0	1	0	0	0	0	7	0	0	733	5529	0	0	0	54	0	3

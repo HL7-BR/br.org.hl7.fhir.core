@@ -1,2 +1,0 @@
-URL,Version,Status,OIDs,Name,Title,Descriptino,Used
-http://hl7.org/fhir/identifier-use,4.0.1,active,"2.16.840.1.113883.4.642.4.58",IdentifierUse,IdentifierUse,"Identifies the purpose for this identifier, if known .","ValueSet/identifier-use"
