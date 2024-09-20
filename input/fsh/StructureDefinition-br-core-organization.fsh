@@ -1,4 +1,5 @@
 Profile: br-core-organization
 Parent: OrganizationBRIPS
 Id: br-core-organization
-Description: ""
+Title: "br-core-organization"
+Description: "Especificação do perfil Organization o Core do Brasil"
