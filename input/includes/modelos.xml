@@ -168,7 +168,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-patient.fsh">br-core-patient</a>
                 </td>
                 <td>
-                    <p>Este perfil representa o perfil br-core-patient com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo.</p>
+                    <p>Este perfil representa o perfil br-core-patient.</p>
                 </td>
             </tr>
             <tr>
