@@ -164,12 +164,11 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-PatientBRIPS.html"
-                        title="StructureDefinition/PatientBRIPS">PatientBRIPS</a>
+                    <a href="StructureDefinition-br-core-patient-intro.html"
+                        title="StructureDefinition/br-core-patient.fsh">br-core-patient</a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Patient pelo International Patient Summary (IPS) FHIR Implementation Guide 
-                    e descreve as expectativas mínimas para o recurso Patient quando utilizado na Composition do IPS ou num dos referidos recursos.</p>
+                    <p>Este perfil representa o perfil br-core-patient com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo.</p>
                 </td>
             </tr>
             <tr>
