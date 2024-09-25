@@ -1,7 +1,7 @@
 Profile: br-core-condition
 Parent: ConditionBRIPS
 Id: br-core-condition
-Description: "Contém os dados relacionados à condição de saúde ou condição alvo do paciente avaliado."
+Description: "Este perfil representa as restrições aplicadas ao recurso ConditionBRIPS pelo Guia de Implementação FHIR do Sumário Internacional do Paciente (IPS). Um registro de um problema é representado no resumo do paciente como uma instância do recurso Condition restringido por esse perfil."
 
 * clinicalStatus obeys br-core-condition-con-3 and br-core-condition-con-4 and br-core-condition-con-5
 * category 0..1
