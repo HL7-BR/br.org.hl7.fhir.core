@@ -1,0 +1,46 @@
+### Escopo/Uso
+
+Este recurso pode ser usado em um registro compartilhado de contato assistencial para representar o estabelecimento que prestou a assisntência ou pode ser usado meramente como um suporte para outros recursos que precisam referenciar organizações, talvez como um documento, mensagem ou como um recurso contido em outro recurso. Se for utilizado para representar um cadastro de organizações, como no caso do CNES – Cadastro Nacional de Estabelecimentos de Saúde, é possível que existam vários registros, cada um lidando com diferentes tipos ou níveis de organização.
+
+### Caso de uso
+
+Este perfil é necessário para manter os dados referentes ao estabelecimento em que o paciente foi atendido (nome empresarial, CPF/CNPJ, endereço e os demais dados de identificação), bem como o período do atendimento e os códigos dos procedimentos realizados. A organização ou estabelecimento de saúde é uma unidade ou entidade que realiza a execução de serviços médicos e de saúde em conformidade com planos de saúde privados e seguros de saúde suplementar.
+
+Esse perfil pode, ainda, ser utilizado para representar empresas, fabricantes de medicamentos ou operadoras de planos privados de saúde e Secretarias de Saúde e órgãos do governo federal, as quais não são estabelecimentos de saúde, mas organizações que intermediam ou financiam a rede ou estabelecimentos de saúde, próprios ou contratados, que realizam procedimentos e tratamentos médicos em seu nome, para beneficiários dos planos de saúde suplementar ou aos usuários do SUS (Sistema Único de Saúde). Essas organizações são as fontes financiadoras desses serviços e não os prestadores dos serviços, elas atuam como responsáveis pelo financiamento da(s) rede(s) de estabelecimentos de saúde sob sua jurisdição. 
+
+### Identificadores
+
+Este perfil deve possuir minimamente de forma optativa um identificador que pode ser o Cadastro Nacional Pessoa Jurídica (CNPJ)  ou o Cadastro de Pessoa Física (CPF). Também deve ser informado o CNES, caso ao organização seja um prestador executante. O código CNES deve set utilizado para os prestadores de serviços. Desde 2 de outubro de 2015, como preceitua o artigo 4° da portaria nº 1.646, que institui o Cadastro Nacional de Estabelecimentos de Saúde (CNES), que regulamenta que o cadastramento e a manutenção dos dados cadastrais no CNES, esse código é obrigatório para que todo e qualquer estabelecimento de saúde possa funcionar em território nacional, devendo preceder aos licenciamentos necessários ao exercício de suas atividades, bem como às suas renovações.  No entanto para a ANS e para o Código de Defesa do Consumidor essa informação é opcional no caso de reembolsos, onde o beneficiário solicita ressarcimento dos serviços prestados no caráter “particular”, onde o estabelecimento não tem contrato ou convênio com a operadora de planos privados. Nesse caso de reembolso, na maioria dos contratos da saúde suplementar, o único identificador exigível é o Registro no Conselho Profissional do prestador de serviço, e por esse motivo se pode informar o código 999999 no elemento CNES, que é obrigatório na RNDS. Essa estrutura está em conformidade os modelos de informação de guias, referentes a mensagem Operadora-ANS do Componente de Conteúdo e Estrutura do Padrão TISS.
+
+### Extensões
+
+Este perfil não possui extensões.
+
+### Limites e relacionamentos
+
+O perfil br-core-organization é usado para coleções de pessoas que se uniram para atingir um objetivo. Este perfil geralmente existe como uma hierarquia de recursos de organização, usando a propriedade part-of para fornecer a associação da criança à sua organização pai. Essa hierarquia organizacional ajuda a comunicar a estrutura conceitual, enquanto o recurso Location fornece a representação física da hierarquia. A associação entre br-core-organization e br-core-location é específica para  br-core-organization, como por exemplo, a associação de enfermarias com o hospital. Esses links não precisam ser todos para o nível superior do br-core-organization.
+
+Ao preencher as hierarquias de br-core-organization e br-core-location, geralmente não há uma distinção clara entre essas 2, no entanto, para ajudar na tomada de decisão, os perfis tipo br-core-location são sempre usados para registrar onde um serviço ocorre e, portanto, onde os encontros e observações são associados. A propriedade br-core-organization nesses recursos pode não ser o local onde o serviço ocorreu. 
+
+### Exemplos de cenários de uso:
+
+### Elementos de dados obrigatórios e que devem estar presentes (must support)  
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>Descrição/Legislação</th>
+      <th>Cardinalidade</th>
+      <th>URL/CodeSystem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
