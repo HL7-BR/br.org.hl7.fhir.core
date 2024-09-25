@@ -6,7 +6,7 @@ Description: "Alergia ou intolerância (geralmente: risco de reação adversa a 
 
 * code from https://simplifier.net/redenacionaldedadosemsaude/valueset-bralergenos-1.0 (required)
 * patient only Reference(br-core-patient)
-//* encounter only Reference(br-core-contatoassistencial)
+* encounter only Reference(br-core-encounter)
 * recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitioner-role or br-core-related-person)
 * asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitioner-role or br-core-related-person)
 * reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
