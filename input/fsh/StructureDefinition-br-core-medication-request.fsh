@@ -3,20 +3,29 @@ Parent: MedicationRequestBRIPS
 Id: br-core-medication-request
 Title: "br-core-medication-request"
 Description: "Este perfil restringe a representação de uma requisição de medicamento relacionada ao paciente"
-//* reportedReference only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or br-core-organization)
-//* reported[x].reportedReference only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or br-core-organization)
-//* medicationReference only Reference(br-core-medication)
-//* subject only Reference(br-core-patient)
-//* encounter only Reference(br-core-encounter)
+
+* priority 0..0
+//* medication only Reference(br-core-medication)
+* reportedReference only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or br-core-organization)
+* medicationReference only Reference(br-core-medication)
+* subject only Reference(br-core-patient)
+* identifier 1..1
+* encounter only Reference(br-core-encounter)
+* authoredOn 1..1
+* requester 1..1
+* requester only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device)
 //* requester only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or br-core-device)
-//* requester.identifier 1..1
+* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or Device or br-core-related-person)
 //* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-device or br-core-related-person or br-core-care-team)
-//* recorder only Reference(br-core-practitioner or br-core-practitioner-role)
+* recorder only Reference(br-core-practitioner or br-core-practitioner-role)
+* reasonReference only Reference(br-core-condition)
 //* reasonReference only Reference(br-core-condition or br-core-observation)
+* basedOn 0..1
+* basedOn only Reference(br-core-medication-request)
 //* basedOn only Reference(br-core-care-plan or br-core-medication-request or br-core-service-request or br-core-immunization-recommendation)
+* dosageInstruction 0..1
 * dosageInstruction.timing.repeat 1..1
 //* doseAndRate.dose[x] 1..1
 //* doseAndRange.doseQuantity 1..1
-//* doseAndRange.doseQuantity 1..1
 //* validityPeriod 1..1
-//* priorPrescription only Reference(br-core-medication-request)
+* priorPrescription only Reference(br-core-medication-request)
