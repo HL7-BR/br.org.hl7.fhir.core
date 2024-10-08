@@ -24,7 +24,6 @@ Description: "Este perfil restringe a representação de uma requisição de med
 //* basedOn only Reference(br-core-care-plan or br-core-medication-request or br-core-service-request or br-core-immunization-recommendation)
 * dosageInstruction 0..1
 * dosageInstruction.timing.repeat 1..1
-* doseAndRate.dose 1..1
-* doseAndRange.dose.doseQuantity 1..1
+* dosageInstruction.doseAndRate.dose[x] 1..1
 * dispenseRequest.validityPeriod 1..1
 * priorPrescription only Reference(br-core-medication-request)
