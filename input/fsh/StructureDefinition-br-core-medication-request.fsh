@@ -5,7 +5,6 @@ Title: "br-core-medication-request"
 Description: "Este perfil restringe a representação de uma requisição de medicamento relacionada ao paciente"
 
 * priority 0..0
-//* medication only Reference(br-core-medication)
 * reportedReference only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or br-core-organization)
 * medicationReference only Reference(br-core-medication)
 * subject only Reference(br-core-patient)
@@ -25,7 +24,7 @@ Description: "Este perfil restringe a representação de uma requisição de med
 //* basedOn only Reference(br-core-care-plan or br-core-medication-request or br-core-service-request or br-core-immunization-recommendation)
 * dosageInstruction 0..1
 * dosageInstruction.timing.repeat 1..1
-//* doseAndRate.dose[x] 1..1
-//* doseAndRange.doseQuantity 1..1
-* validityPeriod 1..1
+* doseAndRate.dose 1..1
+* doseAndRange.dose.doseQuantity 1..1
+* dispenseRequest.validityPeriod 1..1
 * priorPrescription only Reference(br-core-medication-request)
