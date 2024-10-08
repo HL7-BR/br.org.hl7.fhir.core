@@ -27,5 +27,5 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * dosageInstruction.timing.repeat 1..1
 //* doseAndRate.dose[x] 1..1
 //* doseAndRange.doseQuantity 1..1
-//* validityPeriod 1..1
+* validityPeriod 1..1
 * priorPrescription only Reference(br-core-medication-request)
