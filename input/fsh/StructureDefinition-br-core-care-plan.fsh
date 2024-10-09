@@ -1,4 +1,4 @@
 Profile: br-core-care-plan
-Parent: CarePlanBRIPS
+Parent: http://hl7.org/fhir/StructureDefinition/CarePlan
 Id: br-core-care-plan
 Description: "Este perfil "
