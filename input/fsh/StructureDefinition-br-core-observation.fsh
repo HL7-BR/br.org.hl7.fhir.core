@@ -1,4 +1,4 @@
 Profile: br-core-observation
-Parent: https://hl7.org/fhir/observation.html
+Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observation
 Description: "Este perfil "
