@@ -13,15 +13,14 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * authoredOn 1..1
 * requester 1..1
 * requester only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device)
-//* requester only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or br-core-device)
-* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or Device or br-core-related-person)
+* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or Device or br-core-related-person or br-core-care-team)
 //* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-device or br-core-related-person or br-core-care-team)
 * recorder only Reference(br-core-practitioner or br-core-practitioner-role)
-* reasonReference only Reference(br-core-condition)
+* reasonReference only Reference(br-core-condition or br-core-observation)
 //* reasonReference only Reference(br-core-condition or br-core-observation)
 * basedOn 0..1
-* basedOn only Reference(br-core-medication-request)
-//* basedOn only Reference(br-core-care-plan or br-core-medication-request or br-core-service-request or br-core-immunization-recommendation)
+//* basedOn only Reference(br-core-medication-request)
+* basedOn only Reference(br-core-care-plan or br-core-medication-request or br-core-service-request or br-core-immunization-recommendation)
 * dosageInstruction 0..1
 * dosageInstruction.timing.repeat 1..1
 * dosageInstruction.doseAndRate.dose[x] 1..1
