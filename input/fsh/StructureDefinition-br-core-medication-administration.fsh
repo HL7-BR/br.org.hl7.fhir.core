@@ -1,5 +1,5 @@
 Profile: br-core-medication-administration
-Parent: MedicationAdministration
+Parent: http://hl7.org/fhir/StructureDefinition/MedicationAdministration
 Id: br-core-medication-administration
 Description: "Este perfil representa a medicação administrada"
 
@@ -7,7 +7,7 @@ Description: "Este perfil representa a medicação administrada"
 //* subject only Reference(br-core-patient)
 * context only Reference(br-core-encounter)
 * performer.function from https://www.hl7.org/fhir/R4/valueset-med-admin-perform-function.html (preferred)
-* performer.actor only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or Device)
+* performer.actor only Reference(br-core-related-person or Device)
 //* performer.actor only Reference(br-core-practitioner or br-core-practitioner-role or br-core-patient or br-core-related-person or Device)
-* reason only Reference(br-core-condition or br-core-observation or br-core-diagnostic-report)
-* request only Reference(br-core-medication-request)
+//* reason only Reference(br-core-condition or br-core-observation or br-core-diagnostic-report)
+//* request only Reference(br-core-medication-request)
