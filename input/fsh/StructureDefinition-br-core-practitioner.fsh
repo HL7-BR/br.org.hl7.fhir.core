@@ -7,4 +7,6 @@ Description: "Indivíduo que realiza atividades profissionais."
 * identifier.use 1..1
 * identifier.type from http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoDocumentoIndividuo-1.0 (required)
 * active 1..1
-* qualification.code from http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0 (required)
+* qualification 0..1
+* qualification.code from https://simplifier.net/redenacionaldedadosemsaude/valueset-brocupacao-1.0 (required)
+//* qualification.issuer only Reference(br-core-organization)
