@@ -13,7 +13,7 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * authoredOn 1..1
 * requester 1..1
 * requester only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device)
-* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or Device or br-core-related-person or br-core-care-team)
+* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or Device or br-core-related-person or CareTeam)
 * recorder only Reference(br-core-practitioner or br-core-practitioner-role)
 * reasonReference only Reference(br-core-condition or br-core-observation)
 * basedOn 0..1

@@ -9,9 +9,9 @@ Description: "Este perfil "
 * description 1..1
 //* subject only Reference(br-core-patient)
 * encounter only Reference(br-core-encounter)
-//* custodian only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device or br-core-care-team)
+//* custodian only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device or CareTeam)
 //Reference(br-core-practitioner | br-core-practitionerRole | br-core-organization | br-core-patient | br-core-relatedPerson | br-core-device|br-core-careteam). Criar o careteam
-//* contributor only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device or br-core-care-team)
+//* contributor only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-patient or br-core-related-person or Device or CareTeam)
 //* careTeam only Reference(br-core-care-plan)
 //* addresses only Reference(br-core-condition)
 //* goal only Reference(br-core-goal)

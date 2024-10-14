@@ -12,14 +12,14 @@ Description: "Este perfil representa "
 * identifier 1..1
 * encounter only Reference(br-core-encounter)
 //* effective[x].id.extension only Reference(br-core-encounter)
-//* effective[x].extension.id only Reference(br-core-care-team)
+//* effective[x].extension.id only Reference(br-core-CareTeam)
 //* effective.extension.extension.url only Reference(Goal)
 //* effective[x].extension.extension.url only Reference(br-core-goal)
 //* effective.extension.data-absent-reason 0..0
 * effectiveDateTime 0..0
 * effectivePeriod 1..1
 * issued 1..1
-* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or br-core-care-team or br-core-patient or br-core-related-person)
+* performer only Reference(br-core-practitioner or br-core-practitioner-role or br-core-organization or CareTeam or br-core-patient or br-core-related-person)
 * value[x] 1..1
 * interpretation 0..1
 * note 0..1
