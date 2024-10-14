@@ -1,4 +1,4 @@
-Profile: br-core-service-request 
+Profile: br-core-servicerequest 
 Parent: http://hl7.org/fhir/StructureDefinition/ServiceRequest
-Id: br-core-service-request 
+Id: br-core-servicerequest 
 Description: "Este perfil "
