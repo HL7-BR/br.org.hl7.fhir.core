@@ -3,8 +3,7 @@ Parent: ObservationResultsLaboratoryBRIPS
 Id: br-core-observationresultslaboratory
 Description: "Este perfil representa "
 
-* basedOn only Reference(br-core-careplan or br-core-immunizationrecommendation or br-core-medicationrequest)
-//br-core-servicerequest
+* basedOn only Reference(br-core-careplan or DeviceRequest or br-core-immunizationrecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
 //* partOf only Reference(br-core-medicationreference or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure)
 //br-core-immunization or br-core-imagingstudy
 * category 1..1
@@ -12,7 +11,6 @@ Description: "Este perfil representa "
 * identifier 1..1
 * encounter only Reference(br-core-encounter)
 //* effective[x].id.extension only Reference(br-core-encounter)
-//* effective[x].extension.id only Reference(br-core-CareTeam)
 //* effective.extension.data-absent-reason 0..0
 * effectiveDateTime 0..0
 * effectivePeriod 1..1
