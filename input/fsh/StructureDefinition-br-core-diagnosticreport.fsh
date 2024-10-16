@@ -1,4 +1,4 @@
-Profile: br-core-diagnostic-report
+Profile: br-core-diagnosticreport
 Parent: http://hl7.org/fhir/StructureDefinition/DiagnosticReport
-Id: br-core-diagnostic-report
+Id: br-core-diagnosticreport
 Description: "Este perfil "

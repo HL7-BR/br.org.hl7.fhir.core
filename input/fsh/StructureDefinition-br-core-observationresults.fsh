@@ -1,4 +1,4 @@
-Profile: br-core-observation-results
+Profile: br-core-observationresults
 Parent: ObservationResultsBRIPS
-Id: br-core-observation-results
+Id: br-core-observationresults
 Description: "Este perfil representa "

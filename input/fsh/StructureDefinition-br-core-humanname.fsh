@@ -1,4 +1,4 @@
-Profile: br-core-human-name
+Profile: br-core-humanname
 Parent: http://hl7.org/fhir/StructureDefinition/HumanName
-Id: br-core-human-name
+Id: br-core-humanname
 Description: "Este perfil "

@@ -7,8 +7,8 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * category 0..1
 * category from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico (required)
 * subject only Reference(br-core-patient)
-* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitioner-role or br-core-related-person)
-* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitioner-role or br-core-related-person)
+* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
+* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * stage 1..*
 
 Invariant: br-core-condition-con-3

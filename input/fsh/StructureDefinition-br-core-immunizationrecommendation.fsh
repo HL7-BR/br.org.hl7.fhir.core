@@ -1,4 +1,4 @@
-Profile: br-core-immunization-recommendation
+Profile: br-core-immunizationrecommendation
 Parent: http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
-Id: br-core-immunization-recommendation
+Id: br-core-immunizationrecommendation
 Description: "Este perfil "
