@@ -387,10 +387,10 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * communication.preferred ^definition = "Indica se o idioma é preferido"
 * generalPractitioner ^short = "Médico de atenção primária do paciente"
 * generalPractitioner ^definition = "Médico de atenção primária do paciente"
-* generalPractitioner only Reference(br-core-organization or br-core-practitioner or br-core-practitioner-role)
+* generalPractitioner only Reference(br-core-organization or br-core-practitioner or br-core-practitionerrole)
 * managingOrganization ^short = "Organização responsável pelo paciente"
 * managingOrganization ^definition = "Organização responsável pelo paciente"
-* managingOrganization only Reference(br-core-organizatio)
+* managingOrganization only Reference(br-core-organization)
 * link ^short = "Links para outros recursos que se relacionam com este recurso"
 * link ^definition = "Links para outros recursos que se relacionam com este recurso"
 * link.id ^short = "Identificador primário deste recurso"
@@ -401,7 +401,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * link.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * link.other ^short = "Outro recurso que se relaciona com este recurso"
 * link.other ^definition = "Outro recurso que se relaciona com este recurso"
-* link.other only Reference(br-core-patient or br-core-related-person)
+* link.other only Reference(br-core-patient or br-core-relatedperson)
 * link.type ^short = "Tipo de relação entre os recursos"
 * link.type ^definition = "Tipo de relação entre os recursos"
 

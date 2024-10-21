@@ -3,17 +3,106 @@ Parent: http://hl7.org/fhir/StructureDefinition/CarePlan
 Id: br-core-careplan
 Description: "Este perfil "
 
-* basedOn only Reference(br-core-careplan)
-* replaces only Reference(br-core-careplan)
-* partOf only Reference(br-core-careplan)
-* description 1..1
-//* subject only Reference(br-core-patient)
-* encounter only Reference(br-core-encounter)
-* author only Reference(Device or CareTeam)
-//* author only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
-//* contributor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
-//* addresses only Reference(br-core-condition)
-* activity 1..1
 //* activity.performedActivity only Reference(br-core-encounter)
 //* activity.plannedActivityReference only Reference(br-core-encounter)
+* identifier ^short = "Identificadores externos para este recurso"
+* identifier ^definition = "Identificadores externos para este recurso"
+* instantiatesCanonical ^short = "Instancia o protocolo ou definição FHIR"
+* instantiatesCanonical ^definition = "Instancia o protocolo ou definição FHIR"
+* instantiatesUri ^short = "Instancia protocolo externo ou definição"
+* instantiatesUri ^definition = "Instancia protocolo externo ou definição"
+* basedOn ^short = "Cumpre o plano de cuidado"
+* basedOn ^definition = "Cumpre o plano de cuidado"
+* basedOn only Reference(br-core-careplan)
+* replaces ^short = "Plano de cuidado substituído por este plano de cuidado"
+* replaces ^definition = "Plano de cuidado substituído por este plano de cuidado"
+* replaces only Reference(br-core-careplan)
+* partOf ^short = "Parte do plano de cuidado referenciado"
+* partOf ^definition = "Parte do plano de cuidado referenciado"
+* partOf only Reference(br-core-careplan)
+* status ^short = "O status desse plano de cuidado"
+* status ^definition = "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+* intent ^short = "Propósito do plano de cuidado definido"
+* intent ^definition = "proposal | plan | order | option"
+* category ^short = "Tipo de plano de cuidado"
+* category ^definition = "Tipo de plano de cuidado"
+* title ^short = "Nome casual para o plano de cuidado"
+* title ^definition = "Nome casual para o plano de cuidado"
+* description ^short = "Resumo da natureza do plano de cuidado"
+* description ^definition = "Resumo da natureza do plano de cuidado"
+* description 1..1
+* subject ^short = "Paciente cujo o plano de cuidado referencia"
+* subject ^definition = "Paciente cujo o plano de cuidado referencia"
+* subject only Reference(br-core-patient)
+* encounter ^short = "Atendimento no qual o plano de cuidado foi definido"
+* encounter ^definition = "Atendimento no qual o plano de cuidado foi definido"
+* encounter only Reference(br-core-encounter)
+* period ^short = "O período de tempo que o plano de cuidado abrange"
+* period ^definition = "O período de tempo que o plano de cuidado abrange"
+* created ^short = "Data em que o registro foi gravado pela primeira vez"
+* created ^definition = "Data em que o registro foi gravado pela primeira vez"
+* author ^short = "Quem é o responsável pela definição do plano de cuidado"
+* author ^definition = "Quem é o responsável pela definição do plano de cuidado"
+* author only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
+* contributor ^short = "Quem forneceu o conteúdo do plano de cuidados"
+* contributor ^definition = "Quem forneceu o conteúdo do plano de cuidados"
+* contributor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
+* careTeam ^short = "Quem está envolvido no plano de cuidado"
+* careTeam ^definition = "Quem está envolvido no plano de cuidado"
+* addresses ^short = "Problemas de saúde que este plano aborda"
+* addresses ^definition = "Problemas de saúde que este plano aborda"
+* addresses only Reference(br-core-condition)
+* supportingInfo ^short = "Informações consideradas como parte do plano de cuidado"
+* supportingInfo ^definition = "Informações consideradas como parte do plano de cuidado"
+* goal ^short = "Resultado desejado do plano de cuidado"
+* goal ^definition = "Resultado desejado do plano de cuidado"
+* activity ^short = "Ação a ocorrer como parte do plano de cuidado"
+* activity ^definition = "Ação a ocorrer como parte do plano de cuidado"
+* activity 1..1
+* activity.outcomeCodeableConcept ^short = "Resultados da atividade"
+* activity.outcomeCodeableConcept ^definition = "Resultados da atividade"
+* activity.outcomeReference ^short = "Appointment, Encounter, Procedure, etc."
+* activity.outcomeReference ^definition = "Appointment, Encounter, Procedure, etc."
+* activity.progress ^short = "Comentários sobre o status/progresso da atividade"
+* activity.progress ^definition = "Comentários sobre o status/progresso da atividade"
+* activity.reference ^short = "Detalhes da atividade definidos em recurso específico"
+* activity.reference ^definition = "Detalhes da atividade definidos em recurso específico"
+* activity.detail ^short = "Definição da atividade em conformidade"
+* activity.detail ^definition = "Definição da atividade em conformidade"
 * activity.detail 1..1
+* activity.detail.kind ^short = "Tipos de recursos definidos como parte do FHIR que podem ser representados como definições em conformidade de uma atividade do plano de cuidados"
+* activity.detail.kind ^definition = "Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription"
+* activity.detail.instantiatesCanonical ^short = "Instancia o protocolo ou definição FHIR"
+* activity.detail.instantiatesCanonical ^definition = "Instancia o protocolo ou definição FHIR"
+* activity.detail.instantiatesUri ^short = "Instancia protocolo externo ou definição"
+* activity.detail.instantiatesUri ^definition = "Instancia protocolo externo ou definição"
+* activity.detail.code ^short = "Tipo de atividade detalhada"
+* activity.detail.code ^definition = "Tipo de atividade detalhada"
+* activity.detail.reasonCode ^short = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
+* activity.detail.reasonCode ^definition = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
+* activity.detail.reasonReference ^short = "Por que a atividade é necessária"
+* activity.detail.reasonReference ^definition = "Por que a atividade é necessária"
+* activity.detail.goal ^short = "Objetivos com os quais esta atividade se relaciona"
+* activity.detail.goal ^definition = "Objetivos com os quais esta atividade se relaciona"
+* activity.detail.status ^short = "Códigos que refletem o estado atual de uma atividade do plano de cuidados dentro de seu ciclo de vida geral."
+* activity.detail.status ^definition = "not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error"
+* activity.detail.statusReason ^short = "Motivo do status atual"
+* activity.detail.statusReason ^definition = "Motivo do status atual"
+* activity.detail.doNotPerform ^short = "Se for verdade, a atividade está proibindo a ação"
+* activity.detail.doNotPerform ^definition = "Se for verdade, a atividade está proibindo a ação"
+* activity.detail.scheduled[x] ^short = "Quando a atividade deve ocorrer"
+* activity.detail.scheduled[x] ^definition = "Quando a atividade deve ocorrer"
+* activity.detail.location ^short = "Onde a atividade deve ocorrer"
+* activity.detail.location ^definition = "Onde a atividade deve ocorrer"
+* activity.detail.performer ^short = "Quem será responsável pela atividade"
+* activity.detail.performer ^definition = "Quem será responsável pela atividade"
+* activity.detail.product[x] ^short = "O que deve ser administrado/fornecido"
+* activity.detail.product[x] ^definition = "O que deve ser administrado/fornecido"
+* activity.detail.dailyAmount ^short = "Como consumir/dia?"
+* activity.detail.dailyAmount ^definition = "Como consumir/dia?"
+* activity.detail.quantity ^short = "Quanto administrar/fornecer/consumir"
+* activity.detail.quantity ^definition = "Quanto administrar/fornecer/consumir"
+* activity.detail.description ^short = "Informações extras descrevendo a atividade a ser realizada"
+* activity.detail.description ^definition = "Informações extras descrevendo a atividade a ser realizada"
+* note ^short = "Comentários sobre o plano de cuidados"
+* note ^definition = "Comentários sobre o plano de cuidados"
