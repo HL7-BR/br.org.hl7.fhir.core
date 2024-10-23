@@ -63,10 +63,10 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * recordedDate ^definition = "Data na qual o registro foi registrado pela primeira vez"
 * recorder ^short = "Quem registrou a condição"
 * recorder ^definition = "Quem registrou a condição"
-* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
+//* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * asserter ^short = "Pessoa que afirma a condição"
 * asserter ^definition = "Pessoa que afirma a condição"
-* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
+//* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * stage ^short = "Estágio/grau da condição, geralmente avaliado formalmente"
 * stage ^definition = "Estágio/grau da condição, geralmente avaliado formalmente"
 * stage.id ^short = "Identificador único para referenciação cruzada"

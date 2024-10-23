@@ -15,6 +15,6 @@ Description: "Um conjunto específico de funções / locais / especialidades / s
 * code 1..*
 * code from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO (required)
 * organization 1..1
-* organization only Reference(br-core-organization)
+//* organization only Reference(br-core-organization)
 * location only Reference(br-core-location)
 * healthcareService only Reference(br-core-healthcareservice)

@@ -43,10 +43,10 @@ Description: "Este perfil "
 * created ^definition = "Data em que o registro foi gravado pela primeira vez"
 * author ^short = "Quem é o responsável pela definição do plano de cuidado"
 * author ^definition = "Quem é o responsável pela definição do plano de cuidado"
-* author only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
+//* author only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
 * contributor ^short = "Quem forneceu o conteúdo do plano de cuidados"
 * contributor ^definition = "Quem forneceu o conteúdo do plano de cuidados"
-* contributor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
+//* contributor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
 * careTeam ^short = "Quem está envolvido no plano de cuidado"
 * careTeam ^definition = "Quem está envolvido no plano de cuidado"
 * addresses ^short = "Problemas de saúde que este plano aborda"

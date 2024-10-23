@@ -38,7 +38,7 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * doNotPerform ^definition = "Verdadeiro se a requisição for de proibição de execução"
 * reported[x] ^short = "Informado em vez de registro primário"
 * reported[x] ^definition = "Informado em vez de registro primário"
-* reportedReference only Reference(br-core-practitioner or br-core-practitionerrole or br-core-patient or br-core-relatedperson or br-core-organization)
+//* reportedReference only Reference(br-core-practitioner or br-core-practitionerrole or br-core-patient or br-core-relatedperson or br-core-organization)
 * medication[x] ^short = "Medicamento prescrito"
 * medication[x] ^definition = "Medicamento prescrito"
 * medicationReference only Reference(br-core-medication)
@@ -69,15 +69,15 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * requester ^short = "Quem ou o que solicitou a requisição"
 * requester ^definition = "Quem ou o que solicitou a requisição"
 * requester 1..1
-* requester only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device)
+//* requester only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device)
 * performer ^short = "Prescritor indicado para a administração"
 * performer ^definition = "Prescritor indicado para a administração"
-* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson or CareTeam)
+//* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson or CareTeam)
 * performerType ^short = "Especialidade do prescritor para a administração do medicamento"
 * performerType ^definition = "Especialidade do prescritor para a administração do medicamento"
 * recorder ^short = "Pessoa que registrou a requisição"
 * recorder ^definition = "Pessoa que registrou a requisição"
-* recorder only Reference(br-core-practitioner or br-core-practitionerrole)
+//* recorder only Reference(br-core-practitioner or br-core-practitionerrole)
 * reasonCode ^short = "Motivo ou indicação para solicitar ou não o medicamento"
 * reasonCode ^definition = "Motivo ou indicação para solicitar ou não o medicamento. Conceito codificado que indica o motivo pelo qual o medicamento foi solicitado ou não"
 * reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
@@ -176,8 +176,8 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * dispenseRequest.validityPeriod.id ^definition = "Identificador exclusivo para referência entre elementos" 
 * dispenseRequest.validityPeriod.extension ^short = "Conteúdo adicional definido pelas implementações"
 * dispenseRequest.validityPeriod.extension ^definition = "Conteúdo adicional definido pelas implementações" 
-* dispenseRequest.validityPeriod.extension[data-absent-reason] ^short = "URL do motivo da ausência do período de validade"
-* dispenseRequest.validityPeriod.extension[data-absent-reason] ^definition = "URL do motivo da ausência do período de validade" 
+//* dispenseRequest.validityPeriod.extension[data-absent-reason] ^short = "URL do motivo da ausência do período de validade"
+//* dispenseRequest.validityPeriod.extension[data-absent-reason] ^definition = "URL do motivo da ausência do período de validade" 
 * dispenseRequest.validityPeriod.start ^short = "Data/Hora do início da validade da autorização(intervalo fechado)"
 * dispenseRequest.validityPeriod.start ^definition = "Data/Hora de início da validade da autorização (intervalo fechado)" 
 * dispenseRequest.validityPeriod.end ^short = "Data/Hora do final da validade da autorização(intervalo fechado)" 

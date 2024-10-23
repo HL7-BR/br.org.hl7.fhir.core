@@ -86,7 +86,7 @@ Id: br-core-immunization
 * performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
 * performer.actor ^short = "Profissional de saúde que administrou o imunobiológico"
 * performer.actor ^definition = "Profissional de saúde que administrou o imunobiológico"
-* performer.actor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization)
+//* performer.actor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization)
 * note ^short = "Observações adicionais sobre o evento de administração de imunobiológico"
 * note ^definition = "Observações adicionais sobre o evento de administração de imunobiológico"
 * reasonCode ^short = "Motivo pelo qual o imunobiológico foi administrado"
