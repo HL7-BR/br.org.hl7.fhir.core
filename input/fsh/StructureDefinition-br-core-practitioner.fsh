@@ -1,5 +1,5 @@
 Profile: br-core-practitioner
-Parent: PractitionerBRIPS
+Parent: http://hl7.org/fhir/StructureDefinition/Practitioner
 Id: br-core-practitioner
 Description: "Indivíduo que realiza atividades profissionais."
 

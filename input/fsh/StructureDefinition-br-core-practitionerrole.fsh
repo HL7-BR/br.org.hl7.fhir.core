@@ -1,5 +1,5 @@
 Profile: br-core-practitionerrole
-Parent: PractitionerRoleBRIPS
+Parent: http://hl7.org/fhir/StructureDefinition/PractitionerRole
 Id: br-core-practitionerrole
 Description: "Um conjunto específico de funções / locais / especialidades / serviços que um profissional pode executar em uma organização por um período de tempo."
 

@@ -59,10 +59,10 @@ Description: "Alergia ou intolerância (geralmente: risco de reação adversa a 
 * recordedDate ^definition = "Data em que a primeira versão da instância do recurso foi registrada."
 * recorder ^short = "Quem registrou a sensibilidade."
 * recorder ^definition = "Quem registrou a sensibilidade."
-//* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
+* recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * asserter ^short = "Fonte da informação sobre a alergia."
 * asserter ^definition = "Fonte da informação sobre a alergia."
-//* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
+* asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * lastOccurrence ^short = "Data (/hora) da última ocorrência conhecida de uma reação."
 * lastOccurrence ^definition = "Data (/hora) da última ocorrência conhecida de uma reação."
 * note ^short = "Texto adicional não capturado em outros campos."
