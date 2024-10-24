@@ -26,10 +26,10 @@ Description: "Este perfil "
 * issued ^definition = "Data e hora em que esta versão foi feita"
 * performer ^short = "Serviço de Diagnóstico Responsável"
 * performer ^definition = "Serviço de Diagnóstico Responsável"
-//* performer only Reference(br-core-practitioner or br-corepractitionerrole or br-core-organization or CareTeam)
+* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam)
 * resultsInterpreter ^short = "Intérprete de resultado primário"
 * resultsInterpreter ^definition = "Intérprete de resultado primário"
-//* resultsInterpreter only Reference(br-core-practitioner or br-corepractitionerrole or br-core-organization or CareTeam)
+* resultsInterpreter only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam)
 * specimen ^short = "Amostras nas quais este relatório se baseia"
 * specimen ^definition = "Amostras nas quais este relatório se baseia"
 * specimen only Reference(br-core-specimen)
