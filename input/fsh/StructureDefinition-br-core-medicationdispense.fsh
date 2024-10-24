@@ -1,6 +1,6 @@
-Profile: br-core-medication-dispense
+Profile: br-core-medicationdispense
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationDispense
-Id: br-core-medication-dispense
+Id: br-core-medicationdispense
 Title: "br-core-medication-dispense"
 
 * category 1..1

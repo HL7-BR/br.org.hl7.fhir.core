@@ -28,7 +28,7 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * basedOn only Reference(br-core-medicationrequest or br-core-careplan or br-core-servicerequest)
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
-//* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-observationresults)
+* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-observationresults)
 * status ^short = "Status atual do recurso"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * statusReason ^short = "Motivo do status atual"
@@ -37,7 +37,7 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * category ^definition = "Um conceito codificado identificando onde se espera que o medicamento incluído neste recurso seja administrado"
 * medication[x] ^short = "Qual medicamento foi tomado"
 * medication[x] ^definition = "Qual medicamento foi tomado"
-//* medicationReference only Reference(MedicationBRIPS)
+* medicationReference only Reference(br-core-medication)
 * subject ^short = "Quem toma ou tomou o medicamento"
 * subject ^definition = "Quem toma ou tomou o medicamento"
 * subject only Reference(br-core-patient)
@@ -73,7 +73,7 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * dateAsserted ^definition = "Quando a declaração de medicação foi estabelecida"
 * informationSource ^short = "Referência à pessoa ou organização que forneceu as informações sobre esta administração de medicamento"
 * informationSource ^definition = "Referência à pessoa ou organização que forneceu as informações sobre esta administração de medicamento"
-//* informationSource only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson or br-core-organization)
+* informationSource only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson or br-core-organization)
 * derivedFrom ^short = "Referência a um recurso com informações de suporte adicionais"
 * derivedFrom ^definition = "Referência a um recurso com informações de suporte adicionais"
 * derivedFrom only Reference(Resource)
