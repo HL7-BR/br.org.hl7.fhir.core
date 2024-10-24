@@ -9,4 +9,4 @@ Description: "Indivíduo que realiza atividades profissionais."
 * active 1..1
 * qualification 0..1
 * qualification.code from https://simplifier.net/redenacionaldedadosemsaude/valueset-brocupacao-1.0 (required)
-//* qualification.issuer only Reference(br-core-organization)
+* qualification.issuer only Reference(br-core-organization)
