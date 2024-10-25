@@ -3,7 +3,6 @@ Parent: http://hl7.org/fhir/StructureDefinition/vitalsigns
 Id: br-core-vitalsigns
 Description: "Este perfil representa uma sinal vital."
 
-//* effective[x].id.extension only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
 * meta ^short = "Metadados sobre o recurso"
@@ -27,7 +26,7 @@ Description: "Este perfil representa uma sinal vital."
 * basedOn only Reference(br-core-careplan or DeviceRequest or ImmunizationRecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest) 
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
-//* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
+* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
 * status ^short = "Status atual da observação"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * category ^short = "Categoria de alto nível da observação"
@@ -74,7 +73,7 @@ Description: "Este perfil representa uma sinal vital."
 * issued 1..1
 * performer ^short = "O responsável pela observação"
 * performer ^definition = "O responsável pela observação"
-//* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
+* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
 * value[x] ^short = "O resultado do exame em si"
 * value[x] ^definition = "O resultado do exame em si"
 * value[x] 1..1
@@ -90,7 +89,7 @@ Description: "Este perfil representa uma sinal vital."
 * method ^definition = "Método usado para examinar"
 * specimen ^short = "Amostra examinada na observação"
 * specimen ^definition = "Amostra examinada na observação"
-//* specimen only Reference(SpecimenBRIPS)
+* specimen only Reference(br-core-specimen)
 * device ^short = "Dispositivo (de medida)"
 * device ^definition = "Dispositivo (de medida)"
 * device only Reference(Device or DeviceMetric)
@@ -119,7 +118,7 @@ Description: "Este perfil representa uma sinal vital."
 * hasMember only Reference(QuestionnaireResponse or MolecularSequence)
 * derivedFrom ^short = "Medições relacionadas a partir das quais a observação é feita"
 * derivedFrom ^definition = "Medições relacionadas a partir das quais a observação é feita"
-//* derivedFrom only Reference(DocumentReference or br-core-imagingstudy or Media or QuestionnaireResponse or br-core-observation or MolecularSequence)
+* derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or br-core-vitalsigns or MolecularSequence)
 * component ^short = "Resultados do componente"
 * component ^definition = "Resultados do componente"
 * component.id ^short = "Identificador único para referenciação cruzada"
@@ -137,4 +136,3 @@ Description: "Este perfil representa uma sinal vital."
 * component.interpretation ^definition = "Interpretação da observação. Por exemplo: valor elevado"
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
-//* display only Reference(br-core-encounter)
