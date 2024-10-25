@@ -387,7 +387,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * communication.preferred ^definition = "Indica se o idioma é preferido"
 * generalPractitioner ^short = "Médico de atenção primária do paciente"
 * generalPractitioner ^definition = "Médico de atenção primária do paciente"
-//* generalPractitioner only Reference(br-core-organization or br-core-practitioner or br-core-practitionerrole)
+* generalPractitioner only Reference(br-core-organization or br-core-practitioner or br-core-practitionerrole)
 * managingOrganization ^short = "Organização responsável pelo paciente"
 * managingOrganization ^definition = "Organização responsável pelo paciente"
 * managingOrganization only Reference(br-core-organization)
