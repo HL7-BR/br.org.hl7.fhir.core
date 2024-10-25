@@ -61,7 +61,7 @@ Description: "Este perfil representa uma amostra."
 * collection.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * collection.collector ^short = "Profissional resopnsável pela coleta"
 * collection.collector ^definition = "Profissional resopnsável pela coleta"
-//* collection.collector only Reference(br-core-practitioner or br-core-practitionerrole)
+* collection.collector only Reference(br-core-practitioner or br-core-practitionerrole)
 * collection.collected[x] ^short = "Data/Hora-Período da coleta"
 * collection.collected[x] ^definition = "Data/Hora-Período da coleta"
 * collection.duration ^short = "Duração da coleta"
