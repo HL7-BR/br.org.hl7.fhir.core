@@ -60,11 +60,6 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * effective[x] ^definition = "Data ou intervalo na qual o medicamento foi ou será tomado"
 * effective[x].id ^short = "Identificador único para referenciação cruzada"
 * effective[x].id ^definition = "Identificador único para referenciação cruzada"
-//* effective[x].extension[data-absent-reason] ^short = "Se não há data, por que não há data?"
-//* effective[x].extension[data-absent-reason] ^definition = "Se não há data, por que não há data?"
-//* effective[x].extension[data-absent-reason] ^binding.description = "Usado para especificar porque o conteúdo da data não foi informado"
-//* effective[x].extension[data-absent-reason] ^binding.strength = #required
-//* effective[x].extension[data-absent-reason] ^binding.valueSet = http://hl7.org/fhir/ValueSet/data-absent-reason
 * effectiveDateTime ^short = "Data ou intervalo na qual o medicamento foi ou será tomado"
 * effectiveDateTime ^definition = "Data ou intervalo na qual o medicamento foi ou será tomado"
 * effectivePeriod ^short = "Data ou intervalo na qual o medicamento foi ou será tomado"
