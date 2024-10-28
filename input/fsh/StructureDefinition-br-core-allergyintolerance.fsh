@@ -16,8 +16,6 @@ Description: "Alergia ou intolerância (geralmente: risco de reação adversa a 
 * text ^definition = "Resumo do texto do recurso em linguagem natural"
 * contained ^short = "Recursos contidos em linha"
 * contained ^definition = "Recursos contidos em linha"
-//* extension[abatement-datetime] ^short = "URL de data e hora de redução da alergia."
-//* extension[abatement-datetime] ^definition = "URL de data e hora de redução"
 * modifierExtension ^short = "Extensão que não pode ser ignorada"
 * modifierExtension ^definition = "Extensão que não pode ser ignorada"
 * identifier ^short = "Identificadores externos para este item"
