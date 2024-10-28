@@ -174,10 +174,6 @@ Description: "Este perfil restringe a representação de uma requisição de med
 * dispenseRequest.validityPeriod 1..1
 * dispenseRequest.validityPeriod.id ^short = "Identificador exclusivo para referência entre elementos"
 * dispenseRequest.validityPeriod.id ^definition = "Identificador exclusivo para referência entre elementos" 
-* dispenseRequest.validityPeriod.extension ^short = "Conteúdo adicional definido pelas implementações"
-* dispenseRequest.validityPeriod.extension ^definition = "Conteúdo adicional definido pelas implementações" 
-//* dispenseRequest.validityPeriod.extension[data-absent-reason] ^short = "URL do motivo da ausência do período de validade"
-//* dispenseRequest.validityPeriod.extension[data-absent-reason] ^definition = "URL do motivo da ausência do período de validade" 
 * dispenseRequest.validityPeriod.start ^short = "Data/Hora do início da validade da autorização(intervalo fechado)"
 * dispenseRequest.validityPeriod.start ^definition = "Data/Hora de início da validade da autorização (intervalo fechado)" 
 * dispenseRequest.validityPeriod.end ^short = "Data/Hora do final da validade da autorização(intervalo fechado)" 
