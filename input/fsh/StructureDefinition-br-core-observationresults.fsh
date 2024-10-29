@@ -26,7 +26,7 @@ Description: "Este perfil representa "
 * basedOn only Reference(CarePlan or ServiceRequest or DeviceRequest or ImmunizationRecommendation or br-core-medicationrequest or NutritionOrder)
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
-* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
+//* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
 * status ^short = "Status atual da observação"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * category ^short = "Categoria de alto nível da observação"
@@ -60,13 +60,13 @@ Description: "Este perfil representa "
 * effective[x].id ^definition = "Identificador único para referenciação cruzada"
 * effective[x].extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * effective[x].extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
-* effective[x].extension[data-absent-reason] ^short = "Por que o valor esperado não está presente"
-* effective[x].extension[data-absent-reason] ^definition = "Utilizado para especificar o porquê do valor esperado não estar presente"
+//* effective[x].extension[data-absent-reason] ^short = "Por que o valor esperado não está presente"
+//* effective[x].extension[data-absent-reason] ^definition = "Utilizado para especificar o porquê do valor esperado não estar presente"
 * issued ^short = "Data ou hora em que esta versão da observação ficou disponível"
 * issued ^definition = "Data ou hora em que esta versão da observação ficou disponível"
 * performer ^short = "O responsável pela observação"
 * performer ^definition = "O responsável pela observação"
-* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
+//* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
 * value[x] ^short = "O resultado da observação"
 * value[x] ^definition = "O resultado da observação"
 * dataAbsentReason ^short = "Por quê o resultado não está disponível"

@@ -1,6 +1,7 @@
 Profile: br-core-medicationadministration
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationAdministration
 Id: br-core-medicationadministration
+Title: "br-core-medication"
 Description: "Este perfil representa a medicação administrada"
 
 //
@@ -18,7 +19,6 @@ Description: "Este perfil representa a medicação administrada"
 * instantiates ^definition = "Instancia protocolo ou definição"
 * partOf ^short = "Parte do evento referenciado"
 * partOf ^definition = "Parte do evento referenciado"
-* partOf only Reference(br-core-medicationadministration or br-core-procedure)
 * status ^short = "Códigos de status de administração de medicamentos"
 * status ^definition = "in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown"
 * statusReason ^short = "Motivo da administração não realizada"
@@ -72,3 +72,5 @@ Description: "Este perfil representa a medicação administrada"
 * dosage.rate[x] ^definition = "Quantidade de dose por unidade de tempo"
 * eventHistory ^short = "Uma lista de eventos de interesse no ciclo de vida"
 * eventHistory ^definition = "Uma lista de eventos de interesse no ciclo de vida"
+* partOf only Reference(br-core-medicationadministration or br-core-procedure)
+* reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)

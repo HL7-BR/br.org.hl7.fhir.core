@@ -19,24 +19,24 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * contained ^definition = "Recursos contidos no recurso"
 * extension ^short = "Extensões adicionais"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
-* extension contains    
-    $structuredefinition-birth-place named localNascimento 0..1 and   
-    $structuredefinition-raca-br-ips named raca 0..1 and
-    $structuredefinition-povo-indigena-br-ips named povoIndigena 0..1 and    
-    $structuredefinition-sexo-nascimento-br-ips named sexoNascimento 0..1 and
-    $structuredefinition-identidade-genero-br-ips named identidadeGenero 0..1
-    $structuredefinition-populacao-tradicional-br-core named populacaoTradicional 0..1
-    $structuredefinition-povo-itinerante-br-core named povoItinerante 0..1
-* extension[localNascimento] ^short = "Local de nascimento do paciente"
-* extension[localNascimento] ^definition = "Local de nascimento do paciente"    
-* extension[raca] ^short = "Raça do paciente"
-* extension[raca] ^definition = "Raça do paciente"
-* extension[povoIndigena] ^short = "Afiliação do paciente"
-* extension[povoIndigena] ^definition = "Afiliação do paciente"
-* extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
-* extension[sexoNascimento] ^definition = "Sexo do nascimento do paciente"
-* extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
-* extension[identidadeGenero] ^definition = "Identidade de gênero do paciente"
+//* extension contains    
+    //$structuredefinition-birth-place named localNascimento 0..1 and   
+    //$structuredefinition-raca-br-ips named raca 0..1 and
+    //$structuredefinition-povo-indigena-br-ips named povoIndigena 0..1 and    
+    //$structuredefinition-sexo-nascimento-br-ips named sexoNascimento 0..1 and
+    //$structuredefinition-identidade-genero-br-ips named identidadeGenero 0..1
+    //$structuredefinition-populacao-tradicional-br-core named populacaoTradicional 0..1
+    //$structuredefinition-povo-itinerante-br-core named povoItinerante 0..1
+//* extension[localNascimento] ^short = "Local de nascimento do paciente"
+//* extension[localNascimento] ^definition = "Local de nascimento do paciente"    
+//* extension[raca] ^short = "Raça do paciente"
+//* extension[raca] ^definition = "Raça do paciente"
+///* extension[povoIndigena] ^short = "Afiliação do paciente"
+//* extension[povoIndigena] ^definition = "Afiliação do paciente"
+//* extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
+//* extension[sexoNascimento] ^definition = "Sexo do nascimento do paciente"
+//* extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
+//* extension[identidadeGenero] ^definition = "Identidade de gênero do paciente"
 
 * modifierExtension ^short = "Extensões adicionais"
 * modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo base"

@@ -1,5 +1,5 @@
 Profile: br-core-practitioner
-Parent: PractitionerBRIPS
+Parent: http://hl7.org/fhir/StructureDefinition/Practitioner
 Id: br-core-practitioner
 Description: "Indivíduo que realiza atividades profissionais."
 
@@ -9,4 +9,4 @@ Description: "Indivíduo que realiza atividades profissionais."
 * active 1..1
 * qualification 0..1
 * qualification.code from https://simplifier.net/redenacionaldedadosemsaude/valueset-brocupacao-1.0 (required)
-//* qualification.issuer only Reference(br-core-organization)
+* qualification.issuer only Reference(br-core-organization)

@@ -1,10 +1,8 @@
 Profile: br-core-careplan
 Parent: http://hl7.org/fhir/StructureDefinition/CarePlan
 Id: br-core-careplan
-Description: "Este perfil "
+Description: "Descreve a intenção de como um ou mais profissionais pretendem prestar cuidados a um determinado paciente, grupo ou comunidade por um período de tempo, possivelmente limitado ao cuidado de uma condição específica ou conjunto de condições."
 
-//* activity.performedActivity only Reference(br-core-encounter)
-//* activity.plannedActivityReference only Reference(br-core-encounter)
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"
 * instantiatesCanonical ^short = "Instancia o protocolo ou definição FHIR"
@@ -24,13 +22,14 @@ Description: "Este perfil "
 * status ^definition = "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
 * intent ^short = "Propósito do plano de cuidado definido"
 * intent ^definition = "proposal | plan | order | option"
+* category 1..1
 * category ^short = "Tipo de plano de cuidado"
 * category ^definition = "Tipo de plano de cuidado"
 * title ^short = "Nome casual para o plano de cuidado"
 * title ^definition = "Nome casual para o plano de cuidado"
+* description 1..1
 * description ^short = "Resumo da natureza do plano de cuidado"
 * description ^definition = "Resumo da natureza do plano de cuidado"
-* description 1..1
 * subject ^short = "Paciente cujo o plano de cuidado referencia"
 * subject ^definition = "Paciente cujo o plano de cuidado referencia"
 * subject only Reference(br-core-patient)
@@ -49,6 +48,7 @@ Description: "Este perfil "
 * contributor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
 * careTeam ^short = "Quem está envolvido no plano de cuidado"
 * careTeam ^definition = "Quem está envolvido no plano de cuidado"
+* addresses 0..1
 * addresses ^short = "Problemas de saúde que este plano aborda"
 * addresses ^definition = "Problemas de saúde que este plano aborda"
 * addresses only Reference(br-core-condition)
@@ -90,6 +90,7 @@ Description: "Este perfil "
 * activity.detail.statusReason ^definition = "Motivo do status atual"
 * activity.detail.doNotPerform ^short = "Se for verdade, a atividade está proibindo a ação"
 * activity.detail.doNotPerform ^definition = "Se for verdade, a atividade está proibindo a ação"
+* activity.detail.scheduled[x] 1..1
 * activity.detail.scheduled[x] ^short = "Quando a atividade deve ocorrer"
 * activity.detail.scheduled[x] ^definition = "Quando a atividade deve ocorrer"
 * activity.detail.location ^short = "Onde a atividade deve ocorrer"
@@ -102,6 +103,7 @@ Description: "Este perfil "
 * activity.detail.dailyAmount ^definition = "Como consumir/dia?"
 * activity.detail.quantity ^short = "Quanto administrar/fornecer/consumir"
 * activity.detail.quantity ^definition = "Quanto administrar/fornecer/consumir"
+* activity.detail.description 1..1
 * activity.detail.description ^short = "Informações extras descrevendo a atividade a ser realizada"
 * activity.detail.description ^definition = "Informações extras descrevendo a atividade a ser realizada"
 * note ^short = "Comentários sobre o plano de cuidados"

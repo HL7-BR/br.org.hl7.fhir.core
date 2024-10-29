@@ -1,5 +1,5 @@
 Profile: br-core-procedure
-Parent: ProcedureBRIPS
+Parent: http://hl7.org/fhir/StructureDefinition/Procedure
 Id: br-core-procedure
 Description: "Este perfil representa um procedimento."
 
