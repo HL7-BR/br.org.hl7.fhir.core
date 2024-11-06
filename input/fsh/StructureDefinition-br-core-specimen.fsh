@@ -64,12 +64,15 @@ Description: "Este perfil representa uma amostra."
 * collection.collector only Reference(br-core-practitioner or br-core-practitionerrole)
 * collection.collected[x] ^short = "Data/Hora-Período da coleta"
 * collection.collected[x] ^definition = "Data/Hora-Período da coleta"
+* collection.collected[x] 1..1
 * collection.duration ^short = "Duração da coleta"
 * collection.duration ^definition = "Duracao da coleta"
 * collection.quantity ^short = "Quantidade de amostra coletada"
 * collection.quantity ^definition = "Quantidade de amostra coletada"
+* collection.quantity 1..1
 * collection.method ^short = "Método de coleta da amostra"
 * collection.method ^definition = "Método de coleta da amostra"
+* collection.method 1..1
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
 * collection.fastingStatus[x] ^short = "Tempo de jejum do paciente, se for o caso"
@@ -88,7 +91,6 @@ Description: "Este perfil representa uma amostra."
 * processing.procedure ^definition = "Indica a etapa de tratamento aplicada a amostra"
 * processing.additive ^short = "Material utilizado na etapa de processamento da amostra"
 * processing.additive ^definition = "Material utilizado na etapa de processamento da amostra"
-* processing.additive only Reference(Substance)
 * processing.time[x] ^short = "Data e hora do processamento da amostra"
 * processing.time[x] ^definition = "Data e hora do processamento da amostra"
 * container ^short = "Recipiente que contém a amostra (tubo/lâmina, etc.)"
