@@ -31,6 +31,7 @@ Description: "Este perfil representa uma sinal vital."
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaExame (required)
 * category[VSCat] ^short = "Classificação do tipo de observação"
 * category[VSCat] ^definition = "Classificação do tipo de observação"
 * category[VSCat].id ^short = "Identificador exclusivo para referência entre elementos"
