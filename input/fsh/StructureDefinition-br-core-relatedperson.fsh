@@ -1,7 +1,7 @@
 Profile: br-core-relatedperson
 Parent: RelatedPerson
 Id: br-core-relatedperson
-Description: "Este perfil"
+Description: "Informação sobre uma pessoa que está envolvida no cuidado de um paciente, mas que não é alvo de cuidados de saúde, nem tem responsabilidade formal no processo de cuidado."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
