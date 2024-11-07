@@ -59,15 +59,13 @@ Title: "br-core-encounter"
 * reasonCode ^definition = "Motivo codificado pelo qual o atendimento acontece"
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
-* reasonReference only Reference(br-corecondition or br-core-procedure or br-core-observation or br-core-immunizationrecommendation)
+* reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or br-core-immunizationrecommendation)
 * reasonReference 0..1
 * diagnosis ^short = "A lista de diagnósticos relevantes para este atendimento"
 * diagnosis ^definition = "A lista de diagnósticos relevantes para este atendimento"
-* diagnosis only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or br-core-relatedperson or Device or CareTeam)
 * diagnosis.condition ^short = "O diagnóstico ou procedimento relevante para o atendimento"
 * diagnosis.condition ^definition = "O diagnóstico ou procedimento relevante para o atendimento"
 * diagnosis.condition only Reference(br-core-condition or br-core-procedure)
-* diagnosis.condition 0..1
 * diagnosis.use ^short = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use 1..1
