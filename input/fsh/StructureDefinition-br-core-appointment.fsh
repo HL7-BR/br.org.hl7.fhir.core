@@ -40,7 +40,7 @@ Description: "Uma reserva de um evento de saúde entre paciente(s), profissional
 * reasonCode ^definition = "Razão codificada pela qual este compromisso está agendado"
 * reasonReference ^short = "Razão pela qual a nomeação deve ocorrer (recurso)"
 * reasonReference ^definition = "Razão pela qual a nomeação deve ocorrer (recurso)"
-* reasonReference from https://simplifier.net/redenacionaldedadosemsaude/BRCIDAvaliado
+//* reasonReference from https://simplifier.net/redenacionaldedadosemsaude/BRCIDAvaliado
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-immunizationrecommendation) 
 * reasonReference 1..1
 * priority ^short = "Usado para tomar decisões informadas se for necessário redefinir prioridades"
@@ -78,11 +78,11 @@ Description: "Uma reserva de um evento de saúde entre paciente(s), profissional
 * participant.actor.identifier.value ^short = ""
 * participant.actor.identifier.value ^definition = ""
 * participant.actor.identifier.value 0..1
-* participant.actor.required ^short = "required | optional | information-only"
-* participant.actor.required ^definition = "required | optional | information-only"
-* participant.actor.status ^short = "accepted | declined | tentative | needs-action"
-* participant.actor.status ^definition = "accepted | declined | tentative | needs-action"
-* participant.period ^short = "Período de participação do ator"
-* participant.period ^definition = "Período de participação do ator"
-* requestPeriod ^short = "Possíveis intervalos de data/hora solicitados para alocar o compromisso dentro"
-* requestPeriod ^definition = "Possíveis intervalos de data/hora solicitados para alocar o compromisso dentro"
+//* participant.actor.required ^short = "required | optional | information-only"
+//* participant.actor.required ^definition = "required | optional | information-only"
+//* participant.actor.status ^short = "accepted | declined | tentative | needs-action"
+//* participant.actor.status ^definition = "accepted | declined | tentative | needs-action"
+//* participant.period ^short = "Período de participação do ator"
+//* participant.period ^definition = "Período de participação do ator"
+//* requestPeriod ^short = "Possíveis intervalos de data/hora solicitados para alocar o compromisso dentro"
+//* requestPeriod ^definition = "Possíveis intervalos de data/hora solicitados para alocar o compromisso dentro"
