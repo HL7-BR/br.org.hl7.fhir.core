@@ -87,7 +87,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cns].assigner ^short = "Entidade que atribuiu o identificador do profissional"
 * identifier[cns].assigner ^definition = "Entidade que atribuiu o identificador do profissional"
 * identifier[cns].assigner.display ^short = "Nome da entidade que atribuiu o identificador do profissional"
-* identifier[cns].assigner only Reference(br-core-oganization)
+* identifier[cns].assigner only Reference(br-core-organization)
 * identifier[cpf] ^short = "Identificador do profissional"
 * identifier[cpf] ^definition = "Identificador do profissional"
 * identifier[cpf].id ^short = "Id lógico do identificador do profissional"
@@ -141,7 +141,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cpf].assigner ^short = "Entidade que atribuiu o identificador do profissional"
 * identifier[cpf].assigner ^definition = "Entidade que atribuiu o identificador do profissional"
 * identifier[cpf].assigner.display ^short = "Nome da entidade que atribuiu o identificador do profissional"
-* identifier[cpf].assigner only Reference(br-core-oganization)
+* identifier[cpf].assigner only Reference(br-core-organization)
 * identifier[identificadorMedico] ^short = "Identificador do médico"
 * identifier[identificadorMedico] ^definition = "Identificador do médico"
 * identifier[identificadorMedico].id ^short = "Id lógico do identificador do médico"
@@ -198,7 +198,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorMedico].assigner ^short = "Entidade que atribuiu o identificador do médico"
 * identifier[identificadorMedico].assigner ^definition = "Entidade que atribuiu o identificador do médico"
 * identifier[identificadorMedico].assigner.display ^short = "Nome da entidade que atribuiu o identificador do médico"
-* identifier[identificadorMedico].assigner only Reference(br-core-oganization)
+* identifier[identificadorMedico].assigner only Reference(br-core-organization)
 * identifier[identificadorFarmaceutico] ^short = "Identificador do farmacêutico"
 * identifier[identificadorFarmaceutico] ^definition = "Identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].id ^short = "Id lógico do identificador do farmacêutico"
@@ -254,7 +254,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorFarmaceutico].assigner ^short = "Entidade que atribuiu o identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].assigner ^definition = "Entidade que atribuiu o identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].assigner.display ^short = "Nome da entidade que atribuiu o identificador do farmacêutico"
-* identifier[identificadorFarmaceutico].assigner only Reference(br-core-oganization)
+* identifier[identificadorFarmaceutico].assigner only Reference(br-core-organization)
 * identifier[identificadorOdontologo] ^short = "Identificador do odontólogo"
 * identifier[identificadorOdontologo] ^definition = "Identificador do odontólogo"
 * identifier[identificadorOdontologo].id ^short = "Id lógico do identificador do odontólogo"
@@ -310,7 +310,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOdontologo].assigner ^short = "Entidade que atribuiu o identificador do odontólogo"
 * identifier[identificadorOdontologo].assigner ^definition = "Entidade que atribuiu o identificador do odontólogo"
 * identifier[identificadorOdontologo].assigner.display ^short = "Nome da entidade que atribuiu o identificador do odontólogo"
-* identifier[identificadorOdontologo].assigner only Reference(br-core-oganization)
+* identifier[identificadorOdontologo].assigner only Reference(br-core-organization)
 * identifier[identificadorEnfermeiro] ^short = "Identificador do enfermeiro"
 * identifier[identificadorEnfermeiro] ^definition = "Identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].id ^short = "Id lógico do identificador do enfermeiro"
@@ -366,7 +366,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorEnfermeiro].assigner ^short = "Entidade que atribuiu o identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].assigner ^definition = "Entidade que atribuiu o identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].assigner.display ^short = "Nome da entidade que atribuiu o identificador do enfermeiro"
-* identifier[identificadorEnfermeiro].assigner only Reference(br-core-oganization)
+* identifier[identificadorEnfermeiro].assigner only Reference(br-core-organization)
 * identifier[identificadorOutrosProfissionais] ^short = "Identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais] ^definition = "Identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].id ^short = "Id lógico do identificador de outros profissionais"
@@ -422,7 +422,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOutrosProfissionais].assigner ^short = "Entidade que atribuiu o identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].assigner ^definition = "Entidade que atribuiu o identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].assigner.display ^short = "Nome da entidade que atribuiu o identificador de outros profissionais"
-* identifier[identificadorOutrosProfissionais].assigner only Reference(br-core-oganization)
+* identifier[identificadorOutrosProfissionais].assigner only Reference(br-core-organization)
 * active ^short = "Indica se o registro deste profissional está ativo"
 * active ^definition = "Indica se o registro deste profissional está ativo"
 * active 1..1
