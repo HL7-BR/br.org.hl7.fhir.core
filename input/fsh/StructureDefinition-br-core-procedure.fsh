@@ -28,7 +28,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * basedOn only Reference(br-core-careplan or br-core-servicerequest)
 * partOf ^short = "Parte do evento referenciado."
 * partOf ^definition = "Parte do evento referenciado."
-* partOf only Reference(br-core-procedure or ObservationResults or br-core-medicationadministration)
+* partOf only Reference(br-core-procedure or br-core-observationresults or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
 * status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento (required)
@@ -84,7 +84,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * performer.function ^definition = "Tipo de performance."
 * performer.actor ^short = "Referência do profissional."
 * performer.actor ^definition = "Referência do profissional."
-* performer.actor only Reference(br-core-patient or br-core-relatedperson or DeviceObserverUvIps or br-core-practitioner or br-core-practitionerrole or br-core-organization)
+* performer.actor only Reference(br-core-patient or br-core-relatedperson or br-core-practitioner or br-core-practitionerrole or br-core-organization)
 * performer.onBehalfOf ^short = "Organização para a qual o dispositivo ou profissional estava atuando."
 * performer.onBehalfOf ^definition = "Organização para a qual o dispositivo ou profissional estava atuando."
 * performer.onBehalfOf only Reference(br-core-organization)
@@ -95,7 +95,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * reasonCode ^definition = "Código do motivo do procedimento realizado."
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
-* reasonReference only Reference(br-core-condition or ObservationResults or br-core-procedure or br-core-diagnosticreport or DocumentReference)
+* reasonReference only Reference(br-core-condition or br-core-observationresults or br-core-procedure or br-core-diagnosticreport or DocumentReference)
 * bodySite ^short = "Conceito - referência a uma terminologia ou apenas texto."
 * bodySite ^definition = "Conceito - referência a uma terminologia ou apenas texto."
 * outcome ^short = "Resultado do procedimento."
@@ -127,6 +127,6 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * focalDevice.manipulated only Reference(Device)
 * usedReference ^short = "Itens usados ​​durante o procedimento."
 * usedReference ^definition = "Itens usados ​durante o procedimento."
-* usedReference only Reference(Device or MedicationBRIPS or Substance)
+* usedReference only Reference(Device or br-core-medication or Substance)
 * usedCode ^short = "Itens codificados usados ​durante o procedimento."
 * usedCode ^definition = "Itens codificados usados ​​durante o procedimento."
