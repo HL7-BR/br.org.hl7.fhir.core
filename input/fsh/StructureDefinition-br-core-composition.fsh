@@ -90,7 +90,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * confidentiality obeys ele-1
 * attester ^short = "Responsável por atestar a acurácia da Composition"
 * attester ^definition = "Responsável por atestar a acurácia da Composition"
-* attester from http://hl7.org/fhir/R4/valueset-composition-attestation-mode.html (required)
+//* attester from http://hl7.org/fhir/R4/valueset-composition-attestation-mode.html (required)
 * attester.id ^short = "ID exclusivo para referência entre elementos"
 * attester.id ^definition = "ID exclusivo para referência entre elementos"
 * attester.extension ^short = "Conteúdo adicional definido por implementações"
@@ -149,7 +149,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * event.detail obeys ele-1
 * section ^short = "A secção inicial da composition a partir da qual as demais seções são definidas"
 * section ^definition = "A secção inicial da composition a partir da qual as demais seções são definidas"
-* section obeys cmp-1 and cpm-2 and ele-1
+* section obeys cmp-1 and cmp-2 and ele-1
 * section.id ^short = "Identificador exclusivo para referência entre elemento"
 * section.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section.extension ^short = "Conteúdo adicional definido por implementações"
