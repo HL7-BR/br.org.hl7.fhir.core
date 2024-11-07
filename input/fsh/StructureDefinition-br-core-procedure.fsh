@@ -28,7 +28,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * basedOn only Reference(br-core-careplan or br-core-servicerequest)
 * partOf ^short = "Parte do evento referenciado."
 * partOf ^definition = "Parte do evento referenciado."
-* partOf only Reference(br-core-procedure or br-core-observationresults or br-core-medicationadministration)
+* partOf only Reference(br-core-procedure or br-core-observation or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
 * status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento (required)
@@ -95,7 +95,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * reasonCode ^definition = "Código do motivo do procedimento realizado."
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
-* reasonReference only Reference(br-core-condition or br-core-observationresults or br-core-procedure or br-core-diagnosticreport or DocumentReference)
+* reasonReference only Reference(br-core-condition or br-core-observation or br-core-procedure or br-core-diagnosticreport or DocumentReference)
 * bodySite ^short = "Conceito - referência a uma terminologia ou apenas texto."
 * bodySite ^definition = "Conceito - referência a uma terminologia ou apenas texto."
 * outcome ^short = "Resultado do procedimento."

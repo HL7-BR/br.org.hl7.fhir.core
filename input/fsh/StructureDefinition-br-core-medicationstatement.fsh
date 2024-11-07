@@ -28,7 +28,7 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * basedOn only Reference(br-core-medicationrequest or br-core-careplan or br-core-servicerequest)
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
-* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-observationresults)
+* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-observation)
 * status ^short = "Status atual do recurso"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * statusReason ^short = "Motivo do status atual"
@@ -76,7 +76,7 @@ Description: "Contém os dados relacionados à medicação tomada por um pacient
 * reasonCode ^definition = "Razão pela qual o medicamento está sendo ou foi tomado"
 * reasonReference ^short = "Condição ou observação que apoia a tomada deste medicamento"
 * reasonReference ^definition = "Condição ou observação que apoia a tomada deste medicamento"
-* reasonReference only Reference(br-core-condition or br-core-observationresults or br-core-diagnosticreport)
+* reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)
 * note ^short = "Informações adicionais sobre essa declaração"
 * note ^definition = "Informações adicionais sobre essa declaração"
 * dosage ^short = "Detalhes sobre a administração do medicamento"

@@ -87,7 +87,7 @@ Description: ""
 * stage.summary ^definition = "Códigos descrevendo estágios da condição (por exemplo, estágios de câncer)"
 * stage.assessment ^short = "Registro formal da avaliação"
 * stage.assessment ^definition = "Referência aos dados de diagnóstico de laboratório clínico relacionados à suspeita diagnóstica."
-* stage.assessment only Reference(ClinicalImpression or br-core-diagnosticreport or br-core-observationresults)
+* stage.assessment only Reference(ClinicalImpression or br-core-diagnosticreport or br-core-observation)
 * stage.type ^short = "Tipo do estadiamento"
 * stage.type ^definition = "Códigos que descrevem  o tipo do estadiamento (por exemplo, clínico ou patológico)"
 * evidence ^short = "Evidências de apoio ao diagnóstico"

@@ -120,10 +120,10 @@ Description: "Este perfil "
 * referenceRange.text 1..1
 * hasMember ^short = "Recurso relacionado que pertence a observação"
 * hasMember ^definition = "Recurso relacionado que pertence a observação"
-* hasMember only Reference(br-core-observationresultslaboratory or br-core-observationresults)
+* hasMember only Reference(br-core-observation or br-core-observation)
 * derivedFrom ^short = "Medições relacionadas a partir das quais a observação é feita"
 * derivedFrom ^definition = "Medições relacionadas a partir das quais a observação é feita"
-* derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or br-core-observationresults or MolecularSequence)
+* derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or br-core-observation or MolecularSequence)
 * component ^short = "Resultados do componente" 
 * component ^definition = "Resultados do componente"
 * component.id ^short = "ID exclusivo para referência entre elementos"
