@@ -1,5 +1,5 @@
 Profile: br-core-appointment
-Parent: http://hl7.org/fhir/R4/appointment.html
+Parent: http://hl7.org/fhir/StructureDefinition/Appointment
 Id: br-core-appointment
 Description: "Uma reserva de um evento de saúde entre paciente(s), profissional(es), pessoa(s) relacionada(s) e/ou dispositivo(s) para uma data/hora específica. Isso pode resultar em um ou mais Encontro(s)"
 
@@ -27,7 +27,7 @@ Description: "Uma reserva de um evento de saúde entre paciente(s), profissional
 * serviceCategory 1..1
 * specialty ^short = "A especialidade do médico que seria necessário para realizar o serviço solicitado nesta consulta"
 * specialty ^definition = "A especialidade do médico que seria necessário para realizar o serviço solicitado nesta consulta"
-* serviceType from https://terminologia.saude.gov.br/#/orgs/MS/collections/BROcupacao-1.0/
+//* serviceType from https://terminologia.saude.gov.br/#/orgs/MS/collections/BROcupacao-1.0/
 * specialty 1..1
 * serviceType ^short = "O serviço específico que será realizado durante esta consulta"
 * serviceType ^definition = "O serviço específico que será realizado durante esta consulta"
