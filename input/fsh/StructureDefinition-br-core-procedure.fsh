@@ -25,8 +25,10 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * instantiatesUri ^definition = "Instâncias externas do protocolo ou definições."
 * basedOn ^short = "Uma requisição para o procedimento."
 * basedOn ^definition = "Uma requisição para o procedimento."
+* basedOn only Reference(br-core-careplan or br-core-servicerequest)
 * partOf ^short = "Parte do evento referenciado."
 * partOf ^definition = "Parte do evento referenciado."
+* partOf only Reference(br-core-procedure or ObservationResults or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
 * status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento (required)
@@ -60,7 +62,6 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * encounter only Reference(br-core-encounter)
 * performed[x] ^short = "Quando o procedimento foi realizado."
 * performed[x] ^definition = "Quando o procedimento foi realizado."
-* performed[x] 1..1
 * performed[x].id ^short = "Identificador exclusivo para referência entre elementos."
 * performed[x].id ^definition = "Identificador exclusivo para referência entre elementos."
 //=======================================================================
@@ -83,24 +84,30 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * performer.function ^definition = "Tipo de performance."
 * performer.actor ^short = "Referência do profissional."
 * performer.actor ^definition = "Referência do profissional."
+* performer.actor only Reference(br-core-patient or br-core-relatedperson or DeviceObserverUvIps or br-core-practitioner or br-core-practitionerrole or br-core-organization)
 * performer.onBehalfOf ^short = "Organização para a qual o dispositivo ou profissional estava atuando."
 * performer.onBehalfOf ^definition = "Organização para a qual o dispositivo ou profissional estava atuando."
+* performer.onBehalfOf only Reference(br-core-organization)
 * location ^short = "Onde aconteceu o procedimento"
 * location ^definition = "Onde aconteceu o procedimento."
+* location only Reference(br-core-location)
 * reasonCode ^short = "Código do motivo do procedimento realizado."
 * reasonCode ^definition = "Código do motivo do procedimento realizado."
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
+* reasonReference only Reference(br-core-condition or ObservationResults or br-core-procedure or br-core-diagnosticreport or DocumentReference)
 * bodySite ^short = "Conceito - referência a uma terminologia ou apenas texto."
 * bodySite ^definition = "Conceito - referência a uma terminologia ou apenas texto."
 * outcome ^short = "Resultado do procedimento."
 * outcome ^definition = "Resultado do procedimento."
 * report ^short = "Qualquer relatório resultante do procedimento."
 * report ^definition = "Qualquer relatório resultante do procedimento."
+* report only Reference(br-core-diagnosticreport or DocumentReference or Composition)
 * complication ^short = "Complicação após o procedimento."
 * complication ^definition = "Complicação após o procedimento."
 * complicationDetail ^short = "Uma condição que é resultado da complicação do procedimento."
 * complicationDetail ^definition = "Uma condição que é resultado da complicação do procedimento."
+* complicationDetail only Reference(br-core-condition)
 * followUp ^short = "Instruções para acompanhamento."
 * followUp ^definition = "Instruções para acompanhamento."
 * note ^short = "Informações adicionais sobre o procedimento."
@@ -117,7 +124,9 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * focalDevice.action ^definition = "Tipo de alteração no dispositivo."
 * focalDevice.manipulated ^short = "Dispositivo que foi alterado."
 * focalDevice.manipulated ^definition = "Dispositivo que foi alterado."
+* focalDevice.manipulated only Reference(Device)
 * usedReference ^short = "Itens usados ​​durante o procedimento."
 * usedReference ^definition = "Itens usados ​durante o procedimento."
+* usedReference only Reference(Device or MedicationBRIPS or Substance)
 * usedCode ^short = "Itens codificados usados ​durante o procedimento."
 * usedCode ^definition = "Itens codificados usados ​​durante o procedimento."
