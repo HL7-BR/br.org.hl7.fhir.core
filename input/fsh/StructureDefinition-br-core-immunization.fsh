@@ -49,7 +49,6 @@ Id: br-core-immunization
 * encounter 0..0
 * occurrence[x] ^short = "Data em que o imunobiológico foi administrado"    
 * occurrence[x] ^definition = "Data em que o imunobiológico foi administrado"
-* occurrence[x] 1..*
 * recorded ^short = "Data em que o primeiro registro de vacinação foi feito"
 * recorded ^definition = "Data em que o primeiro registro de vacinação foi feito"
 * recorded 0..0
