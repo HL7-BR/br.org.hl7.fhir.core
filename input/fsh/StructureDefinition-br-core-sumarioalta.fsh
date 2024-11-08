@@ -89,3 +89,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].text 1..
 * section[capacidadeFuncional].emptyReason ..0
 * section[capacidadeFuncional].emptyReason ^mustSupport = false
+
