@@ -104,12 +104,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[alergiasIntolerancias].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[alergiasIntolerancias].code.coding.system ^short = "Identificador da terminologia"
 * section[alergiasIntolerancias].code.coding.system ^definition = "Identidade da terminologia"
+* section[alergiasIntolerancias].code.coding.system = $loinc
 * section[alergiasIntolerancias].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[alergiasIntolerancias].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[alergiasIntolerancias].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[alergiasIntolerancias].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[alergiasIntolerancias].code.coding.code = #48765-2
 * section[alergiasIntolerancias].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[alergiasIntolerancias].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[alergiasIntolerancias].code.coding.display = "Allergies and adverse reactions Document"
 * section[alergiasIntolerancias].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[alergiasIntolerancias].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[alergiasIntolerancias].code.text ^short = "Representação em texto do conceito"
@@ -152,12 +155,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[diagnosticosAvaliados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[diagnosticosAvaliados].code.coding.system ^short = "Identificador da terminologia"
 * section[diagnosticosAvaliados].code.coding.system ^definition = "Identidade da terminologia"
+* section[diagnosticosAvaliados].code.coding.system = $loinc
 * section[diagnosticosAvaliados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAvaliados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAvaliados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[diagnosticosAvaliados].code.coding.code = #48765-2 
 * section[diagnosticosAvaliados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAvaliados].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[diagnosticosAvaliados].code.coding.display = "Problem List"
 * section[diagnosticosAvaliados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAvaliados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAvaliados].code.text ^short = "Representação em texto do conceito"
@@ -200,12 +206,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[procedimentosRealizados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[procedimentosRealizados].code.coding.system ^short = "Identificador da terminologia"
 * section[procedimentosRealizados].code.coding.system ^definition = "Identidade da terminologia"
+* section[procedimentosRealizados].code.coding.system = $loinc
 * section[procedimentosRealizados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[procedimentosRealizados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[procedimentosRealizados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[procedimentosRealizados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[procedimentosRealizados].code.coding.code = #47519-4
 * section[procedimentosRealizados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[procedimentosRealizados].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[procedimentosRealizados].code.coding.display = "History of Procedures Document"
 * section[procedimentosRealizados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[procedimentosRealizados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[procedimentosRealizados].code.text ^short = "Representação em texto do conceito"
@@ -248,12 +257,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[prescricaoAlta].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[prescricaoAlta].code.coding.system ^short = "Identificador da terminologia"
 * section[prescricaoAlta].code.coding.system ^definition = "Identidade da terminologia"
+* section[prescricaoAlta].code.coding.system = $loinc
 * section[prescricaoAlta].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[prescricaoAlta].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[prescricaoAlta].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[prescricaoAlta].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[prescricaoAlta].code.coding.code = #8654-6
 * section[prescricaoAlta].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[prescricaoAlta].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[prescricaoAlta].code.coding.display = "Hospital discharge medications"
 * section[prescricaoAlta].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[prescricaoAlta].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[prescricaoAlta].code.text ^short = "Representação em texto do conceito"
@@ -296,12 +308,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[planoCuidados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[planoCuidados].code.coding.system ^short = "Identificador da terminologia"
 * section[planoCuidados].code.coding.system ^definition = "Identidade da terminologia"
+* section[planoCuidados].code.coding.system = $loinc
 * section[planoCuidados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[planoCuidados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[planoCuidados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[planoCuidados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[planoCuidados].code.coding.code = #18776-5
 * section[planoCuidados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[planoCuidados].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[planoCuidados].code.coding.display = "Plan of care note"
 * section[planoCuidados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[planoCuidados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[planoCuidados].code.text ^short = "Representação em texto do conceito"
@@ -344,12 +359,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[capacidadeFuncional].code.coding.system ^short = "Identificador da terminologia"
 * section[capacidadeFuncional].code.coding.system ^definition = "Identidade da terminologia"
+* section[capacidadeFuncional].code.coding.system = $loinc
 * section[capacidadeFuncional].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[capacidadeFuncional].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[capacidadeFuncional].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[capacidadeFuncional].code.coding.code = #54522-8
 * section[capacidadeFuncional].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[capacidadeFuncional].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[capacidadeFuncional].code.coding.display = "Functional status"
 * section[capacidadeFuncional].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[capacidadeFuncional].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[capacidadeFuncional].code.text ^short = "Representação em texto do conceito"
@@ -366,99 +384,3 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
-
-/*
-
-
-
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].code 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].code.coding.system = $loinc#42347-5 "Admission Diagnosis" (exactly)
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].code.coding.code = #42347-5
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].author 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].focus 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].text 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].mode 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].orderedBy 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].entry 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].emptyReason 0..1
-* section[diagnosticosAdmissao] ^short = "a"
-* section[diagnosticosAdmissao] ^definition = "a"
-* section[diagnosticosAdmissao].emptyReason ^mustSupport = false
-
-* section[alergiasIntolerancias] ^short = ""
-* section[alergiasIntolerancias] ^definition = ""
-* section[alergiasIntolerancias].title 1..
-* section[alergiasIntolerancias].code 1..
-* section[alergiasIntolerancias].code = $loinc#48765-2 "Allergies and adverse reactions Document" (exactly)
-* section[alergiasIntolerancias].text 1..
-* section[alergiasIntolerancias].emptyReason ..0
-* section[alergiasIntolerancias].emptyReason ^mustSupport = false
-
-* section[diagnosticosAvaliados] ^short = ""
-* section[diagnosticosAvaliados] ^definition = ""
-* section[diagnosticosAvaliados].title 1..
-* section[diagnosticosAvaliados].code 1..
-* section[diagnosticosAvaliados].code = $loinc#11450-4 "Admission Diagnosis" (exactly)
-* section[diagnosticosAvaliados].text 1..
-* section[diagnosticosAvaliados].emptyReason ..0
-* section[diagnosticosAvaliados].emptyReason ^mustSupport = false
-
-* section[procedimentosRealizados] ^short = ""
-* section[procedimentosRealizados] ^definition = ""
-* section[procedimentosRealizados].title 1..
-* section[procedimentosRealizados].code 1..
-* section[procedimentosRealizados].code = $loinc#48765-2 "Allergies and adverse reactions Document" (exactly)
-* section[procedimentosRealizados].text 1..
-* section[procedimentosRealizados].emptyReason ..0
-* section[procedimentosRealizados].emptyReason ^mustSupport = false
-
-* section[prescricaoAlta] ^short = ""
-* section[prescricaoAlta] ^definition = ""
-* section[prescricaoAlta].title 1..
-* section[prescricaoAlta].code 1..
-* section[prescricaoAlta].code = $loinc#48765-2 "Allergies and adverse reactions Document" (exactly)
-* section[prescricaoAlta].text 1..
-* section[prescricaoAlta].emptyReason ..0
-* section[prescricaoAlta].emptyReason ^mustSupport = false
-
-* section[planoCuidados] ^short = ""
-* section[planoCuidados] ^definition = ""
-* section[planoCuidados].title 1..
-* section[planoCuidados].code 1..
-* section[planoCuidados].code = $loinc#42347-5 "Admission Diagnosis" (exactly)
-* section[planoCuidados].text 1..
-* section[planoCuidados].emptyReason ..0
-* section[planoCuidados].emptyReason ^mustSupport = false
-
-* section[capacidadeFuncional] ^short = ""
-* section[capacidadeFuncional] ^definition = ""
-* section[capacidadeFuncional].title 1..
-* section[capacidadeFuncional].code 1..
-* section[capacidadeFuncional].code = $loinc#48765-2 "Allergies and adverse reactions Document" (exactly)
-* section[capacidadeFuncional].text 1..
-* section[capacidadeFuncional].emptyReason ..0
-* section[capacidadeFuncional].emptyReason ^mustSupport = false
-
-*/
