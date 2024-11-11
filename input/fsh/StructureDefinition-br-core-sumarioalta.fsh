@@ -53,12 +53,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[diagnosticosAdmissao].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[diagnosticosAdmissao].code.coding.system ^short = "Identificador da terminologia"
 * section[diagnosticosAdmissao].code.coding.system ^definition = "Identidade da terminologia"
+* section[diagnosticosAdmissao].code.coding.system = $loinc
 * section[diagnosticosAdmissao].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAdmissao].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAdmissao].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[diagnosticosAdmissao].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
+* section[diagnosticosAdmissao].code.coding.code = #42347-5
 * section[diagnosticosAdmissao].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAdmissao].code.coding.display ^definition = "Representação definida pela terminologia"
+* section[diagnosticosAdmissao].code.coding.display = "Admission Diagnosis"
 * section[diagnosticosAdmissao].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAdmissao].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAdmissao].code.text ^short = "Representação em texto do conceito"
