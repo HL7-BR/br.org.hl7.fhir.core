@@ -131,11 +131,11 @@ Id: br-core-immunization
 * education.presentationDate 0..0
 * programEligibility ^short = "Informações sobre a elegibilidade do paciente para o programa de imunização"
 * programEligibility ^definition = "Informações sobre a elegibilidade do paciente para o programa de imunização"
-* programEligibility from https://terminologia.saude.gov.br/fhir/ValueSet/BREligibilidadeImunobiologico (required)
+//* programEligibility from https://terminologia.saude.gov.br/fhir/ValueSet/BREligibilidadeImunobiologico (required)
 * programEligibility 0..0
 * fundingSource ^short = "Fonte de financiamento do imunobiológico"
 * fundingSource ^definition = "Fonte de financiamento do imunobiológico"
-* fundingSource from https://terminologia.saude.gov.br/fhir/ValueSet/immunization-funding-source (required)
+//* fundingSource from https://terminologia.saude.gov.br/fhir/ValueSet/immunization-funding-source (required)
 * fundingSource 0..0
 * reaction ^short = "Reações adversas do paciente ao imunobiológico"
 * reaction ^definition = "Reações adversas do paciente ao imunobiológico"
