@@ -27,7 +27,7 @@ Description: "Este perfil representa uma amostra."
 * status ^definition = "disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra"
 * type ^short = "Tipo de material que compõem a amostra"
 * type ^definition = "Tipo de material que compõem a amostra"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra
+//* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra
 * subject ^short = "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo"
 * subject ^definition = "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo"
 * subject only Reference(br-core-patient or Group or Device or Substance or br-core-location)
