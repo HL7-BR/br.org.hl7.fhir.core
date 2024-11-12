@@ -19,10 +19,10 @@
     estabelecer as parcerias do Ministério da Saúde com os conselhos profissionais de Enfermagem,
     Medicina, Odontologia, Fisioterapia e Terapia Ocupacional, Psicologia, Nutricionista e
     Fonoaudiologia para que todos os profissionais de saúde possam ser corretamente identificados.
-    No perfil de PractitionerBRIPS foram criados slices para identificar cada uma das categorias
+    No perfil de br-core-practitioner foram criados slices para identificar cada uma das categorias
     profissionais da saúde. Todos os conselhos profissionais receberam NamingSystems para a correta
     identificação dos mesmos, conforme descrito em <a
-      href="StructureDefinition-PractitionerBRIPS.html">PractitionerBRIPS</a>
+      href="StructureDefinition-br-core-practitioner.html">br-core-practitioner</a>
   </p>
 
   <a name="dadosincluidos"> </a>
