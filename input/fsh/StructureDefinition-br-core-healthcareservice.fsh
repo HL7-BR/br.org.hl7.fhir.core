@@ -31,7 +31,7 @@ Title: "br-core-healthcareservice"
 * coverageArea ^definition = "O serviço de localização(ões) é destinado/disponível para"
 * serviceProvisionCode  ^short = "Condições sob as quais o serviço está disponível/oferecido"
 * serviceProvisionCode  ^definition = "Condições sob as quais o serviço está disponível/oferecido"
-* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoConvenio (required)
+//* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoConvenio (required)
 * eligibility ^short = "Requisitos de elegibilidade específicos necessários para usar o serviço"
 * eligibility ^definition = "Requisitos de elegibilidade específicos necessários para usar o serviço"
 * eligibility.code ^short = "Valor codificado para a elegibilidade"
@@ -40,7 +40,7 @@ Title: "br-core-healthcareservice"
 * eligibility.comment ^definition = "Descreve as condições de elegibilidade para o serviço"
 * program ^short = "Programas aos quais este serviço é aplicável"
 * program ^definition = "Programas aos quais este serviço é aplicável"
-* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaNacionalSaude (preferred)
+//* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaNacionalSaude (preferred)
 * characteristic ^short = "Coleção de características (atributos)"
 * characteristic ^definition = "Coleção de características (atributos)"
 * communication ^short = "O idioma em que este serviço é oferecido"
