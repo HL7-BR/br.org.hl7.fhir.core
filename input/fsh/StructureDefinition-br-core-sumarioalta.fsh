@@ -78,6 +78,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[diagnosticosAdmissao].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[diagnosticosAdmissao].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAdmissao].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[diagnosticosAdmissao].entry only Reference(br-core-condition)
 
 //Section alergiasIntolerancias
 * section[alergiasIntolerancias] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -129,6 +130,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[alergiasIntolerancias].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[alergiasIntolerancias].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[alergiasIntolerancias].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[alergiasIntolerancias].entry only Reference(br-core-allergyintolerance)
 
 //Section diagnosticosAvaliados
 * section[diagnosticosAvaliados] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -180,6 +182,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[diagnosticosAvaliados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[diagnosticosAvaliados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAvaliados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[diagnosticosAvaliados].entry only Reference(br-core-condition)
 
 //Section procedimentosRealizados
 * section[procedimentosRealizados] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -231,6 +234,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[procedimentosRealizados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[procedimentosRealizados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[procedimentosRealizados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[procedimentosRealizados].entry only Reference(br-core-procedure)
 
 //Section prescricaoAlta
 * section[prescricaoAlta] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -282,6 +286,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[prescricaoAlta].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[prescricaoAlta].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[prescricaoAlta].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[prescricaoAlta].entry only Reference(br-core-medicationrequest)
 
 //Section planoCuidados
 * section[planoCuidados] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -333,6 +338,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[planoCuidados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[planoCuidados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[planoCuidados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[planoCuidados].entry only Reference(br-core-careplan)
 
 //Section capacidadeFuncional
 * section[capacidadeFuncional] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -384,3 +390,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[prescricaoAlta].entry only Reference(br-core-medicationrequest)
