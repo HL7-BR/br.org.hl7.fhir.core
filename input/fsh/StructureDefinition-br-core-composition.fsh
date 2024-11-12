@@ -87,7 +87,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * confidentiality ^short = "Códigos que especificam o nível de confidencialidade da Composition"
 * confidentiality ^definition = "Códigos que especificam o nível de confidencialidade da Composition"
 * confidentiality from http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification (required)
-* confidentiality obeys ele-1
+//* confidentiality obeys ele-1
 * attester ^short = "Responsável por atestar a acurácia da Composition"
 * attester ^definition = "Responsável por atestar a acurácia da Composition"
 //* attester from http://hl7.org/fhir/R4/valueset-composition-attestation-mode.html (required)
@@ -162,7 +162,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section.code ^short = "Um código que identifica o tipo de conteúdo contido dentro da seção."
 * section.code ^definition = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção."
 * section.code from http://hl7.org/fhir/R4/valueset-doc-section-codes.html (required)
-* section.code obeys ele-1
+//* section.code obeys ele-1
 * section.author ^short = "Quem e/ou o que foi o autor desta seção"
 * section.author ^definition = " Identifica quem é responsável pelas informações nesta seção, não necessariamente quem a digitou."
 * section.author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
@@ -180,13 +180,13 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section.orderedBy ^short = "Especifica a ordem dos itens nas sections.entry"
 * section.orderedBy ^definition = "Especifica a ordem dos itens nas sections.entry"
 * section.orderedBy from http://hl7.org/fhir/R4/valueset-list-order.html (preferred)
-* section.orderedBy obeys ele-1
+//* section.orderedBy obeys ele-1
 * section.entry ^short = "Uma referência ao recurso a partir  do qual narrativa da seção é derivada."
 * section.entry ^definition = "Uma referência ao recurso a partir  do qual narrativa da seção é derivada."
 //* section.entry obeys ele-1
 * section.emptyReason ^short = "Explicação porquê a secção está vazia"
 * section.emptyReason ^definition = "Explicação porquê a secção está vazia"
-* section.emptyReason obeys ele-1
+//* section.emptyReason obeys ele-1
 * section.orderedBy from http://hl7.org/fhir/R4/valueset-list-empty-reason.html (preferred)
 * section.section ^short = "Uma subseção aninhada dentro desta seção"
 * section.section ^definition = "Uma subseção aninhada dentro desta seção"
