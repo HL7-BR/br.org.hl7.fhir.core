@@ -100,18 +100,18 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 
 Invariant: br-core-condition-con-3
 Description: "condition.clinicalStatus DEVE estar presente se condition.verificationStatus não for 'entered-in-error' e a categoria for problem-list-item"
-Expression: "(verificationStatus.where(code != 'entered-in-error').exists() and category.where(code = 'problem-list-item').exists()) implies clinicalStatus.exists()"
+Expression: "(condition.verificationStatus.where(code != 'entered-in-error').exists() and condition.category.where(code = 'problem-list-item').exists()) implies condition.clinicalStatus.exists()"
 Severity: #error
 XPath: "not(exists(f:verificationStatus[f:code/@value='entered-in-error']) and exists(f:category[f:code/@value='problem-list-item'])) or exists(f:clinicalStatus)"
 
 Invariant: br-core-condition-con-4
 Description: "Se condition for 'abated', clinicalStatus deve ser 'inactive', 'resolved' ou 'remission' "
-Expression: "(abatement.exists()) implies (clinicalStatus.exists() and clinicalStatus.coding.where(code in ('inactive', 'resolved', 'remission')).exists())"
+Expression: "(abatement.exists()) implies (condition.clinicalStatus.exists() and condition.clinicalStatus.coding.where(code in ('inactive', 'resolved', 'remission')).exists())"
 Severity: #error
 XPath: "not(exists(f:abatement)) or (exists(f:clinicalStatus) and exists(f:clinicalStatus/f:coding[f:code/@value=('inactive', 'resolved', 'remission')]))"
 
 Invariant: br-core-condition-con-5
 Description: "Condition.clinicalStatus NÃO DEVE estar presente se verificationStatus for 'entered-in-error' "
-Expression: "(verificationStatus.coding.where(code = 'entered-in-error').exists()) implies clinicalStatus.empty()"
+Expression: "(condition.verificationStatus.coding.where(code = 'entered-in-error').exists()) implies condition.clinicalStatus.empty()"
 Severity: #error
 XPath: "not(exists(f:verificationStatus/f:coding[f:code/@value='entered-in-error'])) or not(exists(f:clinicalStatus))"
