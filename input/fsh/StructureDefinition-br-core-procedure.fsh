@@ -31,7 +31,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * partOf only Reference(br-core-procedure or br-core-observation or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
-* status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento (required)
+//* status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento (required)
 * statusReason ^short = "Motivo para o estado atual."
 * statusReason ^definition = "Motivo para o estado atual."
 * statusReason 1..1
