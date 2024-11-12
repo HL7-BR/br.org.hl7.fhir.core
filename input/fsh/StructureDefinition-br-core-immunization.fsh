@@ -27,7 +27,7 @@ Id: br-core-immunization
 * statusReason 0..0
 * vaccineCode ^short = "Imunobiológico administrado"
 * vaccineCode ^definition = "Imunobiológico administrado"
-* vaccineCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico (required)
+//* vaccineCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico (required)
 * patient ^short = "O paciente que recebeu o imunobiológico"
 * patient ^definition = "O paciente que recebeu o imunobiológico"
 * patient only Reference(br-core-patient)
@@ -56,7 +56,7 @@ Id: br-core-immunization
 * primarySource ^definition = "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde"
 * reportOrigin ^short = "Indica a fonte do registro de vacinação relatado"
 * reportOrigin ^definition = "Indica a fonte do registro de vacinação relatado"
-* reportOrigin from https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem (required)
+//* reportOrigin from https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem (required)
 * location ^short = "Local onde o imunobiológico foi administrado"
 * location ^definition = "Local onde o imunobiológico foi administrado"
 * location only Reference(br-core-location)
@@ -70,10 +70,10 @@ Id: br-core-immunization
 * site ^short = "Local de administração do imunobiológico"
 * site ^definition = "Local de administração do imunobiológico"
 * site 1..1
-* site from https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao (required)
+//* site from https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao (required)
 * route ^short = "Via de administração do imunobiológico"
 * route ^definition = "Via de administração do imunobiológico"
-* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (required)
+//* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (required)
 * route 1..1
 * doseQuantity ^short = "Quantidade de imunobiológico administrado"
 * doseQuantity ^definition = "Quantidade de imunobiológico administrado"
@@ -88,7 +88,7 @@ Id: br-core-immunization
 * performer.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.function ^short = "Função do profissional de saúde no evento de administração de imunobiológico"
 * performer.function ^definition = "Função do profissional de saúde no evento de administração de imunobiológico"
-* performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
+//* performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
 * performer.function 1..1
 * performer.actor ^short = "Profissional de saúde que administrou o imunobiológico"
 * performer.actor ^definition = "Profissional de saúde que administrou o imunobiológico"
@@ -98,7 +98,7 @@ Id: br-core-immunization
 * note 0..0
 * reasonCode ^short = "Motivo pelo qual o imunobiológico foi administrado"
 * reasonCode ^definition = "Motivo pelo qual o imunobiológico foi administrado"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao (required)
+//* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao (required)
 * reasonCode 0..1
 * reasonReference ^short = "Referência ao motivo pelo qual o imunobiológico foi administrado"
 * reasonReference ^definition = "Referência ao motivo pelo qual o imunobiológico foi administrado"
