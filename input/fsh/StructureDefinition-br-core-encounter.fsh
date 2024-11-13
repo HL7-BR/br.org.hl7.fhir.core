@@ -49,7 +49,7 @@ Title: "br-core-encounter"
 * participant.individual only Reference(br-core-practitioner or br-core-practitionerrole)
 * appointment ^short = "A consulta que agendou este atendimento"
 * appointment ^definition = "A consulta que agendou este atendimento"
-//* appointment only Reference(br-core-appointment)
+* appointment only Reference(br-core-appointment)
 * period ^short = "O horário de início e término do atendimento"
 * period ^definition = "O horário de início e término do atendimento"
 * period 1..1
