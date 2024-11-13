@@ -1,7 +1,7 @@
-Profile: br-core-condition
-Parent: http://hl7.org/fhir/StructureDefinition/Condition
-Id: br-core-condition
-Description: "Este perfil representa as restrições aplicadas ao recurso ConditionBRIPS pelo Guia de Implementação FHIR do Sumário Internacional do Paciente (IPS). Um registro de um problema é representado no resumo do paciente como uma instância do recurso Condition restringido por esse perfil."
+Profile: br-core-capacidadefuncional
+Parent: br-core-condition
+Id: br-core-capacidadefuncional
+Description: ""
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
@@ -23,7 +23,10 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * identifier ^definition = "Identificadores externos para este recurso"
 * clinicalStatus ^short = "O status clínico da condição ou do diagnóstico"
 * clinicalStatus ^definition = "O status clínico da condição ou do diagnóstico"
-* clinicalStatus obeys br-core-condition-con-3 and br-core-condition-con-4 and br-core-condition-con-5
+* clinicalStatus 1..1
+* clinicalStatus.coding.system 1..1
+* clinicalStatus.coding.code 1..1
+* clinicalStatus.coding.display 0..1
 * verificationStatus ^short = "O status de verificação para apoiar ou recusar o status clínico da condição ou do diagnóstico"
 * verificationStatus ^definition = "unconfirmed | provisional | differential | confirmed | refuted | entered-in-error" 
 * category ^short = "Categoria da condição" 
@@ -36,6 +39,8 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
 * code ^short = "Suspeita Diagnóstica"
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
+* code 1..1
+* code.text
 * stage 1..*
 * subject ^short = "Indivíduo com a Condição de Saúde avaliada"
 * subject ^definition = "Referencia os dados sobre o indivíduo cuja a condição de saúde está sendo avaliada."
@@ -50,6 +55,9 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * subject.type ^definition = "Tipo de recurso ao qual a referência é feita"
 * subject.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
 * subject.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
+* subject.identifier 1..1
+* subject.identifier.system 1..1
+* subject.identifier.value 1..1
 * subject.display ^short = "Texto alternativo para o recurso"
 * subject.display ^definition = "Texto alternativo para o recurso"
 * encounter ^short = "Referência ao atendimento no qual a condição foi diagnosticada"
@@ -97,21 +105,3 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Condit
 * evidence.detail only Reference(Resource)
 * note ^short = "Informações adicionais sobre a condição"
 * note ^definition = "Informações adicionais sobre a condição"
-
-Invariant: br-core-condition-con-3
-Description: "condition.clinicalStatus DEVE estar presente se condition.verificationStatus não for 'entered-in-error' e a categoria for problem-list-item"
-Expression: "(condition.verificationStatus.where(code != 'entered-in-error').exists() and condition.category.where(code = 'problem-list-item').exists()) implies condition.clinicalStatus.exists()"
-Severity: #error
-XPath: "not(exists(f:verificationStatus[f:code/@value='entered-in-error']) and exists(f:category[f:code/@value='problem-list-item'])) or exists(f:clinicalStatus)"
-
-Invariant: br-core-condition-con-4
-Description: "Se condition for 'abated', clinicalStatus deve ser 'inactive', 'resolved' ou 'remission' "
-Expression: "(abatement.exists()) implies (condition.clinicalStatus.exists() and condition.clinicalStatus.coding.where(code in ('inactive', 'resolved', 'remission')).exists())"
-Severity: #error
-XPath: "not(exists(f:abatement)) or (exists(f:clinicalStatus) and exists(f:clinicalStatus/f:coding[f:code/@value=('inactive', 'resolved', 'remission')]))"
-
-Invariant: br-core-condition-con-5
-Description: "Condition.clinicalStatus NÃO DEVE estar presente se verificationStatus for 'entered-in-error' "
-Expression: "(condition.verificationStatus.coding.where(code = 'entered-in-error').exists()) implies condition.clinicalStatus.empty()"
-Severity: #error
-XPath: "not(exists(f:verificationStatus/f:coding[f:code/@value='entered-in-error'])) or not(exists(f:clinicalStatus))"

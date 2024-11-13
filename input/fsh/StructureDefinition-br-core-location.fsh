@@ -21,14 +21,14 @@ Title: "br-core-location"
 * mode ^definition = "instance | kind"
 * type ^short = "Tipo de função performada"
 * type ^definition = "Tipo de função performada"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicosEspecializados
+//* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicosEspecializados
 * telecom ^short = "Detalhes de contato do local"
 * telecom ^definition = "Detalhes de contato do local"
 * address ^short = "Endereço do local"
 * address ^definition = "Endereço do local"
 * physicalType ^short = "Forma física do local"
 * physicalType ^definition = "Forma física do local"
-* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas
+//* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas
 * position ^short = "A localização geográfica absoluta"
 * position ^definition = "A localização geográfica absoluta"
 * position.longitude ^short = "Longitude com referência WGS84"

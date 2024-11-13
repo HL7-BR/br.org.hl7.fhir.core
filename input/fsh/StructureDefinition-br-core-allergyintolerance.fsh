@@ -75,10 +75,10 @@ Description: "Alergia ou intolerância (geralmente: risco de reação adversa a 
 * reaction.extension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."
 * reaction.substance ^short = "Substância específica ou produto farmacêutico considerado responsável pelo evento."
 * reaction.substance ^definition = "Substância específica ou produto farmacêutico considerado responsável pelo evento."
-* reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
+//* reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
 * reaction.manifestation ^short = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED International Patient Set (IPS) do SNOMED CT (IPS Free Set)."
 * reaction.manifestation ^definition = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED IPS do SNOMED CT (IPS Free Set)."
-* reaction.manifestation from https://terminologia.saude.gov.br/fhir/ValueSet/BRMedDRA (required)
+//* reaction.manifestation from https://terminologia.saude.gov.br/fhir/ValueSet/BRMedDRA (required)
 * reaction.description ^short = "Descrição do evento como um todo."
 * reaction.description ^definition = "Descrição do evento como um todo."
 * reaction.onset ^short = "Data (/hora) em que as manifestações apareceram"
@@ -87,5 +87,5 @@ Description: "Alergia ou intolerância (geralmente: risco de reação adversa a 
 * reaction.severity ^definition = "mild | moderate | severe (of event as a whole)"
 * reaction.exposureRoute ^short = "Como o sujeito foi exposto à substância."
 * reaction.exposureRoute ^definition = "Como o sujeito foi exposto à substância."
-* reaction.exposureRoute from https://terminologia.saude.gov.br/fhir/ValueSet/medicine-route-of-administration/
+//* reaction.exposureRoute from https://terminologia.saude.gov.br/fhir/ValueSet/medicine-route-of-administration/
 * reaction.note ^definition = "Texto sobre evento não capturado em outros campos."

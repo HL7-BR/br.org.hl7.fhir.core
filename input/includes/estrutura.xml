@@ -5,9 +5,9 @@
 
         A Figura 2 exibe a estrutura do Sumário Internacional do Paciente BR IPS.
     </p>
-
+<!--
     <img src="ips-estrutura.png" alt="IPS" width="100%" height="100%" />
-
+-->
     <a name="secoes"> </a>
     <h3>Descrição das Secções</h3>
 
@@ -163,34 +163,34 @@
                 <td> Alergias e Intolerâncias (R)</td>
                 <td>
                     <a
-                        href="StructureDefinition-AllergyIntoleranceBRIPS.html">
-                        AllergyIntoleranceBRIPS</a>
+                        href="">
+                        </a>
                 </td>
                 <td>Alergia ou intolerância (geralmente: risco de reação adversa a uma substância)</td>
             </tr>
             <tr>
                 <td>Lista de Problemas (R)</td>
-                <td><a href="StructureDefinition-ConditionBRIPS.html">
-                    ConditionBRIPS</a> (R)</td>
+                <td><a href="">
+                    </a> (R)</td>
                 <td>Contém os dados relacionados à condição de saúde ou condição alvo do
                     pacienteavaliado.</td>
             </tr>
             <tr>
                 <td>Sumário de Medicamentos (R)</td>
                 <td>
-                    <a href="StructureDefinition-MedicationBRIPS.html">
-                        MedicationBRIPS</a>
+                    <a href="">
+                        </a>
                     <a
-                        href="StructureDefinition-MedicationStatementBRIPS.html">
-                        MedicationStatementBRIPS</a>
+                        href="">
+                        </a>
                 </td>
                 <td> Contém os dados relacionados à medicação emuso pelo paciente</td>
             </tr>
             <tr>
                 <td>Imunizações (S)</td>
                 <td>
-                    <a href="StructureDefinition-ImmunizationBRIPS.html">
-                        ImmunizationBRIPS</a>
+                    <a href="">
+                        </a>
                 </td>
                 <td>Descreve os eventos de administração de imunobiológico de um paciente </td>
             </tr>
@@ -198,21 +198,21 @@
                 <td>Resultados de Exames (S)</td>
                 <td>
                     <a
-                        href="StructureDefinition-ObservationResultsBRIPS.html">
-                        ObservationResultsBRIPS</a>
+                        href="">
+                        </a>
                     <a
-                        href="StructureDefinition-ObservationResultsLaboratoryBRIPS.html">
-                        ObservationResultsLaboratoryBRIPS</a>
-                    <a href="StructureDefinition-SpecimenBRIPS.html">
-                        SpecimenBRIPS</a>
+                        href="">
+                       </a>
+                    <a href="">
+                        </a>
                 </td>
                 <td>Contém os dados relacionados aos exames de COVID-19 e Monkeypox </td>
             </tr>
             <tr>
                 <td>Procedimentos Realizados (S)</td>
                 <td>
-                    <a href="StructureDefinition-ProcedureBRIPS.html">
-                        ProcedureBRIPS</a>
+                    <a href="">
+                        </a>
                 </td>
                 <td>Descreve os procedimentos realizados pelo paciente</td>
             </tr>

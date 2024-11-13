@@ -11,3 +11,5 @@ Alias: $structuredefinition-povo-indigena-br-ips = https://ips.saude.gov.br/fhir
 Alias: $structuredefinition-sexo-nascimento-br-ips = https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips
 
 Alias: $structuredefinition-identidade-genero-br-ips = https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips
+
+Alias: $loinc = https://loinc.org/

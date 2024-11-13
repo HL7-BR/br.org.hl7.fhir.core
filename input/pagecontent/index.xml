@@ -92,9 +92,10 @@
     Seções adicionais podem, ainda, compor o IPS, tais como:   sinais vitais, história pregressa incluindo a história obstétrica e social, status funcional, plano de cuidados e diretivas avançadas de vida [1]. A Figura 1 exibe a estrutura do Sumário Internacional do Paciente.
   </p>
 
+<!-- 
   <img src="ips-estrutura.png" alt="IPS" width="100%" height="100%"/>
   <p align="center">Imagem 1 - Estrutura do IPS Brasil.</p>
-
+-->
   <p align="justify">
     O IPS está hoje em desenvolvimento por vários países, nos diferentes continentes: Nova Zelândia, Vietnam, Holanda, Suécia, Inglaterra, Canadá e na América Latina pela Argentina e Brasil. Para garantir a interoperabilidade semântica das informações coletadas por diferentes países a maior e mais utilizada terminologia clínica disponível SNOMED-CT oferece um subconjunto de cerca de 30.000 conceitos de uso livre para a comunidade de desenvolvedores do padrão IPS: SNOMED-CT IPS [4].  
   </p>

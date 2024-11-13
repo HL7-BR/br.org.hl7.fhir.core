@@ -27,7 +27,7 @@ Description: "Este perfil representa uma amostra."
 * status ^definition = "disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra"
 * type ^short = "Tipo de material que compõem a amostra"
 * type ^definition = "Tipo de material que compõem a amostra"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra
+//* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra
 * subject ^short = "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo"
 * subject ^definition = "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo"
 * subject only Reference(br-core-patient or Group or Device or Substance or br-core-location)
@@ -64,12 +64,15 @@ Description: "Este perfil representa uma amostra."
 * collection.collector only Reference(br-core-practitioner or br-core-practitionerrole)
 * collection.collected[x] ^short = "Data/Hora-Período da coleta"
 * collection.collected[x] ^definition = "Data/Hora-Período da coleta"
+* collection.collected[x] 1..1
 * collection.duration ^short = "Duração da coleta"
 * collection.duration ^definition = "Duracao da coleta"
 * collection.quantity ^short = "Quantidade de amostra coletada"
 * collection.quantity ^definition = "Quantidade de amostra coletada"
+* collection.quantity 1..1
 * collection.method ^short = "Método de coleta da amostra"
 * collection.method ^definition = "Método de coleta da amostra"
+* collection.method 1..1
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
 * collection.fastingStatus[x] ^short = "Tempo de jejum do paciente, se for o caso"
@@ -88,7 +91,6 @@ Description: "Este perfil representa uma amostra."
 * processing.procedure ^definition = "Indica a etapa de tratamento aplicada a amostra"
 * processing.additive ^short = "Material utilizado na etapa de processamento da amostra"
 * processing.additive ^definition = "Material utilizado na etapa de processamento da amostra"
-* processing.additive only Reference(Substance)
 * processing.time[x] ^short = "Data e hora do processamento da amostra"
 * processing.time[x] ^definition = "Data e hora do processamento da amostra"
 * container ^short = "Recipiente que contém a amostra (tubo/lâmina, etc.)"
