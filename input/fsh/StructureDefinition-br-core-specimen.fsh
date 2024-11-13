@@ -1,7 +1,7 @@
 Profile: br-core-specimen
 Parent: http://hl7.org/fhir/StructureDefinition/Specimen
 Id: br-core-specimen
-Description: "Este perfil representa uma amostra."
+Description: "Este perfil restringe o recurso Specimen para representar as características de amostras biológicas no contexto de resultados laboratoriais integrados a um resumo do paciente. O recurso Specimen descreve uma amostra utilizada para análise laboratorial."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
