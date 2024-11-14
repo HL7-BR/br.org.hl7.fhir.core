@@ -88,16 +88,16 @@ Foram criadas extensões para representar os identificadores de todos os profiss
 
 ### Limites e relacionamentos
 
-O recurso br-core-practitioner  NÃO DEVE ser utilizado para pessoas envolvidas sem uma responsabilidade formal no cuidado e saúde, tais como: pessoas cuidando de amigos, parentes ou vizinhos. Estes podem ser registrados como Contato do Paciente. Se estiverem realizando alguma ação ou sendo referenciado por outro recurso, use o recurso br-core-relatedperson para representá-los.
+O recurso [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html)  NÃO DEVE ser utilizado para pessoas envolvidas sem uma responsabilidade formal no cuidado e saúde, tais como: pessoas cuidando de amigos, parentes ou vizinhos. Estes podem ser registrados como Contato do Paciente. Se estiverem realizando alguma ação ou sendo referenciado por outro recurso, use o recurso [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html) para representá-los.
 
-As principais diferenças entre um perfil br-core-practitioner e um perfil  br-core-relatedperson  nas situações descritas abaixo:
+As principais diferenças entre um perfil [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html) e um perfil  br-core-relatedperson  nas situações descritas abaixo:
 -	Se a pessoa/animal opera em nome da organização de prestação de cuidados em vários pacientes, então será um  br-core-practitioner,
--	Se a pessoa/animal não está associado à organização e, em vez disso, executa tarefas especificamente para um paciente, então será um br-core-relatedperson,
--	Uma extensão do practitioner animalSpecies pode ser usada para indicar a espécie de um animal de serviço.
+-	Se a pessoa/animal não está associado à organização e, em vez disso, executa tarefas especificamente para um paciente, então será um [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html),
+-	Uma extensão do practitioner [animalSpecies](http://hl7.org/fhir/R4/extension-practitioner-animalspecies.html) pode ser usada para indicar a espécie de um animal de serviço.
 
-O recurso br-core-practitioner fornece os detalhes das funções que o profissional pode exercer em quais organizações (e em quais locais e, opcionalmente, quais serviços também).
+O recurso [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html) fornece os detalhes das funções que o profissional pode exercer em quais organizações (e em quais locais e, opcionalmente, quais serviços também).
 
-Os profissionais também são frequentemente agrupados em CareTeams independentemente de suas funções, onde o CareTeam define qual função específica que estão desempenhando dentro da equipe e pode ou não ter recursos br-core-practitionerrole criados para o profissional (quer no contexto da equipe de atendimento, ou da organização que o profissional está representando).
+Os profissionais também são frequentemente agrupados em CareTeams independentemente de suas funções, onde o CareTeam define qual função específica que estão desempenhando dentro da equipe e pode ou não ter recursos [br-core-practitionerrole](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole.html) criados para o profissional (quer no contexto da equipe de atendimento, ou da organização que o profissional está representando).
 
 ### MUST SUPPORT - Elementos de dados obrigatórios e que devem estar presentes
 
