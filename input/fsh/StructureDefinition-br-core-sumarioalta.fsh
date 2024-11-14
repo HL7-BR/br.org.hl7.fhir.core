@@ -384,4 +384,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[capacidadeFuncional].entry only Reference(br-core-medicationrequest)
+* section[capacidadeFuncional].entry only Reference(br-core-capacidadefuncional)
