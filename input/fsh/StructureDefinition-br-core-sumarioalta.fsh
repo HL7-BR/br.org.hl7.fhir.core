@@ -4,13 +4,7 @@ Id: br-core-sumarioalta
 Title: "br-core-sumarioalta"
 Description: "Este perfil representa as restrições aplicadas ao recurso br-core-sumarioalta"
 
-/*
 * category 0..1
-* author 1..*
-* relatesTo 0..*
-* section.extension 0..1
-* section.author 0..1
-* section.entry 0..1*/
 
 //Slicing
 * section ^slicing.discriminator.type = #profile
@@ -390,4 +384,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[capacidadeFuncional].entry only Reference(br-core-medicationrequest)
+* section[capacidadeFuncional].entry only Reference(br-core-capacidadefuncional)

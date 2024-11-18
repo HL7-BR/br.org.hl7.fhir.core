@@ -1,7 +1,7 @@
 Profile: br-core-vitalsigns
 Parent: http://hl7.org/fhir/StructureDefinition/vitalsigns
 Id: br-core-vitalsigns
-Description: "Este perfil representa uma sinal vital."
+Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/R4/observation-vitalsigns.html) e define restrições adicionais no recurso Observation para representar Observation de sinais vitais. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores **DEVEM** estar presentes no recurso e restringe como os elementos são usados. "
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
