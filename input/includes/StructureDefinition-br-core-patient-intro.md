@@ -24,25 +24,25 @@ Cada paciente deve ter obrigatoriamente um identificador, conforme abaixo:
       <td>Identifier:cpf</td>
       <td>O CPF é um identificador de pessoa física no Brasil, definido como número único e suficiente para identificação do cidadão nos bancos de dados de serviços públicos e é composto por 11 dígitos, sendo os 2 últimos dígitos os verificadores do CPF. Todo o paciente deve possuir obrigatoriamente um identificador, que deve ser o Cadastro de Pessoa Física (CPF) conforme a <a href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lei%2014.534-2023?OpenDocument">LEI Nº 14.534, DE 11 DE JANEIRO DE 2023</a>.</td>
       <td>0..1</td>
-      <td>http://terminology.hl7.org/CodeSystem/v2-0203#TAX</td>
+      <td><a href="http://terminology.hl7.org/CodeSystem/v2-0203">http://terminology.hl7.org/CodeSystem/v2-0203</a> fixo em ‘TAX’</td>
     </tr>
     <tr>
       <td>Identifier:cns</td>
       <td>O CNS também é um identificador do paciente no âmbito do Sistema Único de Saúde (SUS), é composto por 15 dígitos onde os 2 últimos são verificadores do CNS.</td>
       <td>0..1</td>
-      <td>http://terminology.hl7.org/CodeSystem/v2-0203#HC</td>
+      <td><a href="http://terminology.hl7.org/CodeSystem/v2-0203">http://terminology.hl7.org/CodeSystem/v2-0203</a> fixo em ‘HC’</td>
     </tr>
     <tr>
       <td>Identifier:registroEstrangeiro</td>
       <td>Registro Nacional de Estrangeiros (RNE) é um documento que atesta a identidade de indivíduos estrangeiros com residência temporária ou permanente no Brasil. A Carteira de Registro Nacional Migratório (CRNM) está substituindo, aos poucos, o antigo RNE (Registro Nacional de Estrangeiro). A mudança veio após a Lei de Migração (Lei nº 13.445, de 24 de maio de 2017). O modelo atual foi definido pela Portaria nº 11.264, de 24 de janeiro de 2020. Neste perfil foi criada uma extensão para representar o documento RNE – Registro Nacional de Estrangeiro e foi criado um NamingSystem - <a href="https://saude.gov.br/sid/rne">https://saude.gov.br/sid/rne</a>.</td>
       <td>0..1</td>
-      <td>https://saude.gov.br/fhir/terminologia/BREtniaIndigena</td>
+      <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoIdentificador">https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoIdentificador</a> fixo em ‘RNE’</td>
     </tr>
     <tr>
       <td>Identifier:passaporte</td>
       <td>Passaporte é um documento oficial de viagem emitido por um governo que contém a identidade de uma pessoa para viagens internacionais. Uma pessoa com passaporte pode viajar de e para países estrangeiros com mais facilidade e ter acesso à assistência consular. Um passaporte certifica a identidade pessoal e a nacionalidade do seu titular.</td>
       <td>0..1</td>
-      <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BRPopulacaoTradicional">https://terminologia.saude.gov.br/fhir/CodeSystem/BRPopulacaoTradicional</a></td>
+      <td><a href="http://terminology.hl7.org/CodeSystem/v2-0203">http://terminology.hl7.org/CodeSystem/v2-0203</a> fixo em ‘PPN’</td>
     </tr>
   </tbody>
 </table>
@@ -69,13 +69,13 @@ Extensões adicionais do recurso br-core-patient
       <td>raca</td>
       <td>Informa a raça do paciente – informação obrigatória conforme <a href="http://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?jornal=1&pagina=62&data=02/02/2017">Portaria nº 344 de 1º de fevereiro de 2017</a>.</td>
       <td>1..1</td>
-      <td>https://saude.gov.br/fhir/terminologia/BRRaca</td>
+      <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem-BRRacaCor.html">https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor</a></td>
     </tr>
     <tr>
       <td>povoIndigena</td>
       <td>Informa a etnia indígena conforme Portaria Nº 508, de 28 de setembro de 2010 e Portaria Nº 719, de 28 de dezembro de 2007. NT 7/2023 CGCOIM/SESAI.</td>
       <td>0..1</td>
-      <td>https://saude.gov.br/fhir/terminologia/BREtniaIndigena</td>
+      <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BREtniaIndigena">https://terminologia.saude.gov.br/fhir/ValueSet/BREtniaIndigena</a></td>
     </tr>
     <tr>
       <td>povoTradicional</td>
@@ -85,7 +85,7 @@ Extensões adicionais do recurso br-core-patient
     </tr>
     <tr>
       <td>povoItinerante</td>
-      <td>População em situação de rua, ciganos, circenses, andarilhos, acampados, assentados, etc) ou mesmo trabalhadores da área adstrita. Portaria Nº 2.436, de 21 de setembro de 2017.</td>
+      <td>População em situação de rua, ciganos, circenses, andarilhos, acampados, assentados, etc ou mesmo trabalhadores da área adstrita. Portaria Nº 2.436, de 21 de setembro de 2017.</td>
       <td>0..1</td>
       <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante">https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante</a></td>
     </tr>
@@ -97,7 +97,7 @@ Extensões adicionais do recurso br-core-patient
     </tr>
     <tr>
       <td>identidadeGenero</td>
-      <td>Consiste no modo como o indivíduo se identifica com o seu gênero. Em suma, representa como a pessoa se reconhece: homem, mulher, ambos ou outros gêneros. O que determina a identidade de gênero é a maneira como a pessoa se sente e se percebe, assim como a forma que esta deseja ser reconhecida pelas outras pessoas.</td>
+      <td>Consiste no <b>modo como o indivíduo se identifica com o seu gênero. Em suma, representa como a pessoa se reconhece: homem, mulher, ambos ou outros gêneros.</b> O que determina a identidade de gênero é a maneira como a pessoa se sente e se percebe, assim como a forma que esta deseja ser reconhecida pelas outras pessoas.</td>
       <td>0..1</td>
       <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRIdentidadeGenero">https://terminologia.saude.gov.br/fhir/ValueSet/BRIdentidadeGenero</a></td>
     </tr>
@@ -173,7 +173,7 @@ O endereço do paciente será representado pelo tipo de dados Address do FHIR R4
       <td>Nome do pais</td>
       <td>0..1</td>
       <td>string</td>
-      <td>Utilizar https://terminologia.saude.gov.br/#/orgs/ISO/sources/iso3166/</td>
+      <td>Utilizar <a href="https://terminologia.saude.gov.br/#/orgs/ISO/sources/iso3166/">https://terminologia.saude.gov.br/#/orgs/ISO/sources/iso3166/</a></td>
     </tr>
   </tbody>
 </table>
