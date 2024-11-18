@@ -53,12 +53,12 @@ Description: "Este perfil "
 * authoredOn ^definition = "Data de solicitação assinada"
 * requester ^short = "Quem/o que está solicitando o serviço"
 * requester ^definition = "Quem/o que está solicitando o serviço"
-* requester only Reference(br-core-practitioner or br-core-practitionerole or br-core-organization or br-core-patient or Device or br-core-relatedperson)
+* requester only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson)
 * performerType ^short = "Papel do performador"
 * performerType ^definition = "Papel do performador"
 * performer ^short = "Performador solicitado"
 * performer ^definition = "Performador solicitado"
-* performer only Reference(br-core-practitioner or br-core-practitionerole or br-core-organization or CareTeam or br-core-healthcareservice or br-core-patient or Device or br-core-relatedperson)
+* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-healthcareservice or br-core-patient or Device or br-core-relatedperson)
 * locationCode ^short = "Localização solicitada"
 * locationCode ^definition = "Localização solicitada"
 * locationReference ^short = "Localização solicitada"
