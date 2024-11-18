@@ -42,7 +42,7 @@ Description: "Este perfil "
 * quantity[x] ^definition = "Valor do serviço"
 * subject ^short = "Indivíduo ou entidade para a qual o serviço é solicitado"
 * subject ^definition = "Indivíduo ou entidade para a qual o serviço é solicitado"
-//* subject only Reference(br-core-patient or Group or br-core-location or br-core-device)
+* subject only Reference(br-core-patient or Group or br-core-location or Device)
 * encounter ^short = "Encontro em que a solicitação foi criada"
 * encounter ^definition = "Encontro em que a solicitação foi criada"
 * occurrence[x] ^short = "Quando o serviço deve ocorrer"
@@ -53,7 +53,7 @@ Description: "Este perfil "
 * authoredOn ^definition = "Data de solicitação assinada"
 * requester ^short = "Quem/o que está solicitando o serviço"
 * requester ^definition = "Quem/o que está solicitando o serviço"
-//* requester only Reference(br-core-practitioner or br-core-practitionerole or br-core-organization or br-core-patient or Device or br-core relatedperson)
+* requester only Reference(br-core-practitioner or br-core-practitionerole or br-core-organization or br-core-patient or Device or br-core-relatedperson)
 * performerType ^short = "Papel do performador"
 * performerType ^definition = "Papel do performador"
 * performer ^short = "Performador solicitado"
