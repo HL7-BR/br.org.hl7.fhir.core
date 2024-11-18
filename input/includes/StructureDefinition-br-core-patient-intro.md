@@ -170,7 +170,7 @@ O endereço do paciente será representado pelo tipo de dados Address do FHIR R4
     </tr>
     <tr>
       <td>country</td>
-      <td>Nome do pais</td>
+      <td>Nome do país</td>
       <td>0..1</td>
       <td>string</td>
       <td>Utilizar <a href="https://terminologia.saude.gov.br/#/orgs/ISO/sources/iso3166/">https://terminologia.saude.gov.br/#/orgs/ISO/sources/iso3166/</a></td>
