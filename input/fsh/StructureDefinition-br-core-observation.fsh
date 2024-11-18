@@ -1,7 +1,7 @@
 Profile: br-core-observation
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observation
-Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar vários tipos de observações associadas a um resumo do paciente. Este é o perfil base do qual derivam os outros perfis de resultados de exames laboratoriais."
+Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/StructureDefinition/br-core-observation.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
 //* effective.extension.data-absent-reason 0..0
 //* specimen 0..*
