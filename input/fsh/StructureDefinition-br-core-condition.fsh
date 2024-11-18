@@ -1,7 +1,7 @@
 Profile: br-core-condition
 Parent: http://hl7.org/fhir/StructureDefinition/Condition
 Id: br-core-condition
-Description: "Este perfil representa as restrições aplicadas ao recurso ConditionBRIPS pelo Guia de Implementação FHIR do Sumário Internacional do Paciente (IPS). Um registro de um problema é representado no resumo do paciente como uma instância do recurso Condition restringido por esse perfil."
+Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R4 [Condition](http://hl7.org/fhir/R4/condition.html)."
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
