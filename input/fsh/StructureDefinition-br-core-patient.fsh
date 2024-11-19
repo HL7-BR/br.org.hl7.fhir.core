@@ -39,6 +39,12 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 //* extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
 //* extension[identidadeGenero] ^definition = "Identidade de gênero do paciente"
 
+
+* extension contains
+    br-core-populacao-tradicional named br-core-populacao-tradicional 1..1
+* extension[br-core-populacao-tradicional] ^short = "Extensão de populacao tradicional do Core do Brasil"
+* extension[br-core-populacao-tradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
+
 * modifierExtension ^short = "Extensões adicionais"
 * modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * identifier ^short = "Identificadores nacionais do paciente"
