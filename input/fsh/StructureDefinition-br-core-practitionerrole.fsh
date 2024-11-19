@@ -1,7 +1,7 @@
 Profile: br-core-practitionerrole
 Parent: http://hl7.org/fhir/StructureDefinition/PractitionerRole
 Id: br-core-practitionerrole
-Description: "Um conjunto específico de funções / locais / especialidades / serviços que um profissional pode executar em uma organização por um período de tempo."
+Description: "Este perfil restringe o recurso [PractitionerRole](hl7.org/fhir/R4/practitionerrole.html) que representa um conjunto específico de funções/locais/especialidades/serviços que um profissional pode desempenhar em uma organização por um período de tempo."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
