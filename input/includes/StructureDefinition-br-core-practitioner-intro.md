@@ -55,31 +55,31 @@ Foram criadas extensões para representar os identificadores de todos os profiss
   <tbody>
     <tr>
       <td>Médico</td>
-      <td>Conselhos Regionais de Medicina do Brasil<br><br>Practitioner.identifier:identificadorMedico.type<br>Fixed Value: <a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-RPH">MD</a></td>
+      <td>Conselhos Regionais de Medicina do Brasil<br><br>Practitioner.identifier:identificadorMedico.type<br>Fixed Value: <a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-MD">MD</a></td>
       <td></td>
       <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM">https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM</a></td>
     </tr>
     <tr>
       <td>Farmacêutico</td>
-      <td>Conselhos regionais de Farmácia do Brasil<br><br>Practitioner.identifier:identificadorFarmaceutico.type<br>Fixed Value: <a href="https://terminology.hl7.org/5.5.0/CodeSystem-v2-0203.html">RPH</a></td>
+      <td>Conselhos regionais de Farmácia do Brasil<br><br>Practitioner.identifier:identificadorFarmaceutico.type<br>Fixed Value: <a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-RPH">RPH</a></td>
       <td></td>
-      <td><a href="https://terminologia-br-ig.web.app/ValueSet-BRCRF.html">https://terminologia-br-ig.web.app/ValueSet-BRCRF.html</a></td>
+      <td><a href="https://terminologia.saude.gov.br/ValueSet-BRCRF.html">https://terminologia.saude.gov.br/ValueSet-BRCRF.html</a></td>
     </tr>
     <tr>
       <td>Odontólogo</td>
-      <td>Conselhos regionais de Odontologia do Brasil<br><br>Practitioner.identifier:identificadorOdontologo.type<br>Fixed Value:<a href="https://terminology.hl7.org/5.5.0/CodeSystem-v2-0203.html">DDS</a></td>
+      <td>Conselhos regionais de Odontologia do Brasil<br><br>Practitioner.identifier:identificadorOdontologo.type<br>Fixed Value:<a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-DDS">DDS</a></td>
       <td></td>
-      <td><a href="https://terminologia-br-ig.web.app/ValueSet-BRCRO.html">https://terminologia-br-ig.web.app/ValueSet-BRCRO.html</a></td>
+      <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRCRO">https://terminologia.saude.gov.br/fhir/ValueSet/BRCRO</a></td>
     </tr>
     <tr>
       <td>Enfermeiro</td>
       <td>Conselhos regionais de Enfermagem do Brasil<br><br>Practitioner.identifier:identificadorEnfermeiro.type<br>Fixed Value: RN</td>
       <td></td>
-      <td><a href="https://terminologia-br-ig.web.app/ValueSet-BRCOREN.html">https://terminologia-br-ig.web.app/ValueSet-BRCOREN.html</a></td>
+      <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRCOREN">https://terminologia.saude.gov.br/fhir/ValueSet/BRCOREN</a></td>
     </tr>
     <tr>
       <td>Outros Profissionais de Saúde (Psicologia, Fisioterapia, Nutricionista, Fonoaudiologia)</td>
-      <td>Conselhos regionais de outros profissionais da saúde do Brasil<br><br>Practitioner.identifier:identificadorOutrosProfissionais.type<br>Fixed Value:<a href="https://terminology.hl7.org/5.5.0/CodeSystem-v2-0203.html#v2-0203-RI">RI</a></td>
+      <td>Conselhos regionais de outros profissionais da saúde do Brasil<br><br>Practitioner.identifier:identificadorOutrosProfissionais.type<br>Fixed Value:<a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-RI">RI</a></td>
       <td></td>
       <td><a href="https://terminologia-br-ig.web.app/ValueSet-BROutrosProfissionais.html">https://terminologia-br-ig.web.app/ValueSet-BROutrosProfissionais.html</a></td>
     </tr>
@@ -88,10 +88,10 @@ Foram criadas extensões para representar os identificadores de todos os profiss
 
 ### Limites e relacionamentos
 
-O recurso [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html)  NÃO DEVE ser utilizado para pessoas envolvidas sem uma responsabilidade formal no cuidado e saúde, tais como: pessoas cuidando de amigos, parentes ou vizinhos. Estes podem ser registrados como Contato do Paciente. Se estiverem realizando alguma ação ou sendo referenciado por outro recurso, use o recurso [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html) para representá-los.
+O recurso [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html) NÃO DEVE ser utilizado para pessoas envolvidas sem uma responsabilidade formal no cuidado e saúde, tais como: pessoas cuidando de amigos, parentes ou vizinhos. Estes podem ser registrados como Contato do Paciente. Se estiverem realizando alguma ação ou sendo referenciado por outro recurso, use o recurso [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html) para representá-los.
 
-As principais diferenças entre um perfil [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html) e um perfil  br-core-relatedperson  nas situações descritas abaixo:
--	Se a pessoa/animal opera em nome da organização de prestação de cuidados em vários pacientes, então será um  br-core-practitioner,
+As principais diferenças entre um perfil [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html) e um perfil  [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html) nas situações descritas abaixo:
+-	Se a pessoa/animal opera em nome da organização de prestação de cuidados em vários pacientes, então será um [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html),
 -	Se a pessoa/animal não está associado à organização e, em vez disso, executa tarefas especificamente para um paciente, então será um [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html),
 -	Uma extensão do practitioner [animalSpecies](http://hl7.org/fhir/R4/extension-practitioner-animalspecies.html) pode ser usada para indicar a espécie de um animal de serviço.
 
@@ -99,7 +99,7 @@ O recurso [br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefi
 
 Os profissionais também são frequentemente agrupados em CareTeams independentemente de suas funções, onde o CareTeam define qual função específica que estão desempenhando dentro da equipe e pode ou não ter recursos [br-core-practitionerrole](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole.html) criados para o profissional (quer no contexto da equipe de atendimento, ou da organização que o profissional está representando).
 
-### MUST SUPPORT - Elementos de dados obrigatórios e que devem estar presentes
+### Elementos de dados obrigatórios e que devem estar presentes (Must Support)  
 
 **Identificadores** (se existirem identificadores de uso obrigatório ou MS estes devem ser descritos aqui, com a respectiva legislação se forem obrigatórios)
 
