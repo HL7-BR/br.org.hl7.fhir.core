@@ -13,3 +13,5 @@ Alias: $structuredefinition-sexo-nascimento-br-ips = https://ips.saude.gov.br/fh
 Alias: $structuredefinition-identidade-genero-br-ips = https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips
 
 Alias: $loinc = https://loinc.org/
+
+Alias: $birthPlace = http://hl7.org/fhir/StructureDefinition/patient-birthPlace
