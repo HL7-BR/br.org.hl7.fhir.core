@@ -20,15 +20,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * contained ^definition = "Recursos contidos no recurso"
 * extension ^short = "Extensões adicionais"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
-//* extension contains    
-    //$structuredefinition-birth-place named localNascimento 0..1 and   
-    //$structuredefinition-raca-br-ips named raca 0..1 and
-    //$structuredefinition-povo-indigena-br-ips named povoIndigena 0..1 and    
-    //$structuredefinition-sexo-nascimento-br-ips named sexoNascimento 0..1 and
-    //$structuredefinition-identidade-genero-br-ips named identidadeGenero 0..1
-    //$structuredefinition-populacao-tradicional-br-core named populacaoTradicional 0..1
-    //$structuredefinition-povo-itinerante-br-core named povoItinerante 0..1
-
 * extension contains
     $patient-birthPlace named localNascimento 0..1 and
     $patient-genderIdentity named identidadeGenero 0..1 and
@@ -37,7 +28,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     $patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
     br-core-populacao-tradicional named povoTradicional 1..1 and
     br-core-povo-itinerante named povoItinerante 0..1
-
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
 * extension[localNascimento] ^definition = "Local de nascimento do paciente" 
 * extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
