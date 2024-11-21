@@ -18,4 +18,4 @@ Alias: $patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-bir
 
 Alias: $patient-genderIdentity = http://hl7.org/fhir/StructureDefinition/patient-genderIdentity
 
-Alias: $patient-racaBRIPS = https://terminologia.saude.gov.br/fhir/ValueSet/BRRacaCor
+Alias: $patient-racaBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips
