@@ -28,11 +28,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     //$structuredefinition-identidade-genero-br-ips named identidadeGenero 0..1
     //$structuredefinition-populacao-tradicional-br-core named populacaoTradicional 0..1
     //$structuredefinition-povo-itinerante-br-core named povoItinerante 0..1
-///* extension[povoIndigena] ^short = "Afiliação do paciente"
-//* extension[povoIndigena] ^definition = "Afiliação do paciente"
-//* extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
-//* extension[sexoNascimento] ^definition = "Sexo do nascimento do paciente"
-
 
 * extension contains
     $patient-birthPlace named localNascimento 0..1 and
@@ -40,7 +35,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     $patient-racaBRIPS named raca 0..1 and
     $patient-povoIndigenaBRIPS named povoIndigena 0..1 and
     $patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
-    br-core-populacao-tradicional named br-core-populacao-tradicional 1..1
+    br-core-populacao-tradicional named povoTradicional 1..1
 
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
 * extension[localNascimento] ^definition = "Local de nascimento do paciente" 
@@ -52,8 +47,8 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension[povoIndigena] ^definition = "Afiliação do paciente"
 * extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
 * extension[sexoNascimento] ^definition = "Sexo do nascimento do paciente"
-* extension[br-core-populacao-tradicional] ^short = "Extensão de populacao tradicional do Core do Brasil"
-* extension[br-core-populacao-tradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
+* extension[povoTradicional] ^short = "Extensão de populacao tradicional do Core do Brasil"
+* extension[povoTradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
 
 * modifierExtension ^short = "Extensões adicionais"
 * modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo base"
