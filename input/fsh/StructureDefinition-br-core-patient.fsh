@@ -41,7 +41,8 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 
 
 * extension contains
-    $birthPlace named localNascimento 0..1 and
+    $patient-birthPlace named localNascimento 0..1 and
+    $patient-genderIdentity named identidadeGenero 0..1 and
     br-core-populacao-tradicional named br-core-populacao-tradicional 1..1
 
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
