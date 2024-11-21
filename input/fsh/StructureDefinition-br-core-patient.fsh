@@ -46,7 +46,9 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     br-core-populacao-tradicional named br-core-populacao-tradicional 1..1
 
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
-* extension[localNascimento] ^definition = "Local de nascimento do paciente"   
+* extension[localNascimento] ^definition = "Local de nascimento do paciente" 
+* extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
+* extension[identidadeGenero] ^definition = "Identidade de gênero do paciente"  
 * extension[br-core-populacao-tradicional] ^short = "Extensão de populacao tradicional do Core do Brasil"
 * extension[br-core-populacao-tradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
 

@@ -17,3 +17,5 @@ Alias: $loinc = https://loinc.org/
 Alias: $patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-birthPlace
 
 Alias: $patient-genderIdentity = http://hl7.org/fhir/StructureDefinition/patient-genderIdentity
+
+Alias: $patient-racaBRIPS = https://terminologia.saude.gov.br/fhir/ValueSet/BRRacaCor
