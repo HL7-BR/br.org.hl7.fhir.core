@@ -21,11 +21,11 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension ^short = "Extensões adicionais"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * extension contains
-    $structuredefinition-patient-birthPlace named localNascimento 0..1 and
+    $structuredefinition-patient-birthPlace named localNascimento 0..* and
     $structuredefinition-patient-genderIdentity named identidadeGenero 0..1 and
-    $structuredefinition-patient-racaBRIPS named raca 0..1 and
+    $structuredefinition-patient-racaBRIPS named raca 1..1 and
     $structuredefinition-patient-povoIndigenaBRIPS named povoIndigena 0..1 and
-    $structuredefinition-patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
+    $structuredefinition-patient-sexoNascimentoBRIPS named sexoNascimento 1..1 and
     br-core-populacao-tradicional named povoTradicional 1..1 and
     br-core-povo-itinerante named povoItinerante 0..1
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
@@ -64,13 +64,15 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].id ^definition = "Id lógico do identificador do paciente"
 * identifier[cns].extension ^short = "Extensões do identificador do paciente"
 * identifier[cns].extension ^definition = "Extensões incluídas no identificador do paciente"
+* identifier[cns].use 1..1
 * identifier[cns].use ^short = "Uso do identificador do paciente"
 * identifier[cns].use ^definition = "usual: identificador usual do paciente. official: identificador oficial do paciente. temp: identificador temporário do paciente. secondary: identificador secundário do paciente."
 * identifier[cns].use = http://hl7.org/fhir/identifier-use#official (exactly)
+* identifier[cns].type 1..1
 * identifier[cns].type ^short = "Tipo do identificador do paciente"
 * identifier[cns].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cns].type ^binding.description = "Tipo do identificador do paciente"
-
+* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
 * identifier[cns].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -109,6 +111,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].period ^definition = "Período de tempo durante o qual o identificador do paciente foi utilizado"
 * identifier[cns].assigner ^short = "Entidade que atribuiu o identificador do paciente"
 * identifier[cns].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
+* identifier[cns].assigner only Reference(br-core-organization)
 * identifier[cns].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
 
 * identifier[cpf] ^short = "Identificador do paciente"
@@ -117,13 +120,14 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].id ^definition = "Id lógico do identificador do paciente"
 * identifier[cpf].extension ^short = "Extensões do identificador do paciente"
 * identifier[cpf].extension ^definition = "Extensões incluídas no identificador do paciente"
+* identifier[cpf].use 1..1
 * identifier[cpf].use ^short = "Uso do identificador do paciente"
 * identifier[cpf].use ^definition = "usual: identificador usual do paciente. official: identificador oficial do paciente. temp: identificador temporário do paciente. secondary: identificador secundário do paciente."
 * identifier[cpf].use = http://hl7.org/fhir/identifier-use#official (exactly)
 * identifier[cpf].type ^short = "Tipo do identificador do paciente"
 * identifier[cpf].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cpf].type ^binding.description = "Tipo do identificador do paciente"
-
+* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
 * identifier[cpf].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -162,6 +166,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].period ^definition = "Período de tempo durante o qual o identificador do paciente foi utilizado"
 * identifier[cpf].assigner ^short = "Entidade que atribuiu o identificador do paciente"
 * identifier[cpf].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
+* identifier[cpf].assigner only Reference(br-core-organization)
 * identifier[cpf].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
 
 * identifier[passaporte] ^short = "Identificador do paciente"
@@ -175,6 +180,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[passaporte].use = http://hl7.org/fhir/identifier-use#official (exactly)
 * identifier[passaporte].type ^short = "Tipo do identificador do paciente"
 * identifier[passaporte].type ^definition = "Código que representa o tipo do identificador do paciente"
+* identifier[passaporte].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
 * identifier[passaporte].type ^binding.description = "Tipo do identificador do paciente"
 
 * identifier[passaporte].type.id ^short = "Id lógico do tipo do identificador do paciente"
@@ -215,6 +221,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[passaporte].period ^definition = "Período de tempo durante o qual o identificador do paciente foi utilizado"
 * identifier[passaporte].assigner ^short = "Entidade que atribuiu o identificador do paciente"
 * identifier[passaporte].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
+* identifier[passaporte].assigner only Reference(br-core-organization)
 * identifier[passaporte].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
 
 
@@ -230,7 +237,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].type ^short = "Tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type ^binding.description = "Tipo do identificador do paciente"
-
+* identifier[registroEstrangeiro].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
 * identifier[registroEstrangeiro].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -249,7 +256,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].type.coding.version ^short = "Versão da codificação do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.coding.version ^definition = "Versão da codificação do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.coding.code 1..1
-* identifier[registroEstrangeiro].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#PPN (exactly)
+* identifier[registroEstrangeiro].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#RNE (exactly)
 * identifier[registroEstrangeiro].type.coding.code ^short = "Código da codificação do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.coding.code ^definition = "Código que representa a codificação do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.coding.display ^short = "Texto da codificação do tipo do identificador do paciente"
@@ -269,6 +276,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].period ^definition = "Período de tempo durante o qual o identificador do paciente foi utilizado"
 * identifier[registroEstrangeiro].assigner ^short = "Entidade que atribuiu o identificador do paciente"
 * identifier[registroEstrangeiro].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
+* identifier[passaporte].assigner only Reference(br-core-organization)
 * identifier[registroEstrangeiro].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
 
 * active ^short = "Indica se o paciente está ativo"
@@ -310,6 +318,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * telecom.rank ^definition = "Indica a ordem de preferência do contato"
 * telecom.period ^short = "Período de tempo em que o contato foi usado"
 * telecom.period ^definition = "Período em que o meio de contato foi utilizado pelo paciente"
+* gender 1..1
 * gender ^short = "Sexo"
 * gender ^definition = "male | female | other | unknown"
 * birthDate ^short = "Data de nascimento do paciente"
