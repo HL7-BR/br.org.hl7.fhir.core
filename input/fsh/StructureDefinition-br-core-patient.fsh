@@ -39,6 +39,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     $patient-genderIdentity named identidadeGenero 0..1 and
     $patient-racaBRIPS named raca 0..1 and
     $patient-povoIndigenaBRIPS named povoIndigena 0..1 and
+    $patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
     br-core-populacao-tradicional named br-core-populacao-tradicional 1..1
 
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
@@ -49,6 +50,8 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension[raca] ^definition = "Raça do paciente"
 * extension[povoIndigena] ^short = "Afiliação do paciente"
 * extension[povoIndigena] ^definition = "Afiliação do paciente"
+* extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
+* extension[sexoNascimento] ^definition = "Sexo do nascimento do paciente"
 * extension[br-core-populacao-tradicional] ^short = "Extensão de populacao tradicional do Core do Brasil"
 * extension[br-core-populacao-tradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
 
