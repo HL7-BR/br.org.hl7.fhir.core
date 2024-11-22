@@ -23,6 +23,7 @@ Title: "br-core-encounter"
 * classHistory.period ^definition = "O tempo em que o episódio estava na classe especificada"
 * type ^short = "Tipo específico de atendimento"
 * type ^definition = "Tipo específico de atendimento"
+* type from https://fhir.ans.gov.br/ValueSet/tipo-atendimento (required)
 * serviceType ^short = "Tipo específico de serviço"
 * serviceType ^definition = "Tipo específico de serviço"
 * priority ^short = "Indica a urgência do atendimento"
