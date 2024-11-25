@@ -28,14 +28,20 @@ Description: "Este perfil "
 * status ^definition = "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
 * intent ^short = "Códigos que indicam o grau de autoridade/intencionalidade associado a uma solicitação."
 * intent ^definition = "proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
+* category 1..1
 * category ^short = "Códigos que indicam o grau de autoridade/intencionalidade associado a uma solicitação."
 * category ^definition = "Códigos que indicam o grau de autoridade/intencionalidade associado a uma solicitação."
+//* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriProcedimento
+* priority 1..1
 * priority ^short = "A prioridade clínica de uma ordem diagnóstica."
 * priority ^definition = "routine | urgent | asap | stat"
+//* priority from https://terminologia.saude.gov.br/fhir/ValueSet/brcarateratendimentomira (required)
 * doNotPerform ^short = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * doNotPerform ^definition = "Verdadeiro se o serviço/procedimento não deve ser executado"
+* code 1..1
 * code ^short = "What is being requested/ordered"
 * code ^definition = "What is being requested/ordered"
+//* code from https://terminologia.saude.gov.br/fhir/ValueSet/brprocedimentosnacionais (example)
 * orderDetail ^short = "Informações adicionais sobre o pedido"
 * orderDetail ^definition = "Informações adicionais sobre o pedido"
 * quantity[x] ^short = "Valor do serviço"
@@ -51,11 +57,13 @@ Description: "Este perfil "
 * asNeeded[x] ^definition = "Pré-condições para o serviço"
 * authoredOn ^short = "Data de solicitação assinada"
 * authoredOn ^definition = "Data de solicitação assinada"
+* requester 1..1
 * requester ^short = "Quem/o que está solicitando o serviço"
 * requester ^definition = "Quem/o que está solicitando o serviço"
 * requester only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson)
 * performerType ^short = "Papel do performador"
 * performerType ^definition = "Papel do performador"
+* performer 0..1
 * performer ^short = "Performador solicitado"
 * performer ^definition = "Performador solicitado"
 * performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-healthcareservice or br-core-patient or Device or br-core-relatedperson)
@@ -63,12 +71,13 @@ Description: "Este perfil "
 * locationCode ^definition = "Localização solicitada"
 * locationReference ^short = "Localização solicitada"
 * locationReference ^definition = "Localização solicitada"
-* locationReference only Reference (br-core-location)
+* locationReference only Reference(br-core-location)
 * reasonCode ^short = "Explicação/Justificativa para procedimento ou serviço"
 * reasonCode ^definition = "Explicação/Justificativa para procedimento ou serviço"
+* reasonReference 1..1
 * reasonReference ^short = "Explicação/Justificativa para serviço ou assistência"
-* reasonReference only Reference (br-core-condition or br-core-observation or br-core-diagnosticreport or DocumentReference)
 * reasonReference ^definition = "Explicação/Justificativa para serviço ou assistência"
+* reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport or DocumentReference)
 * insurance ^short = "Cobertura de seguro associada"
 * insurance ^definition = "Cobertura de seguro associada"
 * supportingInfo ^short = "Informações clínicas adicionais"
