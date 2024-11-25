@@ -26,8 +26,8 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     $structuredefinition-patient-racaBRIPS named raca 1..1 and
     $structuredefinition-patient-povoIndigenaBRIPS named povoIndigena 0..1 and
     $structuredefinition-patient-sexoNascimentoBRIPS named sexoNascimento 1..1 and
-    br-core-populacao-tradicional named povoTradicional 1..1 and
-    br-core-povo-itinerante named povoItinerante 0..1
+    br-core-populacaotradicional named povoTradicional 1..1 and
+    br-core-povoitinerante named povoItinerante 0..1
 * extension[localNascimento] ^short = "Local de nascimento do paciente"
 * extension[localNascimento] ^definition = "Local de nascimento do paciente" 
 * extension[identidadeGenero] ^short = "Identidade de gênero do paciente"
