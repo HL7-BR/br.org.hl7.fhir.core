@@ -63,7 +63,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnes].type.coding.version ^short = "Versão da codificação do tipo do identificador do estabelecimento"
 * identifier[cnes].type.coding.version ^definition = "Versão da codificação do tipo do identificador do estabelecimento"
 * identifier[cnes].type.coding.code 1..1
-* identifier[cnes].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#PPN (exactly)
+* identifier[cnes].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#PRN (exactly)
 * identifier[cnes].type.coding.code ^short = "Código da codificação do tipo do identificador do estabelecimento"
 * identifier[cnes].type.coding.code ^definition = "Código que representa a codificação do tipo do identificador do estabelecimento"
 * identifier[cnes].type.coding.display ^short = "Texto da codificação do tipo do identificador do estabelecimento"
