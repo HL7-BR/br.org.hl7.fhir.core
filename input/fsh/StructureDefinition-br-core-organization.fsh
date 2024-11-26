@@ -199,6 +199,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * type ^short = "Tipo do Estabelecimento de saúde"
 * type ^definition = "Classificação do Estabelecimento de Saúde de acordo com um conjunto de dimensões."
 * type 1..*
+//* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
 * name ^short = "Nome usado para a organização"
 * name ^definition = "Nome do Estabelecimento de saúde"
 * alias ^short = "Nome Empresarial"
