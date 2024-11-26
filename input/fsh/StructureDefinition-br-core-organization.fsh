@@ -196,16 +196,19 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 
 * active ^short = "Estabelecimento de Saúde ainda está em ativo." 
 * active ^definition = "Se o Estabelecimento de Saúde ainda está em ativo."
+* type 1..*
 * type ^short = "Tipo do Estabelecimento de saúde"
 * type ^definition = "Classificação do Estabelecimento de Saúde de acordo com um conjunto de dimensões."
-* type 1..*
 //* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
+* name 1..1
 * name ^short = "Nome usado para a organização"
 * name ^definition = "Nome do Estabelecimento de saúde"
+* alias 1..1
 * alias ^short = "Nome Empresarial"
 * alias ^definition = "Firma ou denominação adotada para o exercício da instituição/entidade/órgão/empresa."
 * telecom ^short = "Meio de contato" 
 * telecom ^definition = "Informações do(s) meio(s) de contato com o Estabelecimento de Saúde."
+* address 1..1
 * address ^short = "Dados de Endereçamento"
 * address ^definition = "Dados do endereço onde o Estabelecimento de Saúde é localizado."
 * partOf ^short = "CPF/CNPJ do Estabelecimento/Mantenedora"
