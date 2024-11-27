@@ -68,11 +68,6 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * effective[x].extension.extension ^definition = "Conteúdo adicional definido por implementações"
 * effective[x].extension.url ^short = "Por quê o valor esperado não está presente"
 * effective[x].extension.url ^definition = "Por quê o valor esperado não está presente"
-* effective[x].extension.value[x] ^short = "Valor da extensão"
-* effective[x].extension.value[x] ^definition = "Valor da extensão"
-* effective[x].effectivePeriod ^short = "Tempo/período de tempo clinicamente relevante para observação"
-* effective[x].effectivePeriod ^definition = "Tempo/período de tempo clinicamente relevante para observação"
-* effective[x].effectivePeriod 1..1
 * issued ^short = "Data/hora em que esta versão foi disponibilizada"
 * issued ^definition = "Data/hora em que esta versão foi disponibilizada"
 * issued 1..1
