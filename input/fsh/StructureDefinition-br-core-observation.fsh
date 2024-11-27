@@ -27,9 +27,10 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * basedOn only Reference(br-core-careplan or DeviceRequest or br-core-immunizationrecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
-//* partOf only Reference(br-core-medicationreference or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or br-core-imagingstudy)
+* partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
 * status ^short = "Status atual da observação"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
+* status from https://terminologia.saude.gov.br/fhir/ValueSet/brestadoobservacao-1.0
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
 * category 1..1
@@ -37,17 +38,19 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * code ^definition = "Código da observação"
 * subject ^short = "De quem ou do que trata a observação"
 * subject ^definition = "De quem ou do que trata a observação"
+* subject only Reference(br-core-patient or br-core-location or Device or Group)
 * subject.id ^short = "ID exclusivo para referência entre elementos"
 * subject.id ^definition = "ID exclusivo para referência entre elementos"
 * subject.extension ^short = "Conteúdo adicional definido por implementações"
 * subject.extension ^definition = "Conteúdo adicional definido por implementações"
+* subject.reference ^short = "Conteúdo adicional definido por implementações"
+* subject.reference ^definition = "Conteúdo adicional definido por implementações"
 * subject.type ^short = "Tipo de referência (por exemplo, Paciente)"
 * subject.type ^definition = "Tipo de referência (por exemplo, Paciente)"
 * subject.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
 * subject.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
 * subject.display ^short = "Texto alternativo para este rescurso"
 * subject.display ^definition = "Texto alternativo para este recurso"
-* subject only Reference(br-core-patient or br-core-location or Device or Group)
 * focus ^short = "Sobre o que é a observação, quando esta não é sobre o sujeito do registro"
 * focus ^definition = "Sobre o que é a observação, quando esta não é sobre o sujeito do registro"
 * focus only Reference(Resource)
@@ -70,7 +73,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * issued 1..1
 * performer ^short = "Quem é o responsável pela observação"
 * performer ^definition = "Quem é o responsável pela observação"
-//* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
+* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
 * value[x] ^short = "Resultado da observação"
 * value[x] ^definition = "Resultado da observação"
 * value[x] 1..1
@@ -79,6 +82,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
 * interpretation 0..1
+* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativo
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
 * note 0..1
@@ -120,7 +124,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * referenceRange.text 1..1
 * hasMember ^short = "Recurso relacionado que pertence a observação"
 * hasMember ^definition = "Recurso relacionado que pertence a observação"
-* hasMember only Reference(br-core-observation or br-core-observation)
+* hasMember only Reference(br-core-observation or QuestionnaireResponse or MolecularSequence)
 * derivedFrom ^short = "Medições relacionadas a partir das quais a observação é feita"
 * derivedFrom ^definition = "Medições relacionadas a partir das quais a observação é feita"
 * derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or br-core-observation or MolecularSequence)
@@ -136,6 +140,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * component.code ^definition = "Tipo do componente da observação"
 * component.value[x] ^short = "Resultado do componente"
 * component.value[x] ^definition = "Resultado do componente"
+* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativo
 * dataAbsentReason ^short = "Por que o resultado do componente está ausente"
 * dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
 * interpretation ^short = "Interpretação do resultado do componente"
