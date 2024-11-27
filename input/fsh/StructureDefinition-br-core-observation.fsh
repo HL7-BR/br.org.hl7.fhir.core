@@ -3,8 +3,6 @@ Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observation
 Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/StructureDefinition/br-core-observation.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
-//* effective.extension.data-absent-reason 0..0
-//* specimen 0..*
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
 * meta ^short = "Metadados sobre recurso"
@@ -43,8 +41,9 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * subject.id ^definition = "ID exclusivo para referência entre elementos"
 * subject.extension ^short = "Conteúdo adicional definido por implementações"
 * subject.extension ^definition = "Conteúdo adicional definido por implementações"
-* subject.reference ^short = "Conteúdo adicional definido por implementações"
-* subject.reference ^definition = "Conteúdo adicional definido por implementações"
+* subject.reference 0..1
+* subject.reference ^short = "Referência literal, URL relativa, interna ou absoluta"
+* subject.reference ^definition = "Referência literal, URL relativa, interna ou absoluta"
 * subject.type ^short = "Tipo de referência (por exemplo, Paciente)"
 * subject.type ^definition = "Tipo de referência (por exemplo, Paciente)"
 * subject.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
@@ -59,15 +58,21 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * encounter only Reference(br-core-encounter)
 * effective[x] ^short = "Tempo ou período de tempo clinicamente relevante para a observação"
 * effective[x] ^definition = "Tempo ou período de tempo clinicamente relevante para a observação"
+* effective[x].id ^short = "ID exclusivo para referência entre elementos"
+* effective[x].id ^definition = "ID exclusivo para referência entre elementos"
 * effective[x].extension ^short = "Conteúdo adicional definido por implementações"
 * effective[x].extension ^definition = "Conteúdo adicional definido por implementações"
 * effective[x].extension.id ^short = "Identificador único para referenciação cruzada"
 * effective[x].extension.id ^definition = "Identificador único para referenciação cruzada"
-//* effective[x].extension.id only Reference(br-core-encounter)
+* effective[x].extension.extension ^short = "Conteúdo adicional definido por implementações"
+* effective[x].extension.extension ^definition = "Conteúdo adicional definido por implementações"
 * effective[x].extension.url ^short = "Por quê o valor esperado não está presente"
-//* effective[x].extension[data-absent-reason] ^definition = "Utilizado para especificar o porquê o valor esperado não está presente"
-* effectiveDateTime 0..0
-* effectivePeriod 1..1
+* effective[x].extension.url ^definition = "Por quê o valor esperado não está presente"
+* effective[x].extension.value[x] ^short = "Valor da extensão"
+* effective[x].extension.value[x] ^definition = "Valor da extensão"
+* effective[x].effectivePeriod ^short = "Tempo/período de tempo clinicamente relevante para observação"
+* effective[x].effectivePeriod ^definition = "Tempo/período de tempo clinicamente relevante para observação"
+* effective[x].effectivePeriod 1..1
 * issued ^short = "Data/hora em que esta versão foi disponibilizada"
 * issued ^definition = "Data/hora em que esta versão foi disponibilizada"
 * issued 1..1
@@ -82,7 +87,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
 * interpretation 0..1
-* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativo
+* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
 * note 0..1
@@ -140,10 +145,10 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * component.code ^definition = "Tipo do componente da observação"
 * component.value[x] ^short = "Resultado do componente"
 * component.value[x] ^definition = "Resultado do componente"
-* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativo
-* dataAbsentReason ^short = "Por que o resultado do componente está ausente"
-* dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
-* interpretation ^short = "Interpretação do resultado do componente"
-* interpretation ^definition = "Interpretação do resultado do componente"
-* referenceRange ^short = "Valores de referência"
-* referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
+* component.dataAbsentReason ^short = "Por que o resultado do componente está ausente"
+* component.dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
+* component.interpretation ^short = "Interpretação do resultado do componente"
+* component.interpretation ^definition = "Interpretação do resultado do componente"
+* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
+* component.referenceRange ^short = "Valores de referência"
+* component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
