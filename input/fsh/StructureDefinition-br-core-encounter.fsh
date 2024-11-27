@@ -23,8 +23,10 @@ Title: "br-core-encounter"
 * classHistory.period ^definition = "O tempo em que o episódio estava na classe especificada"
 * type ^short = "Tipo específico de atendimento"
 * type ^definition = "Tipo específico de atendimento"
+* type from https://fhir.ans.gov.br/ValueSet/tipo-atendimento
 * serviceType ^short = "Tipo específico de serviço"
 * serviceType ^definition = "Tipo específico de serviço"
+* serviceType from https://terminologia.saude.gov.br/fhir/VAlueSet-BRServicoEspecializado
 * priority ^short = "Indica a urgência do atendimento"
 * priority ^definition = "Indica a urgência do atendimento"
 * priority 1..1
@@ -57,6 +59,7 @@ Title: "br-core-encounter"
 * length ^definition = "Quantidade de tempo que durou o atendimento (menos tempo ausente)"
 * reasonCode ^short = "Motivo codificado pelo qual o atendimento acontece"
 * reasonCode ^definition = "Motivo codificado pelo qual o atendimento acontece"
+* reasonCode from https://terminologia.saude.gov.br/fhir/VAlueSet-BREncounterReason
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or br-core-immunizationrecommendation)
@@ -69,6 +72,7 @@ Title: "br-core-encounter"
 * diagnosis.use ^short = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use 1..1
+* diagnosis.use from https://terminologia.saude.gov.br/fhir/VAlueSet-diagnosis-role
 * diagnosis.rank ^short = "Classificação do diagnóstico (para cada tipo de função)"
 * diagnosis.rank ^definition = "Classificação do diagnóstico (para cada tipo de função)"
 * account ^short = "O conjunto de contas que podem ser usadas para cobrança deste Atendimento"
