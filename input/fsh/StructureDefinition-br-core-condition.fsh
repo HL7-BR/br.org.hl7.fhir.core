@@ -98,6 +98,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * note ^short = "Informações adicionais sobre a condição"
 * note ^definition = "Informações adicionais sobre a condição"
 
+/* Revisar regra
 Invariant: br-core-condition-con-3
 Description: "condition.clinicalStatus DEVE estar presente se condition.verificationStatus não for 'entered-in-error' e a categoria for problem-list-item"
 Expression: "(condition.verificationStatus.where(code != 'entered-in-error').exists() and condition.category.where(code = 'problem-list-item').exists()) implies condition.clinicalStatus.exists()"
@@ -115,3 +116,4 @@ Description: "Condition.clinicalStatus NÃO DEVE estar presente se verificationS
 Expression: "(condition.verificationStatus.coding.where(code = 'entered-in-error').exists()) implies condition.clinicalStatus.empty()"
 Severity: #error
 XPath: "not(exists(f:verificationStatus/f:coding[f:code/@value='entered-in-error'])) or not(exists(f:clinicalStatus))"
+*/
