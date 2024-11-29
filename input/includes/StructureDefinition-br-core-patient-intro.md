@@ -87,7 +87,8 @@ Extensões adicionais do recurso br-core-patient
       <td>povoItinerante</td>
       <td>População em situação de rua, ciganos, circenses, andarilhos, acampados, assentados, etc ou mesmo trabalhadores da área adstrita. Portaria Nº 2.436, de 21 de setembro de 2017.</td>
       <td>0..1</td>
-      <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante">https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante</a></td>
+      <!-- <td><a href="https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante">https://terminologia.saude.gov.br/fhir/CodeSystem/BRPovoItinerante</a></td>--> 
+      
     </tr>
     <tr>
       <td>sexoNascimento</td>
