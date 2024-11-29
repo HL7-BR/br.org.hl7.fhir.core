@@ -55,19 +55,19 @@ Foram criadas extensões para representar os identificadores de todos os profiss
   <tbody>
     <tr>
       <td>Médico</td>
-      <td>Conselhos Regionais de Medicina do Brasil<br><br>Practitioner.identifier:identificadorMedico.type<br>Fixed Value: <a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-MD">MD</a></td>
+      <td>Conselhos Regionais de Medicina do Brasil<br><br>Practitioner.identifier:identificadorMedico.type<br>Fixed Value: <a href="http://terminology.hl7.org/CodeSystem/v2-0203">MD</a></td>
       <td></td>
       <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM">https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM</a></td>
     </tr>
     <tr>
       <td>Farmacêutico</td>
-      <td>Conselhos regionais de Farmácia do Brasil<br><br>Practitioner.identifier:identificadorFarmaceutico.type<br>Fixed Value: <a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-RPH">RPH</a></td>
+      <td>Conselhos regionais de Farmácia do Brasil<br><br>Practitioner.identifier:identificadorFarmaceutico.type<br>Fixed Value: <a href="http://terminology.hl7.org/CodeSystem/v2-0203">RPH</a></td>
       <td></td>
       <td><a href="https://terminologia.saude.gov.br/ValueSet-BRCRF.html">https://terminologia.saude.gov.br/ValueSet-BRCRF.html</a></td>
     </tr>
     <tr>
       <td>Odontólogo</td>
-      <td>Conselhos regionais de Odontologia do Brasil<br><br>Practitioner.identifier:identificadorOdontologo.type<br>Fixed Value:<a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-DDS">DDS</a></td>
+      <td>Conselhos regionais de Odontologia do Brasil<br><br>Practitioner.identifier:identificadorOdontologo.type<br>Fixed Value:<a href="http://terminology.hl7.org/CodeSystem/v2-0203">DDS</a></td>
       <td></td>
       <td><a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRCRO">https://terminologia.saude.gov.br/fhir/ValueSet/BRCRO</a></td>
     </tr>
@@ -79,7 +79,7 @@ Foram criadas extensões para representar os identificadores de todos os profiss
     </tr>
     <tr>
       <td>Outros Profissionais de Saúde (Psicologia, Fisioterapia, Nutricionista, Fonoaudiologia)</td>
-      <td>Conselhos regionais de outros profissionais da saúde do Brasil<br><br>Practitioner.identifier:identificadorOutrosProfissionais.type<br>Fixed Value:<a href="http://terminology.hl7.org/5.3.0/CodeSystem-v2-0203.html#v2-0203-RI">RI</a></td>
+      <td>Conselhos regionais de outros profissionais da saúde do Brasil<br><br>Practitioner.identifier:identificadorOutrosProfissionais.type<br>Fixed Value:<a href="http://terminology.hl7.org/CodeSystem/v2-0203">RI</a></td>
       <td></td>
       <td><a href="https://terminologia-br-ig.web.app/ValueSet-BROutrosProfissionais.html">https://terminologia-br-ig.web.app/ValueSet-BROutrosProfissionais.html</a></td>
     </tr>
