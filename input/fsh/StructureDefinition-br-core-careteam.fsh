@@ -9,7 +9,7 @@ Description: ""
 * status ^definition = "proposed | active | suspended | inactive | entered-in-error"
 * category ^short = "Tipo do time"
 * category ^definition = "Tipo do time"
-* category from https://terminologia.saude.gov.br/fhir/ValueSer-BRModalidadeAssistencial.html (example)
+//* category from https://terminologia.saude.gov.br/fhir/ValueSer-BRModalidadeAssistencial.html (example)
 * name ^short = "Nome da equipe, como equipe de avaliação de crise"
 * name ^definition = "Nome da equipe, como equipe de avaliação de crise"
 * subject ^short = "Para quem é a equipe de cuidados"
@@ -24,7 +24,7 @@ Description: ""
 * participant ^definition = "Lista de participantes envolvidos no atendimento"
 * participant.role ^short = "Tipo de envolvimento"
 * participant.role ^definition = "Tipo de envolvimento"
-* participant.role from https://terminologia.saude.gov.br/fhir/ValueSet-BRCBO.html (example)
+//* participant.role from https://terminologia.saude.gov.br/fhir/ValueSet-BRCBO.html (example)
 * participant.member ^short = "Quem está envolvido"
 * participant.member ^definition = "Quem está envolvido"
 * participant.member only Reference(br-core-practitioner or br-core-practitionerrole or br-core-relatedperson or br-core-patient or br-core-organization or br-core-careteam)
@@ -35,7 +35,6 @@ Description: ""
 * participant.period ^definition = "Período de tempo do participante"
 * reasonCode ^short = "Por que a equipe de atendimento existe"
 * reasonCode ^definition = "Por que a equipe de atendimento existe"
-* reasonCode from http://hl7.org/fhir/sid/icd-10 (example)
 * reasonReference ^short = "Por que a equipe de atendimento existe"
 * reasonReference ^definition = "Por que a equipe de atendimento existe"
 * reasonReference only Reference(br-core-condition)
