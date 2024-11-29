@@ -23,7 +23,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * identifier ^definition = "Identificadores externos para este recurso"
 * clinicalStatus ^short = "O status clínico da condição ou do diagnóstico"
 * clinicalStatus ^definition = "O status clínico da condição ou do diagnóstico"
-* clinicalStatus obeys br-core-condition-con-3 and br-core-condition-con-4 and br-core-condition-con-5
+//* clinicalStatus obeys br-core-condition-con-3 and br-core-condition-con-4 and br-core-condition-con-5
 * verificationStatus ^short = "O status de verificação para apoiar ou recusar o status clínico da condição ou do diagnóstico"
 * verificationStatus ^definition = "unconfirmed | provisional | differential | confirmed | refuted | entered-in-error" 
 * category ^short = "Categoria da condição" 
