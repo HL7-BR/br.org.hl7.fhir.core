@@ -21,5 +21,5 @@ Description: "Este perfil de extensão representa um populacao tradicional com a
 * url = "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-populacaotradicional" (exactly)
 * value[x] 1..1
 * value[x] only CodeableConcept
-* value[x] from https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-populacaotradicional (required)
+//* value[x] from https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-populacaotradicional (required)
 * value[x] ^binding.description = "População tradicional"
