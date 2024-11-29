@@ -28,7 +28,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
 * status ^short = "Status atual da observação"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
-* status from https://terminologia.saude.gov.br/fhir/ValueSet/brestadoobservacao-1.0
+//* status from https://terminologia.saude.gov.br/fhir/ValueSet/brestadoobservacao-1.0
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
 * category 1..1
@@ -82,7 +82,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
 * interpretation 0..1
-* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
+//* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
 * note 0..1
@@ -144,6 +144,6 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * component.dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
 * component.interpretation ^short = "Interpretação do resultado do componente"
 * component.interpretation ^definition = "Interpretação do resultado do componente"
-* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
+//* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
