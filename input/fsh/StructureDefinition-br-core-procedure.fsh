@@ -65,8 +65,6 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * performed[x] ^definition = "Quando o procedimento foi realizado."
 * performed[x].id ^short = "Identificador exclusivo para referência entre elementos."
 * performed[x].id ^definition = "Identificador exclusivo para referência entre elementos."
-* performedDateTime 1..1
-//=======================================================================
 * recorder ^short = "Quem registrou o procedimento."
 * recorder ^definition = "Quem registrou o procedimento."
 * recorder only Reference(br-core-patient or br-core-relatedperson or br-core-practitioner or br-core-practitionerrole)
@@ -110,7 +108,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * report only Reference(br-core-diagnosticreport or DocumentReference or br-core-composition)
 * complication ^short = "Complicação após o procedimento."
 * complication ^definition = "Complicação após o procedimento."
-//* complication from https://terminologia.saude.gov.br/fhir/ValueSet-BRProblemaDiagnostico
+//* complication from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico
 * complicationDetail ^short = "Uma condição que é resultado da complicação do procedimento."
 * complicationDetail ^definition = "Uma condição que é resultado da complicação do procedimento."
 * complicationDetail only Reference(br-core-condition)
@@ -128,7 +126,6 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * focalDevice.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."
 * focalDevice.action ^short = "Tipo de alteração no dispositivo."
 * focalDevice.action ^definition = "Tipo de alteração no dispositivo."
-* focalDevice.action from http://hl7.org/fhir/R4/valueset-device-action.html (preferred)
 * focalDevice.manipulated ^short = "Dispositivo que foi alterado."
 * focalDevice.manipulated ^definition = "Dispositivo que foi alterado."
 * focalDevice.manipulated only Reference(Device)
@@ -137,8 +134,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * usedReference only Reference(Device or br-core-medication or Substance)
 * usedCode ^short = "Itens codificados usados ​durante o procedimento."
 * usedCode ^definition = "Itens codificados usados ​​durante o procedimento."
-<<<<<<< HEAD
-* usedCode from https://terminologia.saude.gov.br/fhir/ValueSet/BROrtesesProtesesImplantaveis (required)
-=======
-//* usedCode from https://terminologia.saude.gov.br/fhir/ValueSet-BROrtesesProtesesImplantaveis
->>>>>>> 2a7e5d201c7ec1349cb660bb9c55324476b013ca
+//* usedCode from https://terminologia.saude.gov.br/fhir/ValueSet/BROrtesesProtesesImplantaveis
