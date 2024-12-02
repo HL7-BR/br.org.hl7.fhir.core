@@ -37,9 +37,11 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * statusReason 1..1
 * category ^short = "Classificação do procedimento."
 * category ^definition = "Classificação do procedimento. Exemplo: um código que classifica um procedimento para fins de pesquisa, classificação e exibição."
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento (required)
 * code ^short = "Um conceito que referencia uma terminologia ou apenas texto."
 * code ^definition = "Um conceito que referencia uma terminologia ou apenas texto."
 * code 1..1
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (preferred)
 * subject ^short = "Em quem o procedimento foi realizado."
 * subject ^definition = "Em quem o procedimento foi realizado."
 * subject only Reference(br-core-patient)
@@ -64,6 +66,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * performed[x] ^definition = "Quando o procedimento foi realizado."
 * performed[x].id ^short = "Identificador exclusivo para referência entre elementos."
 * performed[x].id ^definition = "Identificador exclusivo para referência entre elementos."
+* performedDateTime 1..1
 //=======================================================================
 * recorder ^short = "Quem registrou o procedimento."
 * recorder ^definition = "Quem registrou o procedimento."
@@ -93,6 +96,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * location only Reference(br-core-location)
 * reasonCode ^short = "Código do motivo do procedimento realizado."
 * reasonCode ^definition = "Código do motivo do procedimento realizado."
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/CID10 (required)
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-procedure or br-core-diagnosticreport or DocumentReference)
@@ -122,6 +126,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * focalDevice.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."
 * focalDevice.action ^short = "Tipo de alteração no dispositivo."
 * focalDevice.action ^definition = "Tipo de alteração no dispositivo."
+* focalDevice.action from http://hl7.org/fhir/R4/valueset-device-action.html (preferred)
 * focalDevice.manipulated ^short = "Dispositivo que foi alterado."
 * focalDevice.manipulated ^definition = "Dispositivo que foi alterado."
 * focalDevice.manipulated only Reference(Device)
@@ -130,3 +135,4 @@ Description: "Este perfil representa as restrições aplicadas ao recurso Proced
 * usedReference only Reference(Device or br-core-medication or Substance)
 * usedCode ^short = "Itens codificados usados ​durante o procedimento."
 * usedCode ^definition = "Itens codificados usados ​​durante o procedimento."
+* usedCode from https://terminologia.saude.gov.br/fhir/ValueSet/BROrtesesProtesesImplantaveis (required)
