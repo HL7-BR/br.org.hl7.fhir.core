@@ -18,8 +18,8 @@ Description: "Este perfil de extensão representa um povo itinerante com a qual 
 * . ^short = "Extensão de povo itinerante"
 * . ^definition = "Conceitos que definem o povo itinerante do paciente"
 * url 1..1
-* url = "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-povoitinerante" (exactly)
+//* url = "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-povoitinerante" (exactly)
 * value[x] 1..1
 * value[x] only CodeableConcept
-* value[x] from https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-povoitinerante (required)
+//* value[x] from https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-povoitinerante (required)
 * value[x] ^binding.description = "Povo itinerante"
