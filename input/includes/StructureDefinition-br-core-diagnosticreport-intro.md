@@ -29,9 +29,10 @@ Este perfil ainda não está implementado na RNDS.
 Os seguintes elementos devem ser obrigatórios, ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support). 
 
 **Cada Perfil DiagnosticReport  deve ter:**
-1.	status - situação do relatório (registrado | disponível | cancelado | inserido-por-erro | desconhecido)
-2.	Code – código LOINC para o relatório de diagnóstico.
-3.	Media.link – link que referencia a imagem.
+
+1.	Status - situação do relatório (registrado | disponível | cancelado | inserido-por-erro | desconhecido)
+2.	Code – código LOINC para o relatório de diagnóstico
+3.	Media.link – link que referencia a imagem
 
 ### Cada Perfil DiagnosticReport deve oferecer suporte a:
 
