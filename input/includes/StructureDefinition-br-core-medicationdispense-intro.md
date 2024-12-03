@@ -64,8 +64,8 @@ O domínio Medicação(Medication) inclui uma série de recursos relacionados, c
 <table border="1">
   <tbody>
   <tr>
-      <th>MedicationRequest(<a href="https://saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest">br-core-medicationrequest</a>)</th>
-      <th>Uma ordem para fornecimento do medicamento e instruções para administração do medicamento a um paciente.</th>
+      <td>MedicationRequest(<a href="https://saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest">br-core-medicationrequest</a>)</td>
+      <td>Uma ordem para fornecimento do medicamento e instruções para administração do medicamento a um paciente.</td>
     </tr>
     <tr>
       <td>MedicamentoDispense(<a href="https://saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense.html">br-core-medicationdispense</a>)</td>
