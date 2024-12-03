@@ -2,7 +2,7 @@ Profile: br-core-medicationrequest
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationRequest
 Id: br-core-medicationrequest
 Title: "br-core-medicationrequest"
-Description: "Este perfil restringe a representação de uma requisição de medicamento relacionada ao paciente"
+Description: "Um pedido ou solicitação para fornecimento do medicamento e instruções para administração do medicamento a um paciente. O recurso é chamado de 'MedicationRequest' em vez de 'MedicationPrescription' ou 'MedicationOrder' para generalizar o uso em ambientes de internação e ambulatorial, incluindo planos de cuidados, etc., e para harmonizar com padrões de fluxo de trabalho."
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
