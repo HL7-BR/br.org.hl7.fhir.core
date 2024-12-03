@@ -2,6 +2,7 @@ Profile: br-core-location
 Parent: http://hl7.org/fhir/StructureDefinition/Location
 Id: br-core-location
 Title: "br-core-location"
+Description: "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4/location.html) que aborda detalhes e informações da posição de um local físico onde os serviços são fornecidos e os recursos e participantes podem ser armazenados, encontrados, contidos ou acomodados."
 
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"
