@@ -39,13 +39,11 @@ O recurso [br-core-medicationstatement](https://saude.gov.br/fhir/StructureDefin
 O domínio Medicamentos inclui uma série de recursos relacionados.
 
 <table border="1">
-  <thead>
-    <tr>
+  <tbody>
+  <tr>
       <th>MedicationRequest(<a href="https://saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest">br-core-medicationrequest</a>)</th>
       <th>Uma ordem para fornecimento do medicamento e instruções para administração do medicamento a um paciente.</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <td>MedicamentoDispense(<a href="https://saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense.html">br-core-medicationdispense</a>)</td>
       <td>Fornecimento de um medicamento com a intenção de que ele seja posteriormente consumido por um paciente (geralmente em resposta a uma prescrição).</td>
