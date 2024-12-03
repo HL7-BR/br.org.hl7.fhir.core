@@ -1,7 +1,8 @@
 Profile: br-core-careteam
 Parent: http://hl7.org/fhir/StructureDefinition/CareTeam
 Id: br-core-careteam
-Description: ""
+Title: "br-core-careteam"
+Description: "Este perfil restringe o recurso [CareTeam](https://hl7.org/fhir/R4/careteam.html) que inclui todas as pessoas e organizações que planejam participar da coordenação e prestação de cuidados a um paciente."
 
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"
