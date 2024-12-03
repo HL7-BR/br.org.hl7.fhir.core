@@ -49,7 +49,6 @@ O [br-core-location](https://saude.gov.br/fhir/StructureDefinition/br-core-locat
 Um local é válido sem um endereço em casos em que ele poderia ser puramente descrito por um local geocodificado em áreas remotas, ou quando registrado por um dispositivo. Locais com um modo = "kind" provavelmente também não teriam um endereço, pois são apenas um tipo de local, mas também poderiam ter um endereço onde podem ser encontrados no endereço.
 
 Outro uso de localização poderia ser para descrever uma Jurisdição. Esta jurisdição pode ser considerada um limite classificado que pode ser uma combinação de um limite físico e algum outro(s) discriminador(es):
-
 -	Nação - Comunidade nacional ou Governo Federal (Ministério da Saúde)
 -	Província ou Estado (comunidade ou governo)
 -	Negócios (em toda a empresa)
