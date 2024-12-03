@@ -18,10 +18,10 @@ Este perfil ainda não está implementado na RNDS.
 Os seguintes elementos devem ser obrigatórios, ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support). 
 
 **Cada Perfil [br-core-careteam](https://saude.gov.br/fhir/StructureDefinition/br-core-careteam.html) deve ter:**
-Não há elementos obrigatórios.
+- Não há elementos obrigatórios.
 
 **Cada Perfil [br-core-careteam](https://saude.gov.br/fhir/StructureDefinition/br-core-careteam.html) deve oferecer suporte a:**
-Não há elementos.
+- Não há elementos.
 
 ### Limites e relacionamentos
 
