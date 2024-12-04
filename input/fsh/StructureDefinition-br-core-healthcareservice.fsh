@@ -2,6 +2,7 @@ Profile: br-core-healthcareservice
 Parent: http://hl7.org/fhir/StructureDefinition/HealthcareService
 Id: br-core-healthcareservice
 Title: "br-core-healthcareservice"
+Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.org/fhir/R4/healthcareservice.html) que representa os detalhes de um serviço de saúde disponível em um local."
 
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"
