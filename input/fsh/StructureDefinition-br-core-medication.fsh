@@ -2,6 +2,7 @@ Profile: br-core-medication
 Parent: http://hl7.org/fhir/StructureDefinition/Medication
 Id: br-core-medication
 Title: "br-core-medication"
+Description: "Este recurso é uma especialização do recurso FHIR R4 [Medication](https://hl7.org/fhir/R4/medication.html) usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
