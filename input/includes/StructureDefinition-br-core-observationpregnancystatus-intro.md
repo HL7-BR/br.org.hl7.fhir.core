@@ -31,8 +31,8 @@ Este perfil não possui extensões.
 
 ### Limites e relacionamentos
 
-O perfil está diretamente relacionado ao recurso de [br-core-patient](https://saude.gov.br/fhir/StructureDefinition/br-core-patient.html), identificando a pessoa cujo resultado de gestação está sendo registrado. Muitas vezes, o resultado da gestação é determinado durante um encounter (br-core-encounter), e essa relação ajuda a contextualizar a observação dentro do atendimento contínuo ao paciente.
+O perfil está diretamente relacionado ao recurso de [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html), identificando a pessoa cujo resultado de gestação está sendo registrado. Muitas vezes, o resultado da gestação é determinado durante um encounter (br-core-encounter), e essa relação ajuda a contextualizar a observação dentro do atendimento contínuo ao paciente.
 
-Relaciona-se também aos profissionais de saúde ([br-core-practitioner](https://saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html)) que realizaram o acompanhamento ou a determinação do resultado da gestação.
+Relaciona-se também aos profissionais de saúde ([br-core-practitioner](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner.html)) que realizaram o acompanhamento ou a determinação do resultado da gestação.
 
-Pode estar relacionado a condições específicas de saúde que afetam ou são afetadas pela gestação, fornecendo contexto adicional para a observação, sendo relacionado ao perfil [br-core-condition](https://saude.gov.br/fhir/StructureDefinition/br-core-condition.html) e também pode estar associado a outras observações ou resultados de testes que influenciam a determinação do resultado da gestação.
+Pode estar relacionado a condições específicas de saúde que afetam ou são afetadas pela gestação, fornecendo contexto adicional para a observação, sendo relacionado ao perfil [br-core-condition](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition.html) e também pode estar associado a outras observações ou resultados de testes que influenciam a determinação do resultado da gestação.
