@@ -1,8 +1,8 @@
-Profile: br-core-registroprescricaomedicamento
+Profile: br-core-resultadoexamelaboratorial
 Parent: http://hl7.org/fhir/StructureDefinition/Composition
-Id: br-core-registroprescricaomedicamento
-Title: "br-core-registroprescricaomedicamento"
-Description: "Este perfil representa as restrições aplicadas ao recurso br-core-registroprescricaomedicamento"
+Id: br-core-resultadoexamelaboratorial
+Title: "br-core-resultadoexamelaboratorial"
+Description: "Este perfil representa as restrições aplicadas ao recurso br-core-resultadoexamelaboratorial"
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
@@ -43,10 +43,10 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * type.coding.version ^definition = "Versão da terminologia LOINC - se relevante"
 * type.coding.code ^short = "Código conforme terminologia"
 * type.coding.code ^definition = "Código conforme terminologia."
-* type.coding[0].code = "57833-6"
+* type.coding[0].code = "11502-2"
 * type.coding.display ^short = "Descrição conforme definição da terminologia LOINC"
 * type.coding.display ^definition = "Descrição conforme definição da terminologia LOINC"
-* type.coding[0].display = "Prescrição de Medicamentos"
+* type.coding[0].display = "Resultado Exame Laboratorial"
 * type.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * type.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * subject ^definition = "Sobre quem e/ou sobre o que é a composição"
@@ -55,6 +55,10 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * category ^short = "Categorização da Composition"
 * category ^definition = "Categorização da Composition"
 * category from http://hl7.org/fhir/R4/valueset-document-classcodes.html (example)
+* category.coding[0].system = "http://hl7.org/fhir/R4/valueset-document-classcodes.html"
+* category.coding[0].code = "26436-6"
+* category.coding[0].display = "Laboratory Studies"
+* category.text = "Resultados Laboratoriais"
 * subject ^short = "Sobre quem e/ou sobre o que é a Composition"
 * subject ^definition = "Sobre quem e/ou sobre o que é a Composition"
 * subject.id ^short = "ID exclusivo para referência entre elementos"
@@ -129,6 +133,9 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * event.code ^short = "Código(s) aplicável(is) aos eventos documentados"
 * event.code ^definition = "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'."
 * event.code from http://terminology.hl7.org/ValueSet/v3-ActCode (required)
+* event.code.coding[0].system = "http://terminology.hl7.org/ValueSet/v3-ActCode"
+* event.code.coding[0].code = "26436-6"
+* event.code.coding[0].display = "Resultados de Laboratório"
 * event.period ^short = "O período de tempo coberto pela composition."
 * event.period ^definition = "O período de tempo coberto pela composition. Não há afirmação de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo."
 * event.detail ^short = "Referência aos eventos da Composition"
@@ -147,6 +154,9 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section.code ^short = "Um código que identifica o tipo de conteúdo contido dentro da seção."
 * section.code ^definition = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção."
 * section.code from http://hl7.org/fhir/R4/valueset-doc-section-codes.html (required)
+* section.code.coding[0].system = "http://hl7.org/fhir/R4/valueset-doc-section-codes.html"
+* section.code.coding[0].code = "30954-2"
+* section.code.coding[0].display = "Testes diagnósticos relevantes/dados laboratoriais Narrativa"
 * section.author ^short = "Quem e/ou o que foi o autor desta seção"
 * section.author ^definition = " Identifica quem é responsável pelas informações nesta seção, não necessariamente quem a digitou."
 * section.author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
