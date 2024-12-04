@@ -1,7 +1,7 @@
 Profile: br-core-observationpregnancystatus
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observationpregnancystatus
-Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyedd.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
+Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o estado da gravidez."
 
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
