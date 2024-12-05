@@ -1,7 +1,7 @@
-Profile: br-core-observationpregnancyedd
+Profile: br-core-observationpregnancystatus
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
-Id: br-core-observationpregnancyedd
-Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyedd.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
+Id: br-core-observationpregnancystatus
+Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o estado da gravidez."
 
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
@@ -36,13 +36,13 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * code ^definition = "Código da observação"
 * code.coding ^short = "Código definido por uma terminologia"
 * code.coding ^definition = "Código definido por uma terminologia"
-* code.coding[0].system = "http://loinc.org"
+//* code.coding[0].system = "http://loinc.org"
 * code.coding.system ^short = "Identificador da terminologia"
 * code.coding.system ^definition = "Identidade da terminologia"
-* code.coding[0].code = "82810-3"
+//* code.coding[0].code = "82810-3"
 * code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#82810-3 'Pregnancy Status'"
-* code.coding[0].display = "Pregnancy status"
+//* code.coding[0].display = "Pregnancy status"
 * code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * code.coding.display ^definition = "Representação definida pela terminologia"
 * subject ^short = "De quem ou do que trata a observação"

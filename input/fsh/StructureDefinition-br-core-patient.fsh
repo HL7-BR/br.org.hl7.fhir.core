@@ -1,7 +1,7 @@
 Profile: br-core-patient
 Parent: http://hl7.org/fhir/StructureDefinition/Patient
 Id: br-core-patient
-Description: "Este perfil representa o perfil [br-core-patient](https://saude.gov.br/fhir/StructureDefinition/br-core-patient.html) com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo. O perfil [br-core-patient](https://saude.gov.br/fhir/StructureDefinition/br-core-patient.html) herda do recurso FHIR R4 [Patient](https://hl7.org/fhir/R4B/patient.html) para definições de escopo e uso. Este perfil define expectativas mínimas para o recurso [br-core-patient](https://saude.gov.br/fhir/StructureDefinition/br-core-patient.html) registrar, pesquisar e buscar dados demográficos básicos e outras informações administrativas sobre um paciente individual. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores DEVEM estar presentes e restringe como os elementos são usados.  
+Description: "Este perfil representa o perfil [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo. O perfil [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) herda do recurso FHIR R4 [Patient](https://hl7.org/fhir/R4B/patient.html) para definições de escopo e uso. Este perfil define expectativas mínimas para o recurso [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) registrar, pesquisar e buscar dados demográficos básicos e outras informações administrativas sobre um paciente individual. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores DEVEM estar presentes e restringe como os elementos são usados.  
 
 Para contemplar uma descrição do paciente com maior equidade, conforme recomendações da portaria GM/MS Nº 230, de 7 de março de 2023, foram adicionados atributos adicionais para expressar o sexo do paciente, além do sexo administrativo: sexo ao nascer descritos no ValueSet [BRSexoNascimento](https://terminologia.saude.gov.br/fhir/ValueSet/BRSexoNascimento) e identidade de gênero descrita no ValueSet [BRIdentidadeGenero](https://terminologia.saude.gov.br/fhir/ValueSet/BRIdentidadeGenero). Com relação a orientação sexual, este é um dado que pode mudar durante a vida do paciente, portanto, recomenda-se que ele seja coletado em cada evento assistencial"
 
@@ -72,7 +72,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].type ^short = "Tipo do identificador do paciente"
 * identifier[cns].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cns].type ^binding.description = "Tipo do identificador do paciente"
-//* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
+//* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cns].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -127,7 +127,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].type ^short = "Tipo do identificador do paciente"
 * identifier[cpf].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cpf].type ^binding.description = "Tipo do identificador do paciente"
-//* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
+//* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cpf].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -180,7 +180,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[passaporte].use = http://hl7.org/fhir/identifier-use#official (exactly)
 * identifier[passaporte].type ^short = "Tipo do identificador do paciente"
 * identifier[passaporte].type ^definition = "Código que representa o tipo do identificador do paciente"
-//* identifier[passaporte].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
+//* identifier[passaporte].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[passaporte].type ^binding.description = "Tipo do identificador do paciente"
 
 * identifier[passaporte].type.id ^short = "Id lógico do tipo do identificador do paciente"
@@ -237,7 +237,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].type ^short = "Tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type ^binding.description = "Tipo do identificador do paciente"
-//* identifier[registroEstrangeiro].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoIdentificadorIndividuo (required)
+//* identifier[registroEstrangeiro].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[registroEstrangeiro].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[registroEstrangeiro].type.extension ^short = "Extensões do tipo do identificador do paciente"

@@ -1,7 +1,8 @@
 Profile: br-core-medicationdispense
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationDispense
 Id: br-core-medicationdispense
-Title: "br-core-medication-dispense"
+Title: "br-core-medicationdispense"
+Description: "Este recurso Indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações."
 
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"

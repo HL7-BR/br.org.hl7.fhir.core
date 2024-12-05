@@ -1,8 +1,8 @@
 Profile: br-core-medicationadministration
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationAdministration
 Id: br-core-medicationadministration
-Title: "br-core-medication"
-Description: "Este perfil representa a medicação administrada"
+Title: "br-core-medicationadministration"
+Description: "Descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde."
 
 //
 //

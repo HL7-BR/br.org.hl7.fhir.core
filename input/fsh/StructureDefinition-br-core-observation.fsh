@@ -1,7 +1,7 @@
 Profile: br-core-observation
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observation
-Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/StructureDefinition/br-core-observation.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
+Description: "O recurso [br-core-Observation](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
@@ -82,7 +82,7 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
 * interpretation 0..1
-//* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
+//* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativoExame
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
 * note 0..1
@@ -144,6 +144,6 @@ Description: "O recurso [br-core-Observation](https://saude.gov.br/fhir/Structur
 * component.dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
 * component.interpretation ^short = "Interpretação do resultado do componente"
 * component.interpretation ^definition = "Interpretação do resultado do componente"
-//* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
+//* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
