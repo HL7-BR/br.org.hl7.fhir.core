@@ -1,7 +1,7 @@
-Profile: br-core-observationbreasfeedingstatus
+Profile: br-core-observationshtobaccouse
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
-Id: br-core-observationbreasfeedingstatus
-Description: "O recurso [br-core-Observationbreasfeedingstatus](https://saude.gov.br/fhir/StructureDefinition/br-core-observationbreasfeedingstatus.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
+Id: br-core-observationshtobaccouse
+Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/fhir/StructureDefinition/br-core-observationshtobaccouse.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
@@ -41,13 +41,13 @@ Description: "O recurso [br-core-Observationbreasfeedingstatus](https://saude.go
 * code.coding[0].system = "http://loinc.org"
 * code.coding.system ^short = "Identificador da terminologia"
 * code.coding.system ^definition = "Identidade da terminologia"
-* code.coding[0].code = "63895-7"
+* code.coding[0].code = "72166-2"
 * code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#82810-3 'Pregnancy Status'"
-* code.coding[0].display = "Breastfeeding status"
+* code.coding[0].display = "Tobacco smoking status"
 * code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * code.coding.display ^definition = "Representação definida pela terminologia"
-* code.text = "Tipo de Aleitamento Materno"
+* code.text = "Status de uso de tabaco"
 * subject ^short = "De quem ou do que trata a observação"
 * subject ^definition = "De quem ou do que trata a observação"
 * subject only Reference(br-core-patient or br-core-location or Device or Group)
@@ -91,7 +91,7 @@ Description: "O recurso [br-core-Observationbreasfeedingstatus](https://saude.go
 * value[x] ^short = "Resultado da observação"
 * value[x] ^definition = "Resultado da observação"
 * value[x] 1..1
-* valueCodeableConcept from https://terminologia.saude.gov.br/fhir/CodeSystem-BRTipoAleitamentoMaterno (required)
+* valueCodeableConcept from http://hl7.org/fhir/uv/ips/ValueSet/current-smoking-status-uv-ips (required)
 * dataAbsentReason ^short = "Por quê o resultado está faltando"
 * dataAbsentReason ^definition = "Utilizado para especificar o porquê o valor esperado não está presente"
 * interpretation ^short = "Interpretação do resultado"
