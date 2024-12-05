@@ -1,6 +1,6 @@
 ### Escopo/Uso
 
-O perfil [br-core-observationpregnancyoutcome](https://saude.gov.br/fhir/StructureDefinitions/br-core-observationpregnancyoutcome) ou **Histórico Obstétrico**, é utilizado para registrar e gerenciar informações sobre os resultados de gestações de uma paciente. Este perfil define os elementos e extensões necessários para documentar os resultados de gestações, como nascimento vivo.
+O perfil [br-core-observationpregnancyoutcome](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyoutcome) ou **Histórico Obstétrico**, é utilizado para registrar e gerenciar informações sobre os resultados de gestações de uma paciente. Este perfil define os elementos e extensões necessários para documentar os resultados de gestações, como nascimento vivo.
 
 Ele é utilizado para coletar dados de gestações e seus resultados, fornecendo informações importantes para a tomada de decisões clínicas, ajudando os médicos a planejar cuidados e intervenções apropriadas baseadas no histórico obstétrico da paciente.
 
@@ -17,7 +17,7 @@ O perfil é focado apenas em resultados de gestações, não sendo adequado para
 
 Os seguintes elementos de dados devem estar sempre presentes (definição obrigatória) ou devem ser suportados se os dados estiverem presentes no sistema de envio (definição de suporte obrigatório). Eles são apresentados abaixo em uma explicação simples e legível. Orientações e exemplos específicos do perfil também são fornecidos. As Visualizações Formais abaixo fornecem o resumo formal, as definições e os requisitos de terminologia.
 
-Para o perfil [br-core-observationpregnancyoutcome](https://saude.gov.br/fhir/StructureDefinitions/br-core-observationpregnancyoutcome) os elementos de dados que são obrigatórios (mandatórios) e os que devem ser suportados (must support) são:
+Para o perfil [br-core-observationpregnancyoutcome](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyoutcome) os elementos de dados que são obrigatórios (mandatórios) e os que devem ser suportados (must support) são:
 1.	**code:** Código que identifica a observação como relacionada ao resultado da gestação.
 2.	**subject:** Referência ao paciente (indivíduo) para o qual a observação está sendo registrada.
 3.	**subject.reference:** Referência literal, URL relativa, interna ou absoluta
