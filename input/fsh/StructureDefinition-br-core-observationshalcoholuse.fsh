@@ -1,7 +1,7 @@
-Profile: br-core-observationpregnancyoutcome
+Profile: br-core-observationshalcoholuse
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
-Id: br-core-observationpregnancyoutcome
-Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o histórico resumido dos resultados da gravidez."
+Id: br-core-observationshalcoholuse
+Description: "O recurso [br-core-Observationshalcoholuse](https://saude.gov.br/fhir/StructureDefinition/br-core-observationshalcoholuse.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
@@ -31,13 +31,26 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 //* status from https://terminologia.saude.gov.br/fhir/ValueSet/brestadoobservacao-1.0
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
+* category from http://hl7.org/fhir/R4/valueset-observation-category.html (preferred)
 * category 1..1
 * code ^short = "Código da observação"
 * code ^definition = "Código da observação"
-* code from http://hl7.org/fhir/uv/ips/ValueSet/pregnancies-summary-uv-ips (required)
+* code from http://hl7.org/fhir/R4/valueset-observation-codes.html (example)
+* code.coding ^short = "Código definido por uma terminologia"
+* code.coding ^definition = "Código definido por uma terminologia"
+* code.coding[0].system = "http://loinc.org"
+* code.coding.system ^short = "Identificador da terminologia"
+* code.coding.system ^definition = "Identidade da terminologia"
+* code.coding[0].code = "74013-4"
+* code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
+* code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#82810-3 'Pregnancy Status'"
+* code.coding[0].display = "Alcoholic drinks per day"
+* code.coding.display ^short = "Descrição conforme definido pela terminologia"
+* code.coding.display ^definition = "Representação definida pela terminologia"
+* code.text = "Número de doses de alcóol ingeridos por dia"
 * subject ^short = "De quem ou do que trata a observação"
 * subject ^definition = "De quem ou do que trata a observação"
-* subject only Reference(br-core-patient)
+* subject only Reference(br-core-patient or br-core-location or Device or Group)
 * subject.id ^short = "ID exclusivo para referência entre elementos"
 * subject.id ^definition = "ID exclusivo para referência entre elementos"
 * subject.extension ^short = "Conteúdo adicional definido por implementações"
@@ -78,6 +91,7 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 * value[x] ^short = "Resultado da observação"
 * value[x] ^definition = "Resultado da observação"
 * value[x] 1..1
+* valueCodeableConcept from http://hl7.org/fhir/uv/ips/ValueSet/current-smoking-status-uv-ips (required)
 * dataAbsentReason ^short = "Por quê o resultado está faltando"
 * dataAbsentReason ^definition = "Utilizado para especificar o porquê o valor esperado não está presente"
 * interpretation ^short = "Interpretação do resultado"
@@ -116,8 +130,10 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 * referenceRange.high 1..1
 * referenceRange.type ^short = "Qualificador do valor de referência"
 * referenceRange.type ^definition = "Qualificador do valor de referência"
+* referenceRange.type from https://hl7.org/fhir/R4/valueset-referencerange-meaning.html (preferred)
 * referenceRange.appliesTo ^short = "População do intervalo de referência"
 * referenceRange.appliesTo ^definition = "População do intervalo de referência"
+* referenceRange.appliesTo from https://terminologia.saude.gov.br/fhir/ValueSet-BRObservationRestricaoIntervaloReferencia (example)
 * referenceRange.age ^short = "Faixa etária aplicável"
 * referenceRange.age ^definition = "Faixa etária aplicável, se relevante"
 * referenceRange.text ^short = "Intervalo de referência em formato textual"

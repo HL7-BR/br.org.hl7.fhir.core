@@ -68,7 +68,7 @@ Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/f
 * focus ^definition = "Sobre o que é a observação, quando esta não é sobre o sujeito do registro"
 * focus only Reference(Resource)
 * encounter ^short = "Atendimento durante o qual esta observação foi registrada"
-* encounter ^definition = "EAtendimento durante o qual esta observação foi registrada"
+* encounter ^definition = "Atendimento durante o qual esta observação foi registrada"
 * encounter only Reference(br-core-encounter)
 * effective[x] ^short = "Tempo ou período de tempo clinicamente relevante para a observação"
 * effective[x] ^definition = "Tempo ou período de tempo clinicamente relevante para a observação"
