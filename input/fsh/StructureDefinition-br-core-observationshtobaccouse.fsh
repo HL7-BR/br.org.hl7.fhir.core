@@ -3,6 +3,7 @@ Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observationshtobaccouse
 Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/fhir/StructureDefinition/br-core-observationshtobaccouse.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
+/*
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
 * meta ^short = "Metadados sobre recurso"
@@ -162,3 +163,5 @@ Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/f
 //* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
+
+*/

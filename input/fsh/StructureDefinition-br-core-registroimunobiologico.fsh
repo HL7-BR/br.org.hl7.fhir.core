@@ -4,6 +4,8 @@ Id: br-core-registroimunobiologico
 Title: "br-core-registroimunobiologico"
 Description: "Este perfil representa as restrições aplicadas ao recurso br-core-registroimunobiologico"
 
+
+/*
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
 * meta ^short = "ID lógico deste artefato"
@@ -173,3 +175,5 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section.orderedBy from http://hl7.org/fhir/R4/valueset-list-empty-reason.html (preferred)
 * section.section ^short = "Uma subseção aninhada dentro desta seção"
 * section.section ^definition = "Uma subseção aninhada dentro desta seção"
+
+*/
