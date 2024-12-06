@@ -1,8 +1,12 @@
 Profile: br-core-observationpregnancyoutcome
-Parent: http://hl7.org/fhir/StructureDefinition/Observation
+Parent: br-core-observation
 Id: br-core-observationpregnancyoutcome
 Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o histórico resumido dos resultados da gravidez."
 
+* code MS from http://hl7.org/fhir/uv/ips/ValueSet/pregnancies-summary-uv-ips (required)
+
+
+/*
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
 * meta ^short = "Metadados sobre recurso"
@@ -34,7 +38,7 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 * category 1..1
 * code ^short = "Código da observação"
 * code ^definition = "Código da observação"
-* code from http://hl7.org/fhir/uv/ips/ValueSet/pregnancies-summary-uv-ips (required)
+
 * subject ^short = "De quem ou do que trata a observação"
 * subject ^definition = "De quem ou do que trata a observação"
 * subject only Reference(br-core-patient)
@@ -148,3 +152,5 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 //* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
+
+*/
