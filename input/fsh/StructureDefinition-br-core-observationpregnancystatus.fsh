@@ -1,8 +1,11 @@
 Profile: br-core-observationpregnancystatus
-Parent: http://hl7.org/fhir/StructureDefinition/Observation
+Parent: br-core-observation
 Id: br-core-observationpregnancystatus
 Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o estado da gravidez."
 
+
+
+/*
 * id ^short = "ID do artefato"
 * id ^definition = "ID lógico deste artefato"
 * meta ^short = "Metadados sobre recurso"
@@ -161,3 +164,4 @@ Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir
 //* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet-BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
+*/
