@@ -10,7 +10,7 @@ Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/f
 * code.coding.system ^definition = "Identidade da terminologia"
 * code.coding.code = http://loinc.org#72166-2 (exactly)
 * code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#82810-3 'Pregnancy Status'"
+* code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#72166-2 'Tobacco smoking status'"
 * code.coding.display = "Tobacco smoking status"
 * code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * code.coding.display ^definition = "Representação definida pela terminologia"
