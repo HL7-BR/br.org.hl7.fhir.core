@@ -1,5 +1,5 @@
 Profile: br-core-observationshtobaccouse
-Parent: http://hl7.org/fhir/StructureDefinition/Observation
+Parent: br-core-observation
 Id: br-core-observationshtobaccouse
 Description: "O recurso [br-core-Observationshtobaccouse](https://saude.gov.br/fhir/StructureDefinition/br-core-observationshtobaccouse.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
 
