@@ -1,6 +1,7 @@
 Profile: br-core-immunization
 Parent: http://hl7.org/fhir/StructureDefinition/Immunization
 Id: br-core-immunization
+Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhir/R4/immunization.html) que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
