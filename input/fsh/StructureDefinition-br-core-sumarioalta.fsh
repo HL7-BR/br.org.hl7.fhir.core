@@ -2,7 +2,17 @@ Profile: br-core-sumarioalta
 Parent: br-core-composition
 Id: br-core-sumarioalta
 Title: "br-core-sumarioalta"
-Description: "Este perfil representa as restrições aplicadas ao recurso br-core-sumarioalta"
+Description: "Este perfil representa as informações da alta hospitalar, conforme a [PORTARIA Nº 701, DE 29 DE SETEMBRO DE 2022](https://bvsms.saude.gov.br/bvs/saudelegis/Saes/2022/prt0701_19_10_2022.html).
+“O Sumário de Alta é um documento essencial para: 
+-	Apoiar a comunicação das informações do sumário de alta entre os diversos níveis de atenção de modo eficiente, efetivo e a tempo, contribuindo para uma atenção coordenada entre os cuidadores do indivíduo e apoiando a continuidade dos seus cuidados;
+-	Melhorar a qualidade da atenção em saúde e a segurança para o indivíduo com informações qualificadas, completas e oportunas que contribuam para uma conduta mais adequada às necessidades individuais de cada indivíduo e redução de efeitos adversos;
+-	Contribuir para reduzir o número de reinternações evitáveis;
+-	Garantir que um conjunto mínimo de informações clínicas padronizadas possa ser encaminhado e processado para múltiplos sistemas de informações em saúde, tais como prontuários eletrônicos dos indivíduos, registros eletrônicos em saúde e outros sistemas que utilizam as informações clínicas como insumos em seus processos de trabalho, facilitando a agregação e análise desses dados para tomada de decisão e produção de conhecimento;
+-	Reduzir o custo com entradas manuais, integrações, mapeamento de sistemas independentes e manutenção dos sistemas de informação em saúde;
+-	Prover aos desenvolvedores a especificação do conjunto de dados, mensagens de interface padronizada para a comunicação da alta, reduzindo o tempo entre o desenvolvimento e implantação da comunicação do sumário de alta;
+-	Promover a simplificação e padronização das comunicações sobre os eventos de saúde entre os diversos envolvidos na atenção à saúde;
+-	Alimentar o registro pessoal de saúde do indivíduo.”
+"
 
 * category 0..1
 
