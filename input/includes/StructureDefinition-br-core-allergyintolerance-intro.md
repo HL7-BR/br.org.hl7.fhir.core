@@ -1,8 +1,8 @@
 ### Cenários de uso:
 
-Este recurso deve ser utilizado para registros de avaliação clínica de uma alergia ou intolerância; uma propensão ou um risco potencial para um indivíduo de ter uma reação adversa em uma exposição futura à substância especificada, ou classe de substância.
+Este recurso deve ser utilizado para registros de avaliação clínica de uma alergia ou intolerância; uma predisposição ou um risco potencial para um indivíduo de ter uma reação adversa em uma exposição futura à substância especificada, ou classe de substância.
 
-Quando uma propensão for identificada, deve-se registrar informações ou evidências sobre um evento de reação que seja caracterizado por qualquer resposta fisiológica prejudicial ou indesejável que seja específica do indivíduo e desencadeada pela exposição de um indivíduo à substância ou classe de substância identificada.
+Quando uma predisposição for identificada, deve-se registrar informações ou evidências sobre um evento de reação adversa/intolerância que seja caracterizado por qualquer resposta fisiológica prejudicial ou indesejável que seja específica do indivíduo e desencadeada pela exposição de um indivíduo à substância ou classe de substância identificada.
 
 As substâncias incluem, mas não estão limitadas a: uma substância terapêutica administrada corretamente em uma dosagem apropriada para o indivíduo; alimentos; material derivado de plantas ou animais; ou veneno de picadas de insetos.
 
@@ -32,7 +32,7 @@ Se o paciente não for questionado sobre suas alergias o status da verificação
 
 ### Limites e relacionamentos
 
-Este recurso é usado para fornecer um único local dentro do registro de saúde para documentar declarações clínicas sobre reações adversas a substâncias/produtos, incluindo:
+Este recurso é usado para fornecer um único local dentro do registro eletrônico de saúde para documentar declarações clínicas sobre reações adversas a substâncias/produtos, incluindo:
 -   registrar uma avaliação clínica da propensão do paciente a uma potencial reação futura após reexposição;
 -   registrar informações cumulativas sobre a reação a cada exposição, incluindo "nenhuma reação", se apropriado.
 
