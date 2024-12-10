@@ -1,7 +1,7 @@
 Profile: br-core-capacidadefuncional
 Parent: br-core-condition
 Id: br-core-capacidadefuncional
-Description: ""
+Description: "Este perfil herda do recurso [br-core-condition](https://saude.gov.br/fhir/StructureDefinition/br-core-condition)"
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
