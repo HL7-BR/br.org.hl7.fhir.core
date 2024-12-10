@@ -32,16 +32,17 @@ Description: ""
 * category ^short = "Categoria da condição" 
 * category ^definition = "Categoria da condição"
 * category 0..1
-* category from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico (required)
+* category from https://www.terminologia.saude.gov.br/ValueSet/BRCategoriaDiagnostico (required)
 * severity ^short = "Severidade da condição" 
 * severity ^definition = "Severidade da condição" 
+* code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
+* code ^short = "Suspeita Diagnóstica"
+* code 1..1
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSuspeitadiagnostica (required)
+* code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
-* code ^short = "Suspeita Diagnóstica"
-* code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
-* code 1..1
-* code.text
-* stage 1..*
+
 * subject ^short = "Indivíduo com a Condição de Saúde avaliada"
 * subject ^definition = "Referencia os dados sobre o indivíduo cuja a condição de saúde está sendo avaliada."
 * subject only Reference(br-core-patient)
@@ -77,6 +78,7 @@ Description: ""
 * asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * stage ^short = "Estágio/grau da condição, geralmente avaliado formalmente"
 * stage ^definition = "Estágio/grau da condição, geralmente avaliado formalmente"
+* stage 1..*
 * stage.id ^short = "Identificador único para referenciação cruzada"
 * stage.id ^definition = "Identificador único para referenciação cruzada"
 * stage.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"

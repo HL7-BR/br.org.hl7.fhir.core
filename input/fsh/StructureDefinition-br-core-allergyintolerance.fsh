@@ -32,7 +32,7 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * criticality ^definition  = "Estimativa do dano clínico potencial, ou gravidade, de uma reação a uma substância identificada."
 * code ^short = "Código do conceito referenciando o IPS"
 * code ^definition = "Tipo de substância/produto, condição de alergia ou intolerância ou ou código para alergia ausente/desconhecida."
-* code from https://simplifier.net/redenacionaldedadosemsaude/valueset-bralergenos-1.0 (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos (required)
 * patient ^short = "Dados do paciente"
 * patient ^definition = "Referência do paciente"
 * patient only Reference(br-core-patient)
@@ -55,11 +55,11 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * onset[x] ^definition = "Quando a alergia ou a intolerância foi identificada"
 * recordedDate ^short = "Data em que a primeira versão da instância do recurso foi registrada."
 * recordedDate ^definition = "Data em que a primeira versão da instância do recurso foi registrada."
-* recorder ^short = "Quem registrou a sensibilidade."
-* recorder ^definition = "Quem registrou a sensibilidade."
+* recorder ^short = "Quem registrou a alergia/reação adversa."
+* recorder ^definition = "Quem registrou a alergia/reação adversa."
 * recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
-* asserter ^short = "Fonte da informação sobre a alergia."
-* asserter ^definition = "Fonte da informação sobre a alergia."
+* asserter ^short = "Fonte da informação sobre a alergia/reação adversa."
+* asserter ^definition = "Fonte da informação sobre a alergia/reação adversa."
 * asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * lastOccurrence ^short = "Data (/hora) da última ocorrência conhecida de uma reação."
 * lastOccurrence ^definition = "Data (/hora) da última ocorrência conhecida de uma reação."
