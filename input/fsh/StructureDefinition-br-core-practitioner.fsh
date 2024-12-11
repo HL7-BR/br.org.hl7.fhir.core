@@ -48,7 +48,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cns].type ^definition = "Código que representa o tipo do identificador do profissional"
 * identifier[cns].type ^binding.description = "Tipo do identificador do profissional"
 * identifier[cns].type 1..1
-//* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cns].type.id ^short = "Id lógico do tipo do identificador do profissional"
 * identifier[cns].type.id ^definition = "Id lógico do tipo do identificador do profissional"
 * identifier[cns].type.extension ^short = "Extensões do tipo do identificador do profissional"
@@ -79,7 +79,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cns].system 1..1
 * identifier[cns].system ^short = "Sistema do identificador do profissional"
 * identifier[cns].system ^definition = "Sistema que identifica o tipo do identificador do profissional"
-* identifier[cns].system = "https://saude.gov.br/sid/cns" (exactly)
+* identifier[cns].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cns" (exactly)
 * identifier[cns].value 1..1
 * identifier[cns].value ^short = "Valor do identificador do profissional"
 * identifier[cns].value ^definition = "Valor do identificador do profissional"
@@ -103,7 +103,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cpf].type ^definition = "Código que representa o tipo do identificador do profissional"
 * identifier[cpf].type ^binding.description = "Tipo do identificador do profissional"
 * identifier[cpf].type 1..1
-//* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cpf].type.id ^short = "Id lógico do tipo do identificador do profissional"
 * identifier[cpf].type.id ^definition = "Id lógico do tipo do identificador do profissional"
 * identifier[cpf].type.extension ^short = "Extensões do tipo do identificador do profissional"
@@ -134,7 +134,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cpf].system 1..1
 * identifier[cpf].system ^short = "Sistema do identificador do profissional"
 * identifier[cpf].system ^definition = "Sistema que identifica o tipo do identificador do profissional"
-* identifier[cpf].system = "https://saude.gov.br/sid/cpf" (exactly)
+* identifier[cpf].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cpf" (exactly)
 * identifier[cpf].value 1..1
 * identifier[cpf].value ^short = "Valor do identificador do profissional"
 * identifier[cpf].value ^definition = "Valor do identificador do profissional"
@@ -158,7 +158,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorMedico].type ^definition = "Código que representa o tipo do identificador do médico"
 * identifier[identificadorMedico].type ^binding.description = "Tipo do identificador do médico"
 * identifier[identificadorMedico].type 1..1
-//* identifier[identificadorMedico].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[identificadorMedico].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[identificadorMedico].type.id ^short = "Id lógico do tipo do identificador do médico"
 * identifier[identificadorMedico].type.id ^definition = "Id lógico do tipo do identificador do médico"
 * identifier[identificadorMedico].type.extension ^short = "Extensões do tipo do identificador do médico"
@@ -215,7 +215,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorFarmaceutico].type ^definition = "Código que representa o tipo do identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].type ^binding.description = "Tipo do identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].type 1..1
-//* identifier[identificadorFarmaceutico].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[identificadorFarmaceutico].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[identificadorFarmaceutico].type.id ^short = "Id lógico do tipo do identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].type.id ^definition = "Id lógico do tipo do identificador do farmacêutico"
 * identifier[identificadorFarmaceutico].type.extension ^short = "Extensões do tipo do identificador do farmacêutico"
@@ -271,7 +271,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOdontologo].type ^definition = "Código que representa o tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type ^binding.description = "Tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type 1..1
-//* identifier[identificadorOdontologo].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[identificadorOdontologo].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[identificadorOdontologo].type.id ^short = "Id lógico do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.id ^definition = "Id lógico do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.extension ^short = "Extensões do tipo do identificador do odontólogo"
@@ -327,7 +327,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorEnfermeiro].type ^definition = "Código que representa o tipo do identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].type ^binding.description = "Tipo do identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].type 1..1
-//* identifier[identificadorEnfermeiro].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[identificadorEnfermeiro].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[identificadorEnfermeiro].type.id ^short = "Id lógico do tipo do identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].type.id ^definition = "Id lógico do tipo do identificador do enfermeiro"
 * identifier[identificadorEnfermeiro].type.extension ^short = "Extensões do tipo do identificador do enfermeiro"
@@ -383,7 +383,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOutrosProfissionais].type ^definition = "Código que representa o tipo do identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].type ^binding.description = "Tipo do identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].type 1..1
-//* identifier[identificadorOutrosProfissionais].type from https://terminologia.saude.gov.br/fhir/ValueSet-BRTipoDocumentoIndividuo (required)
+//* identifier[identificadorOutrosProfissionais].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[identificadorOutrosProfissionais].type.id ^short = "Id lógico do tipo do identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].type.id ^definition = "Id lógico do tipo do identificador de outros profissionais"
 * identifier[identificadorOutrosProfissionais].type.extension ^short = "Extensões do tipo do identificador de outros profissionais"
@@ -468,7 +468,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * qualification.identifier ^definition = "Identificador da qualificação do profissional"
 * qualification.code ^short = "Código da qualificação do profissional"
 * qualification.code ^definition = "Código da qualificação do profissional"
-* qualification.code from https://simplifier.net/redenacionaldedadosemsaude/valueset-brocupacao-1.0 (required)
+* qualification.code from https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO (required)
 * qualification.code.coding ^short = "Codificação da qualificação do profissional"
 * qualification.code.coding ^definition = "Codificação da qualificação do profissional"
 * qualification.code.coding.system ^short = "Sistema de codificação da qualificação do profissional"

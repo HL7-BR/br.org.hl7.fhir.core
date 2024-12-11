@@ -129,7 +129,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cpf].system 1..1
 * identifier[cpf].system ^short = "Sistema do identificador do estabelecimento"
 * identifier[cpf].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
-* identifier[cpf].system = "https://saude.gov.br/sid/cpf" (exactly)
+* identifier[cpf].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cpf" (exactly) //
 * identifier[cpf].value 1..1
 * identifier[cpf].value ^short = "Valor do identificador do estabelecimento"
 * identifier[cpf].value ^definition = "Valor do identificador do estabelecimento"
@@ -183,7 +183,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnpj].system 1..1
 * identifier[cnpj].system ^short = "Sistema do identificador do estabelecimento"
 * identifier[cnpj].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
-* identifier[cnpj].system = "https://saude.gov.br/sid/cnpj" (exactly)
+* identifier[cnpj].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cnpj" (exactly)  
 * identifier[cnpj].value 1..1
 * identifier[cnpj].value ^short = "Valor do identificador do estabelecimento"
 * identifier[cnpj].value ^definition = "Valor do identificador do estabelecimento"

@@ -87,5 +87,5 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * reaction.severity ^definition = "mild | moderate | severe (of event as a whole)"
 * reaction.exposureRoute ^short = "Como o sujeito foi exposto à substância."
 * reaction.exposureRoute ^definition = "Como o sujeito foi exposto à substância."
-//* reaction.exposureRoute from https://terminologia.saude.gov.br/fhir/ValueSet/medicine-route-of-administration/
+//* reaction.exposureRoute from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration/
 * reaction.note ^definition = "Texto sobre evento não capturado em outros campos."

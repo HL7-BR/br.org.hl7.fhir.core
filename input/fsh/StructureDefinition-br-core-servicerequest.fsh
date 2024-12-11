@@ -35,7 +35,7 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * priority 1..1
 * priority ^short = "A prioridade clínica de uma ordem diagnóstica."
 * priority ^definition = "routine | urgent | asap | stat"
-//* priority from https://simplifier.net/redenacionaldedadosemsaude/valueset/brcarateratendimentomira (required)
+//* priority from https://simplifier.net/redenacionaldedadosemsaude/valueset/brcarateratendimentomira (required) VS BRCarateAtendimento não existe hoje no THO
 * doNotPerform ^short = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * doNotPerform ^definition = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * code 1..1

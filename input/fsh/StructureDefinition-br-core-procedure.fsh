@@ -31,17 +31,17 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * partOf only Reference(br-core-procedure or br-core-observation or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
-//* status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento-1.0.html (required)
+//* status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento.html (required)
 * statusReason ^short = "Motivo para o estado atual."
 * statusReason ^definition = "Motivo para o estado atual."
 * statusReason 1..1
 * category ^short = "Classificação do procedimento."
 * category ^definition = "Classificação do procedimento. Exemplo: um código que classifica um procedimento para fins de pesquisa, classificação e exibição."
-//* category from https://terminologia.saude.gov.br/fhir/ValueSystem-BRMotivoProcedimentoNaoRealizado
+//* category from https://terminologia.saude.gov.br/fhir/ValueSystem/BRMotivoProcedimentoNaoRealizado
 * code ^short = "Um conceito que referencia uma terminologia ou apenas texto."
 * code ^definition = "Um conceito que referencia uma terminologia ou apenas texto."
 * code 1..1
-//* code from https://terminologia.saude.gov.br/fhir/ValueSet-BRProcedimentosNacionais
+//* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais
 * subject ^short = "Em quem o procedimento foi realizado."
 * subject ^definition = "Em quem o procedimento foi realizado."
 * subject only Reference(br-core-patient)
@@ -93,7 +93,7 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * location only Reference(br-core-location)
 * reasonCode ^short = "Código do motivo do procedimento realizado."
 * reasonCode ^definition = "Código do motivo do procedimento realizado."
-//* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet-BRProblemaDiagnostico
+//* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-procedure or br-core-diagnosticreport or DocumentReference)
@@ -102,7 +102,7 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * bodySite ^definition = "Conceito - referência a uma terminologia ou apenas texto."
 * outcome ^short = "Resultado do procedimento."
 * outcome ^definition = "Resultado do procedimento."
-//* outcome from https://terminologia.saude.gov.br/fhir/ValueSet-BRDesfechoProcedimento
+//* outcome from https://terminologia.saude.gov.br/fhir/ValueSet/BRDesfechoProcedimento
 * report ^short = "Qualquer relatório resultante do procedimento."
 * report ^definition = "Qualquer relatório resultante do procedimento."
 * report only Reference(br-core-diagnosticreport or DocumentReference or br-core-composition)

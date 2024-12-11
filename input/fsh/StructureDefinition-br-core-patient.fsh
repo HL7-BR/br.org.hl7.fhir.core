@@ -103,7 +103,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].system 1..1
 * identifier[cns].system ^short = "Sistema do identificador do paciente"
 * identifier[cns].system ^definition = "Sistema que identifica o tipo do identificador do paciente"
-* identifier[cns].system = "https://saude.gov.br/sid/cns" (exactly)
+* identifier[cns].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cns" (exactly)
 * identifier[cns].value 1..1
 * identifier[cns].value ^short = "Valor do identificador do paciente"
 * identifier[cns].value ^definition = "Valor do identificador do paciente"
@@ -158,7 +158,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].system 1..1
 * identifier[cpf].system ^short = "Sistema do identificador do paciente"
 * identifier[cpf].system ^definition = "Sistema que identifica o tipo do identificador do paciente"
-* identifier[cpf].system = "https://saude.gov.br/sid/cpf" (exactly)
+* identifier[cpf].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cpf" (exactly)
 * identifier[cpf].value 1..1
 * identifier[cpf].value ^short = "Valor do identificador do paciente"
 * identifier[cpf].value ^definition = "Valor do identificador do paciente"
@@ -268,7 +268,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].system 1..1
 * identifier[registroEstrangeiro].system ^short = "Sistema do identificador do paciente"
 * identifier[registroEstrangeiro].system ^definition = "Sistema que identifica o tipo do identificador do paciente"
-* identifier[registroEstrangeiro].system = "https://saude.gov.br/sid/rne" (exactly)
+* identifier[registroEstrangeiro].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/rne" (exactly)
 * identifier[registroEstrangeiro].value 1..1
 * identifier[registroEstrangeiro].value ^short = "Valor do identificador do paciente"
 * identifier[registroEstrangeiro].value ^definition = "Valor do identificador do paciente"
