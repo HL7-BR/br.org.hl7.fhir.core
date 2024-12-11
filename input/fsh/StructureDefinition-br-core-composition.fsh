@@ -2,7 +2,7 @@ Profile: br-core-composition
 Parent: http://hl7.org/fhir/StructureDefinition/Composition
 Id: br-core-composition
 Title: "br-core-composition"
-Description: "Este perfil representa as restrições aplicadas ao recurso br-core-composition"
+Description: "Um conjunto de informações relacionadas aos cuidados em sáude que são reunidas em um único bundle lógico que estabelece seu próprio contexto e atesta quem está fazendo a declaração. Uma Composição define a estrutura e o conteúdo narrativo necessários para um documento. No entanto, uma Composição sozinha não constitui um documento. Em vez disso, a Composição deve ser a primeira entrada em um Bundle onde Bundle.type=document, e quaisquer outros recursos referenciados da Composição devem ser incluídos como entradas subsequentes no Bundle (por exemplo, Patient, Practitioner, Encounter, etc.)."
 
 * id ^short = "ID lógico deste artefato"
 * id ^definition = "ID lógico deste artefato"
