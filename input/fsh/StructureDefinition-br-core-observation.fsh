@@ -22,7 +22,7 @@ Description: "O recurso [br-core-Observation](https://br-core.saude.gov.br/fhir/
 * identifier 1..1
 * basedOn ^short = "Referência ao pedido ou ao plano de tratamento que gerou este recurso"
 * basedOn ^definition = "Referência ao pedido ou ao plano de tratamento que gerou este recurso"
-* basedOn only Reference(br-core-careplan or DeviceRequest or immunizationrecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
+* basedOn only Reference(br-core-careplan or DeviceRequest or ImmunizationRecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
 * partOf ^short = "Referência ao evento do qual este recurso faz parte"
 * partOf ^definition = "Referência ao evento do qual este recurso faz parte"
 * partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)

@@ -41,7 +41,7 @@ Description: "Uma reserva de um evento de saúde entre paciente(s), profissional
 * reasonReference ^short = "Razão pela qual a nomeação deve ocorrer (recurso)"
 * reasonReference ^definition = "Razão pela qual a nomeação deve ocorrer (recurso)"
 //* reasonReference from https://simplifier.net/redenacionaldedadosemsaude/BRCIDAvaliado
-* reasonReference only Reference(br-core-condition or br-core-procedure or immunizationrecommendation) 
+* reasonReference only Reference(br-core-condition or br-core-procedure or ImmunizationRecommendation) 
 * reasonReference 1..1
 * priority ^short = "Usado para tomar decisões informadas se for necessário redefinir prioridades"
 * priority ^definition = "Usado para tomar decisões informadas se for necessário redefinir prioridades"
