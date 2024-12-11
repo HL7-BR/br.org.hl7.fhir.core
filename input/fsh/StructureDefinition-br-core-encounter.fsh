@@ -62,7 +62,7 @@ Title: "br-core-encounter"
 //* reasonCode from https://terminologia.saude.gov.br/fhir/VAlueSet-BREncounterReason
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
-* reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or br-core-immunizationrecommendation)
+* reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or immunizationrecommendation)
 * reasonReference 0..1
 * diagnosis ^short = "A lista de diagnósticos relevantes para este atendimento"
 * diagnosis ^definition = "A lista de diagnósticos relevantes para este atendimento"
