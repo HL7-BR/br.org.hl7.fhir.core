@@ -90,7 +90,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * basedOn ^short = "o quê a requisição atende"
 * basedOn ^definition = "o quê a requisição atende"
 * basedOn 0..1
-* basedOn only Reference(br-core-careplan or br-core-medicationrequest or br-core-servicerequest or br-core-immunizationrecommendation)
+* basedOn only Reference(br-core-careplan or br-core-medicationrequest or br-core-servicerequest or immunizationrecommendation)
 * groupIdentifier ^short = "requisição composta da qual esta requisição faz parte"
 * groupIdentifier ^definition = "requisição composta da qual esta requisição faz parte"
 * courseOfTherapyType ^short = "Identifica o padrão de administração de medicamentos"
