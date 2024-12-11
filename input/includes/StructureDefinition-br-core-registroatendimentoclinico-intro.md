@@ -59,7 +59,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="https://hl7.org/fhir/R4/valueset-document-classcodes.html">https://hl7.org/fhir/R4/valueset-document-classcodes.html</a></td>
-      <td>br-core-registroatendimentoclinico.category</td>
+      <td>br-core-registroatendimentoclinico. category</td>
     </tr>
     <tr>
       <td>Composition.confidentiality</td>
@@ -68,7 +68,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification">http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification</a></td>
-      <td>br-core-registroatendimentoclinico.confidentiality</td>
+      <td>br-core-registroatendimentoclinico. confidentiality</td>
     </tr>
     <tr>
       <td>Composition.attester.mode</td>
@@ -77,7 +77,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-br-core-registroatendimentoclinico-attestation-mode.html">http://hl7.org/fhir/R4/valueset-br-core-registroatendimentoclinico-attestation-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.attester.mode</td>
+      <td>br-core-registroatendimentoclinico. attester.mode</td>
     </tr>
     <tr>
       <td>Composition.relatesTo.code</td>
@@ -86,16 +86,16 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-document-relationship-type.html">http://hl7.org/fhir/R4/valueset-document-relationship-type.html</a></td>
-      <td>br-core-registroatendimentoclinico.relatesTo.code</td>
+      <td>br-core-registroatendimentoclinico. relatesTo.code</td>
     </tr>
     <tr>
-      <td>Composition.relatesTo.target.reference</td>
+      <td>Composition.relatesTo. target.reference</td>
       <td>0..1</td>
       <td>Referência a br-core-registroatendimentoclinico alvo</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td>Reference(br-core-registroatendimentoclinico)</td>
-      <td>br-core-registroatendimentoclinico.relatesTo.target.reference</td>
+      <td>br-core-registroatendimentoclinico.relatesTo. target.reference</td>
     </tr>
     <tr>
       <td>Composition.event.code</td>
@@ -104,7 +104,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido da RNDS </td>
       <td><a href="http://terminology.hl7.org/ValueSet/v3-ActCode">http://terminology.hl7.org/ValueSet/v3-ActCode</a></td>
-      <td>br-core-registroatendimentoclinico.event.code</td>
+      <td>br-core-registroatendimentoclinico. event.code</td>
     </tr>
     <tr>
       <td>Composition.section.mode</td>
@@ -113,7 +113,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section.mode</td>
+      <td>br-core-registroatendimentoclinico. section.mode</td>
     </tr>
     <tr>
       <td>Composition.section.orderedBy</td>
@@ -122,7 +122,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section.orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section.orderedBy</td>
     </tr>
     <tr>
       <td>Composition.section.emptyReason</td>
@@ -131,286 +131,286 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section.emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section.emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[diagnosticosAvaliados].mode</td>
+      <td>Composition. section[diagnosticosAvaliados]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[diagnosticosAvaliados].mode</td>
+      <td>br-core-registroatendimentoclinico. section[diagnosticosAvaliados]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[diagnosticosAvaliados].orderedBy</td>
+      <td>Composition. section[diagnosticosAvaliados]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[diagnosticosAvaliados].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[diagnosticosAvaliados]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[diagnosticosAvaliados].emptyReason</td>
+      <td>Composition. section[diagnosticosAvaliados]. emptyReason</td>
       <td>1..*</td>
       <td></td>
       <td></td>
       <td>Suprimido RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[diagnosticosAvaliados].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[diagnosticosAvaliados]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[procedimentosRealizados].mode</td>
+      <td>Composition. section[procedimentosRealizados]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido no RAC</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td></td>
+      <td>br-core-registroatendimentoclinico. section[procedimentosRealizados]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[procedimentosRealizados].orderedBy</td>
+      <td>Composition. section[procedimentosRealizados]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido no RAC</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[procedimentosRealizados].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[procedimentosRealizados]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[procedimentosRealizados].entry</td>
+      <td>Composition. section[procedimentosRealizados]. entry</td>
       <td>1..*</td>
       <td>Referência ao recurso que contém os dados desta seção</td>
       <td></td>
       <td>Suprimido no RAC</td>
       <td>Reference(Procedure | DocumentReference)</td>
-      <td>br-core-registroatendimentoclinico.section[procedimentosRealizados].entry</td>
+      <td>br-core-registroatendimentoclinico. section[procedimentosRealizados]. entry</td>
     </tr>
     <tr>
-      <td>Composition.section[procedimentosRealizados].emptyReason</td>
+      <td>Composition. section[procedimentosRealizados]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Suprimido no RAC</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[procedimentosRealizados].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[procedimentosRealizados]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[sinaisVitais].mode</td>
+      <td>Composition. section[sinaisVitais] .mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido da RNDS </td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[sinaisVitais].mode</td>
+      <td>br-core-registroatendimentoclinico. section[sinaisVitais]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[sinaisVitaiss].orderedBy</td>
+      <td>Composition. section[sinaisVitaiss]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido da RNDS </td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[sinaisVitaiss].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[sinaisVitaiss]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[sinaisVitais].emptyReason</td>
+      <td>Composition. section[sinaisVitais]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Suprimido da RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[sinaisVitais].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[sinaisVitais]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[históriaObstétrica].mode</td>
+      <td>Composition. section[históriaObstétrica]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido da RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[históriaObstétrica].mode</td>
+      <td>br-core-registroatendimentoclinico. section[históriaObstétrica]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[históriaObstétrica].orderedBy</td>
+      <td>Composition. section[históriaObstétrica]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido da RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[históriaObstétrica].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[históriaObstétrica]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[históriaObstétrica].emptyReason</td>
+      <td>Composition. section[históriaObstétrica]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td></td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[históriaObstétrica].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[históriaObstétrica]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[tipoAleitamentoMaterno].mode</td>
+      <td>Composition. section[tipoAleitamentoMaterno]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[tipoAleitamentoMaterno].mode</td>
+      <td>br-core-registroatendimentoclinico. section[tipoAleitamentoMaterno]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[tipoAleitamentoMaterno].orderedBy</td>
+      <td>Composition. section[tipoAleitamentoMaterno]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[tipoAleitamentoMaterno].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[tipoAleitamentoMaterno]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[tipoAleitamentoMaterno].emptyReason</td>
+      <td>Composition. section[tipoAleitamentoMaterno]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[tipoAleitamentoMaterno].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[tipoAleitamentoMaterno]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[históriaSocial].mode</td>
+      <td>Composition. section[históriaSocial]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[históriaSocial].mode</td>
+      <td>br-core-registroatendimentoclinico. section[históriaSocial]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[históriaSocial].orderedBy</td>
+      <td>Composition. section[históriaSocial]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[históriaSocial].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[históriaSocial]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[HistoriaSocial].emptyReason</td>
+      <td>Composition. section[HistoriaSocial]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Não existe na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[HistoriaSocial].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[HistoriaSocial]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].code</td>
+      <td>Composition. section[alergiasIntolerancias]. code</td>
       <td>0..1</td>
       <td>Identificador exclusivo para referência entre elementos</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td>Fixed Value: (Complex)</td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].code</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. code</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].code.coding.system</td>
+      <td>Composition. section[alergiasIntolerancias]. code.coding.system</td>
       <td>0..1</td>
       <td>Identificador do sistema de terminologia</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://www.loinc.org/">http://www.loinc.org/</a></td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].code.coding.system</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. code.coding.system</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].code.coding.code</td>
+      <td>Composition. section[alergiasIntolerancias]. code.coding.code</td>
       <td>0..1</td>
       <td></td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td>Fixo em 48765-2</td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].code.coding.code</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. code.coding.code</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].code.coding.display</td>
+      <td>Composition. section[alergiasIntolerancias]. code.coding.display</td>
       <td>0..1</td>
       <td></td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td>Alergias e Intolerãncias</td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].code.coding.display</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. code.coding.display</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].mode</td>
+      <td>Composition. section[alergiasIntolerancias]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].mode</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].orderedBy</td>
+      <td>Composition. section[alergiasIntolerancias]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[alergiasIntolerancias].emptyReason</td>
+      <td>Composition. section[alergiasIntolerancias]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[alergiasIntolerancias].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[alergiasIntolerancias]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[Medicamentos].mode</td>
+      <td>Composition. section[Medicamentos]. mode</td>
       <td>0..1</td>
       <td>Método de processamento da seção</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-mode.html">http://hl7.org/fhir/R4/valueset-list-mode.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[Medicamentos].mode</td>
+      <td>br-core-registroatendimentoclinico. section[Medicamentos]. mode</td>
     </tr>
     <tr>
-      <td>Composition.section[Medicamentos].orderedBy</td>
+      <td>Composition. section[Medicamentos]. orderedBy</td>
       <td>0..1</td>
       <td>Especifica a ordem dos itens nas sections.entry</td>
       <td></td>
       <td>Suprimido da RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-order.html">http://hl7.org/fhir/R4/valueset-list-order.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[Medicamentos].orderedBy</td>
+      <td>br-core-registroatendimentoclinico. section[Medicamentos].orderedBy</td>
     </tr>
     <tr>
-      <td>Composition.section[Medicamentos].entry</td>
+      <td>Composition. section[Medicamentos]. entry</td>
       <td>1..*</td>
       <td>Referência ao recurso que contém os dados desta seção</td>
       <td></td>
       <td>Reference(BRRegistroPrescricaoMedicamento) que referecia o medication request, porém é apenas para um para um, quando no IPS é 0.*. No caso de um sumário, podem ter vários medicationRequests, a RNDS usa o RPM. Não contempla todos os casos de uso de um atendimento clínico, nem mesmo o modelo do RAC</td>
       <td>Reference(MedicationStatement | MedicationRequest | MedicationAdministration | MedicationDispense | DocumentReference)</td>
-      <td>br-core-registroatendimentoclinico.section[Medicamentos].entry</td>
+      <td>br-core-registroatendimentoclinico. section[Medicamentos].entry</td>
     </tr>
     <tr>
-      <td>Composition.section[Medicamentos].emptyReason</td>
+      <td>Composition. section[Medicamentos]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[Medicamentos].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[Medicamentos]. emptyReason</td>
     </tr>
     <tr>
-      <td>Composition.section[planoCuidados].emptyReason</td>
+      <td>Composition. section[planoCuidados]. emptyReason</td>
       <td>0..1</td>
       <td>Explicação porque a seção está vazia</td>
       <td></td>
       <td>Suprimido da RNDS</td>
       <td><a href="http://hl7.org/fhir/R4/valueset-list-empty-reason.html">http://hl7.org/fhir/R4/valueset-list-empty-reason.html</a></td>
-      <td>br-core-registroatendimentoclinico.section[planoCuidados].emptyReason</td>
+      <td>br-core-registroatendimentoclinico. section[planoCuidados]. emptyReason</td>
     </tr>
   </tbody>
 </table>
