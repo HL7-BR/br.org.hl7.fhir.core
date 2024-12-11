@@ -231,7 +231,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[historiaObstetrica].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[historiaObstetrica].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[historiaObstetrica].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[historiaObstetrica].entry only Reference(br-core-pregnancystatus or br-core-pregnancyoutcome)
+* section[historiaObstetrica].entry only Reference(br-core-observationpregnancystatus or br-core-observationpregnancyoutcome)
 
 //Section aleitamentoMaterno
 * section[aleitamentoMaterno] ^short = "Seção de Resumo de Aleitamento Materno"
