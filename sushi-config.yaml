@@ -10,7 +10,7 @@
 id: br.gov.saude.br-core.fhir
 canonical: https://br-core.saude.gov.br/fhir
 url: https://br-core.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.br-core.fhir
-name: IPSBrasil
+name: BR-CORE
 title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
