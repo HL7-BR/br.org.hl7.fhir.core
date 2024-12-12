@@ -337,7 +337,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso br-cor
 * section[historiaSocial].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[historiaSocial].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[historiaSocial].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[historiaSocial].entry only Reference(br-core-observationalcoholuse or br-core-observationshtobaccouse) 
+* section[historiaSocial].entry only Reference(br-core-observationalcoholuse or br-core-observationtobaccouse) 
 
 //Section alergiasIntolerancias
 * section[alergiasIntolerancias] ^short = "Seção de Resumo de Alergias e Intolerâncias"
