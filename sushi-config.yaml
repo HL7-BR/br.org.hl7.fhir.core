@@ -16,7 +16,7 @@ description: Guia de Implementação Core de Interoperabilidade em Saúde Digita
 status: active
 license: CC0-1.0
 date: 2023-05-08
-version: 0.1.1
+version: 1.0.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -58,8 +58,8 @@ jurisdiction: urn:iso:std:iso:3166#BR "Brazil"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  br.gov.saude.terminologia.fhir: 0.1.5
-  br.gov.saude.ips.fhir: 0.1.2
+  br.gov.saude.terminologia.fhir: 1.0.0
+  br.gov.saude.ips.fhir: 1.0.0
 
 # The global property corresponds to the IG.global property, but it
 # uses the type as the YAML key and the profile as its value. Since
