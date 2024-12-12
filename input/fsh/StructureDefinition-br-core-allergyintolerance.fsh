@@ -2,7 +2,7 @@ Profile: BRCoreAllergyIntolerance
 Parent: http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
 Id: br-core-allergyintolerance
 Title: "br-core-allergyintolerance"
-Description: "Este perfil define as características mínimas para o recurso [br-core-allergyintolerance](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-%20allergyintolerance.html) registrar, pesquisar e buscar alergias/reações adversas associadas a um paciente. O perfil especifica quais elementos principais, extensões, vocabulários e conjuntos de valores **DEVEM** estar presentes e restringe como os elementos são usados. Além disso, fornece a base para o desenvolvimento de padrões para casos de uso específicos promove a interoperabilidade e a adoção. "
+Description: "Este perfil define as características mínimas para o recurso [br-core-allergyintolerance](StructureDefinition-br-core-%20allergyintolerance.html) registrar, pesquisar e buscar alergias/reações adversas associadas a um paciente. O perfil especifica quais elementos principais, extensões, vocabulários e conjuntos de valores **DEVEM** estar presentes e restringe como os elementos são usados. Além disso, fornece a base para o desenvolvimento de padrões para casos de uso específicos promove a interoperabilidade e a adoção. "
 
 * id ^short = "Identificador lógico deste artefato."
 * id ^definition = "Identificador lógico deste artefato."
