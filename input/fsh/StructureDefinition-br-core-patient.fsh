@@ -1,4 +1,4 @@
-Profile: br-core-patient
+Profile: BRCorePatient
 Parent: http://hl7.org/fhir/StructureDefinition/Patient
 Id: br-core-patient
 Description: "Este perfil representa o perfil [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo. O perfil [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) herda do recurso FHIR R4 [Patient](https://hl7.org/fhir/R4B/patient.html) para definições de escopo e uso. Este perfil define expectativas mínimas para o recurso [br-core-patient](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient.html) registrar, pesquisar e buscar dados demográficos básicos e outras informações administrativas sobre um paciente individual. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores DEVEM estar presentes e restringe como os elementos são usados.  

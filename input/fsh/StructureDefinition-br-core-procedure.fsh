@@ -1,4 +1,4 @@
-Profile: br-core-procedure
+Profile: BRCoreProcedure
 Parent: http://hl7.org/fhir/StructureDefinition/Procedure
 Id: br-core-procedure
 Description: "Este recurso descreve uma ação que é ou foi realizada em ou para um paciente. Pode ser uma intervenção física como uma operação, ou menos invasiva como serviços de longo prazo, aconselhamento ou hipnoterapia."

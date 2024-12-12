@@ -1,4 +1,4 @@
-Profile: br-core-encounter
+Profile: BRCoreEncounter
 Parent: Encounter
 Id: br-core-encounter
 Title: "br-core-encounter"

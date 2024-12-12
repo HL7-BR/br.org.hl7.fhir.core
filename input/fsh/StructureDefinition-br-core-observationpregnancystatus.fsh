@@ -1,4 +1,4 @@
-Profile: br-core-observationpregnancystatus
+Profile: BRCoreObservationPregnancyStatus
 Parent: br-core-observation
 Id: br-core-observationpregnancystatus
 Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o estado da gravidez."

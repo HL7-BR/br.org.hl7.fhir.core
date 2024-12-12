@@ -1,4 +1,4 @@
-Profile: br-core-servicerequest 
+Profile: BRCoreServiceRequest
 Parent: http://hl7.org/fhir/StructureDefinition/ServiceRequest
 Id: br-core-servicerequest 
 Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/fhir/R4/servicerequest.html) que registra uma solicitação de serviço, como investigações diagnósticas, tratamentos ou operações a serem realizadas."

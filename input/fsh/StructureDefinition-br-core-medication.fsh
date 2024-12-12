@@ -1,4 +1,4 @@
-Profile: br-core-medication
+Profile: BRCoreMedication
 Parent: http://hl7.org/fhir/StructureDefinition/Medication
 Id: br-core-medication
 Title: "br-core-medication"

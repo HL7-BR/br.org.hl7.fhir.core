@@ -1,4 +1,4 @@
-Profile: br-core-healthcareservice
+Profile: BRCoreHealthcareService
 Parent: http://hl7.org/fhir/StructureDefinition/HealthcareService
 Id: br-core-healthcareservice
 Title: "br-core-healthcareservice"

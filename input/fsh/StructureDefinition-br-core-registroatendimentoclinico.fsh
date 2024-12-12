@@ -1,4 +1,4 @@
-Profile: br-core-registroatendimentoclinico
+Profile: BRCoreRegistroAtendimentoClinico
 Parent: br-core-composition
 Id: br-core-registroatendimentoclinico
 Title: "br-core-registroatendimentoclinico"
