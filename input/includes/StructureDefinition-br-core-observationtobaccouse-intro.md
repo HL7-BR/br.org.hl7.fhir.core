@@ -1,12 +1,10 @@
-O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html) para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.
-
 ### Escopo/Uso
 
 Este perfil define expectativas mínimas para o recurso [Observation](https://hl7.org/fhir/R4/observation.html) registrar, pesquisar e buscar dados de status de tabagismo associados a um paciente. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores **DEVEM** estar presentes no recurso e restringe como os elementos são usados. Fornece a base para o desenvolvimento de padrões para casos de uso específicos promove a interoperabilidade e a adoção do recurso
 
 ### Uso indevido
 
-O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) não deve ser usado para registrar informações sobre consumo de álcool ou uso de outras substâncias, mesmo que forem fumadas. Este perfil é específico para o uso de tabaco e deve ser usado apenas para esse propósito.
+O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtobaccouse.html) não deve ser usado para registrar informações sobre consumo de álcool ou uso de outras substâncias, mesmo que forem fumadas. Este perfil é específico para o uso de tabaco e deve ser usado apenas para esse propósito.
 
 ### Caso de uso
 
@@ -20,7 +18,7 @@ Este perfil pode ser usado em diferentes contextos clínicos para garantir a int
 
 ### MUST SUPPORT - Elementos de dados obrigatórios e que devem estar presentes
 
-O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) tem os seguintes elementos como obrigatórios: 
+O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtobaccouse.html) tem os seguintes elementos como obrigatórios: 
 1.	**status:** status da observação
 2.	**code:** Código que identifica a observação. No caso desse perfil se usa um código LOINC 72166-2 fixo para o uso de tabaco.
 3.	**subject:** Referência ao paciente (indivíduo) para o qual a observação está sendo registrada.
