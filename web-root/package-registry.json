@@ -10,12 +10,12 @@
       "version-count" : 1,
       "latest" : {
         "version" : "1.0.0",
-        "date" : "2024-08-27",
+        "date" : "2024-12-12",
         "path" : "https://br-core.saude.gov.br/fhir/v1.0.0"
       },
       "milestone" : {
         "version" : "1.0.0",
-        "date" : "2024-08-27",
+        "date" : "2024-12-12",
         "path" : "https://br-core.saude.gov.br/fhir/v1.0.0"
       }
     }
