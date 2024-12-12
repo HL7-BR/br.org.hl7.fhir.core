@@ -1,4 +1,4 @@
-Profile: br-core-observationpregnancyedd
+Profile: BRCoreObservationPregnancyEDD
 Parent: br-core-observation
 Id: br-core-observationpregnancyedd
 Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar a data prevista para o parto."

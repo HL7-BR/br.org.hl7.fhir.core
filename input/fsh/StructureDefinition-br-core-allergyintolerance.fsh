@@ -1,4 +1,4 @@
-Profile: br-core-allergyintolerance
+Profile: BRCoreAllergyIntolerance
 Parent: http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
 Id: br-core-allergyintolerance
 Title: "br-core-allergyintolerance"

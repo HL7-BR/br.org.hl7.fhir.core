@@ -1,4 +1,4 @@
-Profile: br-core-sumarioalta
+Profile: BRCoreSumarioAlta
 Parent: br-core-composition
 Id: br-core-sumarioalta
 Title: "br-core-sumarioalta"

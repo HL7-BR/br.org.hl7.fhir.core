@@ -1,4 +1,4 @@
-Profile: br-core-careteam
+Profile: BRCoreCareTeam
 Parent: http://hl7.org/fhir/StructureDefinition/CareTeam
 Id: br-core-careteam
 Title: "br-core-careteam"

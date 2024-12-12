@@ -1,4 +1,4 @@
-Extension: br-core-povoitinerante
+Extension: BRCorePovoItinerante
 Id: br-core-povoitinerante
 Title: "Extensão de povo itinerante do Core do Brasil"
 Description: "Este perfil de extensão representa um povo itinerante com a qual uma pessoa se associa"

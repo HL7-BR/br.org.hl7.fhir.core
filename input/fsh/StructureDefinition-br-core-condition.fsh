@@ -1,4 +1,4 @@
-Profile: br-core-condition
+Profile: BRCoreCondition
 Parent: http://hl7.org/fhir/StructureDefinition/Condition
 Id: br-core-condition
 Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R4 [Condition](http://hl7.org/fhir/R4/condition.html)."

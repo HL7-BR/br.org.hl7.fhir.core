@@ -1,4 +1,4 @@
-Profile: br-core-composition
+Profile: BRCoreComposition
 Parent: http://hl7.org/fhir/StructureDefinition/Composition
 Id: br-core-composition
 Title: "br-core-composition"

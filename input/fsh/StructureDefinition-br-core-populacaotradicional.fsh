@@ -1,4 +1,4 @@
-Extension: br-core-populacaotradicional
+Extension: BRCorePopulacaoTradicional
 Id: br-core-populacaotradicional
 Title: "Extensão de populacao tradicional do Core do Brasil"
 Description: "Este perfil de extensão representa um populacao tradicional com a qual uma pessoa se associa"

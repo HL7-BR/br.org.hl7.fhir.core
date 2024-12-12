@@ -1,4 +1,4 @@
-Profile: br-core-observationpregnancyoutcome
+Profile: BRCoreObservationPregnancyOutcome
 Parent: br-core-observation
 Id: br-core-observationpregnancyoutcome
 Description: "Este perfil restringe o recurso [Observation](https://hl7.org/fhir/R4/observation.html) para representar o histórico resumido dos resultados da gravidez."

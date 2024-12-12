@@ -1,4 +1,4 @@
-Profile: br-core-practitionerrole
+Profile: BRCorePractitionerRole
 Parent: http://hl7.org/fhir/StructureDefinition/PractitionerRole
 Id: br-core-practitionerrole
 Description: "Este perfil restringe o recurso PractitionerRole que representa um conjunto específico de funções/locais/especialidades/serviços que um profissional pode desempenhar em uma organização por um período de tempo."

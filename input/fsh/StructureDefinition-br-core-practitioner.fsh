@@ -1,4 +1,4 @@
-Profile: br-core-practitioner
+Profile: BRCorePractitioner
 Parent: http://hl7.org/fhir/StructureDefinition/Practitioner
 Id: br-core-practitioner
 Description: "O Profissional é uma pessoa que está direta ou indiretamente envolvida na prestação de cuidados de saúde ou serviços relacionados ao paciente."

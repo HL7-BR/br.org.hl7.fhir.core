@@ -1,4 +1,4 @@
-Profile: br-core-observation
+Profile: BRCoreObservation
 Parent: http://hl7.org/fhir/StructureDefinition/Observation
 Id: br-core-observation
 Description: "O recurso [br-core-Observation](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."

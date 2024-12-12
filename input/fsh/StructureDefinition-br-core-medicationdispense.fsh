@@ -1,4 +1,4 @@
-Profile: br-core-medicationdispense
+Profile: BRCoreMedicationDispense
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationDispense
 Id: br-core-medicationdispense
 Title: "br-core-medicationdispense"

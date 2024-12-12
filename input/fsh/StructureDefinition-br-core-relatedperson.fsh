@@ -1,4 +1,4 @@
-Profile: br-core-relatedperson
+Profile: BRCoreRelatedPerson
 Parent: RelatedPerson
 Id: br-core-relatedperson
 Description: "O recurso [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html) contém as informações sobre uma pessoa envolvida no cuidado de um paciente, mas que não é alvo de cuidados de saúde nem tem responsabilidade formal no processo de cuidado. 

@@ -1,4 +1,4 @@
-Profile: br-core-medicationrequest
+Profile: BRCoreMedicationRequest
 Parent: http://hl7.org/fhir/StructureDefinition/MedicationRequest
 Id: br-core-medicationrequest
 Title: "br-core-medicationrequest"

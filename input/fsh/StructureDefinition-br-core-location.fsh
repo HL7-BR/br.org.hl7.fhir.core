@@ -1,4 +1,4 @@
-Profile: br-core-location
+Profile: BRCoreLocation
 Parent: http://hl7.org/fhir/StructureDefinition/Location
 Id: br-core-location
 Title: "br-core-location"
