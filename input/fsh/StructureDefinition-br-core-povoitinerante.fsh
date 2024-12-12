@@ -21,5 +21,6 @@ Description: "Este perfil de extensão representa um povo itinerante com a qual 
 //* url = "StructureDefinition-br-core-povoitinerante" (exactly)
 * value[x] 1..1
 * value[x] only CodeableConcept
+* valueCodeableConcept from https://terminologia.saude.gov.br/fhir/ValueSet/BRPovoItinerante
 //* value[x] from StructureDefinition-br-core-povoitinerante (required)
 * value[x] ^binding.description = "Povo itinerante"

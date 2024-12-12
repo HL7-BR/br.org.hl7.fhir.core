@@ -79,7 +79,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cns].system 1..1
 * identifier[cns].system ^short = "Sistema do identificador do profissional"
 * identifier[cns].system ^definition = "Sistema que identifica o tipo do identificador do profissional"
-* identifier[cns].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cns" (exactly)
+* identifier[cns].system = "https://saude.gov.br/fhir/sid/cns" (exactly)
 * identifier[cns].value 1..1
 * identifier[cns].value ^short = "Valor do identificador do profissional"
 * identifier[cns].value ^definition = "Valor do identificador do profissional"
@@ -134,7 +134,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cpf].system 1..1
 * identifier[cpf].system ^short = "Sistema do identificador do profissional"
 * identifier[cpf].system ^definition = "Sistema que identifica o tipo do identificador do profissional"
-* identifier[cpf].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/cpf" (exactly)
+* identifier[cpf].system = "https://saude.gov.br/fhir/sid/cpf" (exactly)
 * identifier[cpf].value 1..1
 * identifier[cpf].value ^short = "Valor do identificador do profissional"
 * identifier[cpf].value ^definition = "Valor do identificador do profissional"
