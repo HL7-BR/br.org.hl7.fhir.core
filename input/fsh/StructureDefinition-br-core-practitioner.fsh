@@ -468,7 +468,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * qualification.identifier ^definition = "Identificador da qualificação do profissional"
 * qualification.code ^short = "Código da qualificação do profissional"
 * qualification.code ^definition = "Código da qualificação do profissional"
-* qualification.code from https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO (required)
+* qualification.code from https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO (required) // BROcupacaco que é o VS no OCL
 * qualification.code.coding ^short = "Codificação da qualificação do profissional"
 * qualification.code.coding ^definition = "Codificação da qualificação do profissional"
 * qualification.code.coding.system ^short = "Sistema de codificação da qualificação do profissional"

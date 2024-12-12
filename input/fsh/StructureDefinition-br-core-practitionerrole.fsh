@@ -41,7 +41,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * code ^short = "Códigos dos papeis dos profissionais de saúde."
 * code ^definition = "Códigos dos papeis dos profissionais de saúde."
 * code 1..*
-* code from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO (required)
+* code from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO (required) // BROcupacao VS
 * specialty ^short = "Especialidade específica do profissional."
 * specialty ^definition = "Especialidade específica do profissional."
 * location ^short = "Local em que este profissional presta cuidados."
