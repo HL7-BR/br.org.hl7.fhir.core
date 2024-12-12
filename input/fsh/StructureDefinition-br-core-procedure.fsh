@@ -94,7 +94,7 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * reasonReference ^short = "A justificativa de que o procedimento foi realizado."
 * reasonReference ^definition = "A justificativa de que o procedimento foi realizado."
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-procedure or br-core-diagnosticreport or DocumentReference)
-* bodySite from http://terminologia.saude.gov.br/fhir/ValueSet/body-site
+* bodySite from http://hl7.org/fhir/uv/ips/ValueSet/body-site-uv-ips
 * bodySite ^short = "Conceito - referência a uma terminologia ou apenas texto."
 * bodySite ^definition = "Conceito - referência a uma terminologia ou apenas texto."
 * outcome ^short = "Resultado do procedimento."

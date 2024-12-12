@@ -99,7 +99,7 @@ Title: "br-core-encounter"
 * hospitalization.destination only Reference(br-core-location or br-core-organization)
 * hospitalization.dischargeDisposition ^short = "Categoria ou tipo de local após a alta"
 * hospitalization.dischargeDisposition ^definition = "Categoria ou tipo de local após a alta"
-* hospitalization.dischargeDisposition from https://fhir-hm.ans.gov.br/ValueSet/motivo-encerramento
+* hospitalization.dischargeDisposition from https://fhir.ans.gov.br/ValueSet/motivo-encerramento
 * hospitalization.dischargeDisposition 1..1
 * location ^short = "Lista de locais onde o paciente esteve"
 * location ^definition = "Lista de locais onde o paciente esteve"

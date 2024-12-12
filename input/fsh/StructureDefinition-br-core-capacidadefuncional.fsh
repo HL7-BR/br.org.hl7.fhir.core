@@ -32,13 +32,13 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * category ^short = "Categoria da condição" 
 * category ^definition = "Categoria da condição"
 * category 0..1
-* category from https://www.terminologia.saude.gov.br/ValueSet/BRCategoriaDiagnostico (required)
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaDiagnostico (required)
 * severity ^short = "Severidade da condição" 
 * severity ^definition = "Severidade da condição" 
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
 * code ^short = "Suspeita Diagnóstica"
 * code 1..1
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSuspeitadiagnostica (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSuspeitaDiagnostica (required)
 * code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
