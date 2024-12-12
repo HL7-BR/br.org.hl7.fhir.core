@@ -1,6 +1,6 @@
 ### Escopo e uso
 
-O [br-core-location](StructureDefinition-br-core-location) inclui locais incidentais (um local que é usado para assistência médica sem designação ou autorização prévia) e locais dedicados e formalmente nomeados. Os locais podem ser privados, públicos, móveis ou fixos e podem variar de pequenos freezers a prédios hospitalares completos ou estacionamentos. 
+O [br-core-location](StructureDefinition-br-core-location.html) inclui locais incidentais (um local que é usado para assistência médica sem designação ou autorização prévia) e locais dedicados e formalmente nomeados. Os locais podem ser privados, públicos, móveis ou fixos e podem variar de pequenos freezers a prédios hospitalares completos ou estacionamentos. 
 
 Exemplos de locais são:
 
@@ -44,7 +44,7 @@ No recurso br-core-location, os elementos status e name são obrigatórios por c
 
 Location e Organization são recursos intimamente relacionados e podem frequentemente ser misturados/combinados/confundidos.
 
-O [br-core-location](StructureDefinition-br-core-location) tem a intenção de descrever as estruturas mais físicas gerenciadas/operadas por uma organização, enquanto o [br-core-organization](StructureDefinition-br-core-organization) tem a intenção de representar as hierarquias mais conceituais, como uma ala.
+O [br-core-location](StructureDefinition-br-core-location.html) tem a intenção de descrever as estruturas mais físicas gerenciadas/operadas por uma organização, enquanto o [br-core-organization](StructureDefinition-br-core-organization) tem a intenção de representar as hierarquias mais conceituais, como uma ala.
 
 Um local é válido sem um endereço em casos em que ele poderia ser puramente descrito por um local geocodificado em áreas remotas, ou quando registrado por um dispositivo. Locais com um modo = "kind" provavelmente também não teriam um endereço, pois são apenas um tipo de local, mas também poderiam ter um endereço onde podem ser encontrados no endereço.
 

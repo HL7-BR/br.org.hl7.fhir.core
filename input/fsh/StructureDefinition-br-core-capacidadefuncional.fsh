@@ -1,7 +1,7 @@
 Profile: BRCoreCapacidadeFuncional
 Parent: br-core-condition
 Id: br-core-capacidadefuncional
-Description: "Este perfil herda do recurso [br-core-condition](StructureDefinition-br-core-condition)"
+Description: "Este perfil herda do recurso [br-core-condition](StructureDefinition-br-core-condition.html)"
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
@@ -38,7 +38,7 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
 * code ^short = "Suspeita Diagnóstica"
 * code 1..1
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSuspeitaDiagnostica (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRTerminologiaSuspeitaDiagnostica (required)
 * code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 

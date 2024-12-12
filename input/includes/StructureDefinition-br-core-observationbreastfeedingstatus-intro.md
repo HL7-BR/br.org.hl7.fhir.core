@@ -32,4 +32,4 @@ O perfil pode incluir extensões para adicionar informações adicionais, como a
 
 ### Limites e relacionamentos
 
-Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](StructureDefinition-br-core-registroatendimentoclinico) e o [br-core-composition](StructureDefinition-br-core-composition), para integrar informações de amamentação em resumos de pacientes.
+Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](StructureDefinition-br-core-registroatendimentoclinico.html) e o [br-core-composition](StructureDefinition-br-core-composition.html), para integrar informações de amamentação em resumos de pacientes.

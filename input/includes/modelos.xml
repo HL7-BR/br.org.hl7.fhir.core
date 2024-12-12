@@ -10,7 +10,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
         <tbody>
         <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-allergyintolerance-intro.html"
+                    <a href="StructureDefinition-br-core-allergyintolerance.html"
                         title="StructureDefinition/br-core-allergyintolerance.fsh">br-core-allergyintolerance</a>
                 </td>
                 <td>
@@ -19,7 +19,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
 <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-capacidadefuncional-intro.html"
+                    <a href="StructureDefinition-br-core-capacidadefuncional.html"
                         title="StructureDefinition/br-core-capacidadefuncional.fsh">br-core-capacidadefuncional</a>
                 </td>
                 <td>
@@ -29,7 +29,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-careplan-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-careplan.html"
                         title="StructureDefinition/br-core-br-core-careplan.fsh">br-core-careplan</a>
                 </td>
                 <td>
@@ -39,7 +39,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-careteam-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-careteam.html"
                         title="StructureDefinition/br-core-br-core-careteam.fsh">br-core-careteam</a>
                 </td>
                 <td>
@@ -49,7 +49,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-br-core-composition-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-br-core-composition.html"
                         title="StructureDefinition/br-core-br-core-br-core-composition.fsh">br-core-composition</a>
                 </td>
                 <td>
@@ -58,7 +58,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-patient-intro.html"
+                    <a href="StructureDefinition-br-core-patient.html"
                         title="StructureDefinition/br-core-patient.fsh">br-core-patient</a>
                 </td>
                 <td>
@@ -67,7 +67,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-condition-intro.html"
+                    <a href="StructureDefinition-br-core-condition.html"
                         title="StructureDefinition/br-core-condition.fsh">br-core-condition</a>
                 </td>
                 <td>
@@ -76,7 +76,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-diagnosticreport-intro.html"
+                    <a href="StructureDefinition-br-core-diagnosticreport.html"
                         title="StructureDefinition/br-core-diagnosticreport.fsh">bbr-core-diagnosticreport</a>
                 </td>
                 <td>
@@ -85,7 +85,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-encounter-intro.html"
+                    <a href="StructureDefinition-br-core-encounter.html"
                         title="StructureDefinition/br-core-encounter.fsh">br-core-encounter</a>
                 </td>
                 <td>
@@ -94,7 +94,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-healthcareservice-intro.html"
+                    <a href="StructureDefinition-br-core-healthcareservice.html"
                         title="StructureDefinition/br-core-healthcareservice.fsh">br-core-healthcareservice </a>
                 </td>
                 <td>
@@ -103,7 +103,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-immunization-intro.html"
+                    <a href="StructureDefinition-br-core-immunization.html"
                         title="StructureDefinition/br-core-immunization.fsh">br-core-immunization </a>
                 </td>
                 <td>
@@ -112,7 +112,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-location-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-location.html"
                         title="StructureDefinition/br-core-br-core-location.fsh">br-core-location </a>
                 </td>
                 <td>
@@ -121,7 +121,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-medicationrequest-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-medicationrequest.html"
                         title="StructureDefinition/br-core-br-core-medicationrequest.fsh">br-core-medicationrequest </a>
                 </td>
                 <td>
@@ -130,7 +130,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-medicationadministration-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-medicationadministration.html"
                         title="StructureDefinition/br-core-br-core-medicationadministration.fsh">br-core-medicationadministration </a>
                 </td>
                 <td>
@@ -139,7 +139,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-medicationdispense-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-medicationdispense.html"
                         title="StructureDefinition/br-core-br-core-medicationdispense.fsh">br-core-medicationdispense </a>
                 </td>
                 <td>
@@ -148,7 +148,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-medicationrequest-intro.html"
+                    <a href="StructureDefinition-br-core-br-core-medicationrequest.html"
                         title="StructureDefinition/br-core-br-core-medicationrequest.fsh">br-core-allergyintolerancemedicationrequest </a>
                 </td>
                 <td>

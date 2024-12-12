@@ -1,6 +1,6 @@
 ### Escopo e uso
 
-O [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice) é usado para descrever um único serviço de saúde ou categoria de serviços que são fornecidos por uma organização em um local. O local dos serviços pode ser virtual, como por exemplo os serviços de telemedicina. 
+O [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice.html) é usado para descrever um único serviço de saúde ou categoria de serviços que são fornecidos por uma organização em um local. O local dos serviços pode ser virtual, como por exemplo os serviços de telemedicina. 
 
 Exemplos comuns de recursos do HealthcareServices são:
 -	Neuropsicólogo Clínico
@@ -19,7 +19,7 @@ Exemplos comuns de recursos do HealthcareServices são:
 
 ### Caso de uso
 
-Exemplos de uso dos recursos do [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice) são:
+Exemplos de uso dos recursos do [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice.html) são:
 -	CNES – Cadastro Nacional de Estabelecimentos   - pesquisa de estabelecimentos e prestadores
 -	Portal do Cliente numa Organização - para localizar serviços / agendar consultas
 -	Catálogo de endereços de serviços para encaminhamentos, incluindo referências a questionários para avaliações que são necessárias como parte do encaminhamento
@@ -72,7 +72,7 @@ Apesar de ainda não definido na RNDS, quando for utilizado deve se levar em con
 
 ### Limites e relacionamentos
 
-O recurso [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice) pode ser usado com o recurso [Schedule](https://hl7.org/fhir/R4/schedule.html#Schedule) para definir a disponibilidade do serviço. Isso pode ser feito usando a propriedade Actor do recurso Schedule.
+O recurso [br-core-healthcareservice](StructureDefinition-br-core-healthcareservice.html) pode ser usado com o recurso [Schedule](https://hl7.org/fhir/R4/schedule.html#Schedule) para definir a disponibilidade do serviço. Isso pode ser feito usando a propriedade Actor do recurso Schedule.
 
 Ao criar um [Appointment](https://hl7.org/fhir/R4/appointment.html#Appointment), o HealthcareService deve ser atribuído a um dos participantes. Cabe ao sistema de agendamento determinar se o serviço está disponível e pode ser aceito.
 

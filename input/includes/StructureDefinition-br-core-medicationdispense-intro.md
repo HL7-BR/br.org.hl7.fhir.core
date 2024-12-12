@@ -6,9 +6,9 @@ MedicationDispense é um recurso de evento de uma perspectiva de fluxo de trabal
 
 ### Caso de uso
 
-O recurso brasileiro [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense) restringe os casos de uso do Recurso FHIR canônico, e deve ser utilizado para dispensação de qualquer medicamento, em qualquer tipo de estabelecimento, mesmo não vinculado ao SUS.
+O recurso brasileiro [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense.html) restringe os casos de uso do Recurso FHIR canônico, e deve ser utilizado para dispensação de qualquer medicamento, em qualquer tipo de estabelecimento, mesmo não vinculado ao SUS.
 
-O recurso [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense) contempla as seguintes situações de uso:
+O recurso [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense.html) contempla as seguintes situações de uso:
 
 -	Solicitações de medicamentos de Atenção Primária, Assistência Comunitária e Atendimento de Urgência e Emergência em uma farmácia do SUS;
 -	Solicitações de medicamentos ambulatoriais para uma farmácia privada;

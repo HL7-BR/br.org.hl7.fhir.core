@@ -1,6 +1,6 @@
 ### Escopo/Uso
 
-O perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd) define os elementos e extensões necessários para registrar a data prevista do parto de uma paciente grávida. O perfil inclui campos para a data em que a data prevista do parto foi registrada e a data efetiva estimada, utiliza o elemento effectivePeriod para indicar o período durante o qual a data prevista do parto foi estimada.
+O perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd.html) define os elementos e extensões necessários para registrar a data prevista do parto de uma paciente grávida. O perfil inclui campos para a data em que a data prevista do parto foi registrada e a data efetiva estimada, utiliza o elemento effectivePeriod para indicar o período durante o qual a data prevista do parto foi estimada.
 
 **Uso:**
 -	**Consulta da Data Prevista do Parto:** Permite que os sistemas de saúde consultem e obtenham a data prevista do parto de uma paciente de forma padronizada e interoperável.
@@ -8,7 +8,7 @@ O perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observati
 
 ### Uso indevido
 
-O perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd) deve ser usado exclusivamente para registrar e gerenciar a data prevista do parto de uma paciente grávida e  não deve ser utilizado  em consultas ou procedimentos que não envolvem a saúde reprodutiva ou a gestação da paciente.
+O perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd.html) deve ser usado exclusivamente para registrar e gerenciar a data prevista do parto de uma paciente grávida e  não deve ser utilizado  em consultas ou procedimentos que não envolvem a saúde reprodutiva ou a gestação da paciente.
 
 ### Caso de uso
 
@@ -25,7 +25,7 @@ Em programas de planejamento familiar, a data prevista do parto é usada para ed
 
 Os seguintes elementos de dados devem estar sempre presentes (definição obrigatória) ou devem ser suportados se os dados estiverem presentes no sistema de envio (definição de suporte obrigatório). Eles são apresentados abaixo em uma explicação simples e legível. Orientações e exemplos específicos do perfil também são fornecidos. As Visualizações Formais abaixo fornecem o resumo formal, as definições e os requisitos de terminologia.
 
-Para o perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd) os elementos de dados que são obrigatórios (mandatórios) e os que devem ser suportados (must support) são:
+Para o perfil [br-core-observationpregnancyedd](StructureDefinition-br-core-observationpregnancyedd.html) os elementos de dados que são obrigatórios (mandatórios) e os que devem ser suportados (must support) são:
 1.	code: Código que identifica a observação como relacionada ao resultado da gestação.
 2.	subject: Referência ao paciente (indivíduo) para o qual a observação está sendo registrada.
 3.	subject. reference: Referência literal, URL relativa, interna ou absoluta

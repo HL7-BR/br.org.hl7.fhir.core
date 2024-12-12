@@ -16,7 +16,7 @@ O recurso [br-core-observation](StructureDefinition-br-core-observation.html) po
 
 * Os limites entre achados clínicos e distúrbios continuam sendo um desafio na ontologia médica. Consulte a seção Limites abaixo e em Condição para orientação geral. Esses limites podem ser esclarecidos ao criar um perfil de [br-core-observation](StructureDefinition-br-core-observation.html) para um caso de uso específico. Medições e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto.
 
-Sempre que as medidas observadas forem sinais vitais, caracterizadas pelos conceitos descritos no VSBRSinaisVitais o perfil derivado [br-core-sinaisvitais](StructureDefinition-br-core-sinaisvitais.html) deve ser utilizado 
+Sempre que as medidas observadas forem sinais vitais, caracterizadas pelos conceitos descritos no VSBRSinaisVitais o perfil derivado [br-core-sinaisvitais](StructureDefinition-br-core-vitalsigns.html) deve ser utilizado 
 
 <table border="1">
   <tbody>

@@ -4,7 +4,7 @@ Este perfil define expectativas mínimas para o recurso Observation registrar, p
 
 ### Uso indevido
 
-O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcohooluse.html) é projetado para documentar o uso de álcool na história social de um paciente, e seu uso deve ser adequado ao contexto clínico específico e não deve ser utilizado para registrar outros comportamentos de saúde.
+O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcoholuse.html) é projetado para documentar o uso de álcool na história social de um paciente, e seu uso deve ser adequado ao contexto clínico específico e não deve ser utilizado para registrar outros comportamentos de saúde.
 
 ### Caso de uso
 
