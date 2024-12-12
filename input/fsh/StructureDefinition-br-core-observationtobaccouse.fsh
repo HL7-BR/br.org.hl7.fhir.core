@@ -1,7 +1,7 @@
 Profile: BRCoreObservationTobaccoUse
 Parent: br-core-observation
 Id: br-core-observationtobaccouse
-Description: "O recurso [br-core-observationtobaccouse](StructureDefinition-br-core-observationtobaccouse.html) herda do recurso FHIR R4 [observation](https://hl7.org/fhir/R4B/observation.html) e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto."
+Description: "O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtobaccouse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html) para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente."
 
 * code.coding ^short = "Código definido por uma terminologia"
 * code.coding ^definition = "Código definido por uma terminologia"

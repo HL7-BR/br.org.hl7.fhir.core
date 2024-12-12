@@ -2,6 +2,7 @@ Profile: BRCoreEncounter
 Parent: Encounter
 Id: br-core-encounter
 Title: "br-core-encounter"
+Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviços saúde com a finalidade de fornecer serviço(s) de saúde ou avaliar o estado de saúde de um paciente."
 
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"

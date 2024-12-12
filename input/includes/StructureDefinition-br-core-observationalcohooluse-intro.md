@@ -1,5 +1,3 @@
-O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcohooluse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html), projetado para documentar a avaliação do uso de álcool em um resumo de paciente. 
-
 ### Escopo/Uso
 
 Este perfil define expectativas mínimas para o recurso Observation registrar, pesquisar e buscar dados sobre o consumo de álcool associados a um paciente. Ele especifica quais elementos principais, extensões, vocabulários e conjuntos de valores DEVEM estar presentes no recurso e restringe como os elementos são usados. Fornece a base para o desenvolvimento de padrões para casos de uso específicos promove a interoperabilidade e a adoção do recurso. 
