@@ -6,7 +6,7 @@ Alguns exemplos de cenários de uso para este perfil são:
 
 ### Elementos de dados obrigatórios e que devem estar presentes (Must Support)
 
-Os seguintes elementos devem estar sempre presentes ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support), em um recurso [br-core-relatedperson](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson.html).  
+Os seguintes elementos devem estar sempre presentes ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support), em um recurso [br-core-relatedperson](StructureDefinition-br-core-relatedperson.html).  
 
 **Cada RelatedPerson deve ter:**
 1.	um paciente

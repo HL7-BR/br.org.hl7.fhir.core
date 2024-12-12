@@ -25,7 +25,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * status from http://hl7.org/fhir/ValueSet/composition-status (required)
 * type ^short = "Tipo da Composition"
 * type ^definition = "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)"
-* type from http://hl7.org/fhir/R4/valueset-doc-typecodes.html (preferred)
+* type from http://hl7.org/fhir/ValueSet/doc-typecodes (preferred)
 * type.id ^short = "ID exclusivo para referência entre elementos"
 * type.id ^definition = "ID exclusivo para referência entre elementos"
 * type.extension ^short = "Conteúdo adicional definido por implementações"
@@ -51,7 +51,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * type.text ^definition = "Representação em texto livre do conceito"
 * category ^short = "Categorização da Composition"
 * category ^definition = "Categorização da Composition"
-* category from http://hl7.org/fhir/R4/valueset-document-classcodes.html (example)
+* category from http://hl7.org/fhir/ValueSet/document-classcodes (example)
 * subject ^short = "Sobre quem e/ou sobre o que é a Composition"
 * subject ^definition = "Sobre quem e/ou sobre o que é a Composition"
 * subject.id ^short = "ID exclusivo para referência entre elementos"
@@ -90,7 +90,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * attester.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * attester.mode ^short = "Métodolo utilizada para autenticar a Composition"
 * attester.mode ^definition = "Métodolo utilizada para autenticar a Composition: pessoal, profissional, legal, oficial"
-* attester.mode  from http://hl7.org/fhir/R4/valueset-composition-attestation-mode.html (required)
+* attester.mode  from http://hl7.org/fhir/ValueSet/composition-attestation-mode (required)
 * attester.time ^short = "Quando a Composition foi atestada"
 * attester.time ^definition = "Quando a Composition foi atestada"
 * attester.party ^short = "Quem atestou a Composition"
@@ -109,7 +109,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * relatesTo.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * relatesTo.code ^short = "Alvo do relacionamento da composição"
 * relatesTo.code ^definition = "Alvo do relacionamento da composição"
-* relatesTo.code from http://hl7.org/fhir/R4/valueset-document-relationship-type.html (required)
+* relatesTo.code from http://hl7.org/fhir/ValueSet/document-relationship-type (required)
 * relatesTo.target[x] ^short = "Relacionamento alvo"
 * relatesTo.target[x] ^definition = "Relacionamento alvo"
 * relatesTo.targetReference ^short = "Referencia a composition alvo"
@@ -143,7 +143,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * section.title ^definition = "Título da seção do Sumário Internacional do Paciente"
 * section.code ^short = "Um código que identifica o tipo de conteúdo contido dentro da seção."
 * section.code ^definition = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção."
-* section.code from http://hl7.org/fhir/R4/valueset-doc-section-codes.html (required)
+* section.code from 	http://hl7.org/fhir/ValueSet/doc-section-codes (required)
 * section.author ^short = "Quem e/ou o que foi o autor desta seção"
 * section.author ^definition = " Identifica quem é responsável pelas informações nesta seção, não necessariamente quem a digitou."
 * section.author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
@@ -153,14 +153,14 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * section.text ^definition = "Resumo em texto livre da seção"
 * section.mode ^short = "Método de processamento da seção"
 * section.mode ^definition = "Método de processamento da seção"
-* section.mode from http://hl7.org/fhir/R4/valueset-list-mode.html (required)
+* section.mode from http://hl7.org/fhir/ValueSet/list-mode (required)
 * section.orderedBy ^short = "Especifica a ordem dos itens nas sections.entry"
 * section.orderedBy ^definition = "Especifica a ordem dos itens nas sections.entry"
-* section.orderedBy from http://hl7.org/fhir/R4/valueset-list-order.html (preferred)
+* section.orderedBy from http://hl7.org/fhir/ValueSet/list-order (preferred)
 * section.entry ^short = "Uma referência ao recurso a partir  do qual narrativa da seção é derivada."
 * section.entry ^definition = "Uma referência ao recurso a partir  do qual narrativa da seção é derivada."
 * section.emptyReason ^short = "Explicação porquê a secção está vazia"
 * section.emptyReason ^definition = "Explicação porquê a secção está vazia"
-* section.orderedBy from http://hl7.org/fhir/R4/valueset-list-empty-reason.html (preferred)
+* section.orderedBy from http://hl7.org/fhir/ValueSet/list-empty-reason (preferred)
 * section.section ^short = "Uma subseção aninhada dentro desta seção"
 * section.section ^definition = "Uma subseção aninhada dentro desta seção"

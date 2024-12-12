@@ -6,9 +6,9 @@ MedicationDispense é um recurso de evento de uma perspectiva de fluxo de trabal
 
 ### Caso de uso
 
-O recurso brasileiro [br-core-medicationdispense](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense) restringe os casos de uso do Recurso FHIR canônico, e deve ser utilizado para dispensação de qualquer medicamento, em qualquer tipo de estabelecimento, mesmo não vinculado ao SUS.
+O recurso brasileiro [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense) restringe os casos de uso do Recurso FHIR canônico, e deve ser utilizado para dispensação de qualquer medicamento, em qualquer tipo de estabelecimento, mesmo não vinculado ao SUS.
 
-O recurso [br-core-medicationdispense](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense) contempla as seguintes situações de uso:
+O recurso [br-core-medicationdispense](StructureDefinition-br-core-medicationdispense) contempla as seguintes situações de uso:
 
 -	Solicitações de medicamentos de Atenção Primária, Assistência Comunitária e Atendimento de Urgência e Emergência em uma farmácia do SUS;
 -	Solicitações de medicamentos ambulatoriais para uma farmácia privada;
@@ -64,19 +64,19 @@ O domínio Medicação(Medication) inclui uma série de recursos relacionados, c
 <table border="1">
   <tbody>
   <tr>
-      <td>MedicationRequest(<a href="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest">br-core-medicationrequest</a>)</td>
+      <td>MedicationRequest(<a href="StructureDefinition-br-core-medicationrequest">br-core-medicationrequest</a>)</td>
       <td>Uma ordem para fornecimento do medicamento e instruções para administração do medicamento a um paciente.</td>
     </tr>
     <tr>
-      <td>MedicamentoDispense(<a href="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense.html">br-core-medicationdispense</a>)</td>
+      <td>MedicamentoDispense(<a href="StructureDefinition-br-core-medicationdispense.html">br-core-medicationdispense</a>)</td>
       <td>Fornecimento de um medicamento com a intenção de que ele seja posteriormente consumido por um paciente (geralmente em resposta a uma prescrição).</td>
     </tr>
     <tr>
-      <td>MedicationAdministration(<a href="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdadministration.html">br-core-medicationadministration</a>)</td>
+      <td>MedicationAdministration(<a href="StructureDefinition-br-core-medicationdadministration.html">br-core-medicationadministration</a>)</td>
       <td>Quando um paciente realmente consome um medicamento, ou o medicamento é administrado a ele de outra forma</td>
     </tr>
     <tr>
-      <td>MedicationAdministration(<a href="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement.html">br-core-medicationstatement</a>)</td>
+      <td>MedicationAdministration(<a href="StructureDefinition-br-core-medicationstatement.html">br-core-medicationstatement</a>)</td>
       <td>Este é um registro de um medicamento sendo tomado por um paciente ou que um medicamento foi dado a um paciente, onde o registro é o resultado de um relatório do paciente ou de outro clínico. Uma declaração de medicamento não é parte do fluxo prescrever->dispensar->administrar, mas é um relatório de que este  fluxo (ou pelo menos uma parte dela) ocorreu, resultando em uma crença de que o paciente recebeu um medicamento específico.</td>
     </tr>
   </tbody>

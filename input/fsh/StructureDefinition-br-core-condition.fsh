@@ -29,7 +29,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * category ^short = "Categoria da condição" 
 * category ^definition = "Categoria da condição"
 * category 0..1
-* category from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico (required)
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaDiagnostico (required)
 * severity ^short = "Severidade da condição" 
 * severity ^definition = "Severidade da condição" 
 * bodySite ^short = "Local anatômico da condição, se relevante" 

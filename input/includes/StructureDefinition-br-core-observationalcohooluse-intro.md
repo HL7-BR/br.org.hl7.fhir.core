@@ -1,4 +1,4 @@
-O perfil [br-core-observationalcohooluse](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationalcohooluse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html), projetado para documentar a avaliação do uso de álcool em um resumo de paciente. 
+O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcohooluse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html), projetado para documentar a avaliação do uso de álcool em um resumo de paciente. 
 
 ### Escopo/Uso
 
@@ -6,7 +6,7 @@ Este perfil define expectativas mínimas para o recurso Observation registrar, p
 
 ### Uso indevido
 
-O perfil [br-core-observationalcohooluse](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationalcohooluse.html) é projetado para documentar o uso de álcool na história social de um paciente, e seu uso deve ser adequado ao contexto clínico específico e não deve ser utilizado para registrar outros comportamentos de saúde.
+O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcohooluse.html) é projetado para documentar o uso de álcool na história social de um paciente, e seu uso deve ser adequado ao contexto clínico específico e não deve ser utilizado para registrar outros comportamentos de saúde.
 
 ### Caso de uso
 
@@ -32,4 +32,4 @@ O perfil pode incluir extensões para adicionar informações adicionais, como a
 
 ### Limites e relacionamentos
 
-Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-registroatendimentoclinico.html) e o [br-core-composition](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition.html), para integrar informações de uso de álcool em resumos de pacientes.
+Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](StructureDefinition-br-core-registroatendimentoclinico.html) e o [br-core-composition](StructureDefinition-br-core-composition.html), para integrar informações de uso de álcool em resumos de pacientes.

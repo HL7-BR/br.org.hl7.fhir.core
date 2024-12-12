@@ -99,7 +99,7 @@ Title: "br-core-encounter"
 * hospitalization.destination only Reference(br-core-location or br-core-organization)
 * hospitalization.dischargeDisposition ^short = "Categoria ou tipo de local após a alta"
 * hospitalization.dischargeDisposition ^definition = "Categoria ou tipo de local após a alta"
-* hospitalization.dischargeDisposition from https://fhir-hm.ans.gov.br/ValueSet-motivo-encerramento.html
+* hospitalization.dischargeDisposition from https://fhir-hm.ans.gov.br/ValueSet/motivo-encerramento
 * hospitalization.dischargeDisposition 1..1
 * location ^short = "Lista de locais onde o paciente esteve"
 * location ^definition = "Lista de locais onde o paciente esteve"
@@ -108,10 +108,10 @@ Title: "br-core-encounter"
 * location.location only Reference(br-core-location)
 * location.status ^short = "O status do local."
 * location.status ^definition = "planned | active | reserved | completed"
-* location.status from http://hl7.org/fhir/R4/valueset-encounter-location-status.html
+* location.status from http://hl7.org/fhir/ValueSet/encounter-location-status
 * location.physicalType ^short = "O tipo físico do local (geralmente o nível na hierarquia do local - quarto, enfermaria, etc.)"
 * location.physicalType ^definition = "O tipo físico do local (geralmente o nível na hierarquia do local - quarto, enfermaria, etc.)"
-* location.physicalType from http://hl7.org/fhir/R4/valueset-location-physical-type.html
+* location.physicalType from http://hl7.org/fhir/ValueSet/location-physical-type
 * location.period ^short = "Período de tempo durante o qual o paciente esteve presente no local"
 * location.period ^definition = "Período de tempo durante o qual o paciente esteve presente no local"
 * serviceProvider ^short = "A organização (instalação) responsável por este encontro"

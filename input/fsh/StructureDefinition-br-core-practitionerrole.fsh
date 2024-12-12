@@ -23,7 +23,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * identifier.use 1..1
 * identifier.use from http://hl7.org/fhir/ValueSet/identifier-use (required)
 * identifier.type 1..1
-* identifier.type.coding.system = "http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoDocumentoIndividuo-1.0" (exactly)
+* identifier.type.coding.system = "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoDocumentoIndividuo" (exactly)
 * active ^short = "Informa de o registro de função do profissional está em uso ativo"
 * active ^definition = "Informa de o registro de função do profissional está em uso ativo"
 * active 1..1
@@ -41,7 +41,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * code ^short = "Códigos dos papeis dos profissionais de saúde."
 * code ^definition = "Códigos dos papeis dos profissionais de saúde."
 * code 1..*
-* code from http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO (required) // BROcupacao VS
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required) // BROcupacao VS
 * specialty ^short = "Especialidade específica do profissional."
 * specialty ^definition = "Especialidade específica do profissional."
 * location ^short = "Local em que este profissional presta cuidados."

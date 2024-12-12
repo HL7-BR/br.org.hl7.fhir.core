@@ -41,7 +41,7 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * performer ^definition = "Quem realizou a administração da medicação e o que eles fizeram"
 * performer.function ^short = "Tipo de desempenho"
 * performer.function ^definition = "Tipo de desempenho"
-* performer.function from https://www.hl7.org/fhir/R4/valueset-med-admin-perform-function.html (preferred)
+* performer.function from https://www.hl7.org/fhir/R4/ValueSet/med-admin-perform-function (preferred)
 * performer.actor ^short = "Quem realizou a administração do medicamento"
 * performer.actor ^definition = "Quem realizou a administração do medicamento"
 * performer.actor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-patient or br-core-relatedperson or Device)

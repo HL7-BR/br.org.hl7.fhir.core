@@ -28,7 +28,6 @@ Description: "O recurso [br-core-Observation](https://br-core.saude.gov.br/fhir/
 * partOf only Reference(br-core-medicationadministration or br-core-medicationdispense or br-core-medicationstatement or br-core-procedure or br-core-immunization or ImagingStudy)
 * status ^short = "Status atual da observação"
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
-//* status from https://terminologia.saude.gov.br/fhir/ValueSet/brestadoobservacao-1.0
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
 * category 1..1

@@ -1,4 +1,4 @@
-O perfil [br-core-observationtobaccouse](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationtotobaccouse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html) para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.
+O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html) para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.
 
 ### Escopo/Uso
 
@@ -6,7 +6,7 @@ Este perfil define expectativas mínimas para o recurso [Observation](https://hl
 
 ### Uso indevido
 
-O perfil [br-core-observationtobaccouse](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationtotobaccouse.html) não deve ser usado para registrar informações sobre consumo de álcool ou uso de outras substâncias, mesmo que forem fumadas. Este perfil é específico para o uso de tabaco e deve ser usado apenas para esse propósito.
+O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) não deve ser usado para registrar informações sobre consumo de álcool ou uso de outras substâncias, mesmo que forem fumadas. Este perfil é específico para o uso de tabaco e deve ser usado apenas para esse propósito.
 
 ### Caso de uso
 
@@ -20,7 +20,7 @@ Este perfil pode ser usado em diferentes contextos clínicos para garantir a int
 
 ### MUST SUPPORT - Elementos de dados obrigatórios e que devem estar presentes
 
-O perfil [br-core-observationtobaccouse](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationtotobaccouse.html) tem os seguintes elementos como obrigatórios: 
+O perfil [br-core-observationtobaccouse](StructureDefinition-br-core-observationtotobaccouse.html) tem os seguintes elementos como obrigatórios: 
 1.	**status:** status da observação
 2.	**code:** Código que identifica a observação. No caso desse perfil se usa um código LOINC 72166-2 fixo para o uso de tabaco.
 3.	**subject:** Referência ao paciente (indivíduo) para o qual a observação está sendo registrada.
@@ -32,4 +32,4 @@ O perfil pode incluir extensões para adicionar informações adicionais, como a
 
 ### Limites e relacionamentos
 
-Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-registroatendimentoclinico.html) e o [br-core-composition](https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition.html), para integrar informações de uso de tabaco em resumos de pacientes.
+Este perfil pode ser usado em conjunto com outros perfis FHIR, como o [br-core-registroatendimentoclinico](StructureDefinition-br-core-registroatendimentoclinico.html) e o [br-core-composition](StructureDefinition-br-core-composition.html), para integrar informações de uso de tabaco em resumos de pacientes.

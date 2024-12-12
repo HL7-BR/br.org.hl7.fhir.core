@@ -65,11 +65,11 @@ As seções do modelo de informação da [PORTARIA Nº 701](https://bvsms.saude.
   <tbody>
     <tr>
       <td>Composition.status</td>
-      <td>Cfme - <a href="https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoDocumento">BREstadoDocumento</a></td>
+      <td>Cfme - <a href="https://terminologia-br-ig.web.app/ValueSet-BREstadoDocumento">BREstadoDocumento</a></td>
     </tr>
     <tr>
       <td>Composition.type</td>
-      <td>Cfme - <a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRTpoDocumento">BRTipoDocumento</a> fixo em “SA”</td>
+      <td>Cfme - <a href="https://terminologia-br-ig.web.app/ValueSet-BRTpoDocumento">BRTipoDocumento</a> fixo em “SA”</td>
     </tr>
     <tr>
       <td>Composition.category</td>
