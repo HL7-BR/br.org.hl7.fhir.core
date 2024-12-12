@@ -8,13 +8,61 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
 
     <table>
         <tbody>
-            <tr>
+        <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-allergyintolerance-intro.html"
+                        title="StructureDefinition/br-core-allergyintolerance.fsh">br-core-allergyintolerance</a>
+                </td>
+                <td>
+                    <p>Este perfil define as características mínimas para o recurso br-core-allergyintolerance registrar, pesquisar e buscar alergias/reações adversas associadas a um paciente.</p>
+                </td>
+            </tr>
+<tr>
+                <td>
+                    <a href="StructureDefinition-br-core-capacidadefuncional-intro.html"
+                        title="StructureDefinition/br-core-capacidadefuncional.fsh">br-core-capacidadefuncional</a>
+                </td>
+                <td>
+                    <p>Este perfil é utilizado para registrar informações detalhadas sobre a condição, problema, diagnóstico ou outro evento, situação, problema ou conceito clínico que caracteriza a incapacidade funcional do paciente.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-careplan-intro.html"
+                        title="StructureDefinition/br-core-br-core-careplan.fsh">br-core-careplan</a>
+                </td>
+                <td>
+                    <p>Este perfil descreve a intenção de como um ou mais profissionais pretendem prestar cuidados a um determinado paciente, grupo ou comunidade por um período de tempo, possivelmente limitado ao cuidado de uma condição específica ou conjunto de condições.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-careteam-intro.html"
+                        title="StructureDefinition/br-core-br-core-careteam.fsh">br-core-careteam</a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso CareTeam que inclui todas as pessoas e organizações que planejam participar da coordenação e prestação de cuidados a um paciente.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-br-core-composition-intro.html"
+                        title="StructureDefinition/br-core-br-core-br-core-composition.fsh">br-core-composition</a>
+                </td>
+                <td>
+                    <p>Este perfil representa conjunto de informações relacionadas aos cuidados em sáude que são reunidas em um único bundle lógico que estabelece seu próprio contexto e atesta quem está fazendo a declaração. Uma Composição define a estrutura e o conteúdo narrativo necessários para um documento. </p>
+                </td>
+            </tr>
+  <tr>
                 <td>
                     <a href="StructureDefinition-br-core-patient-intro.html"
                         title="StructureDefinition/br-core-patient.fsh">br-core-patient</a>
                 </td>
                 <td>
-                    <p>Este perfil representa o perfil br-core-patient.</p>
+                    <p>Este perfil representa o perfil br-core-patient com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo.  O perfil br-core-patient herda do recurso FHIR R4 Patient para definições de escopo e uso. Este perfil define expectativas mínimas para o recurso br-core-patient registrar, pesquisar e buscar dados demográficos básicos e outras informações administrativas sobre um paciente individual.</p>
                 </td>
             </tr>
             <tr>
@@ -23,7 +71,88 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-condition.fsh">br-core-condition</a>
                 </td>
                 <td>
-                    <p>Este perfil representa o perfil br-core-condition.</p>
+                    <p>Este perfil é utilizado para registrar informações detalhadas sobre uma condição, problema, diagnóstico ou outro evento, situação, problema ou conceito clínico que atingiu um nível de preocupação.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-diagnosticreport-intro.html"
+                        title="StructureDefinition/br-core-diagnosticreport.fsh">bbr-core-diagnosticreport</a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso DiagnosticReport  que representa as descobertas e a interpretação de testes diagnósticos realizados em pacientes, grupos de pacientes, dispositivos e locais, e/ou amostras derivadas destes.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-encounter-intro.html"
+                        title="StructureDefinition/br-core-encounter.fsh">br-core-encounter</a>
+                </td>
+                <td>
+                    <p>Este perfil descreve uma interação entre um paciente e o(s) prestador(es) de  serviços saúde com a finalidade de fornecer serviço(s) de saúde ou avaliar o estado de saúde de um paciente.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-healthcareservice-intro.html"
+                        title="StructureDefinition/br-core-healthcareservice.fsh">br-core-healthcareservice </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso HealthcareService que representa os detalhes de um serviço de saúde disponível em um local.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-immunization-intro.html"
+                        title="StructureDefinition/br-core-immunization.fsh">br-core-immunization </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso Immunization que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-location-intro.html"
+                        title="StructureDefinition/br-core-br-core-location.fsh">br-core-location </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso Location que aborda detalhes e informações da posição de um local físico onde os serviços são fornecidos e os recursos e participantes podem ser armazenados, encontrados, contidos ou acomodados.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-medicationrequest-intro.html"
+                        title="StructureDefinition/br-core-br-core-medicationrequest.fsh">br-core-medicationrequest </a>
+                </td>
+                <td>
+                    <p>Este recurso é uma especialização do recurso FHIR R4 Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-medicationadministration-intro.html"
+                        title="StructureDefinition/br-core-br-core-medicationadministration.fsh">br-core-medicationadministration </a>
+                </td>
+                <td>
+                    <p>Descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-medicationdispense-intro.html"
+                        title="StructureDefinition/br-core-br-core-medicationdispense.fsh">br-core-medicationdispense </a>
+                </td>
+                <td>
+                    <p>Este recurso indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-br-core-medicationrequest-intro.html"
+                        title="StructureDefinition/br-core-br-core-medicationrequest.fsh">br-core-allergyintolerancemedicationrequest </a>
+                </td>
+                <td>
+                    <p>Este recurso indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
                 </td>
             </tr>
         </tbody>
