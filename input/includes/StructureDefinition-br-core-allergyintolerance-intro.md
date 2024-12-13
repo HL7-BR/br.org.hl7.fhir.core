@@ -14,12 +14,12 @@ Alguns exemplos de cenários de uso para este perfil são:
 
 Os seguintes elementos devem ser obrigatórios, ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support). 
 
-**Cada AllergyIntolerance  deve ter:**
+**Cada br-core-allergyintolerance deve ter:**
 1.	um paciente
 2.	um estado clínico da alergia (por exemplo, ativa ou resolvida) 
 3.	um código que informa a que o paciente é alérgico
 
-**Cada AllergyIntolerance  deve oferecer suporte a:**
+**Cada br-core-allergyintolerance deve oferecer suporte a:**
 1.	o tipo da reação;
 2.	o código;
 3.	a reação - eventos de reação adversa relacionados à exposição da substância;
