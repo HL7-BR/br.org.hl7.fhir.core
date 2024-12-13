@@ -1,224 +1,61 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-    <p align="justify">
-        O Sumário Internacional do Paciente BR IPS é composto pelas seções abaixo descritas
+    <p align="justify">O guia de implantação br-core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, desenvolvido para padronizar e facilitar a troca de informações em saúde no Brasil. Ele funciona como o núcleo estruturante para integrar, de forma técnica e semântica, todos os sistemas e aplicações de saúde, abrangendo desde a atenção primária até a atenção especializada, incluindo prontuários eletrônicos, regulação, saúde pública e gestão hospitalar.</p>
+    <p align="justify">O br-core deve ser utilizado em todos os casos de uso que envolvam troca ou registro de informações de saúde, consolidando um modelo unificado para interoperabilidade no país, pois fornece uma base única e padronizada para atender às demandas complexas e diversas do sistema de saúde brasileiro. Ele é sustentado por princípios de interoperabilidade universal, padronização, flexibilidade, eficiência e conformidade legal, garantindo que todos os atores possam operar de maneira conectada, segura e alinhada às melhores práticas internacionais. O br-core é essencial para transformar a saúde digital no Brasil e integrá-la de forma sustentável ao ecossistema global.</p>
 
-        A Figura 2 exibe a estrutura do Sumário Internacional do Paciente BR IPS.
-    </p>
-<!--
-    <img src="ips-estrutura.png" alt="IPS" width="100%" height="100%" />
--->
-    <a name="secoes"> </a>
-    <h3>Descrição das Secções</h3>
+    <h3>Etapas de Desenvolvimento</h3>
 
-    <p align="justify">
-        A seguir as decrições das secções obrigatórias e recomendadas do Sumário Internacional do
-        Paciente BR IPS. Até o momento apenas os dados de Imunização e Exames de COVID-19 e
-        MOnkeypox estão sendo recuperados da RNDS, entretanto conforme caso de uso transfronteiriço
-        do IPS o visualizador de sumário construído é capaz de exibir todas as secções obrigatórias
-        e recomendadas do IPS.
-    </p>
+    <p align="justify">O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
 
-    <h4>Sumário de Medicamentos</h4>
+    <h4>Repositório Semântico:</h4>
 
-    <p align="justify">
-        A seção de resumo de medicamentos contém uma descrição dos medicamentos do paciente
-        relevantes para o escopo do resumo do paciente.
-        O conteúdo desta secção será extraído a partir dos dados quando disponíveis na RNDS
-        provenientes do RAC – Registro de Atendimento Clínico, SA- Sumário de Alta Hospitalar, SAO
-        -Sumário De Alta Obstétrico e RPM – Registro de Prescrição de Medicamentos. Serão exibidos
-        todos os medicamentos ativos do último ano dos registros provenientes destes registros.
-        Quando disponíveis os dados da saúde suplementar apenas os medicamentos ativos dos últimos
-        seis meses serão exibidos.
-        Os medicamentos oriundos de Sumários internacionais serão exibidos exatamente como
-        recebidos.
-    </p>
-
-    <p align="justify">
-        Os medicamentos são documentados no Sumário do Paciente no perfil de MedicationStatements.
-    </p>
-
-    <p align="justify"> As entradas desta seção são uma das opções abaixo: <ul>
+    <p align="justify"> 
+        <ul>
             <li>
-                uma entrada informando que se sabe que o paciente não está tomando nenhum
-        medicamento relevante;
+                Definição das terminologias padronizadas utilizadas no contexto nacional e integração com terminologias internacionais como SNOMED CT, LOINC e Terminologias Internacionais do HL7.
             </li>
             <li>
-                uma entrada informando que nenhuma informação está disponível sobre os possíveis
-        medicamentos do paciente;
-            </li>
-            <li>
-                uma ou mais entradas enumerando o medicamento relevante do paciente (uma entrada por
-        medicamento).
+                Carregamento no Open Concept Lab (OCL), assegurando compatibilidade com o padrão HL7 Common Terminology Services 2 (CTS2).
             </li>
         </ul>
     </p>
 
-    <h4>Alergias e Intolerâncias</h4>
+    <h4>Mapeamentos Terminológicos:</h4>
 
-    <p align="justify">
-        Esta seção documenta as alergias ou intolerâncias (condições) relevantes para um paciente,
-        descrevendo o tipo de reação (por exemplo, erupção cutânea, anafilaxia,..);
-        preferencialmente os agentes que a causam; e opcionalmente a criticidade e a certeza da
-        alergia. No mínimo, a secção deve listar alergias e reações adversas atualmente ativas e
-        quaisquer alergias e reações adversas históricas relevantes. Se não houver informações
-        disponíveis sobre alergias, ou se não forem conhecidas alergias, isso é claramente
-        documentado na seção.
-        As alergias e intolerâncias oriundas de sumários internacionais serão exibidos exatamente
-        como recebidos.
-    </p>
-
-    <h4>Lista de Problemas</h4>
-
-    <p align="justify">
-        A seção de problemas do IPS lista e descreve problemas clínicos ou condições que estão sendo
-        monitoradas atualmente para o paciente. O conteúdo desta secção será extraído a partir dos
-        dados quando disponíveis na RNDS provenientes do RAC – Registro de Atendimento Clínico, SA-
-        Sumário de Alta Hospitalar, SAO -Sumário De Alta Obstétrico e RPM – Registro de Prescrição
-        de Medicamentos. Serão exibidos todos os problemas ou condições clínicas ativas do último
-        ano dos destes registros.
-        Os problemas ou condições clínicas oriundas de sumários internacionais serão exibidos
-        exatamente como recebidos.
-    </p>
-
-    <h4>Imunizações</h4>
-
-    <p align="justify">
-        A Seção de Imunizações inclui o status atual de imunização e todo o histórico de imunização
-        clinicamente do paciente conforme armazenado na RNDS. Todos os registros disponíveis de
-        administração de biológicos armazenados serão exibidos.
-        Os registros de Imunização oriundas de sumários internacionais serão exibidos exatamente
-        como recebidos.
-    </p>
-
-    <h4>Histórico de Procedimentos</h4>
-
-    <p align="justify"> A Seção Histórico de Procedimentos contém uma descrição dos procedimentos
-        anteriores do paciente que são pertinentes ao escopo do IPS. Os procedimentos podem
-        referir-se, por exemplo, a: <ul>
-            <li>Procedimentos diagnósticos invasivos: por ex. Cateterismo cardíaco; </li>
-            <li>Procedimentos terapêuticos: por ex. diálise;</li>
-            <li>Procedimentos cirúrgicos: por ex. apendicectomia</li>
+    <p align="justify"> 
+        <ul>
+            <li>
+                Mapeamento entre vocabulários nacionais e internacionais, adotando as diretrizes da ABNT ISO TR 12300.
+            </li>
+            <li>
+                Estruturação das equivalências terminológicas para garantir a semântica nos processos de interoperabilidade.
+            </li>
         </ul>
     </p>
 
-    <p align="justify">
-        O conteúdo desta secção será extraído a partir dos dados quando disponíveis na RNDS
-        provenientes do RAC – Registro de Atendimento Clínico, SA- Sumário de Alta Hospitalar, SAO
-        -Sumário De Alta Obstétrico e RPM – Registro de Prescrição de Medicamentos. Serão exibidos
-        todos os procedimentos realizados no último ano dos destes registros.
-        Os registros de Procedimentos realizados oriundos de sumários internacionais serão exibidos
-        exatamente como recebidos.
+    <h4>Modelos e Perfis FHIR:</h4>
+
+    <p align="justify"> 
+        <ul>
+            <li>
+                Adaptação e criação de perfis HL7 FHIR para o Brasil, cobrindo aspectos clínicos e administrativos.
+            </li>
+            <li>
+                Incorporação das terminologias padronizadas e seus mapeamentos nos modelos computacionais.
+            </li>
+        </ul>
     </p>
 
-    <h4>Dispositivos Médicos</h4>
+    <h4>Desenvolvimento do Guia:</h4>
 
-    <p align="justify">
-        A seção de dispositivos médicos contém texto narrativo e entradas codificadas que descrevem
-        o histórico de uso de dispositivos médicos pelo paciente.
-        Não há previsão da RNDS conter estes dados, portanto Sumários brasileiros não contém esta
-        secção.
-        Os registros de dispositivos médicos oriundos de sumários internacionais serão exibidos
-        exatamente como recebidos.
+    <p align="justify"> 
+        <ul>
+            <li>
+                Geração de documentação técnica e prática para a implementação do br-core.
+            </li>
+        </ul>
     </p>
 
+    <p align="justify">O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos , incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar, domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
 
-    <h4>Resultados de Exames de Apoio ao Diagnóstico</h4>
-
-    <p align="justify">
-        Esta seção reúne resultados de observações relevantes coletadas no paciente ou produzidas em
-        amostras biológicas in vitro coletadas do paciente. Alguns desses resultados podem ser
-        resultados laboratoriais, outros podem ser resultados de anatomia patológica e outros,
-        resultados de radiologia.
-        Esta seção inclui opções de entries que são descritas por recursos do tipo Observation ou
-        referenciando recursos do tipo DiagnosticReport.
-    </p>
-
-    <p align="justify">
-        Até o momento ( dezembro 2023) a RNDS possui apenas resultados de exames de COVID19 e
-        monkeypox. Os demais resultados deverão ser capturados a partir de 2024.
-    </p>
-
-    <p align="justify">
-        Os registros de resultados de exames de apoio ao diagnóstico oriundos de sumários
-        internacionais serão exibidos exatamente como recebidos.
-    </p>
-
-    <p align="justify">
-        O Guia IPS Brasil até dezembro 2023 ainda não contempla as secções opcionais do Sumário
-        Internacional do Paciente: sinais vitais, história pregressa, história obstétrica, história
-        social, plano de cuidados, status funcional, diretivas antecipadas de vontade.
-    </p>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Seção do BR IPS</th>
-                <th>Perfil FHIR</th>
-                <th>Descrição</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td> Alergias e Intolerâncias (R)</td>
-                <td>
-                    <a
-                        href="">
-                        </a>
-                </td>
-                <td>Alergia ou intolerância (geralmente: risco de reação adversa a uma substância)</td>
-            </tr>
-            <tr>
-                <td>Lista de Problemas (R)</td>
-                <td><a href="">
-                    </a> (R)</td>
-                <td>Contém os dados relacionados à condição de saúde ou condição alvo do
-                    pacienteavaliado.</td>
-            </tr>
-            <tr>
-                <td>Sumário de Medicamentos (R)</td>
-                <td>
-                    <a href="">
-                        </a>
-                    <a
-                        href="">
-                        </a>
-                </td>
-                <td> Contém os dados relacionados à medicação emuso pelo paciente</td>
-            </tr>
-            <tr>
-                <td>Imunizações (S)</td>
-                <td>
-                    <a href="">
-                        </a>
-                </td>
-                <td>Descreve os eventos de administração de imunobiológico de um paciente </td>
-            </tr>
-            <tr>
-                <td>Resultados de Exames (S)</td>
-                <td>
-                    <a
-                        href="">
-                        </a>
-                    <a
-                        href="">
-                       </a>
-                    <a href="">
-                        </a>
-                </td>
-                <td>Contém os dados relacionados aos exames de COVID-19 e Monkeypox </td>
-            </tr>
-            <tr>
-                <td>Procedimentos Realizados (S)</td>
-                <td>
-                    <a href="">
-                        </a>
-                </td>
-                <td>Descreve os procedimentos realizados pelo paciente</td>
-            </tr>
-        </tbody>
-    </table>
-    <p align="center">
-        <b>Legenda:</b> (R) - Secção Obrigatória, (S) - Secção Opcional
-    </p>
 </div>
