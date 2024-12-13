@@ -125,7 +125,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
                 </td>
                 <td>
-                    <p>Este recurso é uma especialização do recurso FHIR R4 Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                    <p>Este perfil é uma especialização do recurso FHIR R4 Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
                 </td>
             </tr>
              <tr>
@@ -134,7 +134,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationadministration.fsh">br-core-medicationadministration </a>
                 </td>
                 <td>
-                    <p>Descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
+                    <p>Este perfil descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
                 </td>
             </tr>
              <tr>
@@ -143,7 +143,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationdispense.fsh">br-core-medicationdispense </a>
                 </td>
                 <td>
-                    <p>Este recurso indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
+                    <p>Este perfil indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
                 </td>
             </tr>
             <tr>
@@ -152,7 +152,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
                 </td>
                 <td>
-                    <p>Este recurso indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
+                    <p>Este perfil indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
                 </td>
             </tr>
             <tr>
@@ -161,7 +161,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationstatement.fsh">br-core-medicationstatement </a>
                 </td>
                 <td>
-                    <p>Este recurso é uma especialização do recurso FHIR R4 MedicationStatement que representa uma declaração de um paciente, um prestador de serviços de saúde ou outra parte de que um medicamento é tomado, foi tomado ou deve ser tomado por um paciente. </p>
+                    <p>Este perfil restringe o recurso FHIR R4 MedicationStatement que representa uma declaração de um paciente, um prestador de serviços de saúde ou outra parte de que um medicamento é tomado, foi tomado ou deve ser tomado por um paciente. </p>
             </tr>
             <tr>
                 <td>
@@ -169,7 +169,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationt.fsh">br-core-observation </a>
                 </td>
                 <td>
-                    <p>Este recurso é uma especialização do recurso FHIR R4 Observation e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
+                    <p>Este rperfil restringe o recurso FHIR R4 Observation e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
             </tr>
             <tr>
                 <td>
@@ -177,7 +177,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationalcohooluse.fsh">br-core-observationalcohooluse </a>
                 </td>
                 <td>
-                    <p>Este recurso é uma especialização do recurso FHIR Observation, projetado para documentar a avaliação do uso de álcool em um resumo de paciente.  </p>
+                    <p>Este perfil restringe o recurso FHIR Observation, projetado para documentar a avaliação do uso de álcool em um resumo de paciente.  </p>
             </tr>
             <tr>
                 <td>
@@ -185,7 +185,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationbreastfeedingstatus.fsh">br-core-observationbreastfeedingstatus </a>
                 </td>
                 <td>
-                    <p>Esse recurso é uma restrição do perfil Observation para registrar informações sobre o tipo de aleitamento materno do paciente nos seus primeiros anos de vida  </p>
+                    <p>Esse perfil restringe o recurso Observation para registrar informações sobre o tipo de aleitamento materno do paciente nos seus primeiros anos de vida  </p>
             </tr>
             <tr>
                 <td>
@@ -209,7 +209,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationpregnancystatus.fsh">br-core-observationpregnancystatus </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso Observation para representar a data prevista para o parto.  </p>
+                    <p>Este perfil restringe o recurso Observation para representar o histórico resumido dos resultados da gravidez.  </p>
             </tr>
             <tr>
                 <td>
@@ -217,7 +217,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationtobaccouse.fsh">br-core-observationtobaccouse </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso FHIR Observation para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.  </p>
+                    <p>Este perfil restringe o recurso Observation para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.  </p>
             </tr>
              <tr>
                 <td>
@@ -253,42 +253,42 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                     <a href="StructureDefinition-br-core-procedure.html"
                         title="StructureDefinition/br-core-procedure.fsh">br-core-procedure </a>
                 </td>
-                <td> Este recurso descreve uma ação que é ou foi realizada em ou para um paciente. Pode ser uma intervenção física como uma operação, ou menos invasiva como serviços de longo prazo, aconselhamento ou hipnoterapia. </p>
+                <td> Este perfil descreve uma ação que é ou foi realizada em ou para um paciente. Pode ser uma intervenção física como uma operação, ou menos invasiva como serviços de longo prazo, aconselhamento ou hipnoterapia. </p>
             </tr>
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-registroatendimentoclinico.html"
                         title="StructureDefinition/br-core-registroatendimentoclinico.fsh">br-core-registroatendimentoclinico </a>
                 </td>
-                <td> Esse recursco representa um documento clínico, o registro de atendimento clínico, definido pela PORTARIA Nº 234, DE 18 DE JULHO DE 2022, que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). </p>
+                <td> Esse perfil representa um documento clínico, o registro de atendimento clínico, definido pela PORTARIA Nº 234, DE 18 DE JULHO DE 2022, que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). </p>
             </tr>
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-relatedperson.html"
                         title="StructureDefinition/br-core-relatedperson.fsh">br-core-relatedperson </a>
                 </td>
-                <td> Este recurso contém as informações sobre uma pessoa envolvida no cuidado de um paciente, mas que não é alvo de cuidados de saúde nem tem responsabilidade formal no processo de cuidado.  </p>
+                <td> Este perfil contém as informações sobre uma pessoa envolvida no cuidado de um paciente, mas que não é alvo de cuidados de saúde nem tem responsabilidade formal no processo de cuidado.  </p>
             </tr>
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-servicerequest.html"
                         title="StructureDefinition/br-core-servicerequest.fsh">br-core-servicerequest </a>
                 </td>
-                <td> Este recurso representa  uma solicitação de serviço, como investigações diagnósticas, tratamentos ou operações a serem realizadas.  </p>
+                <td> Este perfil representa  uma solicitação de serviço, como investigações diagnósticas, tratamentos ou operações a serem realizadas.  </p>
             </tr>
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-specimen.html"
                         title="StructureDefinition/br-core-specimen.fsh">br-core-specimen </a>
                 </td>
-                <td> Este recurso representa as características de amostras biológicas no contexto de resultados laboratoriais.   </p>
+                <td> Este perfil representa as características de amostras biológicas no contexto de resultados laboratoriais.   </p>
             </tr>
              <tr>
                 <td>
                     <a href="StructureDefinition-br-core-sumarioalta.html"
                         title="StructureDefinition/br-core-sumarioalta.fsh">br-core-sumarioalta </a>
                 </td>
-                <td> Este recurso representa as informações da alta hospitalar, conforme a PORTARIA Nº 701, DE 29 DE SETEMBRO DE 2022.   </p>
+                <td> Este perfil representa as informações da alta hospitalar, conforme a PORTARIA Nº 701, DE 29 DE SETEMBRO DE 2022.   </p>
             </tr>
              <tr>
                 <td>
