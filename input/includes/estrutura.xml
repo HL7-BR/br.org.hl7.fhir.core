@@ -1,61 +1,54 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-    <p align="justify">O guia de implantação br-core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, desenvolvido para padronizar e facilitar a troca de informações em saúde no Brasil. Ele funciona como o núcleo estruturante para integrar, de forma técnica e semântica, todos os sistemas e aplicações de saúde, abrangendo desde a atenção primária até a atenção especializada, incluindo prontuários eletrônicos, regulação, saúde pública e gestão hospitalar.</p>
-    <p align="justify">O br-core deve ser utilizado em todos os casos de uso que envolvam troca ou registro de informações de saúde, consolidando um modelo unificado para interoperabilidade no país, pois fornece uma base única e padronizada para atender às demandas complexas e diversas do sistema de saúde brasileiro. Ele é sustentado por princípios de interoperabilidade universal, padronização, flexibilidade, eficiência e conformidade legal, garantindo que todos os atores possam operar de maneira conectada, segura e alinhada às melhores práticas internacionais. O br-core é essencial para transformar a saúde digital no Brasil e integrá-la de forma sustentável ao ecossistema global.</p>
-
-    <h3>Etapas de Desenvolvimento</h3>
-
-    <p align="justify">O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
-
-    <h4>Repositório Semântico:</h4>
-
-    <p align="justify"> 
-        <ul>
-            <li>
-                Definição das terminologias padronizadas utilizadas no contexto nacional e integração com terminologias internacionais como SNOMED CT, LOINC e Terminologias Internacionais do HL7.
-            </li>
-            <li>
-                Carregamento no Open Concept Lab (OCL), assegurando compatibilidade com o padrão HL7 Common Terminology Services 2 (CTS2).
-            </li>
-        </ul>
+    
+        <h3>O que é o br-core?</h3>
+   <p align="justify"> 
+    O guia de implantação br-core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, 
+    desenvolvido para padronizar e facilitar a troca de informações em saúde no Brasil. Ele funciona 
+    como o núcleo estruturante para integrar, de forma técnica e semântica, todos os sistemas e aplicações
+    de saúde, abrangendo desde a atenção primária até a atenção especializada, incluindo prontuários eletrônicos,
+    regulação, saúde pública e gestão hospitalar.
+    O br-core deve ser utilizado em todos os casos de uso que envolvam troca ou registro de informações de saúde, 
+    consolidando um modelo unificado para interoperabilidade no país, pois fornece uma base única e padronizada para 
+    atender às demandas complexas e diversas do sistema de saúde brasileiro. Ele é sustentado por princípios de interoperabilidade
+    universal, padronização, flexibilidade, eficiência e conformidade legal, garantindo que todos os atores possam operar de maneira
+    conectada, segura e alinhada às melhores práticas internacionais. O br-core é essencial para transformar a saúde digital no Brasil
+    e integrá-la de forma sustentável ao ecossistema global. 
     </p>
+<h2>Etapas de Desenvolvimento</h2>
+    <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
+<ol> 
+        <li>
+            <h3>Repositório Semântico</h
+            <ul>
+                <li>Definição das terminologias padronizadas utilizadas no contexto nacional e integração com terminologias internacionais como SNOMED CT, LOINC e Terminologias Internacionais do HL7.</li>
+                <li>Carregamento no Open Concept Lab (OCL), assegurando compatibilidade com o padrão HL7 Common Terminology Services 2 (CTS2).</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Mapeamentos Terminológicos</h3>
+            <ul>
+                <li>Mapeamento entre vocabulários nacionais e internacionais, adotando as diretrizes da ABNT ISO TR 12300.</li>
+                <li>Estruturação das equivalências terminológicas para garantir a semântica nos processos de interoperabilidade.</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Modelos e Perfis FHIR</h3>
+            <ul>
+                <li>Adaptação e criação de perfis HL7 FHIR para o Brasil, cobrindo aspectos clínicos e administrativos.</li>
+                <li>Incorporação das terminologias padronizadas e seus mapeamentos nos modelos computacionais.</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Desenvolvimento do Guia</h3>
+            <ul>
+                <li>Geração de documentação técnica e prática para a implementação do br-core.</li>
+            </ul>
+        </li>
+    </ol>
+<h2>Etapas de Desenvolvimento</h2>
+    <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
+    <p>O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos, incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar e domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
 
-    <h4>Mapeamentos Terminológicos:</h4>
-
-    <p align="justify"> 
-        <ul>
-            <li>
-                Mapeamento entre vocabulários nacionais e internacionais, adotando as diretrizes da ABNT ISO TR 12300.
-            </li>
-            <li>
-                Estruturação das equivalências terminológicas para garantir a semântica nos processos de interoperabilidade.
-            </li>
-        </ul>
-    </p>
-
-    <h4>Modelos e Perfis FHIR:</h4>
-
-    <p align="justify"> 
-        <ul>
-            <li>
-                Adaptação e criação de perfis HL7 FHIR para o Brasil, cobrindo aspectos clínicos e administrativos.
-            </li>
-            <li>
-                Incorporação das terminologias padronizadas e seus mapeamentos nos modelos computacionais.
-            </li>
-        </ul>
-    </p>
-
-    <h4>Desenvolvimento do Guia:</h4>
-
-    <p align="justify"> 
-        <ul>
-            <li>
-                Geração de documentação técnica e prática para a implementação do br-core.
-            </li>
-        </ul>
-    </p>
-
-    <p align="justify">O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos , incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar, domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
 
 </div>
