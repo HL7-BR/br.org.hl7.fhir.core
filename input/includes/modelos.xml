@@ -125,7 +125,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
                 </td>
                 <td>
-                    <p>Este perfil é uma especialização do recurso FHIR R4 Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                    <p>Este perfil restringe o recurso FHIR Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
                 </td>
             </tr>
              <tr>
