@@ -194,8 +194,6 @@ pages:
     title: Baixar
   premissas.xml:
     title: Princípios, Premissas
-  design.xml:
-    title: Convenções de design
   estrutura.xml:
     title: Estrutura
   modelos.xml:
