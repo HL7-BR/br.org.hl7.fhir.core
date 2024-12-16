@@ -3,7 +3,7 @@
   <a name="intro"> </a>
   <h3>Introdução</h3>
 
-  <p align="justify">O Guia de Implementação FHIR  br-core é um marco na padronização da interoperabilidade em saúde no Brasil, servindo como o núcleo de implementação do padrão HL7 FHIR adaptado ao contexto brasileiro. Desenvolvido sob a liderança da Coordenação Geral de Inovação e Informática em Saúde (CGIIS) da Secretaria de Saúde Digital do Ministério da Saúde, e em alinhamento à Estratégia de Saúde Digital do Brasil 2020-2028 (ESD 20-28), este guia apoia a consolidação de um ecossistema de dados interoperáveis, promovendo maior eficiência, segurança e qualidade na troca de informações em saúde.</p>
+  <p align="justify">O Guia de Implementação FHIR br-core é um marco na padronização da interoperabilidade em saúde no Brasil, servindo como o núcleo de implementação do padrão HL7 FHIR adaptado ao contexto brasileiro. Desenvolvido sob a liderança da Coordenação Geral de Inovação e Informática em Saúde (CGIIS) da Secretaria de Saúde Digital do Ministério da Saúde, e em alinhamento à Estratégia de Saúde Digital do Brasil 2020-2028 (ESD 20-28), este guia apoia a consolidação de um ecossistema de dados interoperáveis, promovendo maior eficiência, segurança e qualidade na troca de informações em saúde.</p>
 
   <p align="justify">Baseado nas melhores práticas internacionais, o br-core considera as necessidades e especificidades do sistema de saúde brasileiro. O guia é resultado de um esforço colaborativo entre instituições públicas e privadas, com suporte técnico e normativo de organizações nacionais e internacionais, como o HL7 International e a Organização Pan-Americana de Saúde (PAHO).</p>
 
