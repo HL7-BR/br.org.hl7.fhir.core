@@ -19,7 +19,7 @@
     <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
 <ol> 
         <li>
-            <h3>Repositório Semântico</h
+            <h3>Repositório Semântico</h3>
             <ul>
                 <li>Definição das terminologias padronizadas utilizadas no contexto nacional e integração com terminologias internacionais como SNOMED CT, LOINC e Terminologias Internacionais do HL7.</li>
                 <li>Carregamento no Open Concept Lab (OCL), assegurando compatibilidade com o padrão HL7 Common Terminology Services 2 (CTS2).</li>
