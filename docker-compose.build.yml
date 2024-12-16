@@ -11,7 +11,7 @@ services:
                  echo Baixando dependencias...;                 
                  wget https://fhir-hm.ans.gov.br/package.tgz -O /root/.fhir/packages/br.gov.ans.fhir#202309.tgz;
                  wget https://rnds-ig.web.app/package.tgz -O /root/.fhir/packages/rnds#1.0.0.tgz;
-                 wget https://terminologia-br-ig/package.tgz -O /root/.fhir/packages/terminologia-br-ig#1.0.0.tgz;
+                 wget https://terminologia-br-ig.web.app/package.tgz -O /root/.fhir/packages/terminologia-br-ig#1.0.0.tgz;
                  echo Descompactando dependencias...;
                  mkdir -p /root/.fhir/packages/br.gov.ans.fhir#202309;
                  mkdir -p /root/.fhir/packages/rnds#1.0.0;
