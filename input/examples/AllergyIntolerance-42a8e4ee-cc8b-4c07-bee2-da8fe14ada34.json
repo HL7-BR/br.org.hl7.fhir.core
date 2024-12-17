@@ -1,0 +1,59 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Ativo"
+        }
+      ]
+    },
+    "verificationStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmado"
+        }
+      ]
+    },
+    "type": "allergy",
+    "category": [
+      "food"
+    ],
+    "criticality": "high",
+    "code": {
+      "coding": [
+        {
+          "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
+          "code": "A100",
+          "display": "Amendoim"
+        }
+      ],
+      "text": "Alergia a Amendoim"
+    },
+    "patient": {
+      "reference": "Patient/456",
+      "display": "João Pereira"
+    },
+    "reaction": [
+      {
+        "manifestation": [
+          {
+            "coding": [
+              {
+                "system": "http://meddradata.org",
+                "code": "10011906",
+                "display": "Edema de Face"
+              }
+            ],
+            "text": "Inchaço Facial"
+          }
+        ],
+        "severity": "moderate",
+        "onset": "2023-05-12"
+      }
+    ]
+  }
