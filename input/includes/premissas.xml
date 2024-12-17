@@ -11,14 +11,14 @@
     foram:</p>
 
   <ul>
-    <li>- promover a interoperabilidade técnica e semântica, permitindo que diferentes sistemas e tecnologias se conectem e troquem informações de maneira consistente;</li>
-    <li>- ser baseado no HL7 FHIR R4, assegurando a conformidade com os padrões internacionais mais amplamente adotados, como SNOMED CT e LOINC; </li>
-    <li>- definir um único conjunto de perfis e modelos que unificam a representação de dados de saúde no Brasil, para reduzir a fragmentação causada por padrões proprietários ou regionais, promovendo uma base comum para todos os atores do sistema;</li>
-    <li>- adotar a modelagem canônica com o objetivo de minimizar a necessidade de customizações e extensões para atender a necessidades específicas, sem comprometer a conformidade com o padrão global;</li>
-    <li>- apoiar diversos casos de uso, incluindo atenção primária, hospitalar, domiciliar, regulação, vigilância epidemiológica e saúde pública;</li>
-    <li>- evitar redundâncias e promovendo eficiência e cuidados integrados reforçando que os dados coletados em uma consulta devem ser reutilizados em relatórios de saúde pública ou faturamento;</li>
-     <li>-facilitar a implementação e manutenção de sistemas, reduzindo custos de integração e desenvolvimento;</li>
-    <li>- oferecer governança técnica e semântica, com validações consistentes baseadas em terminologias padronizadas e processos robustos;</li>
+    <li>promover a interoperabilidade técnica e semântica, permitindo que diferentes sistemas e tecnologias se conectem e troquem informações de maneira consistente;</li>
+    <li>ser baseado no HL7 FHIR R4, assegurando a conformidade com os padrões internacionais mais amplamente adotados, como SNOMED CT e LOINC; </li>
+    <li>definir um único conjunto de perfis e modelos que unificam a representação de dados de saúde no Brasil, para reduzir a fragmentação causada por padrões proprietários ou regionais, promovendo uma base comum para todos os atores do sistema;</li>
+    <li>adotar a modelagem canônica com o objetivo de minimizar a necessidade de customizações e extensões para atender a necessidades específicas, sem comprometer a conformidade com o padrão global;</li>
+    <li>apoiar diversos casos de uso, incluindo atenção primária, hospitalar, domiciliar, regulação, vigilância epidemiológica e saúde pública;</li>
+    <li>evitar redundâncias e promovendo eficiência e cuidados integrados reforçando que os dados coletados em uma consulta devem ser reutilizados em relatórios de saúde pública ou faturamento;</li>
+    <li>facilitar a implementação e manutenção de sistemas, reduzindo custos de integração e desenvolvimento;</li>
+    <li>oferecer governança técnica e semântica, com validações consistentes baseadas em terminologias padronizadas e processos robustos;</li>
   </ul>
 
   <p align="justify">Premissas que Fundamentaram o br-core</p>
