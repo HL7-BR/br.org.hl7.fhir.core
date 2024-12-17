@@ -6,7 +6,7 @@ O objetivo do perfil de [VitalSigns](https://hl7.org/fhir/R4/observation-vitalsi
 
 ### Cenários de uso
 
-As informações de sinais vitais são enviadas para a RNDS a partir do Resumo do Atendimento Clínico (RAC). No RAC essas informações foram incluídas na Structure Definition BRMedidaObservada, que contém um valueset, BRTipoObservacao-1.0 para categorizar os tipos de observações registradas, as quais, além de observações de sinais vitais, incluem vários outros tipos de observações que não são pertinentes ao perfil ObservationVitalSignsBRIPS. 
+As informações de sinais vitais são enviadas para a RNDS a partir do Sumário do Atendimento Clínico (RAC). No RAC essas informações foram incluídas na Structure Definition BRMedidaObservada, que contém um valueset, BRTipoObservacao-1.0 para categorizar os tipos de observações registradas, as quais, além de observações de sinais vitais, incluem vários outros tipos de observações que não são pertinentes ao perfil br-core-observationvitalsigns. 
 
 ### Caso de uso da RNDS
 

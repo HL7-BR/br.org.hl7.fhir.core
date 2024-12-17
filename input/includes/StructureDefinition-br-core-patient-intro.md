@@ -8,7 +8,7 @@ Os seguintes elementos de dados devem estar sempre presentes (definição FHIR [
 
 ### Identificadores
 
-Cada paciente deve ter obrigatoriamente um identificador, conforme abaixo:
+Cada paciente deve ter obrigatoriamente um identificador, conforme as extensões abaixo:
 
 <table border="1">
   <thead>
@@ -47,7 +47,7 @@ Cada paciente deve ter obrigatoriamente um identificador, conforme abaixo:
   </tbody>
 </table>
     
-Extensões adicionais do recurso br-core-patient
+<h2>Extensões adicionais do recurso br-core-patient </h2>
 
 <table border="1">
     <thead>
@@ -105,7 +105,7 @@ Extensões adicionais do recurso br-core-patient
   </tbody>
 </table>
 
-Orientação para implementação
+<h2> Orientações para implementação </h2>
 
 O endereço do paciente será representado pelo tipo de dados Address do FHIR R4. Observar que: 
 

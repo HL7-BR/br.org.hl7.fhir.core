@@ -169,7 +169,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-observationt.fsh">br-core-observation </a>
                 </td>
                 <td>
-                    <p>Este rperfil restringe o recurso FHIR R4 Observation e registra medidas e afirmações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
+                    <p>Este rperfil restringe o recurso FHIR R4 Observation e registra medidas e declarações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
             </tr>
             <tr>
                 <td>
