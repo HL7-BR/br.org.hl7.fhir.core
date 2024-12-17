@@ -127,7 +127,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * event.code ^definition = "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'."
 * event.code from http://terminology.hl7.org/ValueSet/v3-ActCode (required)
 * event.period ^short = "O período de tempo coberto pela composition."
-* event.period ^definition = "O período de tempo coberto pela composition. Não há afirmação de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo."
+* event.period ^definition = "O período de tempo coberto pela composition. Não há declaração de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo."
 * event.detail ^short = "Referência aos eventos da Composition"
 * event.detail ^definition = "Referência aos eventos da Composition"
 * event.detail only Reference(Resource)
