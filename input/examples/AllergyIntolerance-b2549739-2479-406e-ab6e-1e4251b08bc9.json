@@ -1,0 +1,79 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "b2549739-2479-406e-ab6e-1e4251b08bc9",
+    "status": "active",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Ativo"
+        }
+      ]
+    },
+    "verificationStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmado"
+        }
+      ]
+    },
+    "type": "allergy",
+    "category": [
+      "medication"
+    ],
+    "criticality": "high",
+    "code": {
+      "coding": [
+        {
+          "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
+          "code": "J01C",
+          "display": "Penicilina"
+        }
+      ],
+      "text": "Alergia a Penicilina"
+    },
+    "patient": {
+      "reference": "Patient/123",
+      "display": "Maria da Silva"
+    },
+    "reaction": [
+      {
+        "substance": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
+              "code": "J01C",
+              "display": "Penicilina"
+            }
+          ],
+          "text": "Penicilina"
+        },
+        "manifestation": [
+          {
+            "coding": [
+              {
+                "system": "http://meddradata.org",
+                "code": "10029104",
+                "display": "Erupção Cutânea"
+              }
+            ],
+            "text": "Erupção Cutânea"
+          }
+        ],
+        "severity": "severe",
+        "exposureRoute": {
+          "coding": [
+            {
+              "system": "http://standardterms.edqm.eu",
+              "code": "20045000",
+              "display": "Via Intravenosa"
+            }
+          ],
+          "text": "Intravenosa"
+        }
+      }
+    ]
+  }
