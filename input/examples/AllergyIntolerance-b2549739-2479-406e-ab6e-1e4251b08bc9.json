@@ -1,13 +1,12 @@
 {
     "resourceType": "AllergyIntolerance",
     "id": "b2549739-2479-406e-ab6e-1e4251b08bc9",
-    "status": "active",
     "clinicalStatus": {
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
           "code": "active",
-          "display": "Ativo"
+          "display": "Active"
         }
       ]
     },
@@ -16,7 +15,7 @@
         {
           "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
           "code": "confirmed",
-          "display": "Confirmado"
+          "display": "Confirmed"
         }
       ]
     },
@@ -28,12 +27,12 @@
     "code": {
       "coding": [
         {
-          "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
-          "code": "J01C",
-          "display": "Penicilina"
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA",
+          "code": "camarao",
+          "display": "Camarão"
         }
       ],
-      "text": "Alergia a Penicilina"
+      "text": "Alergia a camarão"
     },
     "patient": {
       "reference": "Patient/123",
@@ -44,23 +43,23 @@
         "substance": {
           "coding": [
             {
-              "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
-              "code": "J01C",
-              "display": "Penicilina"
+              "system": "http://www.whocc.no/atc",
+              "code": "J01CR50",
+              "display": "combinations of penicillins"
             }
           ],
-          "text": "Penicilina"
+          "text": "Associações de penicilinas"
         },
         "manifestation": [
           {
             "coding": [
               {
-                "system": "http://meddradata.org",
-                "code": "10029104",
-                "display": "Erupção Cutânea"
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedDRA",
+                "code": "10002424",
+                "display": "angioedema"
               }
             ],
-            "text": "Erupção Cutânea"
+            "text": "Angioedema"
           }
         ],
         "severity": "severe",
@@ -69,7 +68,7 @@
             {
               "system": "http://standardterms.edqm.eu",
               "code": "20045000",
-              "display": "Via Intravenosa"
+              "display": "Intravenous use"
             }
           ],
           "text": "Intravenosa"
