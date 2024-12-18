@@ -12,8 +12,10 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * providedBy ^definition = "Organização que fornece este serviço"
 * category ^short = "Ampla categoria de serviço sendo executado ou entregue"
 * category ^definition = "Ampla categoria de serviço sendo executado ou entregue"
+* category from https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude	(preferred)  
 * type ^short = "Tipo de serviço que pode ser entregue ou executado"
 * type ^definition = "Tipo de serviço que pode ser entregue ou executado"
+* type from https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado (preferred)
 * specialty ^short = "Especialidades atendidas pelo HealthcareService"
 * specialty ^definition = "Especialidades atendidas pelo HealthcareService"
 * location ^short = "Local(ais) onde o serviço pode ser prestado"
@@ -32,7 +34,7 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * coverageArea ^definition = "O serviço de localização(ões) é destinado/disponível para"
 * serviceProvisionCode  ^short = "Condições sob as quais o serviço está disponível/oferecido"
 * serviceProvisionCode  ^definition = "Condições sob as quais o serviço está disponível/oferecido"
-//* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoConvenio (required)
+* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/TipoConvenio (preferred)
 * eligibility ^short = "Requisitos de elegibilidade específicos necessários para usar o serviço"
 * eligibility ^definition = "Requisitos de elegibilidade específicos necessários para usar o serviço"
 * eligibility.code ^short = "Valor codificado para a elegibilidade"
