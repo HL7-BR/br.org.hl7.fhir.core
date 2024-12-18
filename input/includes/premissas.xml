@@ -36,21 +36,24 @@
   <p>As convenções de design herdam os requisitos dos Guias Nacionais do HL7 e incorporam os registros da recente proposta de Framework de Guias Nacionais do HL7. </p>
   <p>Os Guias Nacionais do HL7 (Health Level Seven) são desenvolvidos para promover a interoperabilidade entre sistemas de informação em saúde, adaptando padrões internacionais às condições locais. Eles abrangem uma ampla gama de áreas, como registros clínicos, administração de saúde, segurança da informação, entre outros.</p>
 <h3>Requisitos dos Guias Nacionais do HL7</h3>
-1. **Interoperabilidade** Os guias nacionais devem garantir que os sistemas de saúde possam trocar informações de maneira eficiente e segura, promovendo a continuidade do cuidado ao paciente.  
-2. **Conformidade com Padrões Internacionais** Adaptação dos padrões internacionais do HL7 às necessidades locais, mantendo a conformidade com as normas globais para garantir a interoperabilidade em um contexto mais amplo.  
-3. **Flexibilidade e Extensibilidade** Os guias devem ser flexíveis o suficiente para acomodar diferentes necessidades locais e permitir a extensão dos perfis conforme necessário, sem comprometer a compatibilidade com os padrões internacionais.  
-4. **Simplificação e Clareza** As regras e especificações devem ser claras e simples, facilitando a implementação e a validação dos dados. Isso inclui a redução de regras condicionais complexas que possam dificultar a adoção dos padrões.  
-5. **Governança e Atualização Contínua** Estabelecimento de um processo robusto de governança para garantir que os guias e suas tabelas de referência sejam continuamente atualizados e revisados para atender às necessidades emergentes do sistema de saúde.
-
+<ul>
+<li><strong>Interoperabilidade:</strong> Os guias nacionais devem garantir que os sistemas de saúde possam trocar informações de maneira eficiente e segura, promovendo a continuidade do cuidado ao paciente.</li>
+<li><strong>Conformidade com Padrões Internacionais:</strong> Adaptação dos padrões internacionais do HL7 às necessidades locais, mantendo a conformidade com as normas globais para garantir a interoperabilidade em um contexto mais amplo.</li>
+<li><strong>Flexibilidade e Extensibilidade:</strong> Os guias devem ser flexíveis o suficiente para acomodar diferentes necessidades locais e permitir a extensão dos perfis conforme necessário, sem comprometer a compatibilidade com os padrões internacionais.</li>
+<li><strong>Simplificação e Clareza:</strong> As regras e especificações devem ser claras e simples, facilitando a implementação e a validação dos dados. Isso inclui a redução de regras condicionais complexas que possam dificultar a adoção dos padrões.</li>
+<li><strong>Governança e Atualização Contínua:</strong> Estabelecimento de um processo robusto de governança para garantir que os guias e suas tabelas de referência sejam continuamente atualizados e revisados para atender às necessidades emergentes do sistema de saúde.</li>
+</ul>
 
 <h3>Design Específico para BR-Core</h3>
 
-1. **Modelo de Informação** Segue o modelo da RNDS e adota o perfil R4 canônico para garantir consistência, versatilidade e conformidade com os padrões. Adota os perfis da RNDS apenas quando há regulamentações nacionais que tornam um elemento obrigatório ou quando é necessário usar Codesystems e ValueSets específicos do Brasil.  
-2. **Especialização de Perfis Observation**  
-   * **ObservationAlcoholUse**: Adaptado para registrar dados sobre o uso de álcool.  
-   * **ObservationBreastfeeding**: Focado em documentar informações sobre amamentação.  
-   * **ObservationSmokingStatus**: Especializado para registrar o status de tabagismo do paciente.  
-3. **Governança dos Sistemas Terminológicos** Os sistemas terminológicos são atualizados e governados por sistemas de gestão de terminologias, garantindo que estejam sempre atualizados e compatíveis com os codesystems e valuesets usados no IG BR.
+<li><strong>Modelo de Informação:</strong> Segue o modelo da RNDS e adota o perfil R4 canônico para garantir consistência, versatilidade e conformidade com os padrões. Adota os perfis da RNDS apenas quando há regulamentações nacionais que tornam um elemento obrigatório ou quando é necessário usar Codesystems e ValueSets específicos do Brasil.</li>
+<li><strong>Especialização de Perfis Observation:</strong></li>
+  <ul>
+    <li><strong>ObservationAlcoholUse:</strong> Adaptado para registrar dados sobre o uso de álcool.</li>
+    <li><strong>ObservationBreastfeeding:</strong> Focado em documentar informações sobre amamentação.</li>
+    <li><strong>ObservationSmokingStatus:</strong> Especializado para registrar o status de tabagismo do paciente.</li>
+  <li><strong>Governança dos Sistemas Terminológicos:</strong> Os sistemas terminológicos são atualizados e governados por sistemas de gestão de terminologias, garantindo que estejam sempre atualizados e compatíveis com os codesystems e valuesets usados no IG BR.</li> 
+  </ul>
 
 <p>Os modelos propostos para o BR-Core foram validados com a equipe técnica da SEIDIGI do Ministério da Saúde, visando garantir que atendessem RNDS mas também às necessidades práticas do sistema de saúde brasileiro.</
 
