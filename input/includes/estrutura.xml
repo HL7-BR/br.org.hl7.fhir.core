@@ -17,7 +17,7 @@
     </p>
 <h2>Etapas de Desenvolvimento</h2>
     <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
-<ol> 
+<ul> 
         <li>
             <h3>Repositório Semântico</h3>
             <ul>
@@ -45,7 +45,7 @@
                 <li>Geração de documentação técnica e prática para a implementação do br-core.</li>
             </ul>
         </li>
-    </ol>
+    </ul>
 <h2>Etapas de Desenvolvimento</h2>
     <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
     <p>O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos, incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar e domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
