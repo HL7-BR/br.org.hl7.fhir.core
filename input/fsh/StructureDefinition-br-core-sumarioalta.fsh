@@ -85,8 +85,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].entry only Reference(br-core-condition)
 
 //Section alergiasIntolerancias
-* section[alergiasIntolerancias] ^short = "Seção de Resumo de Diagnósticos Admissão"
-* section[alergiasIntolerancias] ^definition = "Seção de Resumo de Diagnósticos Admissão"
+* section[alergiasIntolerancias] ^short = "Seção de Alergias e Intolerâncias"
+* section[alergiasIntolerancias] ^definition = "Seção de Alergias e Intolerâncias"
 * section[alergiasIntolerancias].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[alergiasIntolerancias].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[alergiasIntolerancias].extension ^short = "Conteúdo adicional definido por implementações"
