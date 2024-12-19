@@ -105,6 +105,7 @@ A principal diferença entre um recurso [br-core-medicationstatement](https://sa
 * dosage.site ^definition = "Local no corpo onde deve ser administrado o medicamento"
 * dosage.route ^short = "Rota de administração"
 * dosage.route ^definition = "Rota de administração"
+* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
 * dosage.method ^short = "Método de administração"
 * dosage.method ^definition = "Método de administração"
 * dosage.doseAndRate ^short = "Quantidade de medicamento administrado"

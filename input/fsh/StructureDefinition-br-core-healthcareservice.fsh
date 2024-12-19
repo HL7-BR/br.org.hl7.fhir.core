@@ -12,12 +12,13 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * providedBy ^definition = "Organização que fornece este serviço"
 * category ^short = "Ampla categoria de serviço sendo executado ou entregue"
 * category ^definition = "Ampla categoria de serviço sendo executado ou entregue"
-* category from https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude	(preferred)  
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude	(preferred)  
 * type ^short = "Tipo de serviço que pode ser entregue ou executado"
 * type ^definition = "Tipo de serviço que pode ser entregue ou executado"
-* type from https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado (preferred)
+* type from https://terminologia.saude.gov.br/fhir/ValueSet-BRServicoEspecializado.html (preferred)
 * specialty ^short = "Especialidades atendidas pelo HealthcareService"
 * specialty ^definition = "Especialidades atendidas pelo HealthcareService"
+* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
 * location ^short = "Local(ais) onde o serviço pode ser prestado"
 * location ^definition = "Local(ais) onde o serviço pode ser prestado"
 * name ^short = "Descrição do serviço conforme apresentado ao consumidor durante a pesquisa"

@@ -64,6 +64,7 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * dosage.site ^definition = "Local do corpo administrado em"
 * dosage.route ^short = "Caminho da substância para o corpo"
 * dosage.route ^definition = "Caminho da substância para o corpo"
+* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
 * dosage.method ^short = "Como a medicação foi administrada"
 * dosage.method ^definition = "Como a medicação foi administrada"
 * dosage.dose ^short = "Quantidade de medicação por dose"
