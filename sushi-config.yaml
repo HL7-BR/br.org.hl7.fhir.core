@@ -97,6 +97,10 @@ resources:
     name: Exemplo de alergia e intolerância.
     description: Exemplo de alergia e intolerância.    
     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-allergyintolerance
+  AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34:
+    name: Exemplo de alergia e intolerância.
+    description: Exemplo de alergia e intolerância.    
+    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-allergyintolerance
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
