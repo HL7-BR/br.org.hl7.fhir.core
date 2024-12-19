@@ -38,7 +38,6 @@ Description: "Este recurso é uma especialização do recurso FHIR R4 [Medicatio
 * amount ^definition = "Quantidade de medicamento na embalagem"
 * ingredient ^short = "Ingrediente ativo ou inativo"
 * ingredient ^definition = "Ingrediente ativo ou inativo"
-* ingredient from http://www.whocc.no/atc (preferred)
 * id ^short = "Referenciamento entre elemento"
 * id ^definition = "ID exclusivo para referência entre elementos"
 * extension ^short = "Extensões adicionais"
