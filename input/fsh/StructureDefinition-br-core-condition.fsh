@@ -37,7 +37,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * code ^short = "Suspeita Diagnóstica"
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
 * code from https://terminologia.saude.gov.br/fhir/ValueSet/BRTerminologiaSuspeitaDiagnostica (required)
-stage 1..*
+* stage 1..*
 * subject ^short = "Indivíduo com a Condição de Saúde avaliada"
 * subject ^definition = "Referencia os dados sobre o indivíduo cuja a condição de saúde está sendo avaliada."
 * subject only Reference(br-core-patient)
