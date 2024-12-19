@@ -8,8 +8,8 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-              "code": "CPF",
-              "display": "Cadastro de Pessoa Física"
+              "code": "TAX",
+              "display": "Tax ID number"
             }
           ]
         },
@@ -22,8 +22,8 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-              "code": "CNS",
-              "display": "Cartão Nacional de Saúde"
+              "code": "HC",
+              "display": "Health Card Number"
             }
           ]
         },
@@ -62,25 +62,25 @@
         }
       },
       {
-        "url": "https://terminologia.saude.gov.br/fhir/ValueSet/BRIdentidadeGenero",
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
         "valueCodeableConcept": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIdentidadeGenero",
+              "system": "http://snomed.info/sct",
               "code": "446151000124109",
-              "display": "Homem cisgênero"
+              "display": "Identifies as male gender"
             }
           ]
         }
       },
       {
-        "url": "https://terminologia.saude.gov.br/fhir/ValueSet/BRSexoNascimento",
+        "url": "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
         "valueCodeableConcept": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSexoNascimento",
+              "system": "http://hl7.org/fhir/administrative-gender",
               "code": "male",
-              "display": "Masculino"
+              "display": "Male"
             }
           ]
         }
