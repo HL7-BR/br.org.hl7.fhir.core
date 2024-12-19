@@ -31,7 +31,6 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * partOf only Reference(br-core-procedure or br-core-observation or br-core-medicationadministration)
 * status ^short = "Código que especifica o estado do procedimento."
 * status ^definition = "Um código que especifica o estado do procedimento:preparação | em andamento | não realizado | em espera | paraso | concluído | digitado com erro | desconhecido"
-* status from https://terminologia.saude.gov.br/fhir/ValueSet/BREstadoEvento
 * statusReason ^short = "Motivo para o estado atual."
 * statusReason ^definition = "Motivo para o estado atual."
 * statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoProcedimentoNaoRealizado
