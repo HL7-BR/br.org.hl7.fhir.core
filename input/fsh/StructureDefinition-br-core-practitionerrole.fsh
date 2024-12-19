@@ -44,6 +44,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required) // BROcupacao VS
 * specialty ^short = "Especialidade específica do profissional."
 * specialty ^definition = "Especialidade específica do profissional."
+* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao
 * location ^short = "Local em que este profissional presta cuidados."
 * location ^definition = "Local em que este profissional presta cuidados."
 * location only Reference(br-core-location)

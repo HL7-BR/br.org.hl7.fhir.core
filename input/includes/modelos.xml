@@ -121,11 +121,20 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
              <tr>
                 <td>
+                    <a href="StructureDefinition-br-core-medication.html"
+                        title="StructureDefinition/br-core-medication.fsh">br-core-medication </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR Medication e identifica um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
                     <a href="StructureDefinition-br-core-medicationrequest.html"
                         title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso FHIR Medication usado principalmente para a identificação e definição de um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                    <p>Este perfil restringe o recurso FHIR MedicationRequest e descreve uma solicitação para fornecimento instruções para administração de um medicamento ao paciente.</p>
                 </td>
             </tr>
              <tr>
@@ -134,7 +143,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationadministration.fsh">br-core-medicationadministration </a>
                 </td>
                 <td>
-                    <p>Este perfil descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
+                    <p>Este perfil restringe o recurso FHIR MedicationAdministration e descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
                 </td>
             </tr>
              <tr>
@@ -143,16 +152,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationdispense.fsh">br-core-medicationdispense </a>
                 </td>
                 <td>
-                    <p>Este perfil indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-br-core-medicationrequest.html"
-                        title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
-                </td>
-                <td>
-                    <p>Este perfil indica que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
+                    <p>Este perfil restringe o recurso FHIR MedicationDispense e descreve que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
                 </td>
             </tr>
             <tr>
@@ -161,7 +161,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-medicationstatement.fsh">br-core-medicationstatement </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso FHIR R4 MedicationStatement que representa uma declaração de um paciente, um prestador de serviços de saúde ou outra parte de que um medicamento é tomado, foi tomado ou deve ser tomado por um paciente. </p>
+                    <p>Este perfil restringe o recurso FHIR R4 MedicationStatement e descreve uma declaração de um paciente, um prestador de serviços de saúde ou outra parte de que um medicamento é tomado, foi tomado ou deve ser tomado por um paciente. </p>
             </tr>
             <tr>
                 <td>
