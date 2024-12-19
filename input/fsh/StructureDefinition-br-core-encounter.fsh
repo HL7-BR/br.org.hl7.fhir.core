@@ -24,10 +24,10 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * classHistory.period ^definition = "O tempo em que o episódio estava na classe especificada"
 * type ^short = "Tipo específico de atendimento"
 * type ^definition = "Tipo específico de atendimento"
-* type from https://fhir.ans.gov.br/ValueSet/tipo-atendimento
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRAtendimentoPrestado
 * serviceType ^short = "Tipo específico de serviço"
 * serviceType ^definition = "Tipo específico de serviço"
-//* serviceType from https://terminologia.saude.gov.br/fhir/VAlueSet-BRServicoEspecializado
+* serviceType from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado
 * priority ^short = "Indica a urgência do atendimento"
 * priority ^definition = "Indica a urgência do atendimento"
 * priority 1..1
@@ -59,7 +59,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * length ^definition = "Quantidade de tempo que durou o atendimento (menos tempo ausente)"
 * reasonCode ^short = "Motivo codificado pelo qual o atendimento acontece"
 * reasonCode ^definition = "Motivo codificado pelo qual o atendimento acontece"
-//* reasonCode from https://terminologia.saude.gov.br/fhir/VAlueSet-BREncounterReason
+* reasonCode from https://terminologia.saude.gov.br/fhir/VAlueSet/BREncounterReason
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or ImmunizationRecommendation)
