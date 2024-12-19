@@ -83,6 +83,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAdmissao].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAdmissao].entry only Reference(br-core-condition)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section alergiasIntolerancias
 * section[alergiasIntolerancias] ^short = "Seção de Alergias e Intolerâncias"
@@ -135,6 +137,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[alergiasIntolerancias].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[alergiasIntolerancias].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[alergiasIntolerancias].entry only Reference(br-core-allergyintolerance)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section diagnosticosAvaliados
 * section[diagnosticosAvaliados] ^short = "Seção de Resumo de Diagnósticos Admissão"
@@ -187,10 +191,12 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAvaliados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAvaliados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[diagnosticosAvaliados].entry only Reference(br-core-condition)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section procedimentosRealizados
-* section[procedimentosRealizados] ^short = "Seção de Resumo de Diagnósticos Admissão"
-* section[procedimentosRealizados] ^definition = "Seção de Resumo de Diagnósticos Admissão"
+* section[procedimentosRealizados] ^short = "Seção de Resumo de Procedimentos Realizados"
+* section[procedimentosRealizados] ^definition = "Seção de Resumo de Procedimentos Realizados"
 * section[procedimentosRealizados].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[procedimentosRealizados].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[procedimentosRealizados].extension ^short = "Conteúdo adicional definido por implementações"
@@ -239,10 +245,12 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[procedimentosRealizados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[procedimentosRealizados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[procedimentosRealizados].entry only Reference(br-core-procedure)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section prescricaoAlta
-* section[prescricaoAlta] ^short = "Seção de Resumo de Diagnósticos Admissão"
-* section[prescricaoAlta] ^definition = "Seção de Resumo de Diagnósticos Admissão"
+* section[prescricaoAlta] ^short = "Seção de Resumo da Prescrição de Alta"
+* section[prescricaoAlta] ^definition = "Seção de Resumo da Prescrição de Alta"
 * section[prescricaoAlta].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].extension ^short = "Conteúdo adicional definido por implementações"
@@ -291,10 +299,12 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[prescricaoAlta].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[prescricaoAlta].entry only Reference(br-core-medicationrequest)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section planoCuidados
-* section[planoCuidados] ^short = "Seção de Resumo de Diagnósticos Admissão"
-* section[planoCuidados] ^definition = "Seção de Resumo de Diagnósticos Admissão"
+* section[planoCuidados] ^short = "Seção de Resumo de Plano de Cuidados"
+* section[planoCuidados] ^definition = "Seção de Resumo de Plano de Cuidados"
 * section[planoCuidados].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].extension ^short = "Conteúdo adicional definido por implementações"
@@ -343,10 +353,12 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[planoCuidados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[planoCuidados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[planoCuidados].entry only Reference(br-core-careplan)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
 
 //Section capacidadeFuncional
-* section[capacidadeFuncional] ^short = "Seção de Resumo de Diagnósticos Admissão"
-* section[capacidadeFuncional] ^definition = "Seção de Resumo de Diagnósticos Admissão"
+* section[capacidadeFuncional] ^short = "Seção de Resumo de Capacidade Funcional"
+* section[capacidadeFuncional] ^definition = "Seção de Resumo de Capacidade Funcional"
 * section[capacidadeFuncional].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].extension ^short = "Conteúdo adicional definido por implementações"
@@ -395,3 +407,5 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry only Reference(br-core-capacidadefuncional)
+* section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
+* section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
