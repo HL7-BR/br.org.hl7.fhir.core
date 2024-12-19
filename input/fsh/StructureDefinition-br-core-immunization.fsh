@@ -174,6 +174,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.authority 0..0
 * protocolApplied.targetDisease ^short = "Doença alvo do imunobiológico"
 * protocolApplied.targetDisease ^definition = "Doença alvo do imunobiológico"
+* protocolApplied.targetDisease from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10 (preferred)
 * protocolApplied.doseNumber[x] ^short = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] ^definition = "Número da dose do imunobiológico"
 * protocolApplied.seriesDoses[x] ^short = "Número de doses da série do imunobiológico"
