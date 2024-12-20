@@ -62,7 +62,7 @@
       ]
     },
     "managingOrganization": {
-      "reference": "Organization/hospital-sirio-libanes",
+      "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
       "display": "Hospital Sírio-Libanês"
     }
   }
