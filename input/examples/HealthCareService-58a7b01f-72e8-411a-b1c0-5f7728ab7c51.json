@@ -9,8 +9,8 @@
     ],
     "active": true,
     "providedBy": {
-      "reference": "Organization/example-hospital",
-      "display": "UBS INDIANOPOLIS SIGMUND FREUD"
+      "reference": "Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+      "display": "Consultório Dr. José Silva"
     },
     "category": [
       {
@@ -39,8 +39,8 @@
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
-            "code": "225225",
-            "display": "Médico Cirurgião Geral"
+            "code": "117",
+            "display": "SERVICO DE CIRURGIA REPARADORA"
           }
         ]
       }
@@ -54,7 +54,7 @@
       },
       {
         "system": "email",
-        "value": "administracao@siriolibanes.com.br",
+        "value": "administracao@consultoriojosesilva.com.br",
         "use": "work"
       }
     ],
