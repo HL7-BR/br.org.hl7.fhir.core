@@ -26,13 +26,13 @@
             "code": "HC",
             "display": "Health Card Number"
           }
-        ]
+        ],
+        "text": "Número do Cartão Nacional de Saúde"
       },
       "system": "https://saude.gov.br/fhir/sid/cns",
       "value": "987654321098765"
     }
   ],
- "text": "Número do Cartão Nacional de Saúde",
   "name": [
     {
       "use": "official",
