@@ -117,6 +117,10 @@ resources:
     name: Exemplo de profissional de saúde.
     description: Exemplo de profissional de saúde fictício.
     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitioner
+  PractitionerRole/69ba81d5-37fe-471e-99d8-e53649ccdeed:
+    name: Exemplo de papel de profissional de saúde.
+    description: Exemplo de papel de profissional de saúde fictício.
+    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitionerrole
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
