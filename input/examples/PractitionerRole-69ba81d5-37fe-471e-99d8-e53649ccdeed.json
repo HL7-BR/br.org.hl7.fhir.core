@@ -1,18 +1,13 @@
 {
     "resourceType": "PractitionerRole",
     "id": "69ba81d5-37fe-471e-99d8-e53649ccdeed",
-    "meta": {
-      "profile": [
-        "http://hl7.org/fhir/StructureDefinition/br-core-practitionerrole"
-      ]
-    },
     "practitioner": {
-      "reference": "Practitioner/example-br-core-practitioner",
-      "display": "Dra. Maria Clara Oliveira"
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
     },
     "organization": {
-      "reference": "Organization/example-centro saúde",
-      "display": "Centro de Saúde Modelo"
+      "reference": "Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+      "display": "Consultório Médico"
     },
     "code": [
       {
@@ -20,7 +15,7 @@
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
             "code": "225120",
-            "display": "Médico Cardiologista"
+            "display": "MEDICO CARDIOLOGISTA"
           }
         ]
       }
@@ -31,7 +26,7 @@
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
             "code": "225120",
-            "display": "Médico Cardiologista"
+            "display": "MEDICO CARDIOLOGISTA"
           }
         ]
       }
@@ -66,8 +61,8 @@
     ],
     "location": [
       {
-        "reference": "Location/example-location",
-        "display": "Centro de Saúde Modelo"
+        "reference": "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+        "display": "Clínica Geral"
       }
     ],
     "healthcareService": [
