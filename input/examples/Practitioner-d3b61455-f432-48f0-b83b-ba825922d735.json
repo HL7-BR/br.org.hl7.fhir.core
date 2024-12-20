@@ -85,8 +85,8 @@
         "start": "2010-01-01"
       },
       "issuer": {
-        "reference": "Organization/example-hospital",
-        "display": "Hospital Vitórias"
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
       }
     }
   ]
