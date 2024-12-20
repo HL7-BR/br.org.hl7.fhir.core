@@ -1,0 +1,159 @@
+{
+    "resourceType": "Condition",
+    "id": "91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+    "meta": {
+      "profile": [
+        "br-core-ig.web.app/StructureDefinition-br-core-condition.html"
+      ]
+    },
+    "implicitRules": "http://example.org/fhir/rules",
+    "language": "pt-BR",
+    "text": {
+      "status": "generated",
+      "div": "<div>Paciente com suspeita de pneumonia diagnosticada durante consulta de rotina.</div>"
+    },
+    "identifier": [
+      {
+        "system": "http://hospital.org/conditions",
+        "value": "12345"
+      }
+    ],
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        }
+      ]
+    },
+    "verificationStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        }
+      ]
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCategoriaDiagnostico.html",
+            "code": "01",
+            "display": "Principal"
+          }
+        ]
+      }
+    ],
+    "severity": {
+      "coding": [
+        {
+          "system": "http://www.snomed.org/",
+          "code": "6736007",
+          "display": "Moderate"
+        }
+      ]
+    },
+    "bodySite": [
+      {
+        "coding": [
+          {
+            "system": "http://www.snomed.org/",
+            "code": "8608001",
+            "display": "Heart"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10.html",
+            "code": "RO",
+            "display": "Dispnéia"
+          }
+        ],
+        "text": "Dispnéia"
+    },
+    "subject": {
+      "reference": "Patient/pt001",
+      "type": "Patient",
+      "display": "Maria Silva"
+    },
+    "encounter": {
+      "reference": "Encounter/enc001",
+      "display": "Consulta de rotina em 2024-04-05"
+    },
+    "onsetDateTime": "2024-03-28",
+    "abatementDateTime": "2024-04-15",
+    "recordedDate": "2024-04-05T10:00:00Z",
+    "recorder": {
+      "reference": "Practitioner/prac001",
+      "display": "Dr. João Oliveira"
+    },
+    "asserter": {
+      "reference": "Practitioner/prac002",
+      "display": "Dra. Ana Souza"
+    },
+    "stage": [
+      {
+        "summary": {
+            "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "424124008",
+                "display": "Estágio inicial"
+            }
+            ]
+        },
+        "assessment": [
+            {
+            "reference": "DiagnosticReport/dr001",
+            "display": "Relatório de radiografia de tórax"
+            }
+        ],
+        "type": {
+            "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-stage-type",
+                "code": "clinical",
+                "display": "Clínico"
+            }
+            ]
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10.html",
+                "code": "R50.9",
+                "display": "Febre"
+              },
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10.html",
+                "code": "R05",
+                "display": "Tosse"
+              }
+            ]
+          }
+        ],
+        "detail": [
+          {
+            "reference": "Observation/obs001",
+            "display": "Temperatura corporal elevada"
+          }
+        ]
+      }
+    ],
+    "note": [
+      {
+        "text": "Paciente apresentou melhora significativa após início do tratamento com antibióticos."
+      }
+    ]
+  }
