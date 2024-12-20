@@ -1,0 +1,79 @@
+{
+    "resourceType": "PractitionerRole",
+    "id": "69ba81d5-37fe-471e-99d8-e53649ccdeed",
+    "meta": {
+      "profile": [
+        "http://hl7.org/fhir/StructureDefinition/br-core-practitionerrole"
+      ]
+    },
+    "practitioner": {
+      "reference": "Practitioner/example-br-core-practitioner",
+      "display": "Dra. Maria Clara Oliveira"
+    },
+    "organization": {
+      "reference": "Organization/example-centro saúde",
+      "display": "Centro de Saúde Modelo"
+    },
+    "code": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+            "code": "225120",
+            "display": "Médico Cardiologista"
+          }
+        ]
+      }
+    ],
+    "specialty": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+            "code": "225120",
+            "display": "Médico Cardiologista"
+          }
+        ]
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55 21 12345-6789",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "contact@hospitalexemplo.com",
+        "use": "work"
+      }
+    ],
+    "availableTime": [
+      {
+        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+        "availableStartTime": "08:00:00",
+        "availableEndTime": "17:00:00"
+      }
+    ],
+    "notAvailable": [
+      {
+        "description": "On leave",
+        "during": {
+          "start": "2024-01-01",
+          "end": "2024-01-10"
+        }
+      }
+    ],
+    "location": [
+      {
+        "reference": "Location/example-location",
+        "display": "Centro de Saúde Modelo"
+      }
+    ],
+    "healthcareService": [
+      {
+        "reference": "HealthcareService/example-service",
+        "display": "Cardiologia"
+      }
+    ]
+  }
