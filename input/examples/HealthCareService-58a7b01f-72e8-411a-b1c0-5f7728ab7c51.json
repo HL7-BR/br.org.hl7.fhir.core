@@ -1,0 +1,67 @@
+{
+    "resourceType": "HealthcareService",
+    "id": "58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+    "identifier": [
+      {
+        "system": "https://saude.gov.br/fhir/sid/cnes",
+        "value": "2788578"
+      }
+    ],
+    "active": true,
+    "providedBy": {
+      "reference": "Organization/example-hospital",
+      "display": "UBS INDIANOPOLIS SIGMUND FREUD"
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+            "code": "2",
+            "display": "CENTRO DE SAUDEUNIDADE BASICA"
+          }
+        ]
+      }
+    ],
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+            "code": "2",
+            "display": "CENTRO DE SAUDEUNIDADE BASICA"
+          }
+        ]
+      }
+    ],
+    "specialty": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
+            "code": "225225",
+            "display": "Médico Cirurgião Geral"
+          }
+        ]
+      }
+    ],
+    "name": "UBS INDIANOPOLIS SIGMUND FREUD",
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55 11 3394-0200",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "administracao@siriolibanes.com.br",
+        "use": "work"
+      }
+    ],
+    "availabilityExceptions": "24 X 7 ",
+    "availableTime": [
+      {
+        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"]
+      }
+    ]
+  }

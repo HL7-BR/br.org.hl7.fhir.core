@@ -105,6 +105,10 @@ resources:
      name: Exemplo de condição de saúde fictícia.
      description: Exemplo de condição de saúde fictícia.
      exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-condition
+#  HealthCareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51:
+#     name: Exemplo de serviço de saúde fictícia.
+#     description: Exemplo de serviço de saúde fictícia.
+#     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-healthcareservice
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
