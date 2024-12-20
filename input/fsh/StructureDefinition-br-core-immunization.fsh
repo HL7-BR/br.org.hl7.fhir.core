@@ -177,5 +177,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.targetDisease from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10 (preferred)
 * protocolApplied.doseNumber[x] ^short = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] ^definition = "Número da dose do imunobiológico"
+* protocolApplied.doseNumber[x] only string
+* protocolApplied.doseNumberString from https://terminologia.saude.gov.br/fhir/ValueSet-BRDose.html 
 * protocolApplied.seriesDoses[x] ^short = "Número de doses da série do imunobiológico"
 * protocolApplied.seriesDoses[x] ^definition = "Número de doses da série do imunobiológico"
