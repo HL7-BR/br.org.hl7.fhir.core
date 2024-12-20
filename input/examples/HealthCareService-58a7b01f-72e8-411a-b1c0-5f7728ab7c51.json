@@ -58,7 +58,7 @@
         "use": "work"
       }
     ],
-    "availabilityExceptions": "24 X 7 ",
+    "availabilityExceptions": "24 X 7",
     "availableTime": [
       {
         "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"]
