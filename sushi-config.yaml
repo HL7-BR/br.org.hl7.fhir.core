@@ -101,6 +101,10 @@ resources:
     name: Exemplo de alergia e intolerância.
     description: Exemplo de alergia e intolerância.    
     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-allergyintolerance
+  Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5:
+     name: Exemplo de condição de saúde fictícia.
+     description: Exemplo de condição de saúde fictícia.
+     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-condition
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
