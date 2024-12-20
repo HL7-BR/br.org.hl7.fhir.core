@@ -1,0 +1,113 @@
+{
+    "resourceType": "Organization",
+    "id": "2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+    "identifier": [
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "TAX",
+              "display": "Tax ID number"
+            }
+          ]
+        },
+        "system": "https://saude.gov.br/sid/cpf",
+        "value": "12345678909",
+        "assigner": {
+          "display": "Receita Federal do Brasil"
+        }
+      },
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "PRN",
+              "display": "Provider number"
+            }
+          ]
+        },
+        "system": "https://saude.gov.br/sid/cnes",
+        "value": "7654321",
+        "assigner": {
+          "display": "CNES - Cadastro Nacional de Estabelecimentos de Saúde"
+        }
+      }
+    ],
+    "active": true,
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRtipo-estabelecimento",
+            "code": "03",
+            "display": "Consultório Médico"
+          }
+        ],
+        "text": "Consultório Médico"
+      }
+    ],
+    "name": "Consultório Dr. José Silva",
+    "alias": [
+      "Consultório José Silva",
+      "Clínica Dr. Silva"
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55-11-98765-4321",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "contato@consultoriojosesilva.com.br",
+        "use": "work"
+      }
+    ],
+    "address": [
+      {
+        "use": "work",
+        "type": "physical",
+        "line": [
+          "Rua das Clínicas, 123"
+        ],
+        "city": "São Paulo",
+        "district": "Centro",
+        "state": "SP",
+        "postalCode": "01000-000",
+        "country": "BR"
+      }
+    ],
+    "contact": [
+      {
+        "purpose": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+              "code": "ADMIN",
+              "display": "Administrative"
+            }
+          ]
+        },
+        "name": {
+          "text": "Secretaria Administrativa"
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+55-11-98765-4321",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "administracao@consultoriojosesilva.com.br",
+            "use": "work"
+          }
+        ]
+      }
+    ]
+  }
+  
