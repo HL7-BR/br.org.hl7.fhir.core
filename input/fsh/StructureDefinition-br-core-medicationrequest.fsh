@@ -124,8 +124,10 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.asNeeded[x] ^definition = "Conceito codificado que identifica a pré-condição que deve ser atendida ou avaliada antes de consumir ou administrar uma dose de medicamento." 
 * dosageInstruction.site ^short = "Local anatômico de administração do medicamento"
 * dosageInstruction.site ^definition = "Local anatômico de administração do medicamento" 
+* dosageInstruction.site from http://hl7.org/fhir/uv/ips/ValueSet/body-site-uv-ips 
 * dosageInstruction.route ^short = "Via de admiminstração do medicamento"
 * dosageInstruction.route ^definition = "Conceito - referência a uma terminologia ou apenas texto que representa a via de administração do medicamento" 
+* dosageInstruction.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
 * dosageInstruction.method ^short = "Técnica para a administração do medicamento"
 * dosageInstruction.method ^definition = "Técnica para a administração do medicamento" 
 * dosageInstruction.doseAndRate ^short = "Quantidade administrada do medicamento"
