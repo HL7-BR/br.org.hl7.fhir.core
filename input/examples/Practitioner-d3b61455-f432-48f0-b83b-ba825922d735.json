@@ -1,0 +1,93 @@
+{
+  "resourceType": "Practitioner",
+  "id": "d3b61455-f432-48f0-b83b-ba825922d735",
+  "identifier": [
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MD",
+            "display": "Medical License number"
+          }
+        ],
+      "text": "Número de Registro no Conselho Federal de Medicina"
+      },
+      "system": "https://saude.gov.br/fhir/sid/crm",
+      "value": "123456-SP"
+    },
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "HC",
+            "display": "Health Card Number"
+          }
+        ]
+      },
+      "system": "https://saude.gov.br/fhir/sid/cns",
+      "value": "987654321098765"
+    }
+  ],
+ "text": "Número do Cartão Nacional de Saúde",
+  "name": [
+    {
+      "use": "official",
+      "family": "Oliveira",
+      "given": ["Maria", "Clara"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "+55 21 98765-4321",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "maria.oliveira@example.com",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "type": "both",
+      "text": "Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000",
+      "line": ["Av. Central, 456"],
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "postalCode": "20000-000",
+      "country": "Brasil"
+    }
+  ],
+  "qualification": [
+    {
+      "identifier": [
+        {
+          "system": "https://saude.gov.br/fhir/sid/cns",
+          "value": "225125789542376"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCBO.html",
+            "code": "225125",
+            "display": "Médico Clínico"
+          }
+        ]
+      },
+      "period": {
+        "start": "2010-01-01"
+      },
+      "issuer": {
+        "reference": "Organization/example-hospital",
+        "display": "Hospital Vitórias"
+      }
+    }
+  ]
+}

@@ -113,6 +113,10 @@ resources:
     name: Exemplo de paciente.
     description: Exemplo de paciente fictício.
     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-patient
+  Practitioner/d3b61455-f432-48f0-b83b-ba825922d735:
+    name: Exemplo de profissional de saúde.
+    description: Exemplo de profissional de saúde fictício.
+    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitioner
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
