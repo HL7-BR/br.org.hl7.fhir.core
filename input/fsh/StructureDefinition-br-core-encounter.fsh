@@ -59,7 +59,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * length ^definition = "Quantidade de tempo que durou o atendimento (menos tempo ausente)"
 * reasonCode ^short = "Motivo codificado pelo qual o atendimento acontece"
 * reasonCode ^definition = "Motivo codificado pelo qual o atendimento acontece"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BREncounterReason
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRReasonEncounter
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or ImmunizationRecommendation)
