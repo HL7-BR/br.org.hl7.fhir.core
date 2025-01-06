@@ -129,6 +129,10 @@ resources:
     name: Exemplo de papel de profissional de saúde.
     description: Exemplo de papel de profissional de saúde fictício.
     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitionerrole
+  RelatedPerson/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
+    name: Exemplo de uma pessoa relacionada ao paciente.
+    description: Exemplo de uma pessoa relacionada ao paciente.
+    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-relatedperson
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
