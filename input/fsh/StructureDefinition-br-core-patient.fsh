@@ -72,7 +72,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].type ^short = "Tipo do identificador do paciente"
 * identifier[cns].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cns].type ^binding.description = "Tipo do identificador do paciente"
-//* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
+* identifier[cns].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cns].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cns].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -127,7 +127,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].type ^short = "Tipo do identificador do paciente"
 * identifier[cpf].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[cpf].type ^binding.description = "Tipo do identificador do paciente"
-//* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
+* identifier[cpf].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[cpf].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[cpf].type.extension ^short = "Extensões do tipo do identificador do paciente"
