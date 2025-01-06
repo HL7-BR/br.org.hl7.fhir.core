@@ -31,17 +31,17 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * category 1..1
 * category ^short = "Códigos que indicam o grau de autoridade/intencionalidade associado a uma solicitação."
 * category ^definition = "Códigos que indicam o grau de autoridade/intencionalidade associado a uma solicitação."
-//* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriProcedimento
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento
 * priority 1..1
 * priority ^short = "A prioridade clínica de uma ordem diagnóstica."
 * priority ^definition = "routine | urgent | asap | stat"
-//* priority from https://simplifier.net/redenacionaldedadosemsaude/valueset/brcarateratendimentomira (required) VS BRCarateAtendimento não existe hoje no THO
+* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA(required) 
 * doNotPerform ^short = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * doNotPerform ^definition = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * code 1..1
 * code ^short = "What is being requested/ordered"
 * code ^definition = "What is being requested/ordered"
-//* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
+// * code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
 * orderDetail ^short = "Informações adicionais sobre o pedido"
 * orderDetail ^definition = "Informações adicionais sobre o pedido"
 * quantity[x] ^short = "Valor do serviço"
