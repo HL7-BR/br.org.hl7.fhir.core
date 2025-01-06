@@ -25,7 +25,6 @@ Description: "Este recurso é uma especialização do recurso FHIR R4 [Medicatio
 * identifier ^definition = "Identificador de negócios para este medicamento"
 * code ^short = "Nome do medicamento"
 * code ^definition = "Nome e terminologia do medicamento fabricado."
-* code from http://www.whocc.no/atc (preferred)
 * status ^short = "ativo| inativo| entrado com erro"
 * status ^definition = "ativo| inativo| entrado com erro"
 * manufacturer ^short = "Organização Fabricante"
@@ -33,7 +32,6 @@ Description: "Este recurso é uma especialização do recurso FHIR R4 [Medicatio
 * manufacturer only Reference(br-core-organization)
 * form ^short = "Unidade de medida do medicamento"
 * form ^definition = "Unidade de medida do medicamento prescrito (ex.: comprimido, cápsula, frasco, caixa etc.)."
-* form from http://fhir.ch/ig/ch-emed/ValueSet/edqm-pharmaceuticaldoseform (preferred)
 * amount ^short = "Quantidade de medicamento"
 * amount ^definition = "Quantidade de medicamento na embalagem"
 * ingredient ^short = "Ingrediente ativo ou inativo"

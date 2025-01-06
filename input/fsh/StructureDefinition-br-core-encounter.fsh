@@ -59,7 +59,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * length ^definition = "Quantidade de tempo que durou o atendimento (menos tempo ausente)"
 * reasonCode ^short = "Motivo codificado pelo qual o atendimento acontece"
 * reasonCode ^definition = "Motivo codificado pelo qual o atendimento acontece"
-* reasonCode from https://terminologia.saude.gov.br/fhir/VAlueSet/BREncounterReason
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRReasonEncounter
 * reasonReference ^short = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference ^definition = "Motivo pelo qual o atendimento acontece (referência)"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or ImmunizationRecommendation)
@@ -72,7 +72,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * diagnosis.use ^short = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use 1..1
-//* diagnosis.use from https://terminologia.saude.gov.br/fhir/VAlueSet-diagnosis-role
+//* diagnosis.use from https://terminologia.saude.gov.br/fhir/ValueSet-diagnosis-role
 * diagnosis.rank ^short = "Classificação do diagnóstico (para cada tipo de função)"
 * diagnosis.rank ^definition = "Classificação do diagnóstico (para cada tipo de função)"
 * account ^short = "O conjunto de contas que podem ser usadas para cobrança deste Atendimento"

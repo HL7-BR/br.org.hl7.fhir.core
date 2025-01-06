@@ -134,4 +134,3 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * usedReference only Reference(Device or br-core-medication or Substance)
 * usedCode ^short = "Itens codificados usados ​durante o procedimento."
 * usedCode ^definition = "Itens codificados usados ​​durante o procedimento."
-* usedCode from https://terminologia.saude.gov.br/fhir/ValueSet/BROrtesesProtesesImplantaveis

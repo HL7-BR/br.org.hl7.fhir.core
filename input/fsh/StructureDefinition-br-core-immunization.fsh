@@ -178,17 +178,6 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.doseNumber[x] ^short = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] ^definition = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] only string
-* protocolApplied.doseNumberString from https://terminologia.saude.gov.br/fhir/ValueSet-BRDose.html 
+* protocolApplied.doseNumberString from https://terminologia.saude.gov.br/fhir/ValueSet/BRDose (required)
 * protocolApplied.seriesDoses[x] ^short = "Número de doses da série do imunobiológico"
 * protocolApplied.seriesDoses[x] ^definition = "Número de doses da série do imunobiológico"
-
-* protocolApplied.extension[pesquisaClinica].url = "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0"
-
-* protocolApplied.extension[pesquisaClinica].extension[numeroProtocoloEstudoANVISA].url = "numeroProtocoloEstudoANVISA"
-* protocolApplied.extension[pesquisaClinica].extension[numeroProtocoloEstudoANVISA].value[x] only string
-
-* protocolApplied.extension[pesquisaClinica].extension[numeroVersaoProtocoloEstudo].url = "numeroVersaoProtocoloEstudo"
-* protocolApplied.extension[pesquisaClinica].extension[numeroVersaoProtocoloEstudo].value[x] only string
-
-* protocolApplied.extension[pesquisaClinica].extension[numeroRegistroVacinaAnvisa].url = "numeroRegistroVacinaAnvisa"
-* protocolApplied.extension[pesquisaClinica].extension[numeroRegistroVacinaAnvisa].value[x] only string

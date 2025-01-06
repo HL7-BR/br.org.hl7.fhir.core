@@ -15,7 +15,7 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * category from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude	(preferred)  
 * type ^short = "Tipo de serviço que pode ser entregue ou executado"
 * type ^definition = "Tipo de serviço que pode ser entregue ou executado"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet-BRServicoEspecializado.html (preferred)
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (preferred)
 * specialty ^short = "Especialidades atendidas pelo HealthcareService"
 * specialty ^definition = "Especialidades atendidas pelo HealthcareService"
 * specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
