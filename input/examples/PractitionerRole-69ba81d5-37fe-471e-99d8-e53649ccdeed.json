@@ -67,8 +67,8 @@
     ],
     "healthcareService": [
       {
-        "reference": "HealthcareService/example-service",
-        "display": "Cardiologia"
+        "reference": "HealthcareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+        "display": "UBS INDIANOPOLIS SIGMUND FREUD"
       }
     ]
   }
