@@ -18,9 +18,9 @@ Description: "Este perfil de extensão representa um populacao tradicional com a
 * . ^short = "Extensão população tradicional"
 * . ^definition = "Conceitos que definem a população tradicional do paciente"
 * url 1..1
-//* url = "StructureDefinition-br-core-populacaotradicional" (exactly)
+* url = "StructureDefinition-br-core-populacaotradicional" (exactly)
 * value[x] 1..1
 * value[x] only CodeableConcept
 * valueCodeableConcept from https://terminologia.saude.gov.br/fhir/ValueSet/BRPopulacaoTradicional
-//* value[x] from StructureDefinition-br-core-populacaotradicional (required)
+* value[x] from StructureDefinition-br-core-populacaotradicional (required)
 * value[x] ^binding.description = "População tradicional"

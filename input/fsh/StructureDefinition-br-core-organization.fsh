@@ -85,7 +85,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnes].assigner ^definition = "Entidade que atribuiu o identificador do estabelecimento"
 * identifier[cnes].assigner only Reference(br-core-organization)
 * identifier[cnes].assigner.display ^short = "Nome da entidade que atribuiu o identificador do estabelecimento"
-
 * identifier[cpf] ^short = "Identificador do estabelecimento"
 * identifier[cpf] ^definition = "Identificador do estabelecimento"
 * identifier[cpf].id ^short = "Id lógico do identificador do estabelecimento"
@@ -199,7 +198,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * type 1..*
 * type ^short = "Tipo do Estabelecimento de saúde"
 * type ^definition = "Classificação do Estabelecimento de Saúde de acordo com um conjunto de dimensões."
-//* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
 * name 1..1
 * name ^short = "Nome usado para a organização"
 * name ^definition = "Nome do Estabelecimento de saúde"
