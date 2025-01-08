@@ -96,15 +96,15 @@ resources:
   AllergyIntolerance/b2549739-2479-406e-ab6e-1e4251b08bc9:
     name: Exemplo de alergia e intolerância.
     description: Exemplo de alergia e intolerância.    
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-allergyintolerance
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance
   AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34:
     name: Exemplo de alergia e intolerância.
     description: Exemplo de alergia e intolerância.    
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-allergyintolerance
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance
   Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5:
      name: Exemplo de condição de saúde fictícia.
      description: Exemplo de condição de saúde fictícia.
-     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-condition
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition
 #  HealthCareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51:
 #     name: Exemplo de serviço de saúde fictícia.
 #     description: Exemplo de serviço de saúde fictícia.
@@ -112,27 +112,27 @@ resources:
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
-     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-organization
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
   Organization/1428c345-c221-411f-880f-6fb163817387:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
-     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-organization
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
   Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e:
     name: Exemplo de paciente.
     description: Exemplo de paciente fictício.
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-patient
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
   Practitioner/d3b61455-f432-48f0-b83b-ba825922d735:
     name: Exemplo de profissional de saúde.
     description: Exemplo de profissional de saúde fictício.
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitioner
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner
   PractitionerRole/69ba81d5-37fe-471e-99d8-e53649ccdeed:
     name: Exemplo de papel de profissional de saúde.
     description: Exemplo de papel de profissional de saúde fictício.
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-practitionerrole
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole
   RelatedPerson/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
     name: Exemplo de uma pessoa relacionada ao paciente.
     description: Exemplo de uma pessoa relacionada ao paciente.
-    exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-relatedperson
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
