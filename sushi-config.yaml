@@ -105,10 +105,14 @@ resources:
      name: Exemplo de condição de saúde fictícia.
      description: Exemplo de condição de saúde fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition
+  Immunization/714819de-cd07-4423-94ea-7057504a2cc8:
+     name: Exemplo de imunização.
+     description: Exemplo de imunização fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-immunization
 #  HealthCareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51:
 #     name: Exemplo de serviço de saúde fictícia.
 #     description: Exemplo de serviço de saúde fictícia.
-#     exampleCanonical: https://br-core-ig.web.app/StructureDefinition/br-core-healthcareservice
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.

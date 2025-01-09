@@ -1,0 +1,198 @@
+{
+    "resourceType": "Immunization",
+    "id": "714819de-cd07-4423-94ea-7057504a2cc8",
+    "meta": {    
+      "profile": [
+        "br-core-ig.web.app/StructureDefinition-br-core-immunization.html"
+      ]
+    },
+    "implicitRules": "https://example.org/rules",
+    "language": "pt-BR",
+    "text": {
+      "status": "generated",
+      "div": "<div>Vacina administrada para prevenir a COVID-19</div>"
+    },
+    "identifier": [
+      {
+        "system": "https://hospital.example.org/immunizations",
+        "value": "IMM12345"
+      }
+    ],
+    "status": "completed",
+    "statusReason": {
+      "coding": [
+        {
+          "system": "https://hl7.org/fhir/valueset-immunization-status-reason.html",
+          "code": "IMMUNE",
+          "display": "Immunity"
+        }
+      ],
+      "text": "Os testes mostraram que o paciente já tem imunidade ao agente alvo da imunização."
+    },
+    "vaccineCode": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRImunobiologico",
+          "code": "87",
+          "display": "COVID-19 PFIZER - COMIRNATY"
+        }
+      ],
+      "text": "Vacina PFIZER COMINARTY COVID-19"
+    },
+    "patient": {
+      "reference": "PatientBRIPS/123",
+      "display": "Maria Silva"
+    },
+    "encounter": {
+      "reference": "Encounter/789",
+      "display": "Consulta de imunização"
+    },
+    "occurrenceDateTime": "2024-06-01T14:30:00Z",
+    "recorded": "2024-06-01T15:00:00Z",
+    "primarySource": true,
+    "reportOrigin": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRegistroOrigem",
+          "code": "2",
+          "display": "Vacina no Exterior"
+        }
+      ]
+    },
+    "location": {
+      "reference": "Location",
+      "display": "Clínica Central"
+    },
+    "manufacturer": {
+      "display": "Pfizer"
+    },
+    "lotNumber": "12345AB",
+    "expirationDate": "2024-12-31",
+    "site": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRLocalAplicacao",
+          "code": "20",
+          "display": "Braço esquerdo"
+        }
+      ]
+    },
+    "route": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRViaAdministracao",
+          "code": "10890",
+          "display": "Intramuscular"
+        }
+      ]
+    },
+    "doseQuantity": {
+      "value": 0.3,
+      "unit": "mL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mL"
+    },
+    "performer": [
+      {
+        "function": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+              "code": "AP",
+              "display": "Administrador"
+            }
+          ]
+        },
+        "actor": {
+          "reference": "PractitionerBRIPS/456",
+          "display": "Dr. João Pereira"
+        }
+      }
+    ],
+    "note": [
+      {
+        "text": "Paciente tolerou bem a vacinação."
+      }
+    ],
+    "reasonCode": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BREstrategiaVacinacao",
+            "code": "1",
+            "display": "Rotina"
+          }
+        ]
+      }
+    ],
+    "isSubpotent": false,
+    "education": [
+      {
+        "documentType": "Folheto informativo",
+        "reference": "https://example.org/education/covid19-vaccine",
+        "publicationDate": "2024-01-01",
+        "presentationDate": "2024-06-01"
+      }
+    ],
+    "programEligibility": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRElegibilidadeImunobiologico",
+            "code": "CNI-S",
+            "display": "Elegível para programa de vacinação"
+          }
+        ]
+      }
+    ],
+    "reaction": [
+      {
+        "date": "2024-06-02",
+        "detail": {
+          "reference": "Observation/987",
+          "display": "Leve dor no local da aplicação"
+        },
+        "reported": true
+      }
+    ],
+    "protocolApplied": [
+      {
+        "series": "COVID-19 Primary Series",
+        "authority": {
+          "reference": "Organization/health-dept",
+          "display": "Secretaria Municipal de Saúde de Taubaté"
+        },
+        "targetDisease": [
+          {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10.html",
+                "code": "U04",
+                "display": "Síndrome respiratória aguda grave [severe acute respiratory syndrome SARS]"
+              }
+            ]
+          }
+        ],
+        "doseNumberString": "1",
+        "extension": [
+          {
+            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0",
+            "extension": [
+              {
+                "url": "numeroProtocoloEstudoANVISA",
+                "valueString": "12345-ANVISA"
+              },
+              {
+                "url": "numeroVersaoProtocoloEstudo",
+                "valueString": "v1.0"
+              },
+              {
+                "url": "numeroRegistroVacinaAnvisa",
+                "valueString": "98765-VAC"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
