@@ -32,6 +32,7 @@ Description: "Este recurso é uma especialização do recurso FHIR R4 [Medicatio
 * manufacturer only Reference(br-core-organization)
 * form ^short = "Unidade de medida do medicamento"
 * form ^definition = "Unidade de medida do medicamento prescrito (ex.: comprimido, cápsula, frasco, caixa etc.)."
+* form from http://hl7.org/fhir/uv/ips/ValueSet/medicine-doseform
 * amount ^short = "Quantidade de medicamento"
 * amount ^definition = "Quantidade de medicamento na embalagem"
 * ingredient ^short = "Ingrediente ativo ou inativo"
