@@ -1,0 +1,63 @@
+{
+    "resourceType": "Medication",
+    "id": "3a46210c-7eb3-48ec-aa67-db7e7ee18864",
+    "identifier": [
+      {
+        "system": "https://saude.gov.br/fhir/sid/medication",
+        "value": "12345"
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://www.whocc.no/atc",
+          "code": "J01MA12",
+          "display": "levofloxacin"
+        }
+      ],
+      "text": "Levofloxacino; sistêmico"
+    },
+    "status": "active",
+    "manufacturer": {
+      "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+      "display": "Hospital Sírio-Libanês"
+    },
+    "form": {
+      "coding": [
+        {
+          "system": "https://standardterms.edqm.eu",
+          "code": "10220000",
+          "display": "coated tablet"
+        }
+      ],
+   "text": "Comprimido revestido"
+    },
+    "ingredient": [
+      {
+        "itemCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.whocc.no/atc",
+              "code": "J01MA12",
+               "display": "levofloxacin"
+            }
+          ],
+          "text": "Levofloxacino"
+        },
+        "strength": {
+          "numerator": {
+            "value": 500,
+            "unit": "mg",
+            "system": "urn:oid:2.16.840.1.113883.6.8",
+            "code": "mg"
+          },
+          "denominator": {
+            "value": 1,
+            "unit": "tablet",
+            "system": "urn:oid:2.16.840.1.113883.6.8",
+            "code": "tablet"
+          }
+        }
+      }
+    ]
+  }

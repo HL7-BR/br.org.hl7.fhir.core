@@ -113,6 +113,10 @@ resources:
 #     name: Exemplo de serviço de saúde fictícia.
 #     description: Exemplo de serviço de saúde fictícia.
 #     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice
+  Medication/3a46210c-7eb3-48ec-aa67-db7e7ee18864:
+     name: Exemplo de medicação.
+     description: Exemplo de medicação fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medication
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
