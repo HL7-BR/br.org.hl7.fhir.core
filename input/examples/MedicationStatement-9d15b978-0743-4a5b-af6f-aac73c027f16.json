@@ -1,0 +1,127 @@
+{
+    "resourceType": "MedicationStatement",
+    "id": "9d15b978-0743-4a5b-af6f-aac73c027f16",
+    "meta": {
+      "profile": [
+        "https://br-core-ig.web.app/StructureDefinition-br-core-medicationstatement.html"
+      ]
+    },
+    "identifier": [
+      {
+        "use": "official",
+        "system": "https://saude.gov.br/sid/medication-statement",
+        "value": "1234567890"
+      }
+    ],
+    "status": "active",
+    "statusReason": [
+      {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/ValueSet/medication-statement-status",
+            "code": "ongoing",
+            "display": "Ongoing"
+          }
+        ]
+      }
+    ],
+    "category": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/R4/codesystem-medication-statement-category.html",
+          "code": "outpatient",
+          "display": "Outpatient"
+        }
+      ],
+      "text": "Uso ambulatorial"
+    },
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "https://www.whocc.no/atc",
+          "code": "J01CA04",
+          "display": "amoxicillin"
+        }
+      ],
+      "text": "Amoxicilina"
+    },
+    "subject": {
+      "reference": "Patient/12345",
+      "display": "Maria da Silva"
+    },
+    "effectivePeriod": {
+      "start": "2024-12-01",
+      "end": "2024-12-10"
+    },
+    "dateAsserted": "2024-12-01",
+    "informationSource": {
+      "reference": "Practitioner/98765",
+      "display": "Dr. João Souza"
+    },
+    "reasonCode": [
+      {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "J02.9",
+            "display": " Acute pharyngitis, unspecified "
+          }
+        ]
+      }
+    ],
+    "note": [
+      {
+        "text": "Paciente relatou sintomas de dor de garganta há 3 dias."
+      }
+    ],
+    "dosage": [
+      {
+        "text": "Tomar 1 cápsula via oral a cada 8 horas por 7 dias.",
+        "timing": {
+          "repeat": {
+            "frequency": 3,
+            "period": 1,
+            "periodUnit": "d"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                "code": "TID",
+                "display": "Three times a day at institution specified time"
+              }
+            ]
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://standardterms.edqm.eu",
+              "code": "oral",
+              "display": "oral"
+            }
+          ]
+        },
+        "doseAndRate": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                  "code": "ordered",
+                  "display": "Ordered"
+                }
+              ],
+            "text": "Prescrito"
+            },
+            "doseQuantity": {
+              "value": 500,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  }
