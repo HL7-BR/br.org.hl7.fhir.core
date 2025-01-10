@@ -22,16 +22,6 @@
       "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
       "display": "Hospital Sírio-Libanês"
     },
-    "form": {
-      "coding": [
-        {
-          "system": "https://standardterms.edqm.eu",
-          "code": "10220000",
-          "display": "coated tablet"
-        }
-      ],
-   "text": "Comprimido revestido"
-    },
     "ingredient": [
       {
         "itemCodeableConcept": {
