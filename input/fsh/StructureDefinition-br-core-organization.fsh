@@ -212,7 +212,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * address ^definition = "Dados do endereço onde o Estabelecimento de Saúde é localizado."
 * partOf ^short = "CPF/CNPJ do Estabelecimento/Mantenedora"
 * partOf ^definition = "Pessoa Física (CPF) ou Jurídica (CNPJ) proprietária do Estabelecimento de Saúde."
-* partOf 1..1
 * partOf only Reference(br-core-organization)
 * contact ^short = "Contato"
 * contact ^definition = "Contato para a organização para uma determinada finalidade"
