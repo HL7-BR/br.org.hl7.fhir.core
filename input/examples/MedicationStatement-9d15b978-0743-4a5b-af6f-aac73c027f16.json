@@ -18,7 +18,7 @@
       {
         "coding": [
           {
-            "system": "http://hl7.org/fhir/ValueSet/medication-statement-status",
+            "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
             "code": "recorded",
             "display": "Recorded"
           }
@@ -97,8 +97,8 @@
           "coding": [
             {
               "system": "http://standardterms.edqm.eu",
-              "code": "oral",
-              "display": "oral"
+              "code": "20053000",
+              "display": "Oral use"
             }
           ]
         },
