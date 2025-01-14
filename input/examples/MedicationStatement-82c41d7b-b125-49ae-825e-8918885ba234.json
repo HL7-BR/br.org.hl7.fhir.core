@@ -9,23 +9,12 @@
       }
     ],
     "status": "active",
-    "statusReason": [
-      {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
-            "code": "recorded",
-            "display": "Recorded"
-          }
-        ]
-      }
-    ],
     "medicationCodeableConcept": {
       "text": "Mistura manipulada contendo Doxorrubicina 50mg/m² e Ciclofosfamida 500mg/m² preparada em solução salina 0.9%"
     },
     "subject": {
-      "reference": "Patient/12345",
-      "display": "Maria de Souza"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "João Carlos"
     },
     "effectivePeriod": {
       "start": "2024-01-15",
@@ -33,8 +22,8 @@
     },
     "dateAsserted": "2024-01-10",
     "informationSource": {
-      "reference": "Practitioner/67890",
-      "display": "Dra. Carla Silva"
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
     },
     "reasonCode": [
       {
@@ -42,7 +31,7 @@
           {
             "system": "http://hl7.org/fhir/sid/icd-10",
             "code": "C50.9",
-            "display": "Neoplasia maligna da mama não especificada"
+            "display": "Breast, unspecified"
           }
         ],
         "text": "Câncer de mama"
@@ -66,12 +55,11 @@
         "route": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/ValueSet/medicine-route-of-administration",
-              "code": "intravenous",
-              "display": "Intravenous"
+              "system": "http://standardterms.edqm.eu",
+              "code": "20045000",
+              "display": "Intravenous use"
             }
-          ],
-          "text": "Via intravenosa"
+          ]
         },
         "doseAndRate": [
           {
