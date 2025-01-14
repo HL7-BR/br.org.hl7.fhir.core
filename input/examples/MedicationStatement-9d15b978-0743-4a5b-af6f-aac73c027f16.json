@@ -14,17 +14,6 @@
       }
     ],
     "status": "active",
-    "statusReason": [
-      {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
-            "code": "recorded",
-            "display": "Recorded"
-          }
-        ]
-      }
-    ],
     "category": {
       "coding": [
         {
