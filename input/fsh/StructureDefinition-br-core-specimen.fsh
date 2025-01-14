@@ -73,7 +73,7 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * collection.method ^short = "Método de coleta da amostra"
 * collection.method ^definition = "Método de coleta da amostra"
 * collection.method 1..1
-* collection.method from http://hl7.org/fhir/uv/ips/ValueSet/results-specimen-collection-method-uv-ips
+* collection.method from http://hl7.org/fhir/ValueSet/specimen-collection-method
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
 * collection.bodySite from http://hl7.org/fhir/uv/ips/ValueSet/body-site-uv-ips
@@ -117,5 +117,6 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * container.additive[x] ^definition = "Aditivo associado ao recipiente"
 * condition ^short = "Estado da amostra"
 * condition ^definition = "Estado da amostra"
+* condition from ttp://terminology.hl7.org/ValueSet/v2-0493
 * note ^short = "Comentários"
 * note ^definition = "Comentários sobre a Amostra"
