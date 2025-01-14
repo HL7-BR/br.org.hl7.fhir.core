@@ -80,7 +80,8 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * recorder only Reference(br-core-practitioner or br-core-practitionerrole)
 * reasonCode ^short = "Motivo ou indicação para solicitar ou não o medicamento"
 * reasonCode ^definition = "Motivo ou indicação para solicitar ou não o medicamento. Conceito codificado que indica o motivo pelo qual o medicamento foi solicitado ou não"
-* reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10
+ reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference ^definition = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference only Reference(br-core-condition or br-core-observation)
 * instantiatesCanonical ^short = "Instancia do protocolo ou definição FHIR"
@@ -122,6 +123,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.timing.repeat 1..1
 * dosageInstruction.asNeeded[x] ^short = "Uso - se necessário"
 * dosageInstruction.asNeeded[x] ^definition = "Conceito codificado que identifica a pré-condição que deve ser atendida ou avaliada antes de consumir ou administrar uma dose de medicamento." 
+* dosageInstruction.asNeeded from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10
 * dosageInstruction.site ^short = "Local anatômico de administração do medicamento"
 * dosageInstruction.site ^definition = "Local anatômico de administração do medicamento" 
 * dosageInstruction.site from http://hl7.org/fhir/uv/ips/ValueSet/body-site-uv-ips 
