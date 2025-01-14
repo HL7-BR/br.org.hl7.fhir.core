@@ -121,6 +121,10 @@ resources:
      name: Exemplo de declaração de medicação.
      description: Exemplo de declaração de medicação fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement
+  MedicationStatement/82c41d7b-b125-49ae-825e-8918885ba234:
+     name: Exemplo de declaração de medicação.
+     description: Exemplo de declaração de medicação fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
