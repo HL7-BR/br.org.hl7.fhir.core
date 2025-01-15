@@ -126,7 +126,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.asNeeded[x] from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10
 * dosageInstruction.site ^short = "Local anatômico de administração do medicamento"
 * dosageInstruction.site ^definition = "Local anatômico de administração do medicamento" 
-* dosageInstruction.site from http://hl7.org/fhir/uv/ips/ValueSet/ body-site 
+* dosageInstruction.site from http://hl7.org/fhir/uv/ips/ValueSet/body-site 
 * dosageInstruction.route ^short = "Via de admiminstração do medicamento"
 * dosageInstruction.route ^definition = "Conceito - referência a uma terminologia ou apenas texto que representa a via de administração do medicamento" 
 * dosageInstruction.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
