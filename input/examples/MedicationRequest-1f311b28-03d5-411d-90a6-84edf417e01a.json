@@ -1,0 +1,168 @@
+{
+    "resourceType": "MedicationRequest",
+    "id": "1f311b28-03d5-411d-90a6-84edf417e01a",
+    "implicitRules": "http://example.org/rules",
+    "language": "pt-BR",
+    "identifier": [
+      {
+        "system": "http://hospital.example.org/medication-request",
+        "value": "12345"
+      }
+    ],
+    "status": "active",
+    "statusReason": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/R4/codesystem-medicationrequest-status-reason.html",
+          "code": "sintol",
+          "display": "Suspected Intolerance"
+        }
+      ],
+      "text": "Suspeita de Intolerância"
+    },
+    "intent": "order",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+            "code": "outpatient",
+            "display": "Outpatient"
+          }
+        ],
+        "text": "Ambulatório"
+      }
+    ],
+    "priority": "routine",
+    "doNotPerform": false,
+    "reportedBoolean": false,
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.whocc.no/atc",
+          "code": "N02BE01",
+          "display": "Paracetamol"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patientbr-core/001",
+      "display": "João Silva"
+    },
+    "encounter": {
+      "reference": "Encounter/enc001",
+      "display": "Consulta de rotina"
+    },
+    "supportingInformation": [
+      {
+        "reference": "ObservationBRIPS/obs001",
+        "display": "Febre alta persistente"
+      }
+    ],
+    "authoredOn": "2024-06-18T14:00:00Z",
+    "requester": {
+      "reference": "PractitionerBRIPS/123",
+      "display": "Dr. Maria Oliveira"
+    },
+    "performer": {
+      "reference": "PractitionerBRIPS/456",
+      "display": "Enfermeiro Carlos Mendes"
+    },
+    "performerType": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/med-admin-performer",
+          "code": "nurse",
+          "display": "Nurse"
+        }
+      ]
+    },
+    "reasonCode": [
+      {
+        "coding": [
+          {
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+              "code": "R50.8",
+              "display": "Fever"
+          }
+        ],
+        "text": "Febre"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "sequence": 1,
+        "text": "Tomar 1 comprimido a cada 6 horas por 5 dias.",
+        "timing": {
+          "repeat": {
+            "frequency": 4,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "site": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "368209003",
+              "display": "Oral cavity"
+            }
+          ],
+          "text": "Cavidade oral"
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://standardterms.edqm.eu",
+              "code": "50066000",
+              "display": "Tablet for oral suspension"
+            }
+          ],
+          "text": "Comprimido para suspensão oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 500,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ],
+    "dispenseRequest": {
+      "numberOfRepeatsAllowed": 1,
+      "quantity": {
+        "value": 20,
+        "unit": "comprimidos"
+      },
+      "expectedSupplyDuration": {
+        "value": 5,
+        "unit": "days",
+        "system": "http://unitsofmeasure.org"
+      },
+      "performer": {
+        "reference": "OrganizationBRIPS/pharmacy001",
+        "display": "Farmácia Central"
+      }
+    },
+    "substitution": {
+      "allowedBoolean": true,
+      "reason": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/substitution-reason",
+            "code": "therapeutic-alternative",
+            "display": "Therapeutic alternative"
+          }
+        ],
+        "text": "alternativa terapêutica"
+      }
+    },
+    "eventHistory": [
+      {
+        "reference": "Provenance/prov001",
+        "display": "Histórico da prescrição"
+      }
+    ]
+  }
