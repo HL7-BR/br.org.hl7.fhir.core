@@ -31,7 +31,6 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * status ^definition = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
 * category ^short = "Categoria de alto nível da observação"
 * category ^definition = "Categoria de alto nível da observação"
-* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaExame (required)
 * category[VSCat] ^short = "Classificação do tipo de observação"
 * category[VSCat] ^definition = "Classificação do tipo de observação"
 * category[VSCat].id ^short = "Identificador exclusivo para referência entre elementos"
@@ -56,8 +55,9 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * category[VSCat].coding.userSelected ^definition = "Se a codificação foi escolhida diretamente pelo usuário"
 * category[VSCat].text ^short = "Representação em texto simples do conceito"
 * category[VSCat].text ^definition = "Representação em texto simples do conceito"
-* code ^short = "Códigos dos resultados de sinais vitais do C-CDA"
-* code ^definition = "Códigos dos resultados de sinais vitais do C-CDA"
+* code ^short = "Códigos dos resultados de sinais vitais"
+* code ^definition = "Códigos dos resultados de sinais vitais"
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSinaisVitais
 * subject ^short = "De quem ou do que trata a observação"
 * subject ^definition = "De quem ou do que trata a observação"
 * subject only Reference(br-core-patient)
