@@ -81,7 +81,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * reasonCode ^short = "Motivo ou indicação para solicitar ou não o medicamento"
 * reasonCode ^definition = "Motivo ou indicação para solicitar ou não o medicamento. Conceito codificado que indica o motivo pelo qual o medicamento foi solicitado ou não"
 * reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10
- reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
+* reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference ^definition = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference only Reference(br-core-condition or br-core-observation)
 * instantiatesCanonical ^short = "Instancia do protocolo ou definição FHIR"
