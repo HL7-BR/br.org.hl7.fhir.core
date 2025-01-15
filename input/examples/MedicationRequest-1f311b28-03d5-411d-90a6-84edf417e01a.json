@@ -46,8 +46,8 @@
       ]
     },
     "subject": {
-      "reference": "Patientbr-core/001",
-      "display": "João Silva"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "João Carlos"
     },
     "encounter": {
       "reference": "Encounter/enc001",
@@ -55,18 +55,18 @@
     },
     "supportingInformation": [
       {
-        "reference": "ObservationBRIPS/obs001",
+        "reference": "Observation/obs001",
         "display": "Febre alta persistente"
       }
     ],
     "authoredOn": "2024-06-18T14:00:00Z",
     "requester": {
-      "reference": "PractitionerBRIPS/123",
-      "display": "Dr. Maria Oliveira"
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
     },
     "performer": {
-      "reference": "PractitionerBRIPS/456",
-      "display": "Enfermeiro Carlos Mendes"
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
     },
     "performerType": {
       "coding": [
@@ -83,7 +83,7 @@
           {
               "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
               "code": "R50.8",
-              "display": "Fever"
+              "display": "Outra febre especificada"
           }
         ],
         "text": "Febre"
@@ -104,8 +104,8 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "368209003",
-              "display": "Oral cavity"
+              "code": "74262004",
+              "display": "Oral cavity structure (body structure)"
             }
           ],
           "text": "Cavidade oral"
@@ -142,8 +142,8 @@
         "system": "http://unitsofmeasure.org"
       },
       "performer": {
-        "reference": "OrganizationBRIPS/pharmacy001",
-        "display": "Farmácia Central"
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
       }
     },
     "substitution": {
@@ -158,11 +158,5 @@
         ],
         "text": "alternativa terapêutica"
       }
-    },
-    "eventHistory": [
-      {
-        "reference": "Provenance/prov001",
-        "display": "Histórico da prescrição"
-      }
-    ]
+    }
   }
