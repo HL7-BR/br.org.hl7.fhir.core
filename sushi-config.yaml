@@ -117,14 +117,14 @@ resources:
      name: Exemplo de medicação.
      description: Exemplo de medicação fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medication
-  MedicationDispense/80589c80-643e-43ea-801b-5f32616e9a27:
-     name: Exemplo de dispensação de medicação.
-     description: Exemplo de dispensação de medicação fictícia.
-     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense
-  MedicationRequest/80589c80-643e-43ea-801b-5f32616e9a27:
-     name: Exemplo de solicitação  de medicação.
-     description: Exemplo de solicitação de medicação fictícia.
-     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest
+#  MedicationDispense/80589c80-643e-43ea-801b-5f32616e9a27:
+#     name: Exemplo de dispensação de medicação.
+#     description: Exemplo de dispensação de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense
+#  MedicationRequest/80589c80-643e-43ea-801b-5f32616e9a27:
+#     name: Exemplo de solicitação  de medicação.
+#     description: Exemplo de solicitação de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest
   MedicationStatement/9d15b978-0743-4a5b-af6f-aac73c027f16:
      name: Exemplo de declaração de medicação.
      description: Exemplo de declaração de medicação fictícia.

@@ -37,8 +37,8 @@
     "quantity": {
       "value": 30,
       "unit": "10219000",
-      "system": "urn:oid:0.4.0.127.0.16.1.1.2.1",
-      "code": "comprimido"
+      "system": "http://standardterms.edqm.eu",
+      "code": "Tablet"
     },
     "daysSupply": {
       "value": 30,
@@ -65,10 +65,8 @@
         "doseAndRate": [
           {
             "doseQuantity": {
-              "value": 1,
-              "unit": "10219000",
-              "system": "urn:oid:0.4.0.127.0.16.1.1.2.1e",
-              "code": "comprimido"
+              "system": "http://standardterms.edqm.eu",
+              "code": "10219000"
             }
           }
         ]
