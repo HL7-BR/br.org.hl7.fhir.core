@@ -36,9 +36,7 @@
     },
     "quantity": {
       "value": 30,
-      "unit": "10219000",
-      "system": "http://standardterms.edqm.eu",
-      "code": "Tablet"
+      "unit": "comprimidos"
     },
     "daysSupply": {
       "value": 30,
