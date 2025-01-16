@@ -81,7 +81,6 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
 * interpretation 0..1
-* interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativoExame
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
 * note 0..1
