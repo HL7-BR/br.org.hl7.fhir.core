@@ -1,0 +1,60 @@
+{
+    "resourceType": "MedicationAdministration",
+    "id": "c2a71a42-d3cd-4be8-8bf4-fdddea59034f",
+    "status": "completed",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.whocc.no/atc",
+          "code": "J01CA04",
+          "display": "Amoxicillin"
+        }
+      ],
+      "text": "Amoxicilina 500mg cápsula"
+    },
+    "subject": {
+      "reference": "Patient/12345",
+      "display": "João da Silva"
+    },
+    "context": {
+      "reference": "Encounter/enc-002",
+      "display": "Consulta Ambulatorial"
+    },
+    "effectiveDateTime": "2024-12-18T08:00:00-03:00",
+    "performer": [
+      {
+        "actor": {
+          "reference": "Practitioner/98765",
+          "display": "Enfermeira Ana Costa"
+        }
+      }
+    ],
+    "dosage": {
+      "text": "Administrar 1 cápsula via oral.",
+      "site": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "74262004",
+            "display": "Oral cavity structure (body structure)"
+          }
+        ],
+        "text": "Cavidade oral"
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://standardterms.edqm.eu",
+            "code": "20053000",
+            "display": "Oral use"
+          }
+        ]
+      },
+      "dose": {
+        "value": 500,
+        "unit": "mg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg"
+      }
+    }
+  }

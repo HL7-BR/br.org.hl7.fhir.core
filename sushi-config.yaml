@@ -117,6 +117,10 @@ resources:
      name: Exemplo de medicação.
      description: Exemplo de medicação fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medication
+#  MedicationAdministration/c2a71a42-d3cd-4be8-8bf4-fdddea59034f:
+#     name: Exemplo de administração de medicação.
+#     description: Exemplo de administração de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationadministration
 #  MedicationDispense/80589c80-643e-43ea-801b-5f32616e9a27:
 #     name: Exemplo de dispensação de medicação.
 #     description: Exemplo de dispensação de medicação fictícia.
