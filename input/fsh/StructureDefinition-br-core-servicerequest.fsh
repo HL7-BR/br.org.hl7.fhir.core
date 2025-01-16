@@ -35,13 +35,13 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * priority 1..1
 * priority ^short = "A prioridade clínica de uma ordem diagnóstica."
 * priority ^definition = "routine | urgent | asap | stat"
-* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA(required) 
+* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA 
 * doNotPerform ^short = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * doNotPerform ^definition = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * code 1..1
 * code ^short = "What is being requested/ordered"
 * code ^definition = "What is being requested/ordered"
-// * code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais
 * orderDetail ^short = "Informações adicionais sobre o pedido"
 * orderDetail ^definition = "Informações adicionais sobre o pedido"
 * quantity[x] ^short = "Valor do serviço"
