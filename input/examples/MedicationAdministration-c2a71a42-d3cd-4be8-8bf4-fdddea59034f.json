@@ -13,8 +13,8 @@
       "text": "Amoxicilina 500mg cápsula"
     },
     "subject": {
-      "reference": "Patient/12345",
-      "display": "João da Silva"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "João Carlos"
     },
     "context": {
       "reference": "Encounter/enc-002",
@@ -24,8 +24,8 @@
     "performer": [
       {
         "actor": {
-          "reference": "Practitioner/98765",
-          "display": "Enfermeira Ana Costa"
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
         }
       }
     ],
