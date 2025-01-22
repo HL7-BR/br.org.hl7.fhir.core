@@ -137,6 +137,10 @@ resources:
      name: Exemplo de declaração de medicação.
      description: Exemplo de declaração de medicação fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement
+  Observation/52ba1c80-5d2c-4faf-8c90-f4363e20d7bb:
+     name: Exemplo de observação.
+     description: Exemplo de observação de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation   
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
@@ -165,6 +169,15 @@ resources:
     name: Exemplo de uma pessoa relacionada ao paciente.
     description: Exemplo de uma pessoa relacionada ao paciente.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson
+#   Specimen/2f42ddad-b9bb-4f68-b5b9-426054529f31:
+#     name: Exemplo de espécime.
+#     description: Exemplo de espécime de um paciente fictício.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen
+#   VitalSigns/2f42ddad-b9bb-4f68-b5b9-426054529f31:
+#     name: Exemplo de sinal vital.
+#     description: Exemplo de sinal vital de um paciente fictício.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns
+
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
