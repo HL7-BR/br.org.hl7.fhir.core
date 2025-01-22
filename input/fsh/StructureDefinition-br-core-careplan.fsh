@@ -22,7 +22,6 @@ Description: "Este perfil restringe o recurso [CarePlan](https://hl7.org/fhir/R4
 * status ^definition = "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
 * intent ^short = "Propósito do plano de cuidado definido"
 * intent ^definition = "proposal | plan | order | option"
-* category 1..1
 * category ^short = "Tipo de plano de cuidado"
 * category ^definition = "Tipo de plano de cuidado"
 * title ^short = "Nome casual para o plano de cuidado"
@@ -78,6 +77,7 @@ Description: "Este perfil restringe o recurso [CarePlan](https://hl7.org/fhir/R4
 * activity.detail.instantiatesUri ^definition = "Instancia protocolo externo ou definição"
 * activity.detail.code ^short = "Tipo de atividade detalhada"
 * activity.detail.code ^definition = "Tipo de atividade detalhada"
+* activity.detail.code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais
 * activity.detail.reasonCode ^short = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
 * activity.detail.reasonCode ^definition = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
 * activity.detail.reasonReference ^short = "Por que a atividade é necessária"
