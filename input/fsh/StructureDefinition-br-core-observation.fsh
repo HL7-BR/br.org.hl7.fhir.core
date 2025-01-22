@@ -69,26 +69,21 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * effective[x].extension.url ^definition = "Por quê o valor esperado não está presente"
 * issued ^short = "Data/hora em que esta versão foi disponibilizada"
 * issued ^definition = "Data/hora em que esta versão foi disponibilizada"
-* issued 1..1
 * performer ^short = "Quem é o responsável pela observação"
 * performer ^definition = "Quem é o responsável pela observação"
 * performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
 * value[x] ^short = "Resultado da observação"
 * value[x] ^definition = "Resultado da observação"
-* value[x] 1..1
 * dataAbsentReason ^short = "Por quê o resultado está faltando"
 * dataAbsentReason ^definition = "Utilizado para especificar o porquê o valor esperado não está presente"
 * interpretation ^short = "Interpretação do resultado"
 * interpretation ^definition = "Interpretação da observação. Por exemplo: valor alto, baixo, normal"
-* interpretation 0..1
 * note ^short = "Comentários sobre a observação"
 * note ^definition = "Comentários sobre a observação"
-* note 0..1
 * bodySite ^short = "Parte anatômica alvo da observação"
 * bodySite ^definition = "PParte anatômica alvo da observação"
 * method ^short = "Método de medição"
 * method ^definition = "Método de medição"
-* method 1..1
 * specimen ^short = "Amostra utilizada para esta observação"
 * specimen ^definition = "Amostra utilizada para esta observação"
 * specimen only Reference(br-core-specimen)
@@ -97,7 +92,6 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * device only Reference(Device or DeviceMetric)
 * referenceRange ^short = "Fornece um guia para interpretação"
 * referenceRange ^definition = "Fornece um guia para interpretação"
-* referenceRange 1..1
 * referenceRange.id ^short = "Identificador único para referenciação cruzada"
 * referenceRange.id ^definition = "Identificador único para referenciação cruzada"
 * referenceRange.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
@@ -107,10 +101,8 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * referenceRange.modifierExtension 1..1
 * referenceRange.low ^short = "Limite inferior do intervalo"
 * referenceRange.low ^definition = "Limite inferior do intervalo de valores de referência"
-* referenceRange.low 1..1
 * referenceRange.high ^short = "Limite superior do intervalo"
 * referenceRange.high ^definition = "Limite superior do intervalo de valores de referência"
-* referenceRange.high 1..1
 * referenceRange.type ^short = "Qualificador do valor de referência"
 * referenceRange.type ^definition = "Qualificador do valor de referência"
 * referenceRange.appliesTo ^short = "População do intervalo de referência"
