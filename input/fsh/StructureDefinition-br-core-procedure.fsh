@@ -34,7 +34,6 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * statusReason ^short = "Motivo para o estado atual."
 * statusReason ^definition = "Motivo para o estado atual."
 * statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoProcedimentoNaoRealizado
-* statusReason 1..1
 * category ^short = "Classificação do procedimento."
 * category ^definition = "Classificação do procedimento. Exemplo: um código que classifica um procedimento para fins de pesquisa, classificação e exibição."
 * category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento (required)
