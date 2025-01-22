@@ -18,7 +18,7 @@
         {
           "system": "http://loinc.org",
           "code": "24331-1",
-          "display": "Lipid Panel"
+          "display": "Lipid 1996 panel - Serum or Plasma"
         }
       ],
       "text": "Colesterol total e frações"
@@ -39,8 +39,8 @@
         "display": "Maria Clara"
       },
       {
-        "reference": "Organization/001",
-        "display": "Example Laboratory"
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
       }
     ],
     "component": [
@@ -85,7 +85,7 @@
             {
               "system": "http://loinc.org",
               "code": "13457-7",
-              "display": "LDL Cholesterol [Mass/volume] in Serum or Plasma"
+              "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
             }
           ],
           "text": "LDL Cholesterol"
@@ -120,7 +120,7 @@
             {
               "system": "http://loinc.org",
               "code": "2085-9",
-              "display": "HDL Cholesterol [Mass/volume] in Serum or Plasma"
+              "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
             }
           ],
           "text": "HDL Cholesterol"
@@ -155,7 +155,7 @@
             {
               "system": "http://loinc.org",
               "code": "2571-8",
-              "display": "Triglycerides [Mass/volume] in Serum or Plasma"
+              "display": "Triglyceride [Mass/volume] in Serum or Plasma"
             }
           ],
           "text": "Triglycerides"
