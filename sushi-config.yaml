@@ -169,6 +169,10 @@ resources:
     name: Exemplo de uma pessoa relacionada ao paciente.
     description: Exemplo de uma pessoa relacionada ao paciente.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson
+#  ServiceRequest/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
+#    name: Exemplo de uma requisição de serviço.
+#    description: Exemplo de uma requisição de serviço.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest
 #   Specimen/2f42ddad-b9bb-4f68-b5b9-426054529f31:
 #     name: Exemplo de espécime.
 #     description: Exemplo de espécime de um paciente fictício.

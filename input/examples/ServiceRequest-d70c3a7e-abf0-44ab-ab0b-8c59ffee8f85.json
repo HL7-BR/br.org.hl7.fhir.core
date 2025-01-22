@@ -1,0 +1,79 @@
+{
+    "resourceType": "ServiceRequest",
+    "id": "d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85",
+     "identifier": [
+      {
+        "system": "https://hospital.example.org/servicerequest",
+        "value": "ServiceRequest12345"
+      }
+     ],
+    "status": "active",
+    "intent": "order",
+      "category": [
+      {
+        "coding": [
+          {
+            "system": "https://fhir.ans.gov.br/CodeSystem/tuss-50",
+            "code": "23",
+            "display": "Exame"
+          }
+        ],
+        "text": "Exame"
+      }
+    ],
+    "priority": "routine",
+    "code": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
+          "code": "0211020036",
+          "display": "Eletrocardiograma"
+        }
+      ],
+      "text": "Eletrocardiograma"
+    },
+    "subject": {
+      "reference": "Patient/example",
+      "display": "Maria Silva"
+    },
+    "authoredOn": "2024-12-19",
+    "requester": {
+      "reference": "Practitioner/1234",
+      "display": "Dra. Ana Oliveira"
+    },
+    "performer": [
+      {
+        "reference": "PractitionerRole/lab",
+        "display": "Clínica de Cardiologia São João"
+      }
+    ],
+    "reasonCode": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+            "code": "R07.2",
+            "display": "Precordial pain"
+          }
+        ],
+        "text": "Dor precordial"
+      }
+    ],
+    "note": [
+      {
+        "text": "O paciente deve evitar exercícios físicos antes do exame."
+      }
+    ],
+    "bodySite": [
+      {
+        "coding": [
+          {
+            "system": "http://www.snomed.org/",
+            "code": "80891009",
+            "display": "Heart"
+          }
+        ],
+        "text": "Coração"
+      }
+    ]
+  }
