@@ -142,6 +142,5 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * component.dataAbsentReason ^definition = "Por que o resultado do componente está ausente"
 * component.interpretation ^short = "Interpretação do resultado do componente"
 * component.interpretation ^definition = "Interpretação do resultado do componente"
-* component.interpretation from https://terminologia.saude.gov.br/fhir/ValueSet/BRResultadoQualitativoExame
 * component.referenceRange ^short = "Valores de referência"
 * component.referenceRange ^definition = "Valores de referência para auxiliar na interpretação do resultado"
