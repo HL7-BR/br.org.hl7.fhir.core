@@ -13,21 +13,19 @@
       "code": "AMB",
       "display": "Ambulatory"
     },
-    "text": "Ambulatório",
     "type": [
       {
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAtendimentoPrestado",
             "code": "02",
-            "display": "Ambulatorial"
+            "display": "AMBULATORIAL"
           }
         ],
         "text": "Ambulatorial"
       }
     ],
-    "serviceType": [
-      {
+    "serviceType": {
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
@@ -36,8 +34,7 @@
           }
         ],
         "text": "Serviço de Cardiologia"
-      }
-    ],
+    },
     "priority": {
       "coding": [
         {
@@ -59,16 +56,16 @@
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/participant-type",
-                "code": "PPRF",
-                "display": "Primary Performer"
+                "code": "ADM",
+                "display": "admitter"
               }
             ],
             "text": "Executor Primário"
           }
         ],
         "individual": {
-          "reference": "Practitioner/example-br-core-practitioner",
-          "display": "Dra. Maria Oliveira"
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
         }
       }
     ],
@@ -80,9 +77,9 @@
       {
         "coding": [
           {
-            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
-            "code": "RO7.2",
-            "display": "Dor precordial"
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10.html",
+            "code": "RO",
+            "display": "Dispnéia"
           }
         ],
         "text": "Dor precordial"
@@ -91,8 +88,8 @@
     "diagnosis": [
       {
         "condition": {
-          "reference": "Condition/example-condition",
-          "display": "Dor precordial"
+          "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+          "display": "Dispnéia"
         },
         "rank": 1
       }
@@ -100,8 +97,8 @@
     "location": [
       {
         "location": {
-          "reference": "Location/example-location",
-          "display": "Ambulatório de Cardiologia"
+          "reference": "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+          "display": "HOSPITAL DIA"
         },
         "status": "active"
       }
