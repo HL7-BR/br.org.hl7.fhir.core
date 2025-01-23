@@ -105,6 +105,10 @@ resources:
      name: Exemplo de condição de saúde fictícia.
      description: Exemplo de condição de saúde fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition
+  Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df:
+     name: Exemplo de consulta fictícia.
+     description: Exemplo de consultae fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter
   Immunization/714819de-cd07-4423-94ea-7057504a2cc8:
      name: Exemplo de imunização.
      description: Exemplo de imunização fictícia.
