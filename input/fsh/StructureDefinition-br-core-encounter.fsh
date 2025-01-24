@@ -72,7 +72,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * diagnosis.use ^short = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel que este diagnóstico tem dentro do atendimento (por exemplo, admissão, faturamento, alta…)"
 * diagnosis.use 1..1
-//* diagnosis.use from https://terminologia.saude.gov.br/fhir/ValueSet-diagnosis-role
+* diagnosis.use from http://hl7.org/fhir/ValueSet/diagnosis-role
 * diagnosis.rank ^short = "Classificação do diagnóstico (para cada tipo de função)"
 * diagnosis.rank ^definition = "Classificação do diagnóstico (para cada tipo de função)"
 * account ^short = "O conjunto de contas que podem ser usadas para cobrança deste Atendimento"

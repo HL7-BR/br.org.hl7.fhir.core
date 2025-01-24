@@ -140,7 +140,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * section.modifierExtension ^short = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * section.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * section.title ^short = "Título da seção"
-* section.title ^definition = "Título da seção do Sumário Internacional do Paciente"
+* section.title ^definition = "Título da seção"
 * section.code ^short = "Um código que identifica o tipo de conteúdo contido dentro da seção."
 * section.code ^definition = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção."
 * section.code from 	http://hl7.org/fhir/ValueSet/doc-section-codes (required)

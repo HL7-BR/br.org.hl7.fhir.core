@@ -52,7 +52,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAvaliados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
 * section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[diagnosticosAvaliados].code.coding.code = #48765-2 
+* section[diagnosticosAvaliados].code.coding.code = #57852-6 
 * section[diagnosticosAvaliados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAvaliados].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[diagnosticosAvaliados].code.coding.display = "Problem List"
