@@ -1,0 +1,130 @@
+{
+    "resourceType": "CarePlan",
+    "id": "1ed343f2-5231-40d6-a6ea-4428105b7532",
+    "status": "active",
+    "intent": "plan",
+    "title": "Plano de Cuidados para Asma Persistente Moderada",
+    "subject": {
+      "reference": "Patient/67890",
+      "display": "Ana Pereira"
+    },
+    "created": "2024-12-19",
+    "contributor": [
+      {
+        "reference": "Organization/001",
+        "display": "Hospital Respirar Melhor"
+      }
+    ],
+    "instantiatesCanonical": [
+      "PlanDefinition/asthma-plan"
+    ],
+    "instantiatesUri": [
+      "http://www.saude.gov.br/plano-cuidados/asma"
+    ],
+    "addresses": [
+      {
+        "reference": "Condition/example-condition",
+        "display": "Hipertensão arterial"
+      }
+    ],
+    "goal": [
+      {
+        "reference": "Goal/001",
+        "display": "Melhorar a função pulmonar e reduzir crises asmáticas"
+      },
+      {
+        "reference": "Goal/002",
+        "display": "Educar o paciente sobre o uso correto de medicamentos"
+      }
+    ],
+    "activity": [
+      {
+        "detail": {
+          "kind": "ServiceRequest",
+          "code": {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
+                "code": "03.01.01.007-2",
+                "display": "Consulta Médica em Atenção Especializada"
+              }
+            ],
+            "text": "Consulta de rotina com pneumologista"
+          },
+          "status": "scheduled",
+          "performer": [
+            {
+              "reference": "Organization/001",
+              "display": "Hospital Respirar Melhor"
+            }
+          ]
+        }
+      },
+      {
+        "detail": {
+          "kind": "MedicationRequest",
+          "code": {
+            "coding": [
+              {
+                "system": "http://www.whocc.no/atc",
+                "code": "R03BA02",
+                "display": "Budesonida"
+              }
+            ],
+            "text": "Uso contínuo de corticoide inalatório para controle da asma"
+          },
+          "status": "active",
+          "performer": [
+            {
+              "reference": "Organization/001",
+              "display": "Hospital Respirar Melhor"
+            }
+          ]
+        }
+      },
+      {
+        "detail": {
+          "kind": "ServiceRequest",
+          "code": {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
+                "code": "02.11.02.003-6",
+                "display": "Eletrocardiograma"
+              }
+            ],
+            "text": "Teste de função pulmonar para monitoramento"
+          },
+          "status": "scheduled",
+          "performer": [
+            {
+              "reference": "Organization/001",
+              "display": "Hospital Respirar Melhor"
+            }
+          ]
+        }
+      },
+      {
+        "detail": {
+          "kind": "Observation",
+          "code": {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
+                "code": "02.02.01.050-3",
+                "display": "Dosagem de Hemoglobina Glicosilada"
+              }
+            ],
+            "text": "Monitoramento do controle glicêmico para prevenção de crises"
+          },
+          "status": "scheduled",
+          "performer": [
+            {
+              "reference": "Organization/002",
+              "display": "Laboratório Central"
+            }
+          ]
+        }
+      }
+    ]
+}

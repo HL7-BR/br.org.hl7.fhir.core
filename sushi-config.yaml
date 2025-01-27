@@ -101,6 +101,10 @@ resources:
     name: Exemplo de alergia e intolerância.
     description: Exemplo de alergia e intolerância.    
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance
+  CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532:
+    name: Exemplo de plano de cuidado.
+    description: Exemplo de plano de cuidado.  
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan
   Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5:
      name: Exemplo de condição de saúde fictícia.
      description: Exemplo de condição de saúde fictícia.
