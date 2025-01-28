@@ -173,6 +173,10 @@ resources:
     name: Exemplo de papel de profissional de saúde.
     description: Exemplo de papel de profissional de saúde fictício.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole
+  Procedure/b0030c23-bd7d-445e-bfe5-020828f7dbaf:
+    name: Exemplo de procedimento de saúde.
+    description: Exemplo de procedimento de saúde.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-procedure
   RelatedPerson/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
     name: Exemplo de uma pessoa relacionada ao paciente.
     description: Exemplo de uma pessoa relacionada ao paciente.
