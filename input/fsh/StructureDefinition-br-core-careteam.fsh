@@ -24,7 +24,7 @@ Description: "Este perfil restringe o recurso [CareTeam](https://hl7.org/fhir/R4
 * participant ^definition = "Lista de participantes envolvidos no atendimento"
 * participant.role ^short = "Tipo de envolvimento"
 * participant.role ^definition = "Tipo de envolvimento"
-//* participant.role from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (example)
+* participant.role from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (example)
 * participant.member ^short = "Quem está envolvido"
 * participant.member ^definition = "Quem está envolvido"
 * participant.member only Reference(br-core-practitioner or br-core-practitionerrole or br-core-relatedperson or br-core-patient or br-core-organization or br-core-careteam)
