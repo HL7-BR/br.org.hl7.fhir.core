@@ -189,6 +189,10 @@ resources:
 #     name: Exemplo de espécime.
 #     description: Exemplo de espécime de um paciente fictício.
 #     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen
+#   SumarioAlta/4e14ddc8-13de-4c7f-8913-bfa81633b81b:
+#     name: Exemplo de sumário alta.
+#     description: Exemplo de sumário alta de um paciente fictício.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sumarioalta
 #   VitalSigns/2f42ddad-b9bb-4f68-b5b9-426054529f31:
 #     name: Exemplo de sinal vital.
 #     description: Exemplo de sinal vital de um paciente fictício.
