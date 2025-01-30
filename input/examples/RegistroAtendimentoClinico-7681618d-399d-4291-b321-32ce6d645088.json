@@ -1,0 +1,234 @@
+{
+    "resourceType": "Composition",
+    "id": "7681618d-399d-4291-b321-32ce6d645088",
+    "status": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/composition-status",
+          "code": "final",
+          "display": "Final"
+        }
+      ]
+    },    
+    "type": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "11488-4",
+          "display": "Consult note"
+        }
+      ],
+      "text": "Nota de consulta"
+    },
+    "category":  {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "11488-4",
+            "display": "COnsult Note"
+          }
+        ]
+  "text": "Nota de consulta"
+      },
+    "subject": {
+      "reference": "Patient/example",
+      "display": "Maria Oliveira"
+    },
+    "encounter": {
+      "reference": "Encounter/example",
+      "display": "Consulta médica em 19/12/2024"
+    },
+    "date": "2024-12-19T14:30:00Z",
+    "author": [
+      {
+        "reference": "Practitioner/example",
+        "display": "Dr. João Pereira"
+      }
+    ],
+    "title": "Registro de Atendimento Clínico",
+   "section": [
+      {
+        "title": "Diagnósticos Avaliados",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57852-6",
+              "display": "Problem list Narrative - Reported"
+            }
+          ]
+       "text": "Lista de Problemas - Diagnósticos Avaliados"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Suspeita de infecção gastrintestinal.</p></div>"
+                }
+  
+        "entry": [
+          {
+            "reference": "Condition/br-core-condition-example1" /* deveria ser um exemplo com CID-10 de A09 */
+          },
+          
+        ],
+    
+      },
+  
+     "section": [
+      {
+        "title": "Procedimentos Realizados",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "47519-4",
+              "display": "History of Procedures"
+            }
+          ]
+          "text": "Procedimentos Realizados"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>US abdomen Total.</p></div>"
+        }
+   "entry": [
+          {
+            "reference": "PRocedureBRcore-exemploUS abdominal" // vou fazer este exemplo de US abdominal 
+  
+      },
+  
+  ],
+  
+   },
+  
+  ],
+  
+      {
+        "title": "Sinais Vitais",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Vital signs panel"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Temperatura: 38.5°C, PA: 120/80 mmHg, FC: 85 bpm.</p></div>"
+        }
+      },
+      {
+        "title": "História Obstétrica",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "161714006",
+              "display": "Obstetric history"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Paciente com 2 gestações, 1 parto normal, 1 cesárea.</p></div>"
+        }
+      },
+      {
+        "title": "Aleitamento Materno",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "364443007",
+              "display": "Breastfeeding"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>A mãe está amamentando exclusivamente.</p></div>"
+        }
+      },
+      {
+        "title": "História Social",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11369-6",
+              "display": "Social history"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Fumante, consumo de álcool moderado, trabalha como professor.</p></div>"
+        }
+      },
+      {
+        "title": "Alergias e Intolerâncias",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "419511003",
+              "display": "History of allergy"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Histórico de alergia a penicilinas.</p></div>"
+        }
+      },
+      {
+        "title": "Medicamentos",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "182844001",
+              "display": "Medication therapy"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Uso contínuo de metformina e losartana.</p></div>"
+        }
+      },
+      {
+        "title": "Plano de Cuidados",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18776-5",
+              "display": "Plan of care note"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Manter hidratação e observar evolução dos sintomas.</p></div>"
+        }
+      },
+      {
+        "title": "Capacidade Funcional",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "89269-5",
+              "display": "Functional status"
+            }
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div><p>Paciente com mobilidade preservada e autonomia funcional.</p></div>"
+        }
+      }
+    ]
+  }
