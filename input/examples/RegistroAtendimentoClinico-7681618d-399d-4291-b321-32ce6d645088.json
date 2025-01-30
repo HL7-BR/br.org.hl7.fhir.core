@@ -27,22 +27,22 @@
             "code": "11488-4",
             "display": "COnsult Note"
           }
-        ]
-  "text": "Nota de consulta"
-      },
+        ],
+        "text": "Nota de consulta"
+    },
     "subject": {
-      "reference": "Patient/example",
-      "display": "Maria Oliveira"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "João Carlos Silva"
     },
     "encounter": {
-      "reference": "Encounter/example",
-      "display": "Consulta médica em 19/12/2024"
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
     },
     "date": "2024-12-19T14:30:00Z",
     "author": [
       {
-        "reference": "Practitioner/example",
-        "display": "Dr. João Pereira"
+        "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display": "Maria Clara"
       }
     ],
     "title": "Registro de Atendimento Clínico",
@@ -56,24 +56,16 @@
               "code": "57852-6",
               "display": "Problem list Narrative - Reported"
             }
-          ]
-       "text": "Lista de Problemas - Diagnósticos Avaliados"
+          ],
+        "text": "Lista de Problemas - Diagnósticos Avaliados"
         },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Suspeita de infecção gastrintestinal.</p></div>"
-                }
-  
         "entry": [
           {
-            "reference": "Condition/br-core-condition-example1" /* deveria ser um exemplo com CID-10 de A09 */
-          },
-          
-        ],
-    
+            "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+            "display": "Dispnéia"
+          }
+        ]
       },
-  
-     "section": [
       {
         "title": "Procedimentos Realizados",
         "code": {
@@ -83,25 +75,16 @@
               "code": "47519-4",
               "display": "History of Procedures"
             }
-          ]
+          ],
           "text": "Procedimentos Realizados"
         },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>US abdomen Total.</p></div>"
-        }
-   "entry": [
+        "entry": [
           {
-            "reference": "PRocedureBRcore-exemploUS abdominal" // vou fazer este exemplo de US abdominal 
-  
+            "reference": "Procedure/b0030c23-bd7d-445e-bfe5-020828f7dbaf",
+            "display": "Consulta médica em atenção primária"
+          }
+        ]
       },
-  
-  ],
-  
-   },
-  
-  ],
-  
       {
         "title": "Sinais Vitais",
         "code": {
@@ -112,10 +95,6 @@
               "display": "Vital signs panel"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Temperatura: 38.5°C, PA: 120/80 mmHg, FC: 85 bpm.</p></div>"
         }
       },
       {
@@ -128,10 +107,6 @@
               "display": "Obstetric history"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Paciente com 2 gestações, 1 parto normal, 1 cesárea.</p></div>"
         }
       },
       {
@@ -144,10 +119,6 @@
               "display": "Breastfeeding"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>A mãe está amamentando exclusivamente.</p></div>"
         }
       },
       {
@@ -160,10 +131,6 @@
               "display": "Social history"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Fumante, consumo de álcool moderado, trabalha como professor.</p></div>"
         }
       },
       {
@@ -176,10 +143,6 @@
               "display": "History of allergy"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Histórico de alergia a penicilinas.</p></div>"
         }
       },
       {
@@ -192,10 +155,6 @@
               "display": "Medication therapy"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Uso contínuo de metformina e losartana.</p></div>"
         }
       },
       {
@@ -208,10 +167,6 @@
               "display": "Plan of care note"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Manter hidratação e observar evolução dos sintomas.</p></div>"
         }
       },
       {
@@ -224,10 +179,6 @@
               "display": "Functional status"
             }
           ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div><p>Paciente com mobilidade preservada e autonomia funcional.</p></div>"
         }
       }
     ]
