@@ -150,10 +150,10 @@ resources:
      description: Exemplo de observação de saúde fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation  
 #vital signs example
-  Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
-    name: Exemplo de sinal vital.
-    description: Exemplo de sinal vital de um paciente fictício.
-    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns 
+#  Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
+#    name: Exemplo de sinal vital.
+#    description: Exemplo de sinal vital de um paciente fictício.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns 
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.

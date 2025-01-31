@@ -18,7 +18,7 @@
           {
             "system": "http://loinc.org",
             "code": "11488-4",
-            "display": "Consult Note"
+            "display": "Consult note"
           }
         ],
         "text": "Nota de consulta"
@@ -48,7 +48,7 @@
           {
             "system": "http://loinc.org",
             "code": "57852-6",
-            "display": "Problem list Narrative - Reported"
+            "display": "Problem list Reported"
           }
         ],
         "text": "Lista de Problemas - Diagnósticos Avaliados"
@@ -67,7 +67,7 @@
           {
             "system": "http://loinc.org",
             "code": "47519-4",
-            "display": "History of Procedures Document"
+            "display": "Procedures Hx Doc"
           }
         ],
         "text": "Procedimentos Realizados"
@@ -92,7 +92,7 @@
       },
       "entry": [
         {
-          "reference": "VitalSigns/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+          "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
           "display": "Vital Signs"
         }
       ]
