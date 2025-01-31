@@ -1,15 +1,7 @@
 {
     "resourceType": "Composition",
     "id": "7681618d-399d-4291-b321-32ce6d645088",
-    "status": {
-      "coding": [
-        {
-          "system": "http://hl7.org/fhir/composition-status",
-          "code": "final",
-          "display": "Final"
-        }
-      ]
-    },    
+    "status": "final",
     "type": {
       "coding": [
         {
@@ -20,16 +12,18 @@
       ],
       "text": "Nota de consulta"
     },
-    "category":  {
+    "category": [
+      {
         "coding": [
           {
             "system": "http://loinc.org",
             "code": "11488-4",
-            "display": "COnsult Note"
+            "display": "Consult Note"
           }
         ],
         "text": "Nota de consulta"
-    },
+      }
+    ],
     "subject": {
       "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
       "display": "João Carlos Silva"
@@ -46,140 +40,116 @@
       }
     ],
     "title": "Registro de Atendimento Clínico",
-   "section": [
-      {
-        "title": "Diagnósticos Avaliados",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "57852-6",
-              "display": "Problem list Narrative - Reported"
-            }
-          ],
+    "section": [
+    {
+      "title": "Diagnósticos Avaliados",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "57852-6",
+            "display": "Problem list Narrative - Reported"
+          }
+        ],
         "text": "Lista de Problemas - Diagnósticos Avaliados"
-        },
-        "entry": [
+      },
+      "entry": [
+        {
+          "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+          "display": "Dispnéia"
+        }
+      ]
+    },
+    {
+      "title": "Procedimentos Realizados",
+      "code": {
+        "coding": [
           {
-            "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
-            "display": "Dispnéia"
+            "system": "http://loinc.org",
+            "code": "47519-4",
+            "display": "History of Procedures Document"
+          }
+        ],
+        "text": "Procedimentos Realizados"
+      },
+      "entry": [
+        {
+          "reference": "Procedure/b0030c23-bd7d-445e-bfe5-020828f7dbaf",
+          "display": "Consulta médica em atenção primária"
+        }
+      ]
+    },
+    {
+      "title": "Sinais Vitais",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "Blood pressure panel with all children optional"
           }
         ]
       },
-      {
-        "title": "Procedimentos Realizados",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "47519-4",
-              "display": "History of Procedures"
-            }
-          ],
-          "text": "Procedimentos Realizados"
-        },
-        "entry": [
+      "entry": [
+        {
+          "reference": "VitalSigns/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+          "display": "Vital Signs"
+        }
+      ]
+    },
+    {
+      "title": "Alergias e Intolerâncias",
+      "code": {
+        "coding": [
           {
-            "reference": "Procedure/b0030c23-bd7d-445e-bfe5-020828f7dbaf",
-            "display": "Consulta médica em atenção primária"
+            "system": "http://www.saude.gov.br/fhir/CodeSystem/BRAlergenos",
+            "code": "A100",
+            "display": "Amendoim"
           }
         ]
       },
-      {
-        "title": "Sinais Vitais",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "85354-9",
-              "display": "Vital signs panel"
-            }
-          ]
+      "entry": [
+        {
+          "reference": "AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+          "display": "Allergy Intolerance"
         }
+      ]
+    },
+    {
+      "title": "Medicamentos",
+      "code": {
+        "coding": [
+          {
+            "system": "http://www.whocc.no/atc",
+            "code": "J01MA12",
+            "display": "levofloxacin"
+          }
+        ]
       },
-      {
-        "title": "História Obstétrica",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "161714006",
-              "display": "Obstetric history"
-            }
-          ]
+      "entry": [
+        {
+          "reference": "Medication/3a46210c-7eb3-48ec-aa67-db7e7ee18864",
+          "display": "Medication"
         }
+      ]
+    },
+    {
+      "title": "Plano de Cuidados",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "18776-5",
+            "display": "Plan of care note"
+          }
+        ]
       },
-      {
-        "title": "Aleitamento Materno",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "364443007",
-              "display": "Breastfeeding"
-            }
-          ]
+      "entry": [
+        {
+          "reference": "CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532",
+          "display": "CarePlan"
         }
-      },
-      {
-        "title": "História Social",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "11369-6",
-              "display": "Social history"
-            }
-          ]
-        }
-      },
-      {
-        "title": "Alergias e Intolerâncias",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "419511003",
-              "display": "History of allergy"
-            }
-          ]
-        }
-      },
-      {
-        "title": "Medicamentos",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "182844001",
-              "display": "Medication therapy"
-            }
-          ]
-        }
-      },
-      {
-        "title": "Plano de Cuidados",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "18776-5",
-              "display": "Plan of care note"
-            }
-          ]
-        }
-      },
-      {
-        "title": "Capacidade Funcional",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "89269-5",
-              "display": "Functional status"
-            }
-          ]
-        }
-      }
-    ]
-  }
+      ]
+    }
+  ]
+}
