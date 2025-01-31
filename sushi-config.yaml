@@ -148,7 +148,12 @@ resources:
   Observation/52ba1c80-5d2c-4faf-8c90-f4363e20d7bb:
      name: Exemplo de observação.
      description: Exemplo de observação de saúde fictícia.
-     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation   
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation  
+#vital signs example
+  Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
+    name: Exemplo de sinal vital.
+    description: Exemplo de sinal vital de um paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns 
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
@@ -193,10 +198,10 @@ resources:
 #     name: Exemplo de sumário alta.
 #     description: Exemplo de sumário alta de um paciente fictício.
 #     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sumarioalta
-#   VitalSigns/2f42ddad-b9bb-4f68-b5b9-426054529f31:
-#     name: Exemplo de sinal vital.
-#     description: Exemplo de sinal vital de um paciente fictício.
-#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns
+#  VitalSigns/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
+#    name: Exemplo de sinal vital.
+#    description: Exemplo de sinal vital de um paciente fictício.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns
 
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
