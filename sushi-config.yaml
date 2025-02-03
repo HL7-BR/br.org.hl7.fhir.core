@@ -176,6 +176,11 @@ resources:
     name: Exemplo de paciente.
     description: Exemplo de paciente fictício.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
+#child
+  Patient/b1997888-85fd-41b6-bf94-6242cf3c8265:
+    name: Exemplo de paciente.
+    description: Exemplo de paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
   Practitioner/d3b61455-f432-48f0-b83b-ba825922d735:
     name: Exemplo de profissional de saúde.
     description: Exemplo de profissional de saúde fictício.
