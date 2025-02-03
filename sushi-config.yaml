@@ -166,7 +166,13 @@ resources:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization   
+#male
   Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e:
+    name: Exemplo de paciente.
+    description: Exemplo de paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
+#female
+  Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617:
     name: Exemplo de paciente.
     description: Exemplo de paciente fictício.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
