@@ -154,6 +154,11 @@ resources:
 #    name: Exemplo de sinal vital.
 #    description: Exemplo de sinal vital de um paciente fictício.
 #    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns 
+# pregnancystatus
+  Observation/5f147d9b-ff84-44d1-b258-e2c9284098f4:
+     name: Exemplo de pregnancy status.
+     description: Exemplo de pregnancy status de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation  
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
