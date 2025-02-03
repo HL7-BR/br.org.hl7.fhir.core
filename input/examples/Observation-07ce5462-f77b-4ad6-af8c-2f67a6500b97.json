@@ -28,8 +28,8 @@
       "display": "José da Silva"
     },
     "encounter": {
-      "reference": "Encounter/456",
-      "display": "Emergency visit"
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
     },
     "effectiveDateTime": "2025-01-13T08:30:00Z",
     "issued": "2025-01-13T08:35:00Z",
@@ -46,7 +46,7 @@
             {
               "system": "http://loinc.org",
               "code": "8480-6",
-              "display": "Systolic blood pressure"
+              "display": "BP sys"
             }
           ],
           "text": "Systolic blood pressure"
@@ -64,7 +64,7 @@
             {
               "system": "http://loinc.org",
               "code": "8462-4",
-              "display": "Diastolic blood pressure"
+              "display": "BP dias"
             }
           ],
           "text": "Diastolic blood pressure"
