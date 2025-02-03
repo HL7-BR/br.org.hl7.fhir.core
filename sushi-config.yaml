@@ -158,7 +158,17 @@ resources:
   Observation/5f147d9b-ff84-44d1-b258-e2c9284098f4:
      name: Exemplo de pregnancy status.
      description: Exemplo de pregnancy status de saúde fictícia.
-     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation  
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancystatus
+# pregnancyoutcome
+  Observation/02f99181-eab1-4634-9d58-508c7d4f195b:
+     name: Exemplo de resultado de gravidez.
+     description: Exemplo de resultado de gravidez fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyoutcome   
+# pregnancyedd
+  Observation/90e2319e-dc54-4379-88f3-13c5e74e924e:
+     name: Exemplo de gravidez.
+     description: Exemplo de gravidez fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyedd 
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.

@@ -1,0 +1,26 @@
+{
+    "resourceType" : "Observation",
+    "id" : "90e2319e-dc54-4379-88f3-13c5e74e924e",
+    "status" : "final",
+    "code" : {
+      "coding" : [
+      {
+        "system" : "http://loinc.org",
+        "code" : "11778-8",
+        "display" : "Delivery date Estimated"
+      }
+      ],
+      "text": "data estimada do parto"
+    },
+    "subject" : {
+      "reference" : "Patient/patient-example-female"
+    },
+    "effectiveDateTime" : "2020-01-10",
+    "performer": [
+      {
+        "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display": "Maria Clara"
+      }
+    ],
+    "valueDateTime" : "2020-05-02"
+  }
