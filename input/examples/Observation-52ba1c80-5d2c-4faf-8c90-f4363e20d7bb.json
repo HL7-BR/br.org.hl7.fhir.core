@@ -18,7 +18,7 @@
         {
           "system": "http://loinc.org",
           "code": "24331-1",
-          "display": "Lipid 1996 panel - Serum or Plasma"
+          "display": "Lipid 1996 Pnl SerPl"
         }
       ],
       "text": "Colesterol total e frações"
@@ -28,8 +28,8 @@
       "display": "José da Silva"
     },
     "encounter": {
-      "reference": "Encounter/789",
-      "display": "Routine checkup"
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
     },
     "effectiveDateTime": "2025-01-13T08:00:00Z",
     "issued": "2025-01-13T08:30:00Z",
@@ -50,7 +50,7 @@
             {
               "system": "http://loinc.org",
               "code": "2093-3",
-              "display": "Cholesterol [Mass/volume] in Serum or Plasma"
+              "display": "Colest SerPl-mCnc"
             }
           ],
           "text": "Colesterol Total"
@@ -85,7 +85,7 @@
             {
               "system": "http://loinc.org",
               "code": "13457-7",
-              "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+              "display": "LDLc SerPl Calc-mCnc"
             }
           ],
           "text": "LDL Cholesterol"
@@ -120,7 +120,7 @@
             {
               "system": "http://loinc.org",
               "code": "2085-9",
-              "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
+              "display": "HDLc SerPl-mCnc"
             }
           ],
           "text": "HDL Cholesterol"
@@ -155,7 +155,7 @@
             {
               "system": "http://loinc.org",
               "code": "2571-8",
-              "display": "Triglyceride [Mass/volume] in Serum or Plasma"
+              "display": "Trigl SerPl-mCnc"
             }
           ],
           "text": "Triglycerides"
