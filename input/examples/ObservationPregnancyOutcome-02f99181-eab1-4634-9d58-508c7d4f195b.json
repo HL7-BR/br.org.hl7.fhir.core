@@ -1,5 +1,5 @@
 {
-    "resourceType": "ObservationPregnancyoutcome",
+    "resourceType": "Observation",
     "id": "02f99181-eab1-4634-9d58-508c7d4f195b",
     "meta": {
       "profile": [
