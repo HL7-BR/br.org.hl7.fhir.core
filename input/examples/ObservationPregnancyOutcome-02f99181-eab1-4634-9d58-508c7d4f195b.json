@@ -1,0 +1,37 @@
+{
+    "resourceType": "ObservationPregnancyoutcome",
+    "id": "02f99181-eab1-4634-9d58-508c7d4f195b",
+    "meta": {
+      "profile": [
+        "br-core-ig.web.app/StructureDefinition-br-core-observation-pregnancy-outcome"
+      ]
+    },
+    "status": "final",
+    
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "11640-0",
+          "display": "[#] Births total" 
+        }
+      ],
+      "text": "Total de gravidezes"
+    },
+    "subject": {
+      "reference": "Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617",
+      "display": "Ana Beatriz"
+    },
+    "effectiveDateTime": "2024-12-19T14:30:00Z",
+    "performer": [
+      {
+        "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display": "Maria Clara"
+      }
+    ],
+    "valueQuantity" : {
+      "value" : 1,
+      "system" : "http://unitsofmeasure.org",
+      "code" : "1"
+    }
+  }
