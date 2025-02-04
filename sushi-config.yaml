@@ -169,6 +169,11 @@ resources:
      name: Exemplo de gravidez.
      description: Exemplo de gravidez fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyedd 
+# tobaccouse
+  Observation/bcdeed7f-cd8c-4d53-b61e-160471b913eb:
+     name: Exemplo de uso de tabaco.
+     description: Exemplo de uso de tabaco fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationtobaccouse
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.
