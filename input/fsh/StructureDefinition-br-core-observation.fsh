@@ -18,8 +18,6 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * modifierExtension ^short = "Extensões que não podem ser ignoradas"
 * modifierExtension ^definition = "Extensões que não podem ser ignoradas"
 * identifier ^short = "Identificador do Observation"
-* identifier ^definition = "Identificador do Observation"
-* identifier 1..1
 * basedOn ^short = "Referência ao pedido ou ao plano de tratamento que gerou este recurso"
 * basedOn ^definition = "Referência ao pedido ou ao plano de tratamento que gerou este recurso"
 * basedOn only Reference(br-core-careplan or DeviceRequest or ImmunizationRecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
