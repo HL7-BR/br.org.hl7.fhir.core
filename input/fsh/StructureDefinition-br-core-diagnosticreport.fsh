@@ -12,6 +12,7 @@ Description: "Este perfil restringe o recurso [DiagnosticReport](https://hl7.org
 * status ^definition = "registered | partial | preliminary | final +"
 * category ^short = "Categoria do serviço" 
 * category ^definition = "Categoria do serviço"
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado
 * code ^short = "Nome/Código para este relatório de diagnóstico"
 * code ^definition = "Nome/Código para este relatório de diagnóstico"
 * subject ^short = "O indivíduo do relatório - geralmente, mas nem sempre, o paciente"
