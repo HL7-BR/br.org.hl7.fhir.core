@@ -72,8 +72,8 @@
       "display": "João Carlos Silva"
     },
     "encounter": {
-      "reference": "Encounter/enc001",
-      "display": "Consulta de rotina em 2024-04-05"
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
     },
     "onsetDateTime": "2024-03-28",
     "recordedDate": "2024-04-05T10:00:00Z",
@@ -105,8 +105,8 @@
         ],
         "detail": [
           {
-            "reference": "Observation/obs001",
-            "display": "Temperatura corporal elevada"
+            "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+            "display": "Vital Signs"
           }
         ]
       }
