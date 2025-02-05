@@ -16,7 +16,7 @@
         "system": "https://saude.gov.br/sid/cpf",
         "value": "12345678909",
         "assigner": {
-          "display": "Receita Federal do Brasil"
+          "display": "Número do CPF"
         }
       },
       {
@@ -33,7 +33,7 @@
         "system": "https://saude.gov.br/sid/cnes",
         "value": "7654321",
         "assigner": {
-          "display": "CNES - Cadastro Nacional de Estabelecimentos de Saúde"
+          "display": "Número CNES - Cadastro Nacional de Estabelecimentos de Saúde"
         }
       }
     ],
