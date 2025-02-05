@@ -31,7 +31,7 @@
     "valueCodeableConcept": {
       "coding": [
         {
-          "system": "http://www.snomed.org/",
+          "system": "http://snomed.info/sct",
           "code": "230060001",
           "display": "light cigarette smoker"
         }

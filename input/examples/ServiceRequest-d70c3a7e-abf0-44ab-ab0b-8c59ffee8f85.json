@@ -68,7 +68,7 @@
       {
         "coding": [
           {
-            "system": "http://www.snomed.org/",
+            "system": "http://snomed.info/sct",
             "code": "80891009",
             "display": "Heart"
           }

@@ -39,7 +39,7 @@
     "severity": {
       "coding": [
         {
-          "system": "http://www.snomed.org/",
+          "system": "http://snomed.info/sct",
           "code": "6736007",
           "display": "Moderate"
         }
@@ -49,7 +49,7 @@
       {
         "coding": [
           {
-            "system": "http://www.snomed.org/",
+            "system": "http://snomed.info/sct",
             "code": "8608001",
             "display": "Heart"
           }
