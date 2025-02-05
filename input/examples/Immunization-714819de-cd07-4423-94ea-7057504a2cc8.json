@@ -149,8 +149,8 @@
       {
         "date": "2024-06-02",
         "detail": {
-          "reference": "Observation/987",
-          "display": "Leve dor no local da aplicação"
+          "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+          "display": "Vital Signs"
         },
         "reported": true
       }
