@@ -50,7 +50,7 @@
           {
             "coding": [
               {
-                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCBO",
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
                 "code": "225125",
                 "display": "MEDICO CLINICO"
               }
