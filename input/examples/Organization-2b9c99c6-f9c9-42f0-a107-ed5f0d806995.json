@@ -42,7 +42,7 @@
       {
         "coding": [
           {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRtipo-estabelecimento",
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
             "code": "03",
             "display": "Consultório Médico"
           }

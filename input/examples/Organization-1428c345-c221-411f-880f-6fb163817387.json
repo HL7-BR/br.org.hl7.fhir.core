@@ -33,7 +33,7 @@
         "system": "https://saude.gov.br/sid/cnes",
         "value": "2079127",
         "assigner": {
-          "display": "CNES - Cadastro Nacional de Estabelecimentos de Saúde"
+          "display": "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"
         }
       }
     ],
@@ -42,7 +42,7 @@
       {
         "coding": [
           {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRtipo-estabelecimento",
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
             "code": "01",
             "display": "Hospital Geral"
           }
