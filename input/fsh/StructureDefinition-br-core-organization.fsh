@@ -195,7 +195,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 
 * active ^short = "Estabelecimento de Saúde ainda está em ativo." 
 * active ^definition = "Se o Estabelecimento de Saúde ainda está em ativo."
-* type 1..*
 * type ^short = "Tipo do Estabelecimento de saúde"
 * type ^definition = "Classificação do Estabelecimento de Saúde de acordo com um conjunto de dimensões."
 * type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
