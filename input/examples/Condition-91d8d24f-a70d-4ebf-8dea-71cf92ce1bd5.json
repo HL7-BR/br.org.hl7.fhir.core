@@ -59,7 +59,7 @@
     "code": {
       "coding": [
           {
-            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10",
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
             "code": "RO",
             "display": "Dispnéia"
           }
@@ -91,12 +91,12 @@
           {
             "coding": [
               {
-                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10",
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
                 "code": "R50.9",
                 "display": "Febre"
               },
               {
-                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10",
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
                 "code": "R05",
                 "display": "Tosse"
               }
