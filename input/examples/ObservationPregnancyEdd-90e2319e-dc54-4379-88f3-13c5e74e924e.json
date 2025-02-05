@@ -18,10 +18,10 @@
         {
           "system" : "http://loinc.org",
           "code" : "11778-8",
-          "display" : "DeFígadoy date Clin est"
+          "display" : "Delivery date Estimated"
         }
       ],
-      "text": "data estimada do parto"
+      "text": "Data estimada do parto"
     },
     "subject" : {
       "reference" : "Patient/patient-example-female"
