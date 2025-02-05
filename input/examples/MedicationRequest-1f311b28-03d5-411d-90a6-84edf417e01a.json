@@ -13,7 +13,7 @@
     "statusReason": {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/R4/codesystem-medicationrequest-status-reason",
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason",
           "code": "sintol",
           "display": "Suspected Intolerance"
         }
@@ -71,9 +71,9 @@
     "performerType": {
       "coding": [
         {
-          "system": "http://terminology.hl7.org/CodeSystem/med-admin-performer",
-          "code": "nurse",
-          "display": "Nurse"
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+          "code": "225130",
+          "display": "MEDICO DE FAMILIA E COMUNIDADE"
         }
       ]
     },
