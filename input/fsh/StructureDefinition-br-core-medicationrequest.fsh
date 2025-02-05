@@ -75,7 +75,8 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson or CareTeam)
 * performerType ^short = "Especialidade do prescritor para a administração do medicamento"
 * performerType ^definition = "Especialidade do prescritor para a administração do medicamento"
-* recorder ^short = "Pessoa que registrou a requisição"
+* performerType from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao
+ recorder ^short = "Pessoa que registrou a requisição"
 * recorder ^definition = "Pessoa que registrou a requisição"
 * recorder only Reference(br-core-practitioner or br-core-practitionerrole)
 * reasonCode ^short = "Motivo ou indicação para solicitar ou não o medicamento"

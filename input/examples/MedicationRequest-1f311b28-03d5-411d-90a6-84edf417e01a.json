@@ -13,7 +13,7 @@
     "statusReason": {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/R4/codesystem-medicationrequest-status-reason.html",
+          "system": "http://hl7.org/fhir/R4/codesystem-medicationrequest-status-reason",
           "code": "sintol",
           "display": "Suspected Intolerance"
         }
