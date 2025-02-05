@@ -55,8 +55,8 @@
     },
     "supportingInformation": [
       {
-        "reference": "Observation/obs001",
-        "display": "Febre alta persistente"
+        "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+        "display": "Vital Signs"
       }
     ],
     "authoredOn": "2024-06-18T14:00:00Z",
