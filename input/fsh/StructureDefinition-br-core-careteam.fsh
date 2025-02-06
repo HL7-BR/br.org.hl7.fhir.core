@@ -10,6 +10,7 @@ Description: "Este perfil restringe o recurso [CareTeam](https://hl7.org/fhir/R4
 * status ^definition = "proposed | active | suspended | inactive | entered-in-error"
 * category ^short = "Tipo do time"
 * category ^definition = "Tipo do time"
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencial
 * name ^short = "Nome da equipe, como equipe de avaliação de crise"
 * name ^definition = "Nome da equipe, como equipe de avaliação de crise"
 * subject ^short = "Para quem é a equipe de cuidados"
