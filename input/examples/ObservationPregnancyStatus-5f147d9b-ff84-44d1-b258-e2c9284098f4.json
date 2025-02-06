@@ -31,9 +31,9 @@
     "valueCodeableConcept": {
       "coding": [
         {
-          "system": "http://snomed.info/sct",
-          "code": "77386006",
-          "display": "Pregnant"
+          "system" : "http://loinc.org",
+          "code" : "LA15173-0",
+          "display" : "Pregnant"
         }
       ],
       "text": "Grávida"
