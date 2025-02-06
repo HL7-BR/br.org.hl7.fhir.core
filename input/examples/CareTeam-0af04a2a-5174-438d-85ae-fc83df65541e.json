@@ -7,9 +7,9 @@
       {
         "coding": [
           {
-            "system": "http://terminology.hl7.org/CodeSystem/careteam-category",
-            "code": "longitudinal",
-            "display": "Longitudinal Care Coordination Team"
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRModalidadeAssistencial",
+            "code": "04",
+            "display": "Atenção Hospitalar"
           }
         ],
         "text": "Time de Coordenação de Cuidado"
