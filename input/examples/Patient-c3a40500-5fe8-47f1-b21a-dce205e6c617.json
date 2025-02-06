@@ -62,6 +62,20 @@
             }
         },
         {
+            "url": "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor",
+                        "code": "03",
+                        "display": "Parda"
+                    }
+                ]
+            } 
+        },
+        {
+
+            
             "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
             "valueCodeableConcept": {
                 "coding": [
