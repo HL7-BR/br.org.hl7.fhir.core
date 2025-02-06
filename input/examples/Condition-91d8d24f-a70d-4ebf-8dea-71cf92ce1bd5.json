@@ -41,7 +41,7 @@
         {
           "system": "http://snomed.info/sct",
           "code": "6736007",
-          "display": "Moderate"
+          "display": "Moderate (severity modifier) (qualifier value)"
         }
       ]
     },
@@ -50,21 +50,21 @@
         "coding": [
           {
             "system": "http://snomed.info/sct",
-            "code": "8608001",
-            "display": "Heart"
+            "code": "80891009",
+            "display": "Heart structure (body structure)"
           }
-        ]
+        ],
+         "text": "Coração"
       }
     ],
     "code": {
       "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
-            "code": "RO",
-            "display": "Dispnéia"
+            "code": "I15.9",
+            "display": "Hipertensão secundária, não especificada"
           }
         ],
-        "text": "Dispnéia"
     },
     "subject": {
       "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
@@ -93,7 +93,7 @@
               {
                 "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
                 "code": "R50.9",
-                "display": "Febre"
+                "display": "Febre não especificada"
               },
               {
                 "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
