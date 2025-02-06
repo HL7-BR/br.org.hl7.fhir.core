@@ -151,7 +151,7 @@
       "reason": {
         "coding": [
           {
-            "system": "https://hl7.org/fhir/R4/v3/ActReason/cs",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             "code": "CT",
             "display": "continuing therapy"
           }
