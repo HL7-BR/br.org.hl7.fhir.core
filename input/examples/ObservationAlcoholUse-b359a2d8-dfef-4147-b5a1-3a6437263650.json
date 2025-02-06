@@ -19,7 +19,7 @@
         {
           "system": "http://loinc.org",
           "code": "74013-4",
-          "display": "Alcoholic drinks per D"
+          "display": "Alcoholic drinks per day"
         }
       ],
       "text": "Número de doses de álcool ingeridos por dia"
