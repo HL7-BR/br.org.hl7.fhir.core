@@ -44,8 +44,8 @@
       "display": "Maria Silva"
     },
     "encounter": {
-      "reference": "Encounter/789",
-      "display": "Consulta de imunização"
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
     },
     "occurrenceDateTime": "2024-06-01T14:30:00Z",
     "recorded": "2024-06-01T15:00:00Z",
