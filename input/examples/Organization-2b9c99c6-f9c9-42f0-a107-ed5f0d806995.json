@@ -13,7 +13,7 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/sid/cpf",
+        "system": "https://saude.gov.br/fhir/sid/cpf",
         "value": "12345678909",
         "assigner": {
           "display": "Número do CPF"
@@ -30,7 +30,7 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/sid/cnes",
+        "system": "https://saude.gov.br/fhir/sid/cnes",
         "value": "7654321",
         "assigner": {
           "display": "Número CNES - Cadastro Nacional de Estabelecimentos de Saúde"

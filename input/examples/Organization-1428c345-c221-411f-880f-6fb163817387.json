@@ -13,10 +13,10 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/sid/cnpj",
+        "system": "https://saude.gov.br/fhir/sid/cnpj",
         "value": "61590410000124",
         "assigner": {
-          "display": "Receita Federal do Brasil"
+          "display": "Cadastro Nacional da Pessoa Jurídica (CNPJ)"
         }
       },
       {
@@ -30,7 +30,7 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/sid/cnes",
+        "system": "https://saude.gov.br/fhir/sid/cnes",
         "value": "2079127",
         "assigner": {
           "display": "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"

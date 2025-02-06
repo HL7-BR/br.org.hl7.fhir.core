@@ -13,7 +13,7 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/sid/cnpj",
+        "system": "https://saude.gov.br/fhir/sid/cnpj",
         "value": "60643228000161",
         "assigner": {
           "display": "CADASTRO NACIONAL DE PESSOA JURÍDICA"
