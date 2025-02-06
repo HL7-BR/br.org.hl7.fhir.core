@@ -151,9 +151,9 @@
       "reason": {
         "coding": [
           {
-            "system": "http://terminology.hl7.org/CodeSystem/substitution-reason",
-            "code": "therapeutic-alternative",
-            "display": "Therapeutic alternative"
+            "system": "https://hl7.org/fhir/R4/v3/ActReason/cs",
+            "code": "CT",
+            "display": "continuing therapy"
           }
         ],
         "text": "alternativa terapêutica"

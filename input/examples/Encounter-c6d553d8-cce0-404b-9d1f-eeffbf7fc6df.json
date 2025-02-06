@@ -40,7 +40,7 @@
         {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
           "code": "R",
-          "display": "Routine"
+          "display": "routine"
         }
       ],
       "text": "Rotina"
