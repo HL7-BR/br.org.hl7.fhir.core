@@ -50,8 +50,8 @@
       "display": "João Carlos"
     },
     "encounter": {
-      "reference": "Encounter/enc001",
-      "display": "Consulta de rotina"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "João Pereira"
     },
     "supportingInformation": [
       {
