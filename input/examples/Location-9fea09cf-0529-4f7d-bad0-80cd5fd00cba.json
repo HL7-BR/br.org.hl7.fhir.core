@@ -1,11 +1,6 @@
 {
     "resourceType": "Location",
     "id": "9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
-    "meta": {
-      "profile": [
-        "https://br-core-ig.web.app/StructureDefinition-br-core-location.html"
-      ]
-    },
     "status": "active",
     "name": "Clínica Geral - Enfermaria Norte",
     "alias": [
