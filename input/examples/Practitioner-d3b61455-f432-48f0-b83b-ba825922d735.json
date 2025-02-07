@@ -14,7 +14,7 @@
         ],
       "text": "Número de Registro no Conselho Federal de Medicina"
       },
-      "system": "https://saude.gov.br/fhir/sid/crm",
+      "system": "https://saude.gov.br/fhir/sid/crm-sp",
       "value": "123456-SP"
     },
     {
@@ -33,6 +33,7 @@
       "value": "987654321098765"
     }
   ],
+  "active": true,
   "name": [
     {
       "use": "official",
