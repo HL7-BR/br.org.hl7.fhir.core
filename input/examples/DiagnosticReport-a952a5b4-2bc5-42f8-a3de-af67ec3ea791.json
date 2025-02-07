@@ -1,0 +1,53 @@
+{
+    "resourceType": "DiagnosticReport",
+    "id": "a952a5b4-2bc5-42f8-a3de-af67ec3ea791",
+    "status": "final", 
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
+            "code": "145",
+            "display": "SERVICO DE DIAGNOSTICO DE LABORATORIO CLINICO"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "24323-8",
+          "display": "Complete Blood Count"
+        }
+      ],
+      "text": "Hemograma Completo"
+    },
+    "subject": {
+      "reference": "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+      "display": "Ana Beatriz"
+    },
+    "effectiveDateTime": "2024-12-19T14:30:00Z",
+    "issued": "2024-12-19T16:00:00Z",
+    "performer": [
+      {
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
+      }
+    ],
+    "result": [
+      {
+        "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+        "display": "Blood Pressure"
+      },
+      {
+        "reference": "Observation/52ba1c80-5d2c-4faf-8c90-f4363e20d7bb",
+        "display": "Colesterol total e frações"
+      },
+      {
+        "reference": "Observation/b359a2d8-dfef-4147-b5a1-3a6437263650",
+        "display": "Número de doses de álcool ingeridos por dia"
+      }
+    ],
+    "conclusion": "Resultados dentro dos limites normais."
+  }
