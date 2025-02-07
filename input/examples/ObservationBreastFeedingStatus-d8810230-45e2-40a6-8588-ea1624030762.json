@@ -17,8 +17,8 @@
       "coding": [
         {
           "system": "http://loinc.org",
-          "code": "10955-7",
-          "display": "Breastfeeding Status"
+          "code": "80441-9",
+          "display": "Breast milk andor formula intake panel"
         }
       ],
       "text": "Status de Aleitamento Materno"
