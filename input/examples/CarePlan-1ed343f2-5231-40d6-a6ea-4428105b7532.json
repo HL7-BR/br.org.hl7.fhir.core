@@ -32,12 +32,11 @@
         "code": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
-              "code": "0301010072",
-              "display": "CONSULTA MEDICA EM ATENÇÃO ESPECIALIZADA"
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubgrupoTabelaSUS",
+              "code": "0309",
+              "display": "Terapias especializadas"
             }
-          ],
-          "text": "Consulta Médica em Atenção Especializada"
+          ]
         },
         "status": "scheduled",
         "description": "Consulta periódica para acompanhamento da asma persistente moderada.",
