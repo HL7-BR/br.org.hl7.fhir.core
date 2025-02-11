@@ -77,7 +77,7 @@ Description: "Este perfil restringe o recurso [CarePlan](https://hl7.org/fhir/R4
 * activity.detail.instantiatesUri ^definition = "Instancia protocolo externo ou definição"
 * activity.detail.code ^short = "Tipo de atividade detalhada"
 * activity.detail.code ^definition = "Tipo de atividade detalhada"
-* activity.detail.code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais
+* activity.detail.code from https://terminologia.saude.gov.br/fhir/ValueSet/BRSubgrupoTabelaSUS
 * activity.detail.reasonCode ^short = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
 * activity.detail.reasonCode ^definition = "Por que a atividade deve ser feita ou por que a atividade foi proibida"
 * activity.detail.reasonReference ^short = "Por que a atividade é necessária"
