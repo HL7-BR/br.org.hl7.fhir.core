@@ -3,10 +3,6 @@
     "id": "2f42ddad-b9bb-4f68-b5b9-426054529f31",
     "implicitRules": "http://example.org/rules",
     "language": "pt-BR",
-    "text": {
-      "status": "generated",
-      "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Amostra de sangue coletada para exame de hemograma.</div>"
-    },
     "identifier": [
       {
         "system": "http://hospital.example.org/specimens",
@@ -34,8 +30,8 @@
     "receivedTime": "2024-06-18T14:00:00Z",
     "request": [
       {
-        "reference": "ServiceRequest/sr001",
-        "display": "Pedido de hemograma completo"
+        "reference": "ServiceRequest/d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85",
+        "display": "Eletrocardiograma"
       }
     ],
     "collection": {
