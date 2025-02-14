@@ -99,8 +99,8 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "code": "57133-1",
-              "display": "Reason "
+              "code": "42349-1",
+              "display": "Reason for referral (narrative)"
             }
           ]
         },
