@@ -166,7 +166,7 @@
           {
             "coding": [
               {
-                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10.html",
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
                 "code": "U04",
                 "display": "Síndrome respiratória aguda grave [severe acute respiratory syndrome SARS]"
               }
