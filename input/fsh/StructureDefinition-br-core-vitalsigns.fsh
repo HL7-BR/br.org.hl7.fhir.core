@@ -49,6 +49,7 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * category[VSCat].coding.version ^definition = "Versão do sistema, se relevante"
 * category[VSCat].coding.code ^short = "Símbolo na sintaxe definida pelo sistema"
 * category[VSCat].coding.code ^definition = "Símbolo na sintaxe definida pelo sistema"
+* category[VSCat].coding.code fixedvalue = "vital-signs"
 * category[VSCat].coding.display ^short = "Representação definida pelo sistema"
 * category[VSCat].coding.display ^definition = "Representação definida pelo sistema"
 * category[VSCat].coding.userSelected ^short = "Se a codificação foi escolhida diretamente pelo usuário"
