@@ -164,6 +164,10 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.id ^definition = "Identificador único para referenciação cruzada"
 * protocolApplied.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
+* protocolApplied.extension contains
+    br-core-pesquisaclinica named pesquisaClinica 0..1
+* protocolApplied.extension[pesquisaClinica] ^short = "Pesquisa clínica"
+* protocolApplied.extension[pesquisaClinica] ^definition = "Pesquisa clínica" 
 * protocolApplied.modifierExtension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.series ^short = "Nome da série do imunobiológico"
