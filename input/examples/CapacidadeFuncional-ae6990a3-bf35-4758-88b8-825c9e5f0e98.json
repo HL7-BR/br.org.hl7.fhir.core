@@ -16,7 +16,7 @@
     "code": {
       "coding": [
         {
-          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem-BRCID10",
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
           "code": "T13.6",
           "display": "Amputação traumática de membro inferior, nível não especificado"
         }
