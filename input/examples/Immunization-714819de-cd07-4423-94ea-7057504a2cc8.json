@@ -1,17 +1,6 @@
 {
     "resourceType": "Immunization",
     "id": "714819de-cd07-4423-94ea-7057504a2cc8",
-    "meta": {    
-      "profile": [
-        "br-core-ig.web.app/StructureDefinition-br-core-immunization.html"
-      ]
-    },
-    "implicitRules": "https://example.org/rules",
-    "language": "pt-BR",
-    "text": {
-      "status": "generated",
-      "div": "<div>Vacina administrada para prevenir a COVID-19</div>"
-    },
     "identifier": [
       {
         "system": "https://hospital.example.org/immunizations",
@@ -19,16 +8,6 @@
       }
     ],
     "status": "completed",
-    "statusReason": {
-      "coding": [
-        {
-          "system": "https://hl7.org/fhir/valueset-immunization-status-reason.html",
-          "code": "IMMUNE",
-          "display": "Immunity"
-        }
-      ],
-      "text": "Os testes mostraram que o paciente já tem imunidade ao agente alvo da imunização."
-    },
     "vaccineCode": {
       "coding": [
         {
@@ -40,28 +19,23 @@
       "text": "Vacina PFIZER COMINARTY COVID-19"
     },
     "patient": {
-      "reference": "PatientBRIPS/123",
-      "display": "Maria Silva"
-    },
-    "encounter": {
-      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
-      "display": "Ambulatorial"
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "José da Silva"
     },
     "occurrenceDateTime": "2024-06-01T14:30:00Z",
-    "recorded": "2024-06-01T15:00:00Z",
     "primarySource": true,
     "reportOrigin": {
       "coding": [
         {
           "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRegistroOrigem",
           "code": "2",
-          "display": "Vacina no Exterior"
+          "display": "Vaccination abroad"
         }
       ]
     },
     "location": {
-      "reference": "Location",
-      "display": "Clínica Central"
+      "reference": "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+      "display": "Clínica Geral - Enfermaria Norte"
     },
     "manufacturer": {
       "display": "Pfizer"
@@ -73,7 +47,7 @@
         {
           "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRLocalAplicacao",
           "code": "20",
-          "display": "Braço esquerdo"
+          "display": "Face Anterolateral Externa do Braço Esquerdo"
         }
       ]
     },
@@ -97,21 +71,16 @@
         "function": {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
-              "code": "AP",
-              "display": "Administrador"
+              "system": "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao",
+              "code": "223505",
+              "display": "ENFERMEIRO"
             }
           ]
         },
         "actor": {
-          "reference": "PractitionerBRIPS/456",
-          "display": "Dr. João Pereira"
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
         }
-      }
-    ],
-    "note": [
-      {
-        "text": "Paciente tolerou bem a vacinação."
       }
     ],
     "reasonCode": [
@@ -125,43 +94,9 @@
         ]
       }
     ],
-    "isSubpotent": false,
-    "education": [
-      {
-        "documentType": "Folheto informativo",
-        "reference": "https://example.org/education/covid19-vaccine",
-        "publicationDate": "2024-01-01",
-        "presentationDate": "2024-06-01"
-      }
-    ],
-    "programEligibility": [
-      {
-        "coding": [
-          {
-            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRElegibilidadeImunobiologico",
-            "code": "CNI-S",
-            "display": "Elegível para programa de vacinação"
-          }
-        ]
-      }
-    ],
-    "reaction": [
-      {
-        "date": "2024-06-02",
-        "detail": {
-          "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
-          "display": "Vital Signs"
-        },
-        "reported": true
-      }
-    ],
     "protocolApplied": [
       {
         "series": "COVID-19 Primary Series",
-        "authority": {
-          "reference": "Organization/health-dept",
-          "display": "Secretaria Municipal de Saúde de Taubaté"
-        },
         "targetDisease": [
           {
             "coding": [
@@ -176,7 +111,7 @@
         "doseNumberString": "1",
         "extension": [
           {
-            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0",
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-pesquisaclinica",
             "extension": [
               {
                 "url": "numeroProtocoloEstudoANVISA",
