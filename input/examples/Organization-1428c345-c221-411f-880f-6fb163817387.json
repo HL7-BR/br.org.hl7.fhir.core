@@ -43,8 +43,8 @@
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
-            "code": "01",
-            "display": "Hospital Geral"
+            "code": "5",
+            "display": "HOSPITAL GERAL"
           }
         ],
         "text": "Hospital Geral"

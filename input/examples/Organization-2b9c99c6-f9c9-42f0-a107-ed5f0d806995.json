@@ -43,8 +43,8 @@
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
-            "code": "03",
-            "display": "Consultório Médico"
+            "code": "22",
+            "display": "CONSULTORIO ISOLADO"
           }
         ],
         "text": "Consultório Médico"
