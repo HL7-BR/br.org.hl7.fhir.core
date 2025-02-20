@@ -30,7 +30,7 @@
             }
           ]
         },
-        "system": "https://saude.gov.br/fhir/sid/cnes",
+        "system": "https://saude.gov.br/sid/cnes",
         "value": "2079127",
         "assigner": {
           "display": "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"
