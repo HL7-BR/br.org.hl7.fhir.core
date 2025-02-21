@@ -21,33 +21,5 @@
     "manufacturer": {
       "reference": "Organization/7b98fd1d-5f85-40f5-9436-2c767ab734ae",
       "display": "Aché Laboratórios Farmacêuticos S.A."
-    },
-    "ingredient": [
-      {
-        "itemCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.whocc.no/atc",
-              "code": "J01MA12",
-               "display": "levofloxacin"
-            }
-          ],
-          "text": "Levofloxacino"
-        },
-        "strength": {
-          "numerator": {
-            "value": 500,
-            "unit": "mg",
-            "system": "urn:oid:2.16.840.1.113883.6.8",
-            "code": "mg"
-          },
-          "denominator": {
-            "value": 1,
-            "unit": "tablet",
-            "system": "urn:oid:2.16.840.1.113883.6.8",
-            "code": "tablet"
-          }
-        }
-      }
-    ]
+    }
   }
