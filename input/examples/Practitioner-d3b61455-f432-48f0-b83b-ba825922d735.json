@@ -12,25 +12,10 @@
             "display": "Medical License number"
           }
         ],
-      "text": "Número de Registro no Conselho Federal de Medicina"
+      "text": "Número Identificador do Médico"
       },
-      "system": "https://saude.gov.br/fhir/sid/crm-sp",
+      "system": "https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM",
       "value": "123456-SP"
-    },
-    {
-      "use": "official",
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "HC",
-            "display": "Health Card Number"
-          }
-        ],
-        "text": "Número do Cartão Nacional de Saúde"
-      },
-      "system": "https://saude.gov.br/fhir/sid/cns",
-      "value": "987654321098765"
     }
   ],
   "active": true,
