@@ -144,7 +144,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[cpf].assigner ^definition = "Entidade que atribuiu o identificador do profissional"
 * identifier[cpf].assigner.display ^short = "Nome da entidade que atribuiu o identificador do profissional"
 * identifier[cpf].assigner only Reference(br-core-organization)
-* identifier[identificadorMedico] ^short = "Identificador do médico"
+* identifier[identificadorMedico] ^short = "    "
 * identifier[identificadorMedico] ^definition = "Identificador do médico"
 * identifier[identificadorMedico].id ^short = "Id lógico do identificador do médico"
 * identifier[identificadorMedico].id ^definition = "Id lógico do identificador do médico"
