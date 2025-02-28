@@ -23,7 +23,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * identifier.use 1..1
 * identifier.use from http://hl7.org/fhir/ValueSet/identifier-use (required)
 * identifier.type 1..1
-* identifier.type.coding.system = "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoDocumentoIndividuo" (exactly)
+* identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203" (exactly)
 * active ^short = "Informa de o registro de função do profissional está em uso ativo"
 * active ^definition = "Informa de o registro de função do profissional está em uso ativo"
 * active 1..1
