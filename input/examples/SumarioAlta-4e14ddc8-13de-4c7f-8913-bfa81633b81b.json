@@ -5,9 +5,9 @@
   "type": {
     "coding": [
       {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-DocumentType",
-        "code": "Summary",
-        "display": "Clinical Summary"
+        "system": "http://loinc.org",
+        "code": "18842-5",
+        "display": "Discharge summary"
       }
     ],
     "text": "Sumário de Alta Hospitalar"
