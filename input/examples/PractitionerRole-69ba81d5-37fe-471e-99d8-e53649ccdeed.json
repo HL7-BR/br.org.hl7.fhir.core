@@ -18,6 +18,7 @@
         "value": "123456-SP"
       }    
     ],
+    "language": "pt-BR",
     "practitioner": {
       "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
       "display": "Maria Clara"
