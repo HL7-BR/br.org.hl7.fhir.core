@@ -7,11 +7,12 @@
         "value": "PROC-12345"
       }
     ],
+    "language": "pt-BR",
     "status": "completed",
     "statusReason": {
       "coding": [
         {
-          "system": "https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoProcedimentoNaoRealizado",
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRMotivoProcedimentoNaoRealizado",
           "code": "03",
           "display": "Procedimento não realizado"
         }
@@ -103,7 +104,7 @@
     },
     "report": [
       {
-        "reference": "DiagnosticReport/example-report",
+        "reference": "DiagnosticReport/a952a5b4-2bc5-42f8-a3de-af67ec3ea791",
         "display": "Relatório consulta"
       }
     ],
