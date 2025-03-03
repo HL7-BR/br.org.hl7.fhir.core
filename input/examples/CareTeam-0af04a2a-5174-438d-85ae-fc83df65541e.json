@@ -1,7 +1,7 @@
 {
     "resourceType": "CareTeam",
     "id": "0af04a2a-5174-438d-85ae-fc83df65541e",
-    
+    "language": "pt-BR",
     "status": "active",
     "category": [
       {
