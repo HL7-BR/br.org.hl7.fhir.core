@@ -2,6 +2,7 @@
     "resourceType": "DiagnosticReport",
     "id": "a952a5b4-2bc5-42f8-a3de-af67ec3ea791",
     "status": "final", 
+    "language": "pt-BR",
     "category": [
       {
         "coding": [
