@@ -103,7 +103,7 @@
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA",
-            "code": "A100",
+            "code": "amendoim",
             "display": "Amendoim"
           }
         ]
