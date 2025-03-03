@@ -2,6 +2,7 @@
     "resourceType": "Location",
     "id": "9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
     "status": "active",
+    "language": "pt-BR",
     "name": "Clínica Geral - Enfermaria Norte",
     "alias": [
       "Clínica Geral"
