@@ -7,7 +7,7 @@
       {
         "system": "http://loinc.org",
         "code": "18842-5",
-        "display": "Discharge summary"
+        "display": "Discharge sum"
       }
     ],
     "text": "Sumário de Alta Hospitalar"
@@ -67,7 +67,7 @@
           {
             "system": "http://loinc.org",
             "code": "47519-4",
-            "display": "History of Procedures Document"
+            "display": "Procedures Hx Doc"
           }
         ],
         "text": "Histórico de Procedimentos"
