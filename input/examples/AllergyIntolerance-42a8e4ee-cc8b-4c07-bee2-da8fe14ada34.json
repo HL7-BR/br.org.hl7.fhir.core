@@ -1,6 +1,7 @@
 {
     "resourceType": "AllergyIntolerance",
     "id": "42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+    "language": "pt-BR",
     "clinicalStatus": {
       "coding": [
         {
