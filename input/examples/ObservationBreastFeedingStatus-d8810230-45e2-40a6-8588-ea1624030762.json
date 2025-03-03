@@ -2,6 +2,7 @@
     "resourceType": "Observation",
     "id": "d8810230-45e2-40a6-8588-ea1624030762",
     "status": "final",
+    "language": "pt-BR",
     "category": [
       {
         "coding": [
