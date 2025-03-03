@@ -22,7 +22,7 @@
           {
             "system": "http://loinc.org",
             "code": "11488-4",
-            "display": "Consult Note"
+            "display": "Consult note"
           }
         ]
       }
