@@ -24,7 +24,7 @@
       "text": "Data estimada do parto"
     },
     "subject" : {
-      "reference" : "Patient/patient-example-female"
+      "reference" : "Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617"
     },
     "effectiveDateTime" : "2020-01-10",
     "performer": [
