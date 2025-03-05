@@ -21,18 +21,6 @@
       "text": "Suspeita de Intolerância"
     },
     "intent": "order",
-    "category": [
-      {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-            "code": "outpatient",
-            "display": "Outpatient"
-          }
-        ],
-        "text": "Ambulatório"
-      }
-    ],
     "priority": "routine",
     "doNotPerform": false,
     "reportedBoolean": false,
