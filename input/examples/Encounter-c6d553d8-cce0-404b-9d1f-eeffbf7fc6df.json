@@ -7,6 +7,7 @@
         "value": "ENC-12345"
       }
     ],
+    "language": "pt-BR",
     "status": "finished",
     "class": {
       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
@@ -78,7 +79,7 @@
         "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
-            "code": "RO6.0",
+            "code": "R06.0",
             "display": "Dispnéia"
           }
         ],
