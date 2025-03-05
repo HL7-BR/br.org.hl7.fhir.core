@@ -72,7 +72,7 @@
         "function": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao",
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
               "code": "223505",
               "display": "ENFERMEIRO"
             }
