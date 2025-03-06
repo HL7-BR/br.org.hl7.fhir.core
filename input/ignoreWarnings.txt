@@ -2,3 +2,21 @@
 
 # Add warning and/or information messages here after you've confirmed that they aren't really a problem
 %cannot be resolved%
+
+# Some CodeSystems are distributed only in en
+%has no Display Names for the language pt-BR%
+
+#There are no valid display names found for language(s) 'pt-BR'
+%for language(s) 'pt-BR'. The display is%
+
+#There are no valid display names found for language(s) 'pt-BR'
+%There are no valid display names found for language(s) 'pt-BR'.%
+
+#There are no valid display names found for language(s) 'pt-BR'
+%Valid display is 'Comp MetAc 2000 Pnl SerPl' (pt-BR) (for the language(s) 'pt-BR')%
+
+#'DeFígadoy date Clin est' is not a valid display
+%Wrong Display Name 'Delivery date Estimated' for http://loinc.org#11778-8. Valid display is 'DeFígadoy date Clin est' (pt-BR) (for the language(s) 'pt-BR')%
+
+#Value is wrong
+%Value is 'Alcoholic drinks per day' but is fixed to 'Alcoholic drinks per D' in the profile https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationalcoholuse|1.0.0#Observation.code.coding.display%
