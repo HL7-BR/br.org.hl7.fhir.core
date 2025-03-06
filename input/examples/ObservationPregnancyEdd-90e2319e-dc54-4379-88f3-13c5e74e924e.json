@@ -17,8 +17,7 @@
       "coding" : [
         {
           "system" : "http://loinc.org",
-          "code" : "11778-8",
-          "display" : "Delivery date Estimated"
+          "code" : "11778-8"
         }
       ],
       "text": "Data estimada do parto"
