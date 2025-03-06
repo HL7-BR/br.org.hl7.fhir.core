@@ -29,16 +29,6 @@
       "display": "Ana Beatriz"
     },
     "effectiveDateTime": "2024-12-19T10:30:00Z",
-    "valueCodeableConcept": {
-      "coding": [
-        {
-          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoAleitamentoMaterno",
-          "code": "01",
-          "display": "Aleitamento materno exclusivo"
-        }
-      ],
-      "text": "Aleitamento materno exclusivo"
-    },
     "performer": [
       {
         "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
