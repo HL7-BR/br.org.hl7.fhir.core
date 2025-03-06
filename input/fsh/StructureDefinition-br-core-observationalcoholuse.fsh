@@ -10,8 +10,8 @@ Description: "O perfil [br-core-observationalcohooluse](StructureDefinition-br-c
 * code.coding.system ^definition = "Identidade da terminologia"
 * code.coding.code = http://loinc.org#74013-4 (exactly)
 * code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#74013-4 'Alcoholic drinks per D'"
-* code.coding.display = "Alcoholic drinks per D"
+* code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#74013-4 'Alcoholic drinks per day'"
+* code.coding.display = "Alcoholic drinks per day"
 * code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * code.coding.display ^definition = "Representação definida pela terminologia"
 * code.text = "Número de doses de álcool ingeridos por dia"
