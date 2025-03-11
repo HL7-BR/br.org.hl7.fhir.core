@@ -44,12 +44,12 @@
         "substance": {
           "coding": [
             {
-              "system": "http://www.whocc.no/atc",
-              "code": "J01CR50",
-              "display": "combinations of penicillins"
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedicamento",
+              "code": "BR0272974",
+              "display": "FENOXIMETILPENICILINA POTÁSSICA 1.200.000 UI SOL INJ (FR-AMP)"
             }
           ],
-          "text": "Associações de penicilinas"
+          "text": "FENOXIMETILPENICILINA POTÁSSICA 1.200.000 UI SOL INJ (FR-AMP)"
         },
         "manifestation": [
           {
