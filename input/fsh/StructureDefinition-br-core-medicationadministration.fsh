@@ -10,6 +10,7 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * instantiates ^definition = "Instancia protocolo ou definição"
 * partOf ^short = "Parte do evento referenciado"
 * partOf ^definition = "Parte do evento referenciado"
+* partOf only Reference(br-core-medicationadministration or br-core-procedure)
 * status ^short = "Códigos de status de administração de medicamentos"
 * status ^definition = "in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown"
 * statusReason ^short = "Motivo da administração não realizada"
@@ -40,6 +41,7 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * reasonCode ^definition = "Motivo da administração realizada"
 * reasonReference ^short = "Condição ou observação que respalda o motivo pelo qual o medicamento foi administrado"
 * reasonReference ^definition = "Condição ou observação que respalda o motivo pelo qual o medicamento foi administrado"
+* reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)
 * request ^short = "Solicitação pela qual a administração foi performada"
 * request ^definition = "Solicitação pela qual a administração foi performada"
 * request only Reference(br-core-medicationrequest)
@@ -53,7 +55,6 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * dosage.text ^definition = "Instruções de dosagem em texto livre, por exemplo, SIG"
 * dosage.site ^short = "Local do corpo administrado em"
 * dosage.site ^definition = "Local do corpo administrado em"
-
 * dosage.route ^short = "Caminho da substância para o corpo"
 * dosage.route ^definition = "Caminho da substância para o corpo"
 * dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
@@ -65,5 +66,3 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * dosage.rate[x] ^definition = "Quantidade de dose por unidade de tempo"
 * eventHistory ^short = "Uma lista de eventos de interesse no ciclo de vida"
 * eventHistory ^definition = "Uma lista de eventos de interesse no ciclo de vida"
-* partOf only Reference(br-core-medicationadministration or br-core-procedure)
-* reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)
