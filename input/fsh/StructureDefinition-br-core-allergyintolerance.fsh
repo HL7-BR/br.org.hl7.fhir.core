@@ -75,7 +75,7 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * reaction.extension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."
 * reaction.substance ^short = "Substância específica ou produto farmacêutico considerado responsável pelo evento."
 * reaction.substance ^definition = "Substância específica ou produto farmacêutico considerado responsável pelo evento."
-//* reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
+* reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
 * reaction.manifestation ^short = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED International Patient Set (IPS) do SNOMED CT (IPS Free Set)."
 * reaction.manifestation ^definition = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED IPS do SNOMED CT (IPS Free Set)."
 //* reaction.manifestation from https://terminologia.saude.gov.br/fhir/ValueSet/BRMedDRA (required)
@@ -87,5 +87,5 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * reaction.severity ^definition = "mild | moderate | severe (of event as a whole)"
 * reaction.exposureRoute ^short = "Como o sujeito foi exposto à substância."
 * reaction.exposureRoute ^definition = "Como o sujeito foi exposto à substância."
-//* reaction.exposureRoute from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration/
+* reaction.exposureRoute from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
 * reaction.note ^definition = "Texto sobre evento não capturado em outros campos."
