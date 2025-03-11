@@ -78,7 +78,7 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * reaction.substance from https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos
 * reaction.manifestation ^short = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED International Patient Set (IPS) do SNOMED CT (IPS Free Set)."
 * reaction.manifestation ^definition = "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED IPS do SNOMED CT (IPS Free Set)."
-//* reaction.manifestation from https://terminologia.saude.gov.br/fhir/ValueSet/BRMedDRA (required)
+* reaction.manifestation from https://terminologia.saude.gov.br/fhir/ValueSet/BRReacoesAdversasMedDRA (required)
 * reaction.description ^short = "Descrição do evento como um todo."
 * reaction.description ^definition = "Descrição do evento como um todo."
 * reaction.onset ^short = "Data (/hora) em que as manifestações apareceram"
