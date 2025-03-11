@@ -76,7 +76,6 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * collection.method from http://hl7.org/fhir/ValueSet/specimen-collection-method
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
-* collection.bodySite from http://hl7.org/fhir/uv/ips/ValueSet/body-site
 * collection.fastingStatus[x] ^short = "Tempo de jejum do paciente, se for o caso"
 * collection.fastingStatus[x] ^definition = "Tempo de jejum do paciente, se for o caso"
 * processing ^short = "Detalhes da etapa de processamento da amostra e respectivos passos"
@@ -117,6 +116,6 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * container.additive[x] ^definition = "Aditivo associado ao recipiente"
 * condition ^short = "Estado da amostra"
 * condition ^definition = "Estado da amostra"
-* condition from ttp://terminology.hl7.org/ValueSet/v2-0493
+* condition from http://terminology.hl7.org/ValueSet/v2-0493
 * note ^short = "Comentários"
 * note ^definition = "Comentários sobre a Amostra"
