@@ -44,7 +44,7 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * eligibility.comment ^definition = "Descreve as condições de elegibilidade para o serviço"
 * program ^short = "Programas aos quais este serviço é aplicável"
 * program ^definition = "Programas aos quais este serviço é aplicável"
-//* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude (preferred)
+* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude (preferred)
 * characteristic ^short = "Coleção de características (atributos)"
 * characteristic ^definition = "Coleção de características (atributos)"
 * communication ^short = "O idioma em que este serviço é oferecido"
