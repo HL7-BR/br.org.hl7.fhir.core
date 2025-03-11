@@ -42,7 +42,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension[povoTradicional] ^definition = "Extensão de populacao tradicional do Core do Brasil"
 * extension[povoItinerante] ^short = "Extensão de povo intinerante do Core do Brasil"
 * extension[povoItinerante] ^definition = "Extensão de povo intinerante do Core do Brasil"
-
 * modifierExtension ^short = "Extensões adicionais"
 * modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * identifier ^short = "Identificadores nacionais do paciente"
@@ -57,7 +56,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
     cpf 1..1 and
     registroEstrangeiro 0..1 and
     passaporte 0..1
-
 * identifier[cns] ^short = "Identificador do paciente"
 * identifier[cns] ^definition = "Identificador do paciente"
 * identifier[cns].id ^short = "Id lógico do identificador do paciente"
@@ -113,7 +111,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
 * identifier[cns].assigner only Reference(br-core-organization)
 * identifier[cns].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
-
 * identifier[cpf] ^short = "Identificador do paciente"
 * identifier[cpf] ^definition = "Identificador do paciente"
 * identifier[cpf].id ^short = "Id lógico do identificador do paciente"
@@ -168,7 +165,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cpf].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
 * identifier[cpf].assigner only Reference(br-core-organization)
 * identifier[cpf].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
-
 * identifier[passaporte] ^short = "Identificador do paciente"
 * identifier[passaporte] ^definition = "Identificador do paciente"
 * identifier[passaporte].id ^short = "Id lógico do identificador do paciente"
@@ -182,7 +178,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[passaporte].type ^definition = "Código que representa o tipo do identificador do paciente"
 * identifier[passaporte].type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoDocumentoIndividuo (required)
 * identifier[passaporte].type ^binding.description = "Tipo do identificador do paciente"
-
 * identifier[passaporte].type.id ^short = "Id lógico do tipo do identificador do paciente"
 * identifier[passaporte].type.id ^definition = "Id lógico do tipo do identificador do paciente"
 * identifier[passaporte].type.extension ^short = "Extensões do tipo do identificador do paciente"
@@ -223,8 +218,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[passaporte].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
 * identifier[passaporte].assigner only Reference(br-core-organization)
 * identifier[passaporte].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
-
-
 * identifier[registroEstrangeiro] ^short = "Identificador do paciente"
 * identifier[registroEstrangeiro] ^definition = "Identificador do paciente"
 * identifier[registroEstrangeiro].id ^short = "Id lógico do identificador do paciente"
@@ -278,7 +271,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[registroEstrangeiro].assigner ^definition = "Entidade que atribuiu o identificador do paciente"
 * identifier[passaporte].assigner only Reference(br-core-organization)
 * identifier[registroEstrangeiro].assigner.display ^short = "Nome da entidade que atribuiu o identificador do paciente"
-
 * active ^short = "Indica se o paciente está ativo"
 * active ^definition = "Indica se o paciente está ativo"
 * name ^short = "Nome do paciente"
