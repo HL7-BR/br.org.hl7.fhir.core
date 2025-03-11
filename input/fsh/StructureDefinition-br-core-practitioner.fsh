@@ -33,7 +33,6 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
     identificadorOdontologo 0..1 and
     identificadorEnfermeiro 0..1 and
     identificadorOutrosProfissionais 0..1
-
 * identifier[cns] ^short = "Identificador do profissional"
 * identifier[cns] ^definition = "Identificador do profissional"
 * identifier[cns].id ^short = "Id lógico do identificador do profissional"
@@ -484,11 +483,3 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * qualification.issuer only Reference(br-core-organization)
 * communication ^short = "Idiomas que o profissional domina"
 * communication ^definition = "Idiomas que o profissional domina"
-
-
-
-
-
-
-
-
