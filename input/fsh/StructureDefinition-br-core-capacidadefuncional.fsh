@@ -42,7 +42,6 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
-
 * subject ^short = "Indivíduo com a Condição de Saúde avaliada"
 * subject ^definition = "Referencia os dados sobre o indivíduo cuja a condição de saúde está sendo avaliada."
 * subject only Reference(br-core-patient)
