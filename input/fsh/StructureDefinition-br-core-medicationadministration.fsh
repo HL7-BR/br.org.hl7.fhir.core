@@ -4,15 +4,6 @@ Id: br-core-medicationadministration
 Title: "br-core-medicationadministration"
 Description: "Descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde."
 
-//
-//
-
-
-
-//
-//* reason only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)
-//
-
 * identifier ^short = "Identificadores externos para este recurso"
 * identifier ^definition = "Identificadores externos para este recurso"
 * instantiates ^short = "Instancia protocolo ou definição"
