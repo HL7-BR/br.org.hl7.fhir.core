@@ -30,7 +30,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
     cnes 0..1 and
     cpf 0..1 and
     cnpj 0..1
-    
 * identifier[cnes] ^short = "Identificador do estabelecimento"
 * identifier[cnes] ^definition = "Identificador do estabelecimento"
 * identifier[cnes].id ^short = "Id lógico do identificador do estabelecimento"
@@ -128,7 +127,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cpf].system 1..1
 * identifier[cpf].system ^short = "Sistema do identificador do estabelecimento"
 * identifier[cpf].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
-* identifier[cpf].system = "https://saude.gov.br/fhir/sid/cpf" (exactly) //
+* identifier[cpf].system = "https://saude.gov.br/fhir/sid/cpf" (exactly)
 * identifier[cpf].value 1..1
 * identifier[cpf].value ^short = "Valor do identificador do estabelecimento"
 * identifier[cpf].value ^definition = "Valor do identificador do estabelecimento"
@@ -138,7 +137,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cpf].assigner ^definition = "Entidade que atribuiu o identificador do estabelecimento"
 * identifier[cpf].assigner only Reference(br-core-organization)
 * identifier[cpf].assigner.display ^short = "Nome da entidade que atribuiu o identificador do estabelecimento"
-
 * identifier[cnpj] ^short = "Identificador do estabelecimento"
 * identifier[cnpj] ^definition = "Identificador do estabelecimento"
 * identifier[cnpj].id ^short = "Id lógico do identificador do estabelecimento"
@@ -192,7 +190,6 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnpj].assigner ^definition = "Entidade que atribuiu o identificador do estabelecimento"
 * identifier[cnpj].assigner only Reference(br-core-organization)
 * identifier[cnpj].assigner.display ^short = "Nome da entidade que atribuiu o identificador do estabelecimento"
-
 * active ^short = "Estabelecimento de Saúde ainda está em ativo." 
 * active ^definition = "Se o Estabelecimento de Saúde ainda está em ativo."
 * type ^short = "Tipo do Estabelecimento de saúde"
