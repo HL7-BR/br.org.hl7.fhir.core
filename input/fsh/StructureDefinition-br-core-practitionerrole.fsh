@@ -41,7 +41,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * code ^short = "Códigos dos papeis dos profissionais de saúde."
 * code ^definition = "Códigos dos papeis dos profissionais de saúde."
 * code 1..*
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required) // BROcupacao VS
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
 * specialty ^short = "Especialidade específica do profissional."
 * specialty ^definition = "Especialidade específica do profissional."
 * specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao
