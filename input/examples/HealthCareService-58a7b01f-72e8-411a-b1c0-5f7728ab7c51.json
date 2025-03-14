@@ -35,17 +35,6 @@
         ]
       }
     ],
-    "specialty": [
-      {
-        "coding": [
-          {
-            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
-            "code": "117",
-            "display": "SERVICO DE CIRURGIA REPARADORA"
-          }
-        ]
-      }
-    ],
     "name": "UBS INDIANOPOLIS SIGMUND FREUD",
     "telecom": [
       {
