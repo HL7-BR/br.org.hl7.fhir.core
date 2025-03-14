@@ -75,20 +75,6 @@
             } 
         },
         {
-
-            
-            "url": "https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips",
-            "valueCodeableConcept": {
-                "coding": [
-                    {
-                        "system": "http://snomed.info/sct",
-                        "code": "446141000124107",
-                        "display": "Identifies as female gender"
-                    }
-                ]
-            }
-        },
-        {
             "url": "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
             "valueCodeableConcept": {
                 "coding": [
