@@ -26,16 +26,6 @@
         "text": "Ambulatorial"
       }
     ],
-    "serviceType": {
-        "coding": [
-          {
-            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
-            "code": "116",
-            "display": "SERVICO DE ATENCAO CARDIOVASCULAR CARDIOLOGIA"
-          }
-        ],
-        "text": "Serviço de Cardiologia"
-    },
     "priority": {
       "coding": [
         {
