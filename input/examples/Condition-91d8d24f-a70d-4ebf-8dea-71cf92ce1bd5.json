@@ -62,8 +62,8 @@
       "coding": [
           {
             "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
-            "code": "I15.9",
-            "display": "Hipertensão secundária, não especificada"
+            "code": "B34.2",
+            "display": "Infecção por coronavírus de localização não especificada"
           }
         ]
     },
