@@ -18,11 +18,10 @@
       "coding": [
         {
           "system": "http://loinc.org",
-          "code": "24323-8",
-          "display": "Complete Blood Count"
+          "code": "85354-9",
+          "display": "Blood pressure panel with all children optional"
         }
-      ],
-      "text": "Hemograma Completo"
+      ]
     },
     "subject": {
       "reference": "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
