@@ -14,8 +14,8 @@
         ],
       "text": "Número Identificador do Médico"
       },
-      "system": "https://terminologia.saude.gov.br/fhir/ValueSet/BRCRM",
-      "value": "123456-SP"
+      "system": "https://saude.gov.br/sid/crm-pr",
+      "value": "123456-PR"
     }
   ],
   "active": true,
