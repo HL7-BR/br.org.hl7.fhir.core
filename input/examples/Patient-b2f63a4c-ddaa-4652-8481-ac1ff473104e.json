@@ -75,7 +75,7 @@
         } 
     },
       {
-        "url": "https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips",
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
         "valueCodeableConcept": {
           "coding": [
             {
