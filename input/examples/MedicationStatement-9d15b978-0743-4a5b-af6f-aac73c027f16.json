@@ -1,13 +1,6 @@
 {
     "resourceType": "MedicationStatement",
     "id": "9d15b978-0743-4a5b-af6f-aac73c027f16",
-    "identifier": [
-      {
-        "use": "official",
-        "system": "https://saude.gov.br/sid/medication-statement",
-        "value": "1234567890"
-      }
-    ],
     "status": "active",
     "category": {
       "coding": [
