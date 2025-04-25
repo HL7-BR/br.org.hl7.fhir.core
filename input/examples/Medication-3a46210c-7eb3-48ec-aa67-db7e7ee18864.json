@@ -1,12 +1,6 @@
 {
     "resourceType": "Medication",
     "id": "3a46210c-7eb3-48ec-aa67-db7e7ee18864",
-    "identifier": [
-      {
-        "system": "https://saude.gov.br/fhir/sid/medication",
-        "value": "12345"
-      }
-    ],
     "code": {
       "coding": [
         {
