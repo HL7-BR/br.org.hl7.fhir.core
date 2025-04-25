@@ -4,7 +4,7 @@
     "identifier": [
       {
         "use": "official",
-        "system": "https://saude.gov.br/sid/cns",
+        "system": "https://saude.gov.br/fhir/sid/cns",
         "value": "123456789012345"
       }
     ],
