@@ -1,12 +1,6 @@
 {
     "resourceType": "Condition",
     "id": "91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
-    "identifier": [
-      {
-        "system": "http://hospital.org/conditions",
-        "value": "12345"
-      }
-    ],
     "language": "pt-BR",
     "clinicalStatus": {
       "coding": [
