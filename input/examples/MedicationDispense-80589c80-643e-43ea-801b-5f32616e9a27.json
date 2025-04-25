@@ -1,12 +1,6 @@
 {
     "resourceType": "MedicationDispense",
     "id": "80589c80-643e-43ea-801b-5f32616e9a27",
-    "identifier": [
-      {
-        "system": "https://saude.gov.br/fhir/sid/medicationdispense",
-        "value": "12345"
-      }
-    ],
     "status": "completed",
     "medicationCodeableConcept": {
       "coding": [
