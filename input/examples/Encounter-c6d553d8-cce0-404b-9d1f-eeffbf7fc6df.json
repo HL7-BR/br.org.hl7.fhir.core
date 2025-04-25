@@ -1,12 +1,6 @@
 {
     "resourceType": "Encounter",
     "id": "c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
-    "identifier": [
-      {
-        "system": "https://saude.gov.br/fhir/sid/encounter",
-        "value": "ENC-12345"
-      }
-    ],
     "language": "pt-BR",
     "status": "finished",
     "class": {
