@@ -8,14 +8,14 @@
         "coding": [
           {
             "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "MD",
-            "display": "Medical License number"
+            "code": "HC",
+            "display": "Health Card Number"
           }
         ],
-      "text": "Número Identificador do Médico"
+      "text": "Cartão nacional de saúde"
       },
-      "system": "https://saude.gov.br/sid/crm-pr",
-      "value": "123456-PR"
+      "system": "https://saude.gov.br/fhir/sid/cns",
+      "value": "123456789101112"
     }
   ],
   "active": true,
