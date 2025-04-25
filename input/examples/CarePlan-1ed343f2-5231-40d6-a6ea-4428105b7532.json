@@ -16,9 +16,6 @@
       "display": "Hospital Sírio-Libanês"
     }
   ],
-  "instantiatesUri": [
-    "http://www.saude.gov.br/plano-cuidados/asma"
-  ],
   "addresses": [
     {
       "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
