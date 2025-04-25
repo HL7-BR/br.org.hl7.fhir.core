@@ -74,7 +74,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnes].system 1..1
 * identifier[cnes].system ^short = "Sistema do identificador do estabelecimento"
 * identifier[cnes].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
-* identifier[cnes].system = "https://saude.gov.br/sid/cnes" (exactly)
+* identifier[cnes].system = "https://saude.gov.br/fhir/sid/cnes" (exactly)
 * identifier[cnes].value 1..1
 * identifier[cnes].value ^short = "Valor do identificador do estabelecimento"
 * identifier[cnes].value ^definition = "Valor do identificador do estabelecimento"
