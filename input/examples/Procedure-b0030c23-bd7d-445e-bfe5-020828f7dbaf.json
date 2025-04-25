@@ -1,12 +1,6 @@
 {
     "resourceType": "Procedure",
     "id": "b0030c23-bd7d-445e-bfe5-020828f7dbaf",
-    "identifier": [
-      {
-        "system": "https://saude.gov.br/fhir/sid/procedure",
-        "value": "PROC-12345"
-      }
-    ],
     "language": "pt-BR",
     "status": "completed",
     "statusReason": {
