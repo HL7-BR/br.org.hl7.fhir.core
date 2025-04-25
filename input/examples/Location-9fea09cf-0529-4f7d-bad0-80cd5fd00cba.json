@@ -8,13 +8,6 @@
       "Clínica Geral"
     ],
     "description": "Localização destinada à internação de pacientes clínicos gerais.",
-    "identifier": [
-      {
-        "use": "official",
-        "system": "https://saude.gov.br/sid/cnes",
-        "value": "2079127"
-      }
-    ],
     "mode": "instance",
     "type": [
       {
