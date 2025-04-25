@@ -1,10 +1,6 @@
 {
     "resourceType": "Composition",
     "id": "5c0878bd-a787-489d-82aa-82f4fb55909e",
-    "identifier": {
-      "system": "http://terminologia.saude.gov.br/fhir/NamingSystem/cnes",
-      "value": "9876543"
-    },
     "status": "final",
     "type": {
       "coding": [
