@@ -43,10 +43,6 @@
       {
         "reference": "Observation/52ba1c80-5d2c-4faf-8c90-f4363e20d7bb",
         "display": "Colesterol total e frações"
-      },
-      {
-        "reference": "Observation/b359a2d8-dfef-4147-b5a1-3a6437263650",
-        "display": "Número de doses de álcool ingeridos por dia"
       }
     ],
     "conclusion": "Resultados dentro dos limites normais."
