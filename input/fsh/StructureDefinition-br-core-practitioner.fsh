@@ -289,7 +289,7 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOdontologo].type.coding.version ^short = "Versão da codificação do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.coding.version ^definition = "Versão da codificação do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.coding.code 1..1
-* identifier[identificadorOdontologo].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#DDL (exactly)
+* identifier[identificadorOdontologo].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#DDS (exactly)
 * identifier[identificadorOdontologo].type.coding.code ^short = "Código da codificação do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.coding.code ^definition = "Código que representa a codificação do tipo do identificador do odontólogo"
 * identifier[identificadorOdontologo].type.coding.display ^short = "Texto da codificação do tipo do identificador do odontólogo"
