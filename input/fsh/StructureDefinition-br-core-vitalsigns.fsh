@@ -96,8 +96,8 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * device only Reference(Device or DeviceMetric)
 * referenceRange ^short = "Fornece um guia para interpretação"
 * referenceRange ^definition = "Fornece um guia para interpretação"
-* referenceRange.id ^short = "Identificador único para referenciação cruzada"
-* referenceRange.id ^definition = "Identificador único para referenciação cruzada"
+* referenceRange.id ^short = "Identificador único para referencia cruzada"
+* referenceRange.id ^definition = "Identificador único para referencia cruzada"
 * referenceRange.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * referenceRange.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico" 
 * referenceRange.modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
@@ -122,8 +122,8 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or br-core-vitalsigns or MolecularSequence)
 * component ^short = "Resultados do componente"
 * component ^definition = "Resultados do componente"
-* component.id ^short = "Identificador único para referenciação cruzada"
-* component.id ^definition = "Identificador único para referenciação cruzada"
+* component.id ^short = "Identificador único para referencia cruzada"
+* component.id ^definition = "Identificador único para referencia cruzada"
 * component.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * component.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico" 
 * component.modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
