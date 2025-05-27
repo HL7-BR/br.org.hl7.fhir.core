@@ -2,12 +2,12 @@
 
 O recurso [br-core-careplan](StructureDefinition-br-core-careplan.html) é um dos recursos de solicitação na especificação do fluxo de trabalho do FHIR .
 
-Os Planos de Cuidados ([CarePlan](https://hl7.org/fhir/R4/careplan.html)) são usados em muitas áreas da assistência médica com uma variedade de escopos. Eles podem ser tão simples quanto um clínico geral controlando quando seu paciente deve tomar a próxima imunização contra tétano até um plano detalhado para um paciente oncológico cobrindo dieta, quimioterapia, radiação, trabalho de laboratório e aconselhamento com relações de tempo detalhadas, pré-condições e objetivos. Eles podem ser usados em cuidados veterinários ou pesquisa clínica para descrever o cuidado de um rebanho ou outra coleção de animais. Na saúde pública, eles podem descrever campanhas de educação ou imunização.
+Os Planos de Cuidado ([CarePlan](https://hl7.org/fhir/R4/careplan.html)) são usados em muitas áreas da assistência médica com uma variedade de escopos. Eles podem ser tão simples quanto um clínico geral controlando quando seu paciente deve tomar a próxima imunização contra tétano até um plano detalhado para um paciente oncológico cobrindo dieta, quimioterapia, radiação, trabalho de laboratório e aconselhamento com relações de tempo detalhadas, pré-condições e objetivos. Eles podem ser usados em cuidados veterinários ou pesquisa clínica para descrever o cuidado de um rebanho ou outra coleção de animais. Na saúde pública, eles podem descrever campanhas de educação ou imunização.
 
 Este recurso adota uma abordagem intermediária para a complexidade. Ele captura detalhes básicos sobre quem está envolvido e quais ações são pretendidas sem lidar com dados discretos sobre dependências e relacionamentos de tempo. Eles podem ser suportados quando necessário usando o mecanismo de extensão.
 
 O escopo do recurso [br-core-careplan](StructureDefinition-br-core-careplan.html) pode variar amplamente. Exemplos incluem:
--	Planos de cuidados multidisciplinares e interorganizacionais; por exemplo, um plano de oncologia que inclua o oncologista, a equipe domiciliar de enfermagem, a farmácia e outros;
+-	Planos de cuidado multidisciplinares e interorganizacionais; por exemplo, um plano de oncologia que inclua o oncologista, a equipe domiciliar de enfermagem, a farmácia e outros;
 -	Planos para gerenciar doenças/condições específicas (por exemplo, plano nutricional para um paciente após ressecção intestinal, plano neurológico após traumatismo craniano, plano pré-natal, plano pós-parto, plano de gerenciamento do luto, etc.);
 -	Planos de suporte à decisão gerados seguindo diretrizes de prática específicas (por exemplo, plano de tratamento de AVC, plano de diabetes, prevenção de quedas, etc.)
 -	Planos auto-mantidos pelo paciente ou cuidador, identificando seus objetivos e uma compreensão integrada das ações a serem tomadas
@@ -29,7 +29,9 @@ Descreve o plano de um ou mais profissionais para o cuidado de um paciente em pa
 Os seguintes elementos devem ser obrigatórios, ou devem ser suportados, se os dados estiverem presentes no sistema de envio (definição Must Support). 
 
 **Cada Perfil [br-core-careplan](StructureDefinition-br-core-careplan.html) deve ter:**
+
 1.	Status – indica se o plano está sendo executado atualmente, representa intenções futuras ou agora é um registro histórico.
+
 2.	Intent – códigos que indicam o grau de autoridade/intencionalidade associado a um plano de cuidados (proposta | plano | pedido | opção).
 
 **Cada Perfil [br-core-careplan](StructureDefinition-br-core-careplan.html) deve oferecer suporte a:**
