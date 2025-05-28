@@ -5,8 +5,8 @@ O uso comum inclui:
 -	o registro de drogas sem receita e/ou recreativas;
 -	o registro de uma lista de medicamentos de admissão no hospital;
 -	o resumo dos “medicamentos ativos” de um paciente em um perfil de paciente;
--	Consultar e recuperar a medicação atual de um paciente;
--	Registrar ou atualizar a medicação atual de um paciente;
+-	Consultar e recuperar a medicamento atual de um paciente;
+-	Registrar ou atualizar a medicamento atual de um paciente;
 
 Um recurso [br-core-medicationstatement](https://saude.gov.br/fhir/StructureDefiniton/medicationstatement.html#MedicationStatement) pode ser usado para registrar abuso de substâncias ou o uso de outros agentes, como tabaco ou álcool. Isso normalmente seria feito se essas substâncias fossem destinadas a serem incluídas na verificação de suporte à decisão clínica (por exemplo, verificação de interação) e como parte de uma lista de medicamentos ativos. Se a intenção for preencher o histórico social e/ou incluir informações adicionais (por exemplo, desejo de parar, quantidade por dia, efeitos negativos à saúde), então é melhor registrar como uma Observação (br-core-observation) que poderia então ser usada para preencher o Histórico Social.
 
