@@ -51,8 +51,8 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * subject ^definition = "Sobre quem e/ou sobre o que é a composição"
 * type.text ^short = "Representação em texto livre do conceito"
 * type.text ^definition = "Representação em texto livre do conceito"
-* category ^short = "Categorização da Composition"
-* category ^definition = "Categorização da Composition"
+* category ^short = "Categoria da Composition"
+* category ^definition = "Categoria da Composition"
 * category from http://hl7.org/fhir/ValueSet/document-classcodes (example)
 * subject ^short = "Sobre quem e/ou sobre o que é a Composition"
 * subject ^definition = "Sobre quem e/ou sobre o que é a Composition"
@@ -114,8 +114,8 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * relatesTo.code from http://hl7.org/fhir/ValueSet/document-relationship-type (required)
 * relatesTo.target[x] ^short = "Relacionamento alvo"
 * relatesTo.target[x] ^definition = "Relacionamento alvo"
-* relatesTo.targetReference ^short = "Referencia a composition alvo"
-* relatesTo.targetReference ^definition = "Referencia a composition alvo"
+* relatesTo.targetReference ^short = "Referência a composition alvo"
+* relatesTo.targetReference ^definition = "Referência a composition alvo"
 * relatesTo.targetReference only Reference(br-core-composition)
 * event ^short = "Serviços assistenciais documentados"
 * event ^definition = "O serviço especializado  como uma colonoscopia ou uma apendicectomia, sendo documentado." 
