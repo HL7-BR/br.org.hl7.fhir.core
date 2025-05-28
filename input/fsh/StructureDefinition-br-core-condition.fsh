@@ -37,7 +37,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * code ^short = "Suspeita Diagnóstica"
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada."
 * code from https://terminologia.saude.gov.br/fhir/ValueSet/BRTerminologiaSuspeitaDiagnostica (required)
-* subject ^short = "Indivíduo com a Condição de Saúde avaliada"
+* subject ^short = "Indivíduo com a condição de saúde avaliada"
 * subject ^definition = "Referencia os dados sobre o indivíduo cuja a condição de saúde está sendo avaliada."
 * subject only Reference(br-core-patient)
 * subject.id ^short = "Identificador único para referencia cruzada"
@@ -59,8 +59,8 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * onset[x] ^definition = "Data ou idade estimada ou real do começo dos sintomas"
 * abatement[x] ^short = "Data ou idade estimada ou real em que o diagnóstico foi resolvido ou entrou em remissão"
 * abatement[x] ^definition = "Data ou idade estimada ou real em que o diagnóstico foi resolvido ou entrou em remissão"
-* recordedDate ^short = "Data na qual o registro foi registrado pela primeira vez"
-* recordedDate ^definition = "Data na qual o registro foi registrado pela primeira vez"
+* recordedDate ^short = "Data de registro"
+* recordedDate ^definition = "Data de registro"
 * recorder ^short = "Quem registrou a condição"
 * recorder ^definition = "Quem registrou a condição"
 * recorder only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
@@ -77,8 +77,8 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * stage.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * stage.summary ^short = "Sumário simples (específico à condição)"
 * stage.summary ^definition = "Códigos descrevendo estágios da condição (por exemplo, estágios de câncer)"
-* stage.assessment ^short = "Registro formal da avaliação"
-* stage.assessment ^definition = "Referência aos dados de diagnóstico de laboratório clínico relacionados à suspeita diagnóstica."
+* stage.assessment ^short = "Registro da avaliação"
+* stage.assessment ^definition = "Registro da avaliação"
 * stage.assessment only Reference(ClinicalImpression or br-core-diagnosticreport or br-core-observation)
 * stage.type ^short = "Tipo do estadiamento"
 * stage.type ^definition = "Códigos que descrevem  o tipo do estadiamento (por exemplo, clínico ou patológico)"
