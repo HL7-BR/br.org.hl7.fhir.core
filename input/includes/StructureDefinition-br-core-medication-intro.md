@@ -25,7 +25,7 @@ Para identificação dos códigos do medicamento os identificadores da base naci
 Os seguintes elementos de dados devem estar sempre presentes (definição obrigatória) ou devem ser suportados se os dados estiverem presentes no sistema de envio (definição de suporte obrigatório). Eles são apresentados abaixo em uma explicação simples e legível. Orientações e exemplos específicos do perfil também são fornecidos. As Visualizações Formais abaixo fornecem o resumo formal, as definições e os requisitos de terminologia.
 
 **Cada medicamento deve ter:**
-1.	Um código de medicação
+1.	Um código de medicamento
 
 **Orientação de implementação específica do perfil:**
 1.	Os conceitos da OBM  são definidos como uma  associação preferred. 
