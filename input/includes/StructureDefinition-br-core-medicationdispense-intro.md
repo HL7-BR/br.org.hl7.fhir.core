@@ -43,7 +43,7 @@ Os seguintes elementos de dados devem estar sempre presentes ( definição Manda
 5.	a quantidade dispensada
 6.	uma data para quando o medicamento foi dispensado ao paciente
 7.	instruções de dosagem em texto livre
-8.	quando a medicação deve ser administrada
+8.	quando a medicamento deve ser administrada
 9.	a via de administração
 10.	a dose e a taxa (doseAndRate)
 
@@ -54,12 +54,12 @@ Este Perfil pode representar um medicamento usando um código ou fazer referênc
     -	De acordo com a RNDS, [BRRegistrodispensacaomedicamento](https://simplifier.net/redenacionaldedadosemsaude/brregistrodispensacaomedicamento), ao se utilizar o medication[medicationCodeableConcept]  os conceitos da Ontologia Brasileira de Medicamentos (OBM) deverão ser utilizados (http://portal-obm.saude.gov.br). 
     -	Ao referenciar um recurso de Medicamento no elemento em medication[medicationReference],   o recurso pode ser contido ou um recurso externo.
     -	Os sistemas não precisam suportar um código e uma referência, mas **DEVEM** suportar pelo menos um desses métodos.
-    -	Se uma referência externa a um recurso de medicação for usada, o servidor **DEVERÁ** suportar o _includeparâmetro para pesquisar este elemento.
+    -	Se uma referência externa a um recurso de medicamento for usada, o servidor **DEVERÁ** suportar o _includeparâmetro para pesquisar este elemento.
     -	O aplicativo cliente **DEVE** suportar todos os tipos de métodos.
 
 ### Limites e relacionamentos
 
-O domínio Medicação(Medication) inclui uma série de recursos relacionados, conforme abaixo:
+O domínio medicamento(Medication) inclui uma série de recursos relacionados, conforme abaixo:
 
 <table border="1">
   <tbody>
