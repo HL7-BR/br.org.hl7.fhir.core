@@ -22,7 +22,7 @@ O status "de licença" pode ou não fazer parte da admissão, dependendo se o pa
 
 ### Extensões
 
-A extensão padrão para o encontro é o Associated Encounter. Esta extensão deve ser utilizada para fazer referência a um encontro em que não há nenhuma propriedade que já defina essa associação no recurso.
+A extensão padrão para o encontro é o Associated Encounter. Esta extensão deve ser utilizada para fazer Referência à um encontro em que não há nenhuma propriedade que já defina essa associação no recurso.
 
 ### Limites e relacionamentos
 
