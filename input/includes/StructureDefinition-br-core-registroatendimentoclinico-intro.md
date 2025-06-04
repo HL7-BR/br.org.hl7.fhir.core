@@ -89,7 +89,7 @@ O princípio geral adotado na definição do [br-core-registroatendimentoclinico
     <tr>
       <td>Composition.relatesTo. target.reference</td>
       <td>0..1</td>
-      <td>Referência a br-core-registroatendimento clinico alvo</td>
+      <td>Referência à br-core-registroatendimento clinico alvo</td>
       <td></td>
       <td>Suprimido na RNDS</td>
       <td>Reference(br-core-registroatendimento clinico)</td>
