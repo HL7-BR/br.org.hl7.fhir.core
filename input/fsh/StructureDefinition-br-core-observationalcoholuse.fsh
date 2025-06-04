@@ -1,7 +1,7 @@
 Profile: BRCoreObservationAlcoholUse
 Parent: br-core-observation
 Id: br-core-observationalcoholuse
-Description: "O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcoholuse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html), projetado para documentar a avaliação do uso de álcool em um resumo de paciente."
+Description: "O perfil [br-core-observationalcohooluse](StructureDefinition-br-core-observationalcoholuse.html) herda do recurso FHIR [Observation](https://hl7.org/fhir/R4/observation.html), projetado para documentar a avaliação do uso de álcool em um resumo de paciente"
 
 * code.coding ^short = "Código definido por uma terminologia"
 * code.coding ^definition = "Código definido por uma terminologia"
@@ -14,4 +14,6 @@ Description: "O perfil [br-core-observationalcohooluse](StructureDefinition-br-c
 * code.coding.display = "Alcoholic drinks per day"
 * code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * code.coding.display ^definition = "Representação definida pela terminologia"
-* code.text = "Número de doses de álcool ingeridos por dia"
+* code.coding.userSelected ^short = "Se esse código foi selecionado diretamente pelo usuário"
+* code.coding.userSelected ^definition = "Se esse código foi selecionado diretamente pelo usuário"
+* code.text = "Representação do texto livre do conceito"
