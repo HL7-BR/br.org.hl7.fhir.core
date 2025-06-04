@@ -23,7 +23,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
     capacidadeFuncional 0..1
 
 // Section dignosticosAvaliados
-* section[diagnosticosAvaliados] ^short = "Seção de Resumo de Diagnósticos Admissão"
+* section[diagnosticosAvaliados] ^short = "Seção de Resumo de Diagnósticos Avaliados"
 * section[diagnosticosAvaliados] ^definition = "Seção de Resumo de Diagnósticos Admissão"
 * section[diagnosticosAvaliados].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAvaliados].id ^definition = "Identificador exclusivo para referência entre elementos"
@@ -31,8 +31,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].extension ^definition = "Conteúdo adicional definido por implementações" 
 * section[diagnosticosAvaliados].modifierExtension ^short = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * section[diagnosticosAvaliados].modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
-* section[diagnosticosAvaliados].title ^short = "Título da seção - Fixo em 'Diagnósticos Admissão'"
-* section[diagnosticosAvaliados].title ^definition = "Título da seção - Fixo em 'Diagnósticos Admissão'"
+* section[diagnosticosAvaliados].title ^short = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
+* section[diagnosticosAvaliados].title ^definition = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
 * section[diagnosticosAvaliados].code ^short = "Classificação da seção da Composition/Document"
 * section[diagnosticosAvaliados].code ^definition = "Classificação da seção da Composition/Document"
 * section[diagnosticosAvaliados].code.id ^short = "Identificador exclusivo para referência entre elementos"
@@ -63,16 +63,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[diagnosticosAvaliados].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[diagnosticosAvaliados].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[diagnosticosAvaliados].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[diagnosticosAvaliados].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[diagnosticosAvaliados].focus ^short = "Ordem dos itens nas section.entry"
+* section[diagnosticosAvaliados].focus ^definition = "Ordem dos itens nas section.entry"
 * section[diagnosticosAvaliados].text ^short = "Resumo de texto da seção"
 * section[diagnosticosAvaliados].text ^definition = "Resumo de texto da seção"
 * section[diagnosticosAvaliados].mode ^short = "Método de processamento da seção"
 * section[diagnosticosAvaliados].mode ^definition = "Método de processamento da seção"
 * section[diagnosticosAvaliados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[diagnosticosAvaliados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[diagnosticosAvaliados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[diagnosticosAvaliados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[diagnosticosAvaliados].entry ^short = "Diagnósticos avaliados relevantes para o sumário internacional do paciente"
+* section[diagnosticosAvaliados].entry ^definition = "Diagnósticos avaliados relevantes para o sumário internacional do paciente"
 * section[diagnosticosAvaliados].entry only Reference(br-core-condition)
 
 //Section procedimentosRealizados
@@ -115,16 +115,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[procedimentosRealizados].code.text ^definition = "Representação em texto do conceito"
 * section[procedimentosRealizados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[procedimentosRealizados].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[procedimentosRealizados].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[procedimentosRealizados].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[procedimentosRealizados].focus ^short = "Ordem dos itens nas section.entry"
+* section[procedimentosRealizados].focus ^definition = "Ordem dos itens nas section.entry"
 * section[procedimentosRealizados].text ^short = "Resumo de texto da seção"
 * section[procedimentosRealizados].text ^definition = "Resumo de texto da seção"
 * section[procedimentosRealizados].mode ^short = "Método de processamento da seção"
 * section[procedimentosRealizados].mode ^definition = "Método de processamento da seção"
 * section[procedimentosRealizados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[procedimentosRealizados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[procedimentosRealizados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[procedimentosRealizados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[procedimentosRealizados].entry ^short = "Procedimentos realizados relevantes para o sumário internacional do paciente"
+* section[procedimentosRealizados].entry ^definition = "Procedimentos realizados relevantes para o sumário internacional do paciente"
 * section[procedimentosRealizados].entry only Reference(br-core-procedure)
 
 //Section sinaisVitais
@@ -168,16 +168,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[sinaisVitais].author ^short = "Quem/o quê foi o autor desta seção"
 * section[sinaisVitais].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[sinaisVitais].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[sinaisVitais].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[sinaisVitais].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[sinaisVitais].focus ^short = "Ordem dos itens nas section.entry"
+* section[sinaisVitais].focus ^definition = "Ordem dos itens nas section.entry"
 * section[sinaisVitais].text ^short = "Resumo de texto da seção"
 * section[sinaisVitais].text ^definition = "Resumo de texto da seção"
 * section[sinaisVitais].mode ^short = "Método de processamento da seção"
 * section[sinaisVitais].mode ^definition = "Método de processamento da seção"
 * section[sinaisVitais].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[sinaisVitais].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[sinaisVitais].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[sinaisVitais].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[sinaisVitais].entry ^short = "Sinais vitais relevantes para o sumário internacional do paciente"
+* section[sinaisVitais].entry ^definition = "Sinais vitais relevantes para o sumário internacional do paciente"
 * section[sinaisVitais].entry only Reference(br-core-vitalsigns)
 
 //Section historiaObstetrica
@@ -221,16 +221,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaObstetrica].author ^short = "Quem/o quê foi o autor desta seção"
 * section[historiaObstetrica].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[historiaObstetrica].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[historiaObstetrica].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[historiaObstetrica].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[historiaObstetrica].focus ^short = "Ordem dos itens nas section.entry"
+* section[historiaObstetrica].focus ^definition = "Ordem dos itens nas section.entry"
 * section[historiaObstetrica].text ^short = "Resumo de texto da seção"
 * section[historiaObstetrica].text ^definition = "Resumo de texto da seção"
 * section[historiaObstetrica].mode ^short = "Método de processamento da seção"
 * section[historiaObstetrica].mode ^definition = "Método de processamento da seção"
 * section[historiaObstetrica].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[historiaObstetrica].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[historiaObstetrica].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[historiaObstetrica].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[historiaObstetrica].entry ^short = "História obstétrica relevantes para o sumário internacional do paciente"
+* section[historiaObstetrica].entry ^definition = "História obstétrica relevantes para o sumário internacional do paciente"
 * section[historiaObstetrica].entry only Reference(br-core-observationpregnancystatus or br-core-observationpregnancyoutcome)
 
 //Section aleitamentoMaterno
@@ -274,16 +274,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[aleitamentoMaterno].author ^short = "Quem/o quê foi o autor desta seção"
 * section[aleitamentoMaterno].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[aleitamentoMaterno].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[aleitamentoMaterno].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[aleitamentoMaterno].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[aleitamentoMaterno].focus ^short = "Ordem dos itens nas section.entry"
+* section[aleitamentoMaterno].focus ^definition = "Ordem dos itens nas section.entry"
 * section[aleitamentoMaterno].text ^short = "Resumo de texto da seção"
 * section[aleitamentoMaterno].text ^definition = "Resumo de texto da seção"
 * section[aleitamentoMaterno].mode ^short = "Método de processamento da seção"
 * section[aleitamentoMaterno].mode ^definition = "Método de processamento da seção"
 * section[aleitamentoMaterno].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[aleitamentoMaterno].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[aleitamentoMaterno].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[aleitamentoMaterno].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[aleitamentoMaterno].entry ^short = "Aleitamento materno para o sumário internacional do paciente"
+* section[aleitamentoMaterno].entry ^definition = "Aleitamento materno relevantes para o sumário internacional do paciente"
 * section[aleitamentoMaterno].entry only Reference(br-core-observationbreastfeedingstatus)
 
 //Section historiaSocial
@@ -327,16 +327,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaSocial].author ^short = "Quem/o quê foi o autor desta seção"
 * section[historiaSocial].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[historiaSocial].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[historiaSocial].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[historiaSocial].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[historiaSocial].focus ^short = "Ordem dos itens nas section.entry"
+* section[historiaSocial].focus ^definition = "Ordem dos itens nas section.entry"
 * section[historiaSocial].text ^short = "Resumo de texto da seção"
 * section[historiaSocial].text ^definition = "Resumo de texto da seção"
 * section[historiaSocial].mode ^short = "Método de processamento da seção"
 * section[historiaSocial].mode ^definition = "Método de processamento da seção"
 * section[historiaSocial].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[historiaSocial].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[historiaSocial].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[historiaSocial].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[historiaSocial].entry ^short = "História social relevantes para o sumário internacional do paciente"
+* section[historiaSocial].entry ^definition = "História social relevantes para o sumário internacional do paciente"
 * section[historiaSocial].entry only Reference(br-core-observationalcoholuse or br-core-observationtobaccouse) 
 
 //Section alergiasIntolerancias
@@ -380,16 +380,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[alergiasIntolerancias].author ^short = "Quem/o quê foi o autor desta seção"
 * section[alergiasIntolerancias].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[alergiasIntolerancias].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[alergiasIntolerancias].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[alergiasIntolerancias].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[alergiasIntolerancias].focus ^short = "Ordem dos itens nas section.entry"
+* section[alergiasIntolerancias].focus ^definition = "Ordem dos itens nas section.entry"
 * section[alergiasIntolerancias].text ^short = "Resumo de texto da seção"
 * section[alergiasIntolerancias].text ^definition = "Resumo de texto da seção"
 * section[alergiasIntolerancias].mode ^short = "Método de processamento da seção"
 * section[alergiasIntolerancias].mode ^definition = "Método de processamento da seção"
 * section[alergiasIntolerancias].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[alergiasIntolerancias].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[alergiasIntolerancias].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[alergiasIntolerancias].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[alergiasIntolerancias].entry ^short = "Alergias e intolerâncias relevantes para o sumário internacional do paciente"
+* section[alergiasIntolerancias].entry ^definition = "Alergias e intolerâncias relevantes para o sumário internacional do paciente"
 * section[alergiasIntolerancias].entry only Reference(br-core-allergyintolerance)
 
 //Section medicamentos
@@ -433,8 +433,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[medicamentos].author ^short = "Quem/o quê foi o autor desta seção"
 * section[medicamentos].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[medicamentos].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[medicamentos].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[medicamentos].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[medicamentos].focus ^short = "Ordem dos itens nas section.entry"
+* section[medicamentos].focus ^definition = "Ordem dos itens nas section.entry"
 * section[medicamentos].text ^short = "Resumo de texto da seção"
 * section[medicamentos].text ^definition = "Resumo de texto da seção"
 * section[medicamentos].mode ^short = "Método de processamento da seção"
@@ -446,16 +446,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[medicamentos].entry only Reference(br-core-medicationstatement or br-core-medicationrequest or br-core-medicationadministration or br-core-medicationdispense or DocumentReference)
 
 //Section planoCuidados
-* section[planoCuidados] ^short = "Seção de Resumo de Plano de Cuidados"
-* section[planoCuidados] ^definition = "Seção de Resumo de Plano de Cuidados"
+* section[planoCuidados] ^short = "Seção de Resumo de Planos de Cuidado"
+* section[planoCuidados] ^definition = "Seção de Resumo de Planos de Cuidado"
 * section[planoCuidados].id ^short = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].extension ^short = "Conteúdo adicional definido por implementações"
 * section[planoCuidados].extension ^definition = "Conteúdo adicional definido por implementações" 
 * section[planoCuidados].modifierExtension ^short = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
 * section[planoCuidados].modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
-* section[planoCuidados].title ^short = "Título da seção - Fixo em 'Plano de Cuidados'"
-* section[planoCuidados].title ^definition = "Título da seção - Fixo em 'Plano de Cuidados'"
+* section[planoCuidados].title ^short = "Título da seção - Fixo em 'Planos de Cuidado'"
+* section[planoCuidados].title ^definition = "Título da seção - Fixo em 'Planos de Cuidado'"
 * section[planoCuidados].code ^short = "Classificação da seção da Composition/Document"
 * section[planoCuidados].code ^definition = "Classificação da seção da Composition/Document"
 * section[planoCuidados].code.id ^short = "Identificador exclusivo para referência entre elementos"
@@ -485,16 +485,16 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[planoCuidados].code.text ^definition = "Representação em texto do conceito"
 * section[planoCuidados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[planoCuidados].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[planoCuidados].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[planoCuidados].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[planoCuidados].focus ^short = "Ordem dos itens nas section.entry"
+* section[planoCuidados].focus ^definition = "Ordem dos itens nas section.entry"
 * section[planoCuidados].text ^short = "Resumo de texto da seção"
 * section[planoCuidados].text ^definition = "Resumo de texto da seção"
 * section[planoCuidados].mode ^short = "Método de processamento da seção"
 * section[planoCuidados].mode ^definition = "Método de processamento da seção"
 * section[planoCuidados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[planoCuidados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[planoCuidados].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[planoCuidados].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[planoCuidados].entry ^short = "Planos de cuidado relevantes para o sumário internacional do paciente"
+* section[planoCuidados].entry ^definition = "Planos de cuidado relevantes para o sumário internacional do paciente"
 * section[planoCuidados].entry only Reference(br-core-careplan)
 
 //Section capacidadeFuncional
@@ -537,14 +537,14 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[capacidadeFuncional].code.text ^definition = "Representação em texto do conceito"
 * section[capacidadeFuncional].author ^short = "Quem/o quê foi o autor desta seção"
 * section[capacidadeFuncional].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[capacidadeFuncional].focus ^short = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
-* section[capacidadeFuncional].focus ^definition = "Sobre quem/o quê é a seção, quando não é sobre o assunto da Composition"
+* section[capacidadeFuncional].focus ^short = "Ordem dos itens nas section.entry"
+* section[capacidadeFuncional].focus ^definition = "Ordem dos itens nas section.entry"
 * section[capacidadeFuncional].text ^short = "Resumo de texto da seção"
 * section[capacidadeFuncional].text ^definition = "Resumo de texto da seção"
 * section[capacidadeFuncional].mode ^short = "Método de processamento da seção"
 * section[capacidadeFuncional].mode ^definition = "Método de processamento da seção"
 * section[capacidadeFuncional].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[capacidadeFuncional].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[capacidadeFuncional].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[capacidadeFuncional].entry ^short = "Capacidade funcional para o sumário internacional do paciente"
+* section[capacidadeFuncional].entry ^definition = "Capacidade funcional relevantes para o sumário internacional do paciente"
 * section[capacidadeFuncional].entry only Reference(br-core-capacidadefuncional)
