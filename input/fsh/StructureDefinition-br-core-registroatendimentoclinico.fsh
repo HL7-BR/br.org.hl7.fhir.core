@@ -2,7 +2,7 @@ Profile: BRCoreRegistroAtendimentoClinico
 Parent: br-core-composition
 Id: br-core-registroatendimentoclinico
 Title: "br-core-registroatendimentoclinico"
-Description: "Esse perfil restringe o perfil [br-core-composition](https://br-core/saude.gov.br/fhir/StructureDefinition/br-core-composition.html) para especificar um documento clínico, o registro de atendimento clínico, definido pela [PORTARIA Nº 234, DE 18 DE JULHO DE 2022](https://www.cosemssp.org.br/wp-content/uploads/2022/07/PORTARIA-No-234-DE-18-DE-JULHO-DE-2022-PORTARIA-No-234-DE-18-DE-JULHO-DE-2022-DOU-Imprensa-Nacional.pdf), que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). Este modelo compreende um conjunto essencial de elementos e dados administrativos e clínicos que fornecem um instantâneo (snapshot) das informações de uma consulta realizada a um indivíduo no âmbito da atenção básica, especializada ou domiciliar (atendimento diário). Apresenta informações relacionadas ao acompanhamento do indivíduo como medições, observações, diagnósticos e/ou problemas, exames, procedimentos, pequenas cirurgias e desfecho."
+Description: "Esse perfil restringe o perfil [br-core-composition](https://br-core/saude.gov.br/fhir/StructureDefinition/br-core-composition.html) para especificar um documento clínico, o registro de atendimento clínico, definido pela [PORTARIA Nº 234, DE 18 DE JULHO DE 2022](https://www.cosemssp.org.br/wp-content/uploads/2022/07/PORTARIA-No-234-DE-18-DE-JULHO-DE-2022-PORTARIA-No-234-DE-18-DE-JULHO-DE-2022-DOU-Imprensa-Nacional.pdf), que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). Este modelo compreende um conjunto essencial de elementos e dados administrativos e clínicos que fornecem um instantâneo (snapshot) das informações de uma consulta realizada a um indivíduo no âmbito da atenção básica, especializada ou domiciliar (atendimento diário). Apresenta informações relacionadas ao acompanhamento do indivíduo como medições, observações, diagnósticos e/ou problemas, exames, procedimentos, pequenas cirurgias e desfecho"
 
 //Slicing
 * section ^slicing.discriminator.type = #profile
@@ -63,8 +63,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[diagnosticosAvaliados].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[diagnosticosAvaliados].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[diagnosticosAvaliados].focus ^short = "Ordem dos itens nas section.entry"
-* section[diagnosticosAvaliados].focus ^definition = "Ordem dos itens nas section.entry"
+* section[diagnosticosAvaliados].focus ^short = "Referência à recurso associado desta seção"
+* section[diagnosticosAvaliados].focus ^definition = "Referência à recurso associado desta seção"
 * section[diagnosticosAvaliados].text ^short = "Resumo de texto da seção"
 * section[diagnosticosAvaliados].text ^definition = "Resumo de texto da seção"
 * section[diagnosticosAvaliados].mode ^short = "Método de processamento da seção"
@@ -115,8 +115,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[procedimentosRealizados].code.text ^definition = "Representação em texto do conceito"
 * section[procedimentosRealizados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[procedimentosRealizados].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[procedimentosRealizados].focus ^short = "Ordem dos itens nas section.entry"
-* section[procedimentosRealizados].focus ^definition = "Ordem dos itens nas section.entry"
+* section[procedimentosRealizados].focus ^short = "Referência à recurso associado desta seção"
+* section[procedimentosRealizados].focus ^definition = "Referência à recurso associado desta seção"
 * section[procedimentosRealizados].text ^short = "Resumo de texto da seção"
 * section[procedimentosRealizados].text ^definition = "Resumo de texto da seção"
 * section[procedimentosRealizados].mode ^short = "Método de processamento da seção"
@@ -168,8 +168,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[sinaisVitais].author ^short = "Quem/o quê foi o autor desta seção"
 * section[sinaisVitais].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[sinaisVitais].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[sinaisVitais].focus ^short = "Ordem dos itens nas section.entry"
-* section[sinaisVitais].focus ^definition = "Ordem dos itens nas section.entry"
+* section[sinaisVitais].focus ^short = "Referência à recurso associado desta seção"
+* section[sinaisVitais].focus ^definition = "Referência à recurso associado desta seção"
 * section[sinaisVitais].text ^short = "Resumo de texto da seção"
 * section[sinaisVitais].text ^definition = "Resumo de texto da seção"
 * section[sinaisVitais].mode ^short = "Método de processamento da seção"
@@ -221,8 +221,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaObstetrica].author ^short = "Quem/o quê foi o autor desta seção"
 * section[historiaObstetrica].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[historiaObstetrica].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[historiaObstetrica].focus ^short = "Ordem dos itens nas section.entry"
-* section[historiaObstetrica].focus ^definition = "Ordem dos itens nas section.entry"
+* section[historiaObstetrica].focus ^short = "Referência à recurso associado desta seção"
+* section[historiaObstetrica].focus ^definition = "Referência à recurso associado desta seção"
 * section[historiaObstetrica].text ^short = "Resumo de texto da seção"
 * section[historiaObstetrica].text ^definition = "Resumo de texto da seção"
 * section[historiaObstetrica].mode ^short = "Método de processamento da seção"
@@ -274,8 +274,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[aleitamentoMaterno].author ^short = "Quem/o quê foi o autor desta seção"
 * section[aleitamentoMaterno].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[aleitamentoMaterno].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[aleitamentoMaterno].focus ^short = "Ordem dos itens nas section.entry"
-* section[aleitamentoMaterno].focus ^definition = "Ordem dos itens nas section.entry"
+* section[aleitamentoMaterno].focus ^short = "Referência à recurso associado desta seção"
+* section[aleitamentoMaterno].focus ^definition = "Referência à recurso associado desta seção"
 * section[aleitamentoMaterno].text ^short = "Resumo de texto da seção"
 * section[aleitamentoMaterno].text ^definition = "Resumo de texto da seção"
 * section[aleitamentoMaterno].mode ^short = "Método de processamento da seção"
@@ -327,8 +327,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaSocial].author ^short = "Quem/o quê foi o autor desta seção"
 * section[historiaSocial].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[historiaSocial].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[historiaSocial].focus ^short = "Ordem dos itens nas section.entry"
-* section[historiaSocial].focus ^definition = "Ordem dos itens nas section.entry"
+* section[historiaSocial].focus ^short = "Referência à recurso associado desta seção"
+* section[historiaSocial].focus ^definition = "Referência à recurso associado desta seção"
 * section[historiaSocial].text ^short = "Resumo de texto da seção"
 * section[historiaSocial].text ^definition = "Resumo de texto da seção"
 * section[historiaSocial].mode ^short = "Método de processamento da seção"
@@ -380,8 +380,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[alergiasIntolerancias].author ^short = "Quem/o quê foi o autor desta seção"
 * section[alergiasIntolerancias].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[alergiasIntolerancias].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[alergiasIntolerancias].focus ^short = "Ordem dos itens nas section.entry"
-* section[alergiasIntolerancias].focus ^definition = "Ordem dos itens nas section.entry"
+* section[alergiasIntolerancias].focus ^short = "Referência à recurso associado desta seção"
+* section[alergiasIntolerancias].focus ^definition = "Referência à recurso associado desta seção"
 * section[alergiasIntolerancias].text ^short = "Resumo de texto da seção"
 * section[alergiasIntolerancias].text ^definition = "Resumo de texto da seção"
 * section[alergiasIntolerancias].mode ^short = "Método de processamento da seção"
@@ -433,8 +433,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[medicamentos].author ^short = "Quem/o quê foi o autor desta seção"
 * section[medicamentos].author ^definition = "Quem/o quê foi o autor desta seção"
 * section[medicamentos].author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* section[medicamentos].focus ^short = "Ordem dos itens nas section.entry"
-* section[medicamentos].focus ^definition = "Ordem dos itens nas section.entry"
+* section[medicamentos].focus ^short = "Referência à recurso associado desta seção"
+* section[medicamentos].focus ^definition = "Referência à recurso associado desta seção"
 * section[medicamentos].text ^short = "Resumo de texto da seção"
 * section[medicamentos].text ^definition = "Resumo de texto da seção"
 * section[medicamentos].mode ^short = "Método de processamento da seção"
@@ -485,8 +485,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[planoCuidados].code.text ^definition = "Representação em texto do conceito"
 * section[planoCuidados].author ^short = "Quem/o quê foi o autor desta seção"
 * section[planoCuidados].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[planoCuidados].focus ^short = "Ordem dos itens nas section.entry"
-* section[planoCuidados].focus ^definition = "Ordem dos itens nas section.entry"
+* section[planoCuidados].focus ^short = "Referência à recurso associado desta seção"
+* section[planoCuidados].focus ^definition = "Referência à recurso associado desta seção"
 * section[planoCuidados].text ^short = "Resumo de texto da seção"
 * section[planoCuidados].text ^definition = "Resumo de texto da seção"
 * section[planoCuidados].mode ^short = "Método de processamento da seção"
@@ -537,8 +537,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[capacidadeFuncional].code.text ^definition = "Representação em texto do conceito"
 * section[capacidadeFuncional].author ^short = "Quem/o quê foi o autor desta seção"
 * section[capacidadeFuncional].author ^definition = "Quem/o quê foi o autor desta seção"
-* section[capacidadeFuncional].focus ^short = "Ordem dos itens nas section.entry"
-* section[capacidadeFuncional].focus ^definition = "Ordem dos itens nas section.entry"
+* section[capacidadeFuncional].focus ^short = "Referência à recurso associado desta seção"
+* section[capacidadeFuncional].focus ^definition = "Referência à recurso associado desta seção"
 * section[capacidadeFuncional].text ^short = "Resumo de texto da seção"
 * section[capacidadeFuncional].text ^definition = "Resumo de texto da seção"
 * section[capacidadeFuncional].mode ^short = "Método de processamento da seção"
