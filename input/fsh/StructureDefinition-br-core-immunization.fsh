@@ -1,10 +1,10 @@
 Profile: BRCoreImmunization
 Parent: http://hl7.org/fhir/StructureDefinition/Immunization
 Id: br-core-immunization
-Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhir/R4/immunization.html) que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte."
+Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhir/R4/immunization.html) que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte"
 
-* id ^short = "Identificador lógico deste artefato."
-* id ^definition = "Identificador lógico deste artefato."
+* id ^short = "Identificador lógico deste artefato"
+* id ^definition = "Identificador lógico deste artefato"
 * meta ^short = "Metadados sobre o recurso"
 * meta ^definition = "Metadados sobre o recurso" 
 * implicitRules ^short = "Um conjunto de regras sob as quais este conteúdo foi criado"
@@ -13,9 +13,9 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * language ^definition = "Idioma do recurso"
 * text ^short = "Resumo do texto do recurso em linguagem natural"
 * text ^definition = "Resumo do texto do recurso em linguagem natural"
-* contained ^short = "Recursos contidos"
+* contained ^short = "Recursos contidos no recurso"
 * contained ^definition = "Recursos contidos no recurso"
-* extension ^short = "Extensões adicionais"
+* extension ^short = "Extensões adicionais que não fazem parte do modelo base"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
@@ -32,8 +32,8 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * patient ^short = "O paciente que recebeu o imunobiológico"
 * patient ^definition = "O paciente que recebeu o imunobiológico"
 * patient only Reference(br-core-patient)
-* patient.id ^short = "Identificador único para referencia cruzada"
-* patient.id ^definition = "Identificador único para referencia cruzada"
+* patient.id ^short = "Identificador único para referência cruzada"
+* patient.id ^definition = "Identificador único para referência cruzada"
 * patient.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * patient.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * patient.reference ^short = "Referência literal,relativa, interna ou externa ou URL"
@@ -81,8 +81,8 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * performer ^short = "Profissional de saúde que administrou o imunobiológico"
 * performer ^definition = "Profissional de saúde que administrou o imunobiológico"
 * performer 1..1
-* performer.id ^short = "Identificador único para referencia cruzada"
-* performer.id ^definition = "Identificador único para referencia cruzada"
+* performer.id ^short = "Identificador único para referência cruzada"
+* performer.id ^definition = "Identificador único para referência cruzada"
 * performer.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.modifierExtension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
@@ -112,8 +112,8 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * education ^short = "Informações sobre a educação do paciente sobre o imunobiológico"
 * education ^definition = "Informações sobre a educação do paciente sobre o imunobiológico"
 * education 0..0
-* education.id ^short = "Identificador único para referencia cruzada"
-* education.id ^definition = "Identificador único para referencia cruzada"
+* education.id ^short = "Identificador único para referência cruzada"
+* education.id ^definition = "Identificador único para referência cruzada"
 * education.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * education.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * education.modifierExtension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
@@ -141,8 +141,8 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * reaction ^short = "Reações adversas do paciente ao imunobiológico"
 * reaction ^definition = "Reações adversas do paciente ao imunobiológico"
 * reaction 0..0
-* reaction.id ^short = "Identificador único para referencia cruzada"
-* reaction.id ^definition = "Identificador único para referencia cruzada"
+* reaction.id ^short = "Identificador único para referência cruzada"
+* reaction.id ^definition = "Identificador único para referência cruzada"
 * reaction.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * reaction.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * reaction.modifierExtension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
@@ -160,8 +160,8 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied ^short = "Protocolos aplicados  durante a administração do imunobiológico"
 * protocolApplied ^definition = "Protocolos aplicados  durante a administração do imunobiológico"
 * protocolApplied 1..1
-* protocolApplied.id ^short = "Identificador único para referencia cruzada"
-* protocolApplied.id ^definition = "Identificador único para referencia cruzada"
+* protocolApplied.id ^short = "Identificador único para referência cruzada"
+* protocolApplied.id ^definition = "Identificador único para referência cruzada"
 * protocolApplied.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.extension contains
@@ -172,7 +172,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * protocolApplied.series ^short = "Nome da série do imunobiológico"
 * protocolApplied.series ^definition = "Nome da série do imunobiológico"
-* protocolApplied.authority ^short = "Autoridade que definiu o protocolo"   
+* protocolApplied.authority ^short = "Autoridade que definiu o protocolo de administração do imunobiológico" 
 * protocolApplied.authority ^definition = "Autoridade que definiu o protocolo de administração do imunobiológico"
 * protocolApplied.authority only Reference(br-core-organization)
 * protocolApplied.authority 0..0
