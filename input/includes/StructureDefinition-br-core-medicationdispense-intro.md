@@ -50,7 +50,7 @@ Os seguintes elementos de dados devem estar sempre presentes ( definição Manda
 **Orientações de implementação específicas do perfil:**
 
 -	O recurso MedicationDispense é usado para representar o status de dispensação de medicamento no Brasil, excetuando os medicamentos  de receitas controladas  pela ANVISA, que ainda exigem que as receitas físicas sejam retidas na farmácia.
-Este Perfil pode representar um medicamento usando um código ou fazer referência a um recurso de Medicamento .
+Este Perfil pode representar um medicamento usando um código ou fazer Referência à um recurso de Medicamento .
     -	De acordo com a RNDS, [BRRegistrodispensacaomedicamento](https://simplifier.net/redenacionaldedadosemsaude/brregistrodispensacaomedicamento), ao se utilizar o medication[medicationCodeableConcept]  os conceitos da Ontologia Brasileira de Medicamentos (OBM) deverão ser utilizados (http://portal-obm.saude.gov.br). 
     -	Ao referenciar um recurso de Medicamento no elemento em medication[medicationReference],   o recurso pode ser contido ou um recurso externo.
     -	Os sistemas não precisam suportar um código e uma referência, mas **DEVEM** suportar pelo menos um desses métodos.
