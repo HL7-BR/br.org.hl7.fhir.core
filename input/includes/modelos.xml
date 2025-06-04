@@ -29,8 +29,8 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-careplan.html"
-                        title="StructureDefinition/br-core-br-core-careplan.fsh">br-core-careplan</a>
+                    <a href="StructureDefinition-br-core-careplan.html"
+                        title="StructureDefinition/br-core-careplan.fsh">br-core-careplan</a>
                 </td>
                 <td>
                     <p>Este perfil descreve a intenção de como um ou mais profissionais pretendem prestar cuidados a um determinado paciente, grupo ou comunidade por um período de tempo, possivelmente limitado ao cuidado de uma condição específica ou conjunto de condições.</p>
@@ -39,8 +39,8 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-careteam.html"
-                        title="StructureDefinition/br-core-br-core-careteam.fsh">br-core-careteam</a>
+                    <a href="StructureDefinition-br-core-careteam.html"
+                        title="StructureDefinition/br-core-careteam.fsh">br-core-careteam</a>
                 </td>
                 <td>
                     <p>Este perfil restringe o recurso CareTeam que inclui todas as pessoas e organizações que planejam participar da coordenação e prestação de cuidados a um paciente.</p>
@@ -49,20 +49,11 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
   <tr>
   <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-br-core-br-core-composition.html"
-                        title="StructureDefinition/br-core-br-core-br-core-composition.fsh">br-core-composition</a>
+                    <a href="StructureDefinition-br-core-composition.html"
+                        title="StructureDefinition/br-core-composition.fsh">br-core-composition</a>
                 </td>
                 <td>
                     <p>Este perfil representa conjunto de informações relacionadas aos cuidados em sáude que são reunidas em um único bundle lógico que estabelece seu próprio contexto e atesta quem está fazendo a declaração. Uma Composição define a estrutura e o conteúdo narrativo necessários para um documento. </p>
-                </td>
-            </tr>
-  <tr>
-                <td>
-                    <a href="StructureDefinition-br-core-patient.html"
-                        title="StructureDefinition/br-core-patient.fsh">br-core-patient</a>
-                </td>
-                <td>
-                    <p>Este perfil representa o perfil br-core-patient com todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo.  O perfil br-core-patient herda do recurso FHIR R4 Patient para definições de escopo e uso. Este perfil define expectativas mínimas para o recurso br-core-patient registrar, pesquisar e buscar dados demográficos básicos e outras informações administrativas sobre um paciente individual.</p>
                 </td>
             </tr>
             <tr>
@@ -77,7 +68,7 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-diagnosticreport.html"
-                        title="StructureDefinition/br-core-diagnosticreport.fsh">bbr-core-diagnosticreport</a>
+                        title="StructureDefinition/br-core-diagnosticreport.fsh">br-core-diagnosticreport</a>
                 </td>
                 <td>
                     <p>Este perfil restringe o recurso DiagnosticReport  que representa as descobertas e a interpretação de testes diagnósticos realizados em pacientes, grupos de pacientes, dispositivos e locais, e/ou amostras derivadas destes.</p>
@@ -166,15 +157,15 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             <tr>
                 <td>
                     <a href="StructureDefinition-br-core-observation.html"
-                        title="StructureDefinition/br-core-observationt.fsh">br-core-observation </a>
+                        title="StructureDefinition/br-core-observation.fsh">br-core-observation </a>
                 </td>
                 <td>
                     <p>Este rperfil restringe o recurso FHIR R4 Observation e registra medidas e declarações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-observationalcohooluse.html"
-                        title="StructureDefinition/br-core-observationalcohooluse.fsh">br-core-observationalcohooluse </a>
+                    <a href="StructureDefinition-br-core-observationalcoholuse.html"
+                        title="StructureDefinition/br-core-observationalcoholuse.fsh">br-core-observationalcohooluse </a>
                 </td>
                 <td>
                     <p>Este perfil restringe o recurso FHIR Observation, projetado para documentar a avaliação do uso de álcool em um resumo de paciente.  </p>
@@ -197,8 +188,8 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-pregnancyoutcome.html"
-                        title="StructureDefinition/br-core-pregnancyoutcome.fsh">br-core-pregnancyoutcome </a>
+                    <a href="StructureDefinition-br-core-observationpregnancyoutcome.html"
+                        title="StructureDefinition/br-core-observationpregnancyoutcome.fsh">br-core-pbservationpregnancyoutcome </a>
                 </td>
                 <td>
                     <p>Este perfil restringe o recurso Observation para representar a data prevista para o parto.  </p>
