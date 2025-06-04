@@ -1,9 +1,9 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
     
-        <h3>O que é o br-core?</h3>
+        <h3>O que é o BR-Core?</h3>
    <p align="justify"> 
-    O guia de implantação br-core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, 
+    O guia de implementação BR-Core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, 
     desenvolvido para padronizar e facilitar a troca de informações em saúde no Brasil. Ele funciona 
     como o núcleo estruturante para integrar, de forma técnica e semântica, todos os sistemas e aplicações
     de saúde, abrangendo desde a atenção primária até a atenção especializada, incluindo prontuários eletrônicos,
