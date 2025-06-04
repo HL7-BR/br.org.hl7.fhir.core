@@ -4,7 +4,8 @@
       "url" : "https://br-core.saude.gov.br",
       "server" : "apache",
       "org" : "Ministério da Saúde do Brasil",
-      "index-template":"index.template"
+      "index-template":"index.template",
+      "clone-xml-json": true
     },
     "layout-rules" : [{
       "npm" : "br.gov.saude.br-core.*",
