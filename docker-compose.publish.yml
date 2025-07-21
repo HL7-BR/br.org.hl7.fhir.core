@@ -5,10 +5,10 @@ services:
       - .:/app
       - ../packages:/root/.fhir/packages
     command: >
-        bash -c "                 
+        bash -c "
                  rm -rf temp;
                  mkdir temp;                 
                  rm -rf web-root/ig-build-zips;     
                  rm -rf web-root/fhir;            
-                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -generate-package-registry /app/web-root;
-                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -go-publish -source /app -web /app/web-root -temp /app/temp -registry /app/ig-registry/fhir-ig-list.json -history /app/ig-history -templates /app/web-root/templates" 
+                 java -Xms16g -Xmx24g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -generate-package-registry /app/web-root;
+                 java -Xms16g -Xmx24g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -go-publish -source /app -web /app/web-root -temp /app/temp -registry /app/ig-registry/fhir-ig-list.json -history /app/ig-history -templates /app/web-root/templates -tx 'https://tx.gointerop.com/r4' -authorise-non-conformant-tx-servers" 

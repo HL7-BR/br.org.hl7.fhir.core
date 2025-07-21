@@ -6,22 +6,6 @@ services:
       - ../packages:/root/.fhir/packages
     command: >
         bash -c "
-                 echo Criando pasta de pacotes;
-                 mkdir -p /root/.fhir/packages;    
-                 echo Baixando dependencias...;                 
-                 wget https://fhir-hm.ans.gov.br/package.tgz -O /root/.fhir/packages/br.gov.ans.fhir#202309.tgz;
-                 wget https://rnds-ig.web.app/package.tgz -O /root/.fhir/packages/rnds#1.0.0.tgz;
-                 wget https://terminologia-br-ig.web.app/package.tgz -O /root/.fhir/packages/br.gov.saude.terminologia.fhir#1.0.0.tgz;
-                 wget https://ips-brasil.web.app/package.tgz -O /root/.fhir/packages/br.gov.saude.ips.fhir#1.0.0.tgz;
-                 echo Descompactando dependencias...;
-                 mkdir -p /root/.fhir/packages/br.gov.ans.fhir#202309;
-                 mkdir -p /root/.fhir/packages/rnds#1.0.0;
-                 mkdir -p /root/.fhir/packages/br.gov.saude.terminologia.fhir#1.0.0;
-                 mkdir -p /root/.fhir/packages/br.gov.saude.ips.fhir#1.0.0;
-                 tar -xvzf /root/.fhir/packages/br.gov.ans.fhir#202309.tgz -C /root/.fhir/packages/br.gov.ans.fhir#202309;
-                 tar -xvzf /root/.fhir/packages/rnds#1.0.0.tgz -C /root/.fhir/packages/rnds#1.0.0;
-                 tar -xvzf /root/.fhir/packages/br.gov.saude.terminologia.fhir#1.0.0.tgz -C /root/.fhir/packages/br.gov.saude.terminologia.fhir#1.0.0;
-                 tar -xvzf /root/.fhir/packages/br.gov.saude.ips.fhir#1.0.0.tgz -C /root/.fhir/packages/br.gov.saude.ips.fhir#1.0.0;
                  echo Limpando pasta do FSH...;
                  rm -rf /app/fsh-generated;
                  echo Gerando FSH...;
@@ -31,4 +15,4 @@ services:
                  echo clonando ig-registry...;                
                  git clone https://github.com/FHIR/ig-registry.git /app/ig-registry;
                  echo Iniciando IG-Publisher...;                
-                 java -Xms6g -Xmx12g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -ig /app" 
+                 java -Xms4g -Xmx8g -Dfile.encoding=UTF-8 -jar /app/input-cache/publisher.jar -ig /app -tx 'https://tx.gointerop.com/r4' -authorise-non-conformant-tx-servers" 
