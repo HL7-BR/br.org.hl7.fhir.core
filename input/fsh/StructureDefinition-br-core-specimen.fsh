@@ -73,7 +73,7 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * collection.method ^short = "Método de coleta da amostra"
 * collection.method ^definition = "Método de coleta da amostra"
 * collection.method 1..1
-* collection.method from http://hl7.org/fhir/ValueSet/specimen-collection-method
+* collection.method from http://hl7.org/fhir/ValueSet/specimen-collection-method (example)
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
 * collection.fastingStatus[x] ^short = "Tempo de jejum do paciente, se for o caso"
