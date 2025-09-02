@@ -116,6 +116,6 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * container.additive[x] ^definition = "Aditivo associado ao recipiente"
 * condition ^short = "Condições da amostra"
 * condition ^definition = "Condições da amostra"
-* condition from http://terminology.hl7.org/ValueSet/v2-0493
+* condition from http://terminology.hl7.org/ValueSet/v2-0493 (extensible)
 * note ^short = "Comentários"
 * note ^definition = "Comentários"
