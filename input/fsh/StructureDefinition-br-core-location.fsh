@@ -45,7 +45,7 @@ Description: "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4
 * address ^definition = "Endereço do local"
 * physicalType ^short = "Estrutura física do local"
 * physicalType ^definition = "Estrutura física do local"
-* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas
+* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas (preferred)
 * position ^short = "A localização geográfica absoluta"
 * position ^definition = "A localização geográfica absoluta"
 * position.id ^short = "Identificador único para referência cruzada"
