@@ -81,10 +81,10 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * code ^short = "Códigos das funções dos profissionais de saúde"
 * code ^definition = "Códigos das funções dos profissionais de saúde"
 * code 1..*
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (example)
 * specialty ^short = "Especialidades do profissional"
 * specialty ^definition = "Especialidades do profissional"
-* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao
+* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (preferred)
 * location ^short = "Referência ao local de atuação do profissional"
 * location ^definition = "Referência ao local de atuação do profissional"
 * location only Reference(br-core-location)

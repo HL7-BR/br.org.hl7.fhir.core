@@ -227,7 +227,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * active ^definition = "Indica se a Organização está ativa"
 * type ^short = "Tipo da organização"
 * type ^definition = "Tipo da organização"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude (example)
 * name 1..1
 * name ^short = "Nome da organização"
 * name ^definition = "Nome da organização"

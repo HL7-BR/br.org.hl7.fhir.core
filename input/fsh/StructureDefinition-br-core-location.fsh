@@ -38,14 +38,14 @@ Description: "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4
 * mode ^definition = "Indica se uma instância deste recurso representa um local específico ou uma classe de locais"
 * type ^short = "Tipo de serviço oferecido"
 * type ^definition = "Tipo de serviço oferecido"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado 
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (extensible)
 * telecom ^short = "Detalhes de contato do local"
 * telecom ^definition = "Detalhes de contato do local"
 * address ^short = "Endereço do local"
 * address ^definition = "Endereço do local"
 * physicalType ^short = "Estrutura física do local"
 * physicalType ^definition = "Estrutura física do local"
-* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas (preferred)
+* physicalType from https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas (example)
 * position ^short = "A localização geográfica absoluta"
 * position ^definition = "A localização geográfica absoluta"
 * position.id ^short = "Identificador único para referência cruzada"

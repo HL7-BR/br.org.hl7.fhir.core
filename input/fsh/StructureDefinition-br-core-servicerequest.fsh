@@ -39,17 +39,17 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * category 1..1
 * category ^short = "Categoria desta requisição"
 * category ^definition = "Categoria desta requisição"
-* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento (example)
 * priority 1..1
 * priority ^short = "Prioridade desta requisição"
 * priority ^definition = "Prioridade desta requisição"
-* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA 
+* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA (required)
 * doNotPerform ^short = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * doNotPerform ^definition = "Verdadeiro se o serviço/procedimento não deve ser executado"
 * code 1..1
 * code ^short = "Código do procedimento solicitado"
 * code ^definition = "Código do procedimento solicitado"
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
 * orderDetail ^short = "Informações adicionais da requesição"
 * orderDetail ^definition = "Informações adicionais da requesição"
 * quantity[x] ^short = "Quantidade de procedimento solicitados"
@@ -94,7 +94,7 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * specimen ^definition = "Referência à amostras associadas"
 * bodySite ^short = "Local anatômico associado ao procedimento"
 * bodySite ^definition = "Local anatômico associado ao procedimento"
-* bodySite from http://hl7.org/fhir/ValueSet/body-site (preferred)
+* bodySite from http://hl7.org/fhir/ValueSet/body-site (example)
 * note ^short = "Comentários"
 * note ^definition = "Comentários"
 * patientInstruction ^short = "Instruções para o paciente"

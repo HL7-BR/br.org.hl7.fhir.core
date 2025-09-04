@@ -79,13 +79,13 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or br-core-patient or Device or br-core-relatedperson or CareTeam)
 * performerType ^short = "Especialidade do prescritor para a administração do medicamento"
 * performerType ^definition = "Especialidade do prescritor para a administração do medicamento"
-* performerType from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao
+* performerType from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (example)
 * recorder ^short = "Pessoa que registrou a requisição"
 * recorder ^definition = "Pessoa que registrou a requisição"
 * recorder only Reference(br-core-practitioner or br-core-practitionerrole)
 * reasonCode ^short = "Motivo ou indicação para solicitar ou não o medicamento. Conceito codificado que indica o motivo pelo qual o medicamento foi solicitado ou não"
 * reasonCode ^definition = "Motivo ou indicação para solicitar ou não o medicamento. Conceito codificado que indica o motivo pelo qual o medicamento foi solicitado ou não"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10 (example)
 * reasonReference ^short = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference ^definition = "Condição ou observação que apoia o motivo pelo qual a prescrição está sendo escrita"
 * reasonReference only Reference(br-core-condition or br-core-observation)

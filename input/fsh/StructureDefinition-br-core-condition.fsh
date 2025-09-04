@@ -29,15 +29,15 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * category ^short = "Categoria da condição" 
 * category ^definition = "Categoria da condição"
 * category 0..1
-* category from http://hl7.org/fhir/ValueSet/condition-category (required)
+* category from http://hl7.org/fhir/ValueSet/condition-category (extensible)
 * severity ^short = "Severidade da condição" 
 * severity ^definition = "Severidade da condição" 
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
-* bodySite from http://hl7.org/fhir/ValueSet/body-site
+* bodySite from http://hl7.org/fhir/ValueSet/body-site (example)
 * code ^short = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (example)
 * subject ^short = "Referência aos dados sobre o indivíduo cuja a condição de saúde está sendo avaliada"
 * subject ^definition = "Referência aos dados sobre o indivíduo cuja a condição de saúde está sendo avaliada"
 * subject only Reference(br-core-patient)

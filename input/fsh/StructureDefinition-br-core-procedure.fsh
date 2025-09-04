@@ -35,13 +35,13 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * status ^definition = "Código do status do procedimento"
 * statusReason ^short = "Motivo para o status atual"
 * statusReason ^definition = "Motivo para o status atual"
-* statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoProcedimentoNaoRealizado
+* statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoProcedimentoNaoRealizado (example)
 * category ^short = "Classificação do procedimento"
 * category ^definition = "Classificação do procedimento. Exemplo: um código que classifica um procedimento para fins de pesquisa, classificação e exibição"
-* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento (required)
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento (example)
 * code ^short = "Código do procedimento"
 * code ^definition = "Código do procedimento"
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
 * code 1..1
 * subject ^short = "Referência ao paciente"
 * subject ^definition = "Referência ao paciente"
@@ -92,22 +92,22 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * location only Reference(br-core-location)
 * reasonCode ^short = "Motivo da realização do procedimento"
 * reasonCode ^definition = "Motivo da realização do procedimento"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (preferred)
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (example)
 * reasonReference ^short = "Referência à condição, observação, procedimento, relatório diagnóstico, documento clínico associado ao procedimento"
 * reasonReference ^definition = "Referência à condição, observação, procedimento, relatório diagnóstico, documento clínico associado ao procedimento"
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-procedure or br-core-diagnosticreport or DocumentReference)
-* bodySite from http://hl7.org/fhir/ValueSet/body-site (preferred)
+* bodySite from http://hl7.org/fhir/ValueSet/body-site (example)
 * bodySite ^short = "Local anatômico associado ao procedimento"
 * bodySite ^definition = "Local anatômico associado ao procedimento"
 * outcome ^short = "Resultado do procedimento"
 * outcome ^definition = "Resultado do procedimento"
-* outcome from https://terminologia.saude.gov.br/fhir/ValueSet/BRDesfechoProcedimento
+* outcome from https://terminologia.saude.gov.br/fhir/ValueSet/BRDesfechoProcedimento (example)
 * report ^short = "Referência ao documento/relatório resultantes deste procedimento"
 * report ^definition = "Referência ao documento/relatório resultantes deste procedimento"
 * report only Reference(br-core-diagnosticreport or DocumentReference or br-core-composition)
 * complication ^short = "Complicações deste procedimento"
 * complication ^definition = "Complicações deste procedimento"
-* complication from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico
+* complication from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (example)
 * complicationDetail ^short = "Referência às condições resultantes das complicações dete procedimento"
 * complicationDetail ^definition = "Referência às condições resultantes das complicações dete procedimento"
 * complicationDetail only Reference(br-core-condition)

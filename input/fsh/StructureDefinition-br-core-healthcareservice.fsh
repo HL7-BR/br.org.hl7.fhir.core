@@ -31,10 +31,10 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * category from https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude	(preferred)  
 * type ^short = "Tipo de serviço"
 * type ^definition = "Tipo de serviço"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (preferred)
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (example)
 * specialty ^short = "Especialidades atendidas"
 * specialty ^definition = "Especialidades atendidas"
-* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
+* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (preferred)
 * location ^short = "Referência aos locais onde o serviço pode ser prestado"
 * location ^definition = "Referência aos locais onde o serviço pode ser prestado"
 * name ^short = "Nome do serviço"
@@ -51,7 +51,7 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * coverageArea ^definition = "Área de abrangência do serviço"
 * serviceProvisionCode  ^short = "Condições sob as quais o serviço está disponível/oferecido"
 * serviceProvisionCode  ^definition = "Condições sob as quais o serviço está disponível/oferecido"
-* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/TipoConvenio (preferred)
+* serviceProvisionCode from https://terminologia.saude.gov.br/fhir/ValueSet/TipoConvenio (example)
 * eligibility ^short = "Elegibilidade"
 * eligibility ^definition = "Elegibilidade"
 * eligibility.id ^short = "Identificador único para referência cruzada"
@@ -66,7 +66,7 @@ Description: "Este perfil restringe o recurso [HealthcareService](https://hl7.or
 * eligibility.comment ^definition = "Descreve as condições de elegibilidade do serviço"
 * program ^short = "Programas que este serviço atende"
 * program ^definition = "Programas que este serviço atende"
-* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude (preferred)
+* program from https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude (example)
 * characteristic ^short = "Características do serviço"
 * characteristic ^definition = "Características do serviço"
 * communication ^short = "Idiomas oferecido por este serviço"

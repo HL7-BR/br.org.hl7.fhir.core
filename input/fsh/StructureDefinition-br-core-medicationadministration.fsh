@@ -31,7 +31,7 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * status ^definition = "Códigos de status de administração de medicamentos"
 * statusReason ^short = "Motivo da não realização da administração"
 * statusReason ^definition = "Motivo da não realização da administração"
-* statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/reason-medication-not-given
+* statusReason from https://terminologia.saude.gov.br/fhir/ValueSet/reason-medication-not-given (example)
 * category ^short = "Tipo de uso de medicamentos"
 * category ^definition = "Tipo de uso de medicamentos"
 * medication[x] ^short = "O que foi administrado"
@@ -56,8 +56,8 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * performer.modifierExtension ^definition = "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas" 
 * performer.function ^short = "Função do profissional que administrou o medicamento"
 * performer.function ^definition = "Função do profissional que administrou o medicamento"
-* performer.function from http://hl7.org/fhir/ValueSet/med-admin-perform-function (preferred)
-* performer.actor ^short = "Referência ao profissional que realizou a administração do medicamento"
+* performer.function from http://hl7.org/fhir/ValueSet/med-admin-perform-function (example)
+* performer.actor ^short = "Referência ao profissional que realizou a administraçãoexampleamento"
 * performer.actor ^definition = "Referência ao profissional que realizou a administração do medicamento"
 * performer.actor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-patient or br-core-relatedperson or Device)
 * reasonCode ^short = "Motivo da administração do medicamento"
@@ -84,10 +84,10 @@ Description: "Descreve o evento de um paciente consumindo ou de algum medicament
 * dosage.text ^definition = "Instruções de dosagem em texto livre, por exemplo, SIG"
 * dosage.site ^short = "Local do corpo que o corpo foi administrado"
 * dosage.site ^definition = "Local do corpo que o corpo foi administrado"
-* dosage.site from http://hl7.org/fhir/ValueSet/body-site
+* dosage.site from http://hl7.org/fhir/ValueSet/body-site (example)
 * dosage.route ^short = "Via de administração do medicamento"
 * dosage.route ^definition = "Via de administração do medicamento"
-* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
+* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration (example)
 * dosage.method ^short = "Método de admnistração do medicamento"
 * dosage.method ^definition = "Método de admnistração do medicamento"
 * dosage.dose ^short = "Quantidade da dose do medicamento"

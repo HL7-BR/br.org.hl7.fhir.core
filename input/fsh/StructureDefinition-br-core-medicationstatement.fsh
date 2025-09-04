@@ -104,10 +104,10 @@ A principal diferença entre um recurso [br-core-medicationstatement](https://sa
 * dosage.asNeeded[x] ^definition = "Tomar \"conforme necessário\" (para x)" 
 * dosage.site ^short = "Local no corpo onde deve ser administrado o medicamento"
 * dosage.site ^definition = "Local no corpo onde deve ser administrado o medicamento"
-* dosage.site from http://hl7.org/fhir/ValueSet/body-site
+* dosage.site from http://hl7.org/fhir/ValueSet/body-site (example)
 * dosage.route ^short = "Via de administração"
 * dosage.route ^definition = "Via de administração"
-* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
+* dosage.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration (example)
 * dosage.method ^short = "Método de administração"
 * dosage.method ^definition = "Método de administração"
 * dosage.doseAndRate ^short = "Quantidade de medicamento administrado"

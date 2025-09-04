@@ -52,13 +52,13 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * classHistory.period ^definition = "Período do atendimento anteriore"
 * type ^short = "Tipo específico do atendimento"
 * type ^definition = "Tipo específico do atendimento"
-* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRAtendimentoPrestado
+* type from https://terminologia.saude.gov.br/fhir/ValueSet/BRAtendimentoPrestado (example)
 * serviceType ^short = "Tipo específico do serviço"
 * serviceType ^definition = "Tipo específico do serviço"
-* serviceType from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado
+* serviceType from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (example)
 * priority ^short = "Prioridade do atendimento"
 * priority ^definition = "Prioridade do atendimento"
-* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimento
+* priority from https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimento (example)
 * priority 1..1
 * subject ^short = "Referência ao paciente ou grupo deste atendimento"
 * subject ^definition = "Referência ao paciente ou grupo deste atendimento"
@@ -79,7 +79,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * participant.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * participant.type ^short = "Função do participante no atendimento"
 * participant.type ^definition = "Função do participante no atendimento"
-* participant.type from https://terminologia.saude.gov.br/fhir/ValueSet/BRResponsabilidadeParticipante
+* participant.type from https://terminologia.saude.gov.br/fhir/ValueSet/BRResponsabilidadeParticipante (extensible)
 * participant.type 1..*
 * participant.period ^short = "Período de atuação do participante"
 * participant.period ^definition = "Período de atuação do participante"
@@ -95,7 +95,8 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * length ^definition = "Duração do atendimento"
 * reasonCode ^short = "Queixa principal do atendimento"
 * reasonCode ^definition = "Queixa principal do atendimento"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRReasonEncounter
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRReasonEncounter (preferred)
+)
 * reasonReference ^short = "Referência ao motivo do atendimento"
 * reasonReference ^definition = "Referência ao motivo do atendimento"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or ImmunizationRecommendation)
@@ -114,7 +115,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * diagnosis.use ^short = "Papel deste diagnóstico no atendimento (por exemplo, internação, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel deste diagnóstico no atendimento (por exemplo, internação, faturamento, alta…)"
 * diagnosis.use 1..1
-* diagnosis.use from http://hl7.org/fhir/ValueSet/diagnosis-role
+* diagnosis.use from http://hl7.org/fhir/ValueSet/diagnosis-role (preferred)
 * diagnosis.rank ^short = "Classificação do diagnóstico"
 * diagnosis.rank ^definition = "Classificação do diagnóstico"
 * account ^short = "Referências as contas desde atendimento"
@@ -135,7 +136,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * hospitalization.admitSource ^short = "De onde o paciente foi admitido (encaminhamento médico, transferência)"
 * hospitalization.admitSource ^definition = "De onde o paciente foi admitido (encaminhamento médico, transferência)"
 * hospitalization.admitSource 1..1
-* hospitalization.admitSource from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedencia
+* hospitalization.admitSource from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedencia (preferred)
 * hospitalization.reAdmission ^short = "O tipo de readmissão hospitalar  (se houver). Se o valor estiver ausente, a internação não será dentificada como uma reinternação"
 * hospitalization.reAdmission ^definition = "O tipo de readmissão hospitalar  (se houver). Se o valor estiver ausente, a internação não será dentificada como uma reinternação"
 * hospitalization.dietPreference ^short = "Preferências alimentares do paciente"
@@ -149,7 +150,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * hospitalization.destination only Reference(br-core-location or br-core-organization)
 * hospitalization.dischargeDisposition ^short = "Categoria ou tipo de local após a alta"
 * hospitalization.dischargeDisposition ^definition = "Categoria ou tipo de local após a alta"
-* hospitalization.dischargeDisposition from https://terminologia.saude.gov.br/fhir/CodeSystem/BRMotivoDesfecho
+* hospitalization.dischargeDisposition from https://terminologia.saude.gov.br/fhir/CodeSystem/BRMotivoDesfecho (example)
 * hospitalization.dischargeDisposition 1..1
 * location ^short = "Lista de locais onde o paciente esteve"
 * location ^definition = "Lista de locais onde o paciente esteve"
@@ -164,10 +165,10 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * location.location only Reference(br-core-location)
 * location.status ^short = "O status do local: planned | active | reserved | completed"
 * location.status ^definition = "O status do local: planned | active | reserved | completed"
-* location.status from http://hl7.org/fhir/ValueSet/encounter-location-status
+* location.status from http://hl7.org/fhir/ValueSet/encounter-location-status (required)
 * location.physicalType ^short = "O tipo físico do local (geralmente o nível na hierarquia do local - quarto, enfermaria, etc.)"
 * location.physicalType ^definition = "O tipo físico do local (geralmente o nível na hierarquia do local - quarto, enfermaria, etc.)"
-* location.physicalType from http://hl7.org/fhir/ValueSet/location-physical-type
+* location.physicalType from http://hl7.org/fhir/ValueSet/location-physical-type (example)
 * location.period ^short = "Período de tempo durante o qual o paciente esteve presente no local"
 * location.period ^definition = "Período de tempo durante o qual o paciente esteve presente no local"
 * serviceProvider ^short = "A organização (instalação) responsável por este encontro"

@@ -28,7 +28,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * statusReason 0..0
 * vaccineCode ^short = "Imunobiológico administrado"
 * vaccineCode ^definition = "Imunobiológico administrado"
-* vaccineCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico (required)
+* vaccineCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico (example)
 * patient ^short = "O paciente que recebeu o imunobiológico"
 * patient ^definition = "O paciente que recebeu o imunobiológico"
 * patient only Reference(br-core-patient)
@@ -57,7 +57,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * primarySource ^definition = "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde"
 * reportOrigin ^short = "Indica a fonte do registro de vacinação relatado"
 * reportOrigin ^definition = "Indica a fonte do registro de vacinação relatado"
-* reportOrigin from https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem (required)
+* reportOrigin from https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem (example)
 * location ^short = "Local onde o imunobiológico foi administrado"
 * location ^definition = "Local onde o imunobiológico foi administrado"
 * location only Reference(br-core-location)
@@ -71,10 +71,10 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * site ^short = "Local de administração do imunobiológico"
 * site ^definition = "Local de administração do imunobiológico"
 * site 1..1
-* site from https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao (required)
+* site from https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao (example)
 * route ^short = "Via de administração do imunobiológico"
 * route ^definition = "Via de administração do imunobiológico"
-* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (required)
+* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (exammple)
 * route 1..1
 * doseQuantity ^short = "Quantidade de imunobiológico administrado"
 * doseQuantity ^definition = "Quantidade de imunobiológico administrado"
@@ -89,7 +89,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * performer.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.function ^short = "Função do profissional de saúde no evento de administração de imunobiológico"
 * performer.function ^definition = "Função do profissional de saúde no evento de administração de imunobiológico"
-* performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (required)
+* performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (extensible)
 * performer.function 1..1
 * performer.actor ^short = "Profissional de saúde que administrou o imunobiológico"
 * performer.actor ^definition = "Profissional de saúde que administrou o imunobiológico"
@@ -99,7 +99,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * note 0..0
 * reasonCode ^short = "Motivo pelo qual o imunobiológico foi administrado"
 * reasonCode ^definition = "Motivo pelo qual o imunobiológico foi administrado"
-* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao (required)
+* reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao (example)
 * reasonCode 0..1
 * reasonReference ^short = "Referência ao motivo pelo qual o imunobiológico foi administrado"
 * reasonReference ^definition = "Referência ao motivo pelo qual o imunobiológico foi administrado"
@@ -132,11 +132,11 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * education.presentationDate 0..0
 * programEligibility ^short = "Informações sobre a elegibilidade do paciente para o programa de imunização"
 * programEligibility ^definition = "Informações sobre a elegibilidade do paciente para o programa de imunização"
-* programEligibility from https://terminologia.saude.gov.br/fhir/ValueSet/BRElegibilidadeImunobiologico (required)
+* programEligibility from https://terminologia.saude.gov.br/fhir/ValueSet/BRElegibilidadeImunobiologico (example)
 * programEligibility 0..0
 * fundingSource ^short = "Fonte de financiamento do imunobiológico"
 * fundingSource ^definition = "Fonte de financiamento do imunobiológico"
-* fundingSource from http://hl7.org/fhir/ValueSet/immunization-funding-source (required)
+* fundingSource from http://hl7.org/fhir/ValueSet/immunization-funding-source (example)
 * fundingSource 0..0
 * reaction ^short = "Reações adversas do paciente ao imunobiológico"
 * reaction ^definition = "Reações adversas do paciente ao imunobiológico"
@@ -178,10 +178,10 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * protocolApplied.authority 0..0
 * protocolApplied.targetDisease ^short = "Doença alvo do imunobiológico"
 * protocolApplied.targetDisease ^definition = "Doença alvo do imunobiológico"
-* protocolApplied.targetDisease from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10 (preferred)
+* protocolApplied.targetDisease from https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10 (example)
 * protocolApplied.doseNumber[x] ^short = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] ^definition = "Número da dose do imunobiológico"
 * protocolApplied.doseNumber[x] only string
-* protocolApplied.doseNumberString from https://terminologia.saude.gov.br/fhir/ValueSet/BRDose (required)
+* protocolApplied.doseNumberString from https://terminologia.saude.gov.br/fhir/ValueSet/BRDose (example)
 * protocolApplied.seriesDoses[x] ^short = "Número de doses da série do imunobiológico"
 * protocolApplied.seriesDoses[x] ^definition = "Número de doses da série do imunobiológico"
