@@ -82,7 +82,7 @@ Description: "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/
 * locationReference only Reference(br-core-location)
 * reasonCode ^short = "Explicação/Justificativa para procedimento ou serviço"
 * reasonCode ^definition = "Explicação/Justificativa para procedimento ou serviço"
-* reasonReference 1..1
+* reasonReference 0..*
 * reasonReference ^short = "Referência à explicação/justificativa para serviço ou procedimento"
 * reasonReference ^definition = "Referência à explicação/justificativa para serviço ou procedimento"
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport or DocumentReference)
