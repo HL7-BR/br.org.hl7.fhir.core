@@ -53,7 +53,7 @@ Description: "Perfil brasileiro do recurso FHIR R4 Appointment, utilizado para a
 
 * specialty ^short = "Especialidade clínica"
 * specialty ^definition = "Especialidade clínica requerida para o atendimento"
-* specialty from http://hl7.org/fhir/uv/ips/ValueSet/healthcare-professional-specialty-uv-ips (preferred)
+* specialty from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (preferred)
 * specialty 
 * appointmentType ^short = "Tipo do agendamento"
 * appointmentType ^definition = "Classificação do agendamento (p.ex. rotina, retorno, encaixe)"
