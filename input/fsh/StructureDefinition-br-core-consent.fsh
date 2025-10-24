@@ -18,6 +18,10 @@ Description: "Este perfil define as características mínimas para o recurso [br
 * contained ^definition = "Recursos contidos no recurso"
 * extension ^short = "Extensões adicionais que não fazem parte do modelo base"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
+* extension contains BRBaseLegalLGPD named baseLegalLGPD 1..* MS
+* extension[baseLegalLGPD] ^short = "Base legal LGPD para tratamento de dados (Art. 7º)"
+* extension[baseLegalLGPD] ^definition = "Base legal LGPD para tratamento de dados (Art. 7º)"
+* extension[baseLegalLGPD] from https://terminologia.saude.gov.br/fhir/ValueSet/BRBase
 * modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * identifier ^short = "Identificadores externos para este consentimento"
