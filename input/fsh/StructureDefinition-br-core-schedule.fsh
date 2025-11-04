@@ -50,12 +50,12 @@ Description: "Perfil brasileiro do recurso FHIR R4 Schedule, utilizado para repr
 * specialty 0..*
 * specialty ^short = "Especialidade clínica"
 * specialty ^definition = "Tipo de especialidade requerida (ex.: Ginecologia, Cardiologia, etc.)"
-* specialty from https://terminologia.saude.gov.br/#/orgs/MS/collections/BROcupacao-1.0/ (preferred)
+* specialty from http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0 (preferred)
 
 * actor 1..*
 * actor ^short = "Entidades vinculadas à agenda"
 * actor ^definition = "Recurso para o qual a disponibilidade é fornecida neste Schedule"
-* actor only Reference(br-core-healthcareService)
+* actor only Reference(br-core-healthcareservice)
 * actor MS
 
 * planningHorizon 0..1
