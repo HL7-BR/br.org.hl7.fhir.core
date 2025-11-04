@@ -78,7 +78,7 @@ Description: "Perfil brasileiro do recurso FHIR R4 Appointment, utilizado para a
 
 * start ^short = "Início planejado"
 * start ^definition = "Data/hora planejada de início do atendimento"
-* 
+
 * end ^short = "Término planejado"
 * end ^definition = "Data/hora planejada de término do atendimento"
 
@@ -112,9 +112,9 @@ Description: "Perfil brasileiro do recurso FHIR R4 Appointment, utilizado para a
 * participant.actor ^definition = "Referência ao recurso que representa o participante"
 * participant.actor only Reference(br-core-patient or br-core-practitioner or br-core-organization)
 
-* participant.actor.required ^short = "Participação obrigatória?"
-* participant.actor.required ^definition = "Indica se a presença do participante é obrigatória"
-* participant.actor.required from http://hl7.org/fhir/ValueSet/participantrequired (required)
+* participant.required ^short = "Participação obrigatória?"
+* participant.required ^definition = "Indica se a presença do participante é obrigatória"
+* participant.required from http://hl7.org/fhir/ValueSet/participantrequired (required)
 
 * participant.status ^short = "Status de participação"
 * participant.status ^definition = "Confirmação do participante (accepted, declined, tentative, needs-action)"
