@@ -74,7 +74,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * site from https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao (example)
 * route ^short = "Via de administração do imunobiológico"
 * route ^definition = "Via de administração do imunobiológico"
-* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (exammple)
+* route from https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao (example)
 * route 1..1
 * doseQuantity ^short = "Quantidade de imunobiológico administrado"
 * doseQuantity ^definition = "Quantidade de imunobiológico administrado"
