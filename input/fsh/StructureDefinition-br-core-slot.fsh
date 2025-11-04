@@ -73,20 +73,8 @@ Description: "Perfil brasileiro do recurso FHIR R4 Slot, utilizado para represen
 * comment ^short = "Comentários adicionais sobre o slot"
 * comment ^definition = "Notas ou observações adicionais sobre o slot, como restrições ou orientações"
 
-* schedule.extension ^short = "Extensões adicionais específicas da agenda"
-* schedule.extension ^definition = "Extensões adicionais usadas para adicionar informações sobre a agenda vinculada"
-
-* schedule.identifier ^short = "Identificador da agenda"
-* schedule.identifier ^definition = "Identificador exclusivo da agenda associada a este slot"
-
-* schedule.actor ^short = "Referência ao ator da agenda"
-* schedule.actor ^definition = "Referência à entidade (pessoa, serviço, organização, local) associada à agenda"
-
-* schedule.planningHorizon ^short = "Janela de planejamento"
-* schedule.planningHorizon ^definition = "Período abrangido pela agenda (janela de planejamento)"
-
-* schedule.comment ^short = "Comentários sobre a agenda"
-* schedule.comment ^definition = "Informações adicionais sobre a agenda relacionada ao slot"
+* schedule ^short = "Referência para agenda"
+* schedule ^definition = "Referência à agenda associada a este slot"
 
 * comment.extension ^short = "Extensões adicionais para comentários"
 * comment.extension ^definition = "Extensões que qualificam ou complementam os comentários sobre o slot"
