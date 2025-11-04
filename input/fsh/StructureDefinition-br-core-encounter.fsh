@@ -96,7 +96,6 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * reasonCode ^short = "Queixa principal do atendimento"
 * reasonCode ^definition = "Queixa principal do atendimento"
 * reasonCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRReasonEncounter (preferred)
-)
 * reasonReference ^short = "Referência ao motivo do atendimento"
 * reasonReference ^definition = "Referência ao motivo do atendimento"
 * reasonReference only Reference(br-core-condition or br-core-procedure or br-core-observation or ImmunizationRecommendation)
