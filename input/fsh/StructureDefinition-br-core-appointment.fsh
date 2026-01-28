@@ -110,7 +110,7 @@ Description: "Perfil brasileiro do recurso FHIR R4 Appointment, utilizado para a
 
 * participant.actor ^short = "Entidade participante"
 * participant.actor ^definition = "Referência ao recurso que representa o participante"
-* participant.actor only Reference(br-core-patient or br-core-practitioner or br-core-organization)
+* participant.actor only Reference(br-core-patient or br-core-practitioner or br-core-healthcareservice)
 
 * participant.required ^short = "Participação obrigatória?"
 * participant.required ^definition = "Indica se a presença do participante é obrigatória"
