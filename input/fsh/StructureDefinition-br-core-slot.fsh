@@ -51,7 +51,7 @@ Description: "Perfil brasileiro do recurso FHIR R4 Slot, utilizado para represen
 * schedule ^short = "Agenda à qual este slot pertence"
 * schedule ^definition = "Referência à agenda (Schedule) à qual o slot está vinculado"
 * schedule 1..1
-* schedule only Reference(Schedule)
+* schedule only Reference(br-core-schedule)
 
 
 * status ^short = "Status do slot"
@@ -78,20 +78,3 @@ Description: "Perfil brasileiro do recurso FHIR R4 Slot, utilizado para represen
 
 * comment.extension ^short = "Extensões adicionais para comentários"
 * comment.extension ^definition = "Extensões que qualificam ou complementam os comentários sobre o slot"
-
-Instance: BRCoreSlot-SD
-InstanceOf: StructureDefinition
-Usage: #definition
-* url = "http://br-core.saude.gov.br/StructureDefinition/BRCoreSlot"
-* name = "BRCoreSlot"
-* title = "BR-Core Slot"
-* status = #draft
-* experimental = false
-* date = "2025-10-14T00:00:00Z"
-* publisher = "HL7 Brasil"
-* fhirVersion = #4.0.1
-* kind = #resource
-* abstract = false
-* type = "Slot"
-* baseDefinition = "http://hl7.org/fhir/StructureDefinition/Slot"
-* derivation = #constraint
