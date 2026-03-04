@@ -73,20 +73,3 @@ Description: "Perfil brasileiro do recurso FHIR R4 Schedule, utilizado para repr
 * comment 0..1
 * comment ^short = "Comentários sobre a agenda"
 * comment ^definition = "Comentários adicionais sobre disponibilidade, regras de agendamento ou observações operacionais"
-
-Instance: BRCoreSchedule-SD
-InstanceOf: StructureDefinition
-Usage: #definition
-* url = "http://br-core.saude.gov.br/StructureDefinition/BRCoreSchedule"
-* name = "BRCoreSchedule"
-* title = "BR-Core Schedule"
-* status = #draft
-* experimental = false
-* date = "2025-10-16T00:00:00Z"
-* publisher = "HL7 Brasil"
-* fhirVersion = #4.0.1
-* kind = #resource
-* abstract = false
-* type = "Schedule"
-* baseDefinition = "http://hl7.org/fhir/StructureDefinition/Schedule"
-* derivation = #constraint
