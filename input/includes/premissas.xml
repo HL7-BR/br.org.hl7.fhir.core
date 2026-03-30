@@ -1,46 +1,43 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-  <a name="premissas"> </a>
-  
-  <p align="justify">
-    O br-core foi projetado como o núcleo padronizado de interoperabilidade para todos os sistemas de saúde no Brasil, e sua aplicação universal é fundamentada em princípios e premissas que garantem eficiência, consistência e alinhamento com padrões globais. 
-  </p>
-    <h2><strong>Princípios e Premissas</strong></h2>
-    <p>O br-core foi projetado como o núcleo padronizado de interoperabilidade para todos os sistemas de saúde no Brasil, e sua aplicação universal é fundamentada em princípios e premissas que garantem eficiência, consistência e alinhamento com padrões globais.</p>
+  xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="premissas"> </a>
 
-    <h3>Princípios Fundamentais</h3>
-  <ul>
-    <li>Promover a interoperabilidade técnica e semântica, permitindo que diferentes sistemas e tecnologias se conectem e troquem informações de maneira consistente;</li>
-    <li>Ser baseado no HL7 FHIR R4, assegurando a conformidade com os padrões internacionais mais amplamente adotados, como SNOMED CT e LOINC; </li>
-    <li>Definir um único conjunto de perfis e modelos que unificam a representação de dados de saúde no Brasil, para reduzir a fragmentação causada por padrões proprietários ou regionais, promovendo uma base comum para todos os atores do sistema;</li>
-    <li>Adotar a modelagem canônica com o objetivo de minimizar a necessidade de customizações e extensões para atender a necessidades específicas, sem comprometer a conformidade com o padrão global;</li>
-    <li>Apoiar diversos casos de uso, incluindo atenção primária, hospitalar, domiciliar, regulação, vigilância epidemiológica e saúde pública;</li>
-    <li>Evitar redundâncias e promovendo eficiência e cuidados integrados reforçando que os dados coletados em uma consulta devem ser reutilizados em relatórios de saúde pública ou faturamento;</li>
-    <li>Facilitar a implementação e manutenção de sistemas, reduzindo custos de integração e desenvolvimento;</li>
-    <li>Oferecer governança técnica e semântica, com validações consistentes baseadas em terminologias padronizadas e processos robustos;</li>
-  </ul>
-  <p align="justify">Premissas que Fundamentaram o br-core</p>
+  <p align="justify"></p>
+    <h2><strong>Princípios e Premissas</strong></h2>
+    <p>O br-core foi projetado como o núcleo padronizado de interoperabilidade para todos os sistemas de saúde no Brasil, e sua aplicação universal é fundamentada em princípios e premissas que garantem eficiência, consistência e alinhamento com padrões globais.</p>
 
-    <h3>Premissas</h3>
-    <ul>
-        <li><strong>Adoção de Modelos Abertos:</strong> Diferentemente da abordagem fechada da RNDS, o br-core utiliza modelos abertos do FHIR, alinhando-se com padrões globais e proporcionando maior flexibilidade.</li>
-        <li><strong>Centralidade no Paciente:</strong> O br-core prioriza o acesso seguro e integrado às informações de saúde dos pacientes, promovendo cuidados centrados e de alta qualidade.</li>
-        <li><strong>Suporte a Múltiplos Contextos:</strong> Foi projetado para atender a uma ampla gama de cenários, incluindo regulação, integração de prontuários eletrônicos, faturamento, monitoramento epidemiológico e saúde pública.</li>
-        <li><strong>Escalabilidade Nacional e Global:</strong> Destaca-se por operar em diferentes escalas, conectando dados locais a redes nacionais e internacionais, assegurando interoperabilidade e continuidade de cuidado.</li>
-        <li><strong>Flexibilidade e Adaptação:</strong> Aceita extensões para necessidades locais sem perder conformidade com padrões globais.</li>
-        <li><strong>Eficiência e Reuso:</strong> Permite reutilização de dados para múltiplos propósitos, como faturamento e relatórios de saúde pública, otimizando recursos.</li>
-        <li><strong>Conformidade e Governança:</strong> Promove governança semântica e técnica, com uso de terminologias padronizadas e processos de validação.</li>
-    </ul>
-  <h2>Convenções de Design</h2>
-  <p>As convenções e o design do BR-Core são orientados para melhorar a interoperabilidade e a padronização dos dados de saúde no Brasil. Ao adaptar e evoluir os padrões da RNDS, o BR-Core fornece uma base sólida para o desenvolvimento e a integração de sistemas de informação em saúde, promovendo uma melhor comunicação e coordenação entre os diferentes atores do setor de saúde.</p>
-  <p>As convenções de design herdam os requisitos dos Guias Nacionais do HL7 e incorporam os registros da recente proposta de Framework de Guias Nacionais do HL7. </p>
-  <p>Os Guias Nacionais do HL7 (Health Level Seven) são desenvolvidos para promover a interoperabilidade entre sistemas de informação em saúde, adaptando padrões internacionais às condições locais. Eles abrangem uma ampla gama de áreas, como registros clínicos, administração de saúde, segurança da informação, entre outros.</p>
+    <h3>Princípios Fundamentais</h3>
+  <ul>
+    <li>Promover a interoperabilidade técnica e semântica, permitindo que diferentes sistemas e tecnologias se conectem e troquem informações de maneira consistente;</li>
+    <li>Ser baseado no HL7 FHIR R4, assegurando a conformidade com os padrões internacionais mais amplamente adotados, como SNOMED CT e LOINC; </li>
+    <li>Definir um único conjunto de perfis e modelos que unificam a representação de dados de saúde no Brasil, para reduzir a fragmentação causada por padrões proprietários ou regionais, promovendo uma base comum para todos os atores do sistema;</li>
+    <li>Adotar a modelagem canônica com o objetivo de minimizar a necessidade de customizações e extensões para atender a necessidades específicas, sem comprometer a conformidade com o padrão global;</li>
+    <li>Apoiar diversos casos de uso, incluindo atenção primária, hospitalar, domiciliar, regulação, vigilância epidemiológica e saúde pública;</li>
+    <li>Evitar redundâncias e promovendo eficiência e cuidados integrados reforçando que os dados coletados em uma consulta devem ser reutilizados em relatórios de saúde pública ou faturamento;</li>
+    <li>Facilitar a implementação e manutenção de sistemas, reduzindo custos de integração e desenvolvimento;</li>
+    <li>Oferecer governança técnica e semântica, com validações consistentes baseadas em terminologias padronizadas e processos robustos.</li>
+  </ul>
+  <p align="justify"></p>
+    <h3>Premissas</h3>
+    <ul>
+        <li><strong>Adoção de Modelos Abertos:</strong> Diferentemente da abordagem fechada da RNDS, o br-core utiliza modelos abertos do FHIR, alinhando-se com padrões globais e proporcionando maior flexibilidade;</li>
+        <li><strong>Centralidade no Paciente:</strong> O br-core prioriza o acesso seguro e integrado às informações de saúde dos pacientes, promovendo cuidados centrados e de alta qualidade;</li>
+        <li><strong>Suporte a Múltiplos Contextos:</strong> Foi projetado para atender a uma ampla gama de cenários, incluindo regulação, integração de prontuários eletrônicos, faturamento, monitoramento epidemiológico e saúde pública;</li>
+        <li><strong>Escalabilidade Nacional e Global:</strong> Destaca-se por operar em diferentes escalas, conectando dados locais a redes nacionais e internacionais, assegurando interoperabilidade e continuidade de cuidado;</li>
+        <li><strong>Flexibilidade e Adaptação:</strong> Aceita extensões para necessidades locais sem perder conformidade com padrões globais;</li>
+        <li><strong>Eficiência e Reuso:</strong> Permite reutilização de dados para múltiplos propósitos, como faturamento e relatórios de saúde pública, otimizando recursos;</li>
+        <li><strong>Conformidade e Governança:</strong> Promove governança semântica e técnica, com uso de terminologias padronizadas e processos de validação.</li>
+    </ul>
+  <h3>Convenções de Design</h3>
+  <p>As convenções e o design do BR-Core são orientados para melhorar a interoperabilidade e a padronização dos dados de saúde no Brasil. Ao adaptar e evoluir os padrões da RNDS, o BR-Core fornece uma base sólida para o desenvolvimento e a integração de sistemas de informação em saúde, promovendo uma melhor comunicação e coordenação entre os diferentes atores do setor de saúde.</p>
+  <p>As convenções de design herdam os requisitos dos Guias Nacionais do HL7 e incorporam os registros da recente proposta de Framework de Guias Nacionais do HL7. </p>
+  <p>Os Guias Nacionais do HL7 (Health Level Seven) são desenvolvidos para promover a interoperabilidade entre sistemas de informação em saúde, adaptando padrões internacionais às condições locais. Eles abrangem uma ampla gama de áreas, como registros clínicos, administração de saúde, segurança da informação, entre outros.</p>
 <h3>Requisitos dos Guias Nacionais do HL7</h3>
 <ul>
-<li><strong>Interoperabilidade:</strong> Os guias nacionais devem garantir que os sistemas de saúde possam trocar informações de maneira eficiente e segura, promovendo a continuidade do cuidado ao paciente.</li>
-<li><strong>Conformidade com Padrões Internacionais:</strong> Adaptação dos padrões internacionais do HL7 às necessidades locais, mantendo a conformidade com as normas globais para garantir a interoperabilidade em um contexto mais amplo.</li>
-<li><strong>Flexibilidade e Extensibilidade:</strong> Os guias devem ser flexíveis o suficiente para acomodar diferentes necessidades locais e permitir a extensão dos perfis conforme necessário, sem comprometer a compatibilidade com os padrões internacionais.</li>
-<li><strong>Simplificação e Clareza:</strong> As regras e especificações devem ser claras e simples, facilitando a implementação e a validação dos dados. Isso inclui a redução de regras condicionais complexas que possam dificultar a adoção dos padrões.</li>
+<li><strong>Interoperabilidade:</strong> Os guias nacionais devem garantir que os sistemas de saúde possam trocar informações de maneira eficiente e segura, promovendo a continuidade do cuidado ao paciente;</li>
+<li><strong>Conformidade com Padrões Internacionais:</strong> Adaptação dos padrões internacionais do HL7 às necessidades locais, mantendo a conformidade com as normas globais para garantir a interoperabilidade em um contexto mais amplo;</li>
+<li><strong>Flexibilidade e Extensibilidade:</strong> Os guias devem ser flexíveis o suficiente para acomodar diferentes necessidades locais e permitir a extensão dos perfis conforme necessário, sem comprometer a compatibilidade com os padrões internacionais;</li>
+<li><strong>Simplificação e Clareza:</strong> As regras e especificações devem ser claras e simples, facilitando a implementação e a validação dos dados. Isso inclui a redução de regras condicionais complexas que possam dificultar a adoção dos padrões;</li>
 <li><strong>Governança e Atualização Contínua:</strong> Estabelecimento de um processo robusto de governança para garantir que os guias e suas tabelas de referência sejam continuamente atualizados e revisados para atender às necessidades emergentes do sistema de saúde.</li>
 </ul>
 
@@ -48,12 +45,12 @@
 
 <li><strong>Modelo de Informação:</strong> Segue o modelo da RNDS e adota o perfil R4 canônico para garantir consistência, versatilidade e conformidade com os padrões. Adota os perfis da RNDS apenas quando há regulamentações nacionais que tornam um elemento obrigatório ou quando é necessário usar Codesystems e ValueSets específicos do Brasil.</li>
 <li><strong>Especialização de Perfis Observation:</strong></li>
-  <ul>
-    <li><strong>ObservationAlcoholUse:</strong> Adaptado para registrar dados sobre o uso de álcool.</li>
-    <li><strong>ObservationBreastfeeding:</strong> Focado em documentar informações sobre amamentação.</li>
-    <li><strong>ObservationSmokingStatus:</strong> Especializado para registrar o status de tabagismo do paciente.</li>
-  <li><strong>Governança dos Sistemas Terminológicos:</strong> Os sistemas terminológicos são atualizados e governados por sistemas de gestão de terminologias, garantindo que estejam sempre atualizados e compatíveis com os codesystems e valuesets usados no IG BR.</li> 
-  </ul>
+  <ul>
+    <li><strong>ObservationAlcoholUse:</strong> Adaptado para registrar dados sobre o uso de álcool.</li>
+    <li><strong>ObservationBreastfeeding:</strong> Focado em documentar informações sobre amamentação.</li>
+    <li><strong>ObservationSmokingStatus:</strong> Especializado para registrar o status de tabagismo do paciente.</li>
+  <li><strong>Governança dos Sistemas Terminológicos:</strong> Os sistemas terminológicos são atualizados e governados por sistemas de gestão de terminologias, garantindo que estejam sempre atualizados e compatíveis com os codesystems e valuesets usados no IG BR.</li>
+  </ul>
 
 <p>Os modelos propostos para o BR-Core foram validados com a equipe técnica da SEIDIGI do Ministério da Saúde, visando garantir que atendessem RNDS mas também às necessidades práticas do sistema de saúde brasileiro.</
 
