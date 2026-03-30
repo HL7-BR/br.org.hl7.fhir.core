@@ -46,9 +46,9 @@
 <li><strong>Modelo de Informação:</strong> Segue o modelo da RNDS e adota o perfil R4 canônico para garantir consistência, versatilidade e conformidade com os padrões. Adota os perfis da RNDS apenas quando há regulamentações nacionais que tornam um elemento obrigatório ou quando é necessário usar Codesystems e ValueSets específicos do Brasil.</li>
 <li><strong>Especialização de Perfis Observation:</strong></li>
   <ul>
-    <li><strong>ObservationAlcoholUse:</strong> Adaptado para registrar dados sobre o uso de álcool.</li>
-    <li><strong>ObservationBreastfeeding:</strong> Focado em documentar informações sobre amamentação.</li>
-    <li><strong>ObservationSmokingStatus:</strong> Especializado para registrar o status de tabagismo do paciente.</li>
+    <li><strong>ObservationAlcoholUse:</strong> Adaptado para registrar dados sobre o uso de álcool;</li>
+    <li><strong>ObservationBreastfeeding:</strong> Focado em documentar informações sobre amamentação;</li>
+    <li><strong>ObservationSmokingStatus:</strong> Especializado para registrar o status de tabagismo do paciente;</li>
   <li><strong>Governança dos Sistemas Terminológicos:</strong> Os sistemas terminológicos são atualizados e governados por sistemas de gestão de terminologias, garantindo que estejam sempre atualizados e compatíveis com os codesystems e valuesets usados no IG BR.</li>
   </ul>
 
