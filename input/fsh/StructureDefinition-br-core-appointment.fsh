@@ -39,16 +39,16 @@ Description: "Perfil brasileiro do recurso FHIR R4 Appointment, utilizado para a
 
 * cancelationReason ^short = "Motivo do cancelamento"
 * cancelationReason ^definition = "Razão codificada para cancelamento do agendamento"
-* cancelationReason from http://hl7.org/fhir/ValueSet/appointment-cancellation-reason (preferred)
+* cancelationReason from http://hl7.org/fhir/ValueSet/appointment-cancellation-reason (example)
 
 * serviceCategory ^short = "Categoria do serviço"
 * serviceCategory ^definition = "Categoria ampla do serviço de saúde"
-* serviceCategory from https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencialMIRA
+* serviceCategory from https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencial (example)
  (preferred)
 
 * serviceType ^short = "Tipo de serviço"
 * serviceType ^definition = "Tipo específico de serviço/atendimento a ser realizado"
-* serviceType from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (preferred)
+* serviceType from https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais (example)
 * serviceType 
 
 * specialty ^short = "Especialidade clínica"
