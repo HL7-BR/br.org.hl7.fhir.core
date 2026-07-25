@@ -1,0 +1,43 @@
+{
+    "resourceType": "Observation",
+    "id": "d8810230-45e2-40a6-8588-ea1624030762",
+    "status": "final",
+    "language": "pt-BR",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "social-history",
+            "display": "Social History"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "80441-9",
+          "display": "Breast milk andor formula intake panel"
+        }
+      ],
+      "text": "Status de Aleitamento Materno"
+    },
+    "subject": {
+      "reference": "Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617",
+      "display": "Ana Beatriz"
+    },
+    "effectiveDateTime": "2024-12-19T10:30:00Z",
+    "performer": [
+      {
+        "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display": "Maria Clara"
+      }
+    ],
+    "note": [
+      {
+        "text": "Paciente está amamentando exclusivamente com leite materno desde o nascimento do bebê."
+      }
+    ]
+  }

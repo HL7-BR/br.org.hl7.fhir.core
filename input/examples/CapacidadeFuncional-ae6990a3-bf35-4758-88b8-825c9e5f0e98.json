@@ -1,0 +1,30 @@
+{
+    "resourceType": "Condition",
+    "id": "ae6990a3-bf35-4758-88b8-825c9e5f0e98",
+    "language": "pt-BR",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCategoriaDiagnostico",
+            "code": "02",
+            "display": "Secundário"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+          "code": "T13.6",
+          "display": "Amputação traumática de membro inferior, nível não especificado"
+        }
+      ],
+      "text": "Amputação traumática de membro inferior, nível não especificado"
+    },
+    "subject": {
+      "reference": "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+      "display": "Ana Beatriz"
+    }
+  }

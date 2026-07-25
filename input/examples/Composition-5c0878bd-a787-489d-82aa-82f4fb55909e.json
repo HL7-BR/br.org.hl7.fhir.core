@@ -1,0 +1,127 @@
+{
+    "resourceType": "Composition",
+    "id": "5c0878bd-a787-489d-82aa-82f4fb55909e",
+    "status": "final",
+    "type": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "11488-4",
+          "display": "Consult note"
+        }
+      ],
+      "text": "Nota de Consulta Especializada"
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "11488-4",
+            "display": "Consult note"
+          }
+        ]
+      }
+    ],
+    "subject": {
+      "reference": "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+      "display": "Ana Beatriz"
+    },
+    "encounter": {
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
+    },
+    "date": "2024-02-06T10:00:00Z",
+    "author": [
+      {
+        "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display": "Maria Clara"
+      }
+    ],
+    "title": "Nota de Consulta Especializada",
+    "confidentiality": "N",
+    "custodian": {
+      "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+      "display": "Hospital Sírio-Libanês"
+    },
+    "attester": [
+      {
+        "mode": "professional",
+        "time": "2024-02-06T10:30:00Z",
+        "party": {
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
+        }
+      }
+    ],
+    "section": [
+      {
+        "title": "Diagnósticos Avaliados",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57852-6",
+              "display": "Problem list Reported"
+            }
+          ]
+        },
+        "entry": [
+          {
+            "reference": "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5"
+          }
+        ]
+      },
+      {
+        "title": "Alergias e Intolerâncias",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "48765-2",
+              "display": "Allergies and adverse reactions Document"
+            }
+          ]
+        },
+        "entry": [
+          {
+            "reference": "AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34"
+          }
+        ]
+      },
+      {
+        "title": "Solicitações de Procedimentos",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "42349-1",
+              "display": "Reason for referral (narrative)"
+            }
+          ]
+        },
+        "entry": [
+          {
+            "reference": "ServiceRequest/d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85"
+          }
+        ]
+      },
+      {
+        "title": "Plano de Cuidado",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18776-5",
+              "display": "Plan of care note"
+            }
+          ]
+        },
+        "entry": [
+          {
+            "reference": "CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532"
+          }
+        ]
+      }
+    ]
+  }

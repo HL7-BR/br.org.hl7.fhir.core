@@ -7,14 +7,11 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="premissas.html">Princípios, premissas</a>
-      </li>
-      <li>
-        <a href="design.html">Convenções de design</a>
+        <a href="premissas.html">Princípios, premissas e convenções de design</a>
       </li>
     </ul>
   </li>
-  <li><a href="estrutura.html">O IPS Brasil</a></li>
+  <li><a href="estrutura.html">O br-core</a></li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificação<b class="caret">
       </b>

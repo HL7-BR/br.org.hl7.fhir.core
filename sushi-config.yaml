@@ -10,13 +10,13 @@
 id: br.gov.saude.br-core.fhir
 canonical: https://br-core.saude.gov.br/fhir
 url: https://br-core.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.br-core.fhir
-name: IPSBrasil
+name: BR-CORE
 title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
 license: CC0-1.0
 date: 2023-05-08
-version: 0.1.1
+version: 1.0.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -58,8 +58,8 @@ jurisdiction: urn:iso:std:iso:3166#BR "Brazil"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  br.gov.saude.terminologia.fhir: 0.1.5
-  br.gov.saude.ips.fhir: 0.1.2
+  br.gov.saude.terminologia.fhir: 1.0.0
+  br.gov.saude.ips.fhir: 1.0.0
 
 # The global property corresponds to the IG.global property, but it
 # uses the type as the YAML key and the profile as its value. Since
@@ -92,7 +92,182 @@ dependencies:
 #    description: An example Patient
 #    exampleBoolean: true
 #  Patient/bad-example: omit
-# resources:
+resources:
+  AllergyIntolerance/b2549739-2479-406e-ab6e-1e4251b08bc9:
+    name: Exemplo de alergia e intolerância.
+    description: Exemplo de alergia e intolerância.    
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance
+  AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34:
+    name: Exemplo de alergia e intolerância.
+    description: Exemplo de alergia e intolerância.    
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance
+  #CapacidadeFuncional/ae6990a3-bf35-4758-88b8-825c9e5f0e98:
+  #  name: Exemplo de capacidade funcional.
+  #  description: Exemplo de capacidade funcional.    
+  #  exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-capacidadefuncional
+  CareTeam/0af04a2a-5174-438d-85ae-fc83df65541e:
+    name: Exemplo de time de cuidado.
+    description: Exemplo de time de cuidado.    
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careteam
+  CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532:
+    name: Exemplo de plano de cuidado.
+    description: Exemplo de plano de cuidado.  
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan
+  Composition/5c0878bd-a787-489d-82aa-82f4fb55909e:
+    name: Exemplo de composition.
+    description: Exemplo de composition.    
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition
+  Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5:
+     name: Exemplo de condição de saúde fictícia.
+     description: Exemplo de condição de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition
+  DiagnosticReport/a952a5b4-2bc5-42f8-a3de-af67ec3ea791:
+     name: Exemplo de reporte de diagnóstico.
+     description: Exemplo de reporte de diagnóstico.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport
+  Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df:
+     name: Exemplo de consulta fictícia.
+     description: Exemplo de consultae fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter
+  Immunization/714819de-cd07-4423-94ea-7057504a2cc8:
+     name: Exemplo de imunização.
+     description: Exemplo de imunização fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-immunization
+#  HealthCareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51:
+#     name: Exemplo de serviço de saúde fictícia.
+#     description: Exemplo de serviço de saúde fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice
+  Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba:
+     name: Exemplo de locação.
+     description: Exemplo de locação.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location
+  Medication/3a46210c-7eb3-48ec-aa67-db7e7ee18864:
+     name: Exemplo de medicação.
+     description: Exemplo de medicação fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medication
+#  MedicationAdministration/c2a71a42-d3cd-4be8-8bf4-fdddea59034f:
+#     name: Exemplo de administração de medicação.
+#     description: Exemplo de administração de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationadministration
+#  MedicationDispense/80589c80-643e-43ea-801b-5f32616e9a27:
+#     name: Exemplo de dispensação de medicação.
+#     description: Exemplo de dispensação de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationdispense
+#  MedicationRequest/80589c80-643e-43ea-801b-5f32616e9a27:
+#     name: Exemplo de solicitação  de medicação.
+#     description: Exemplo de solicitação de medicação fictícia.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest
+  MedicationStatement/9d15b978-0743-4a5b-af6f-aac73c027f16:
+     name: Exemplo de declaração de medicação.
+     description: Exemplo de declaração de medicação fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement
+  MedicationStatement/82c41d7b-b125-49ae-825e-8918885ba234:
+     name: Exemplo de declaração de medicação.
+     description: Exemplo de declaração de medicação fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationstatement
+  Observation/52ba1c80-5d2c-4faf-8c90-f4363e20d7bb:
+     name: Exemplo de observação.
+     description: Exemplo de observação de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation  
+#vital signs example
+#  Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
+#    name: Exemplo de sinal vital.
+#    description: Exemplo de sinal vital de um paciente fictício.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns 
+# pregnancystatus
+  Observation/5f147d9b-ff84-44d1-b258-e2c9284098f4:
+     name: Exemplo de pregnancy status.
+     description: Exemplo de pregnancy status de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancystatus
+# pregnancyoutcome
+  Observation/02f99181-eab1-4634-9d58-508c7d4f195b:
+     name: Exemplo de resultado de gravidez.
+     description: Exemplo de resultado de gravidez fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyoutcome   
+# pregnancyedd
+  Observation/90e2319e-dc54-4379-88f3-13c5e74e924e:
+     name: Exemplo de gravidez.
+     description: Exemplo de gravidez fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationpregnancyedd 
+# ObservationBreastFeedingStatus
+  #ObservationBreastFeedingStatus/d8810230-45e2-40a6-8588-ea1624030762:
+   #  name: Exemplo de gravidez.
+    # description: Exemplo de gravidez fictícia.
+     #exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationbreastfeedingstatus 
+# tobaccouse
+  Observation/bcdeed7f-cd8c-4d53-b61e-160471b913eb:
+     name: Exemplo de uso de tabaco.
+     description: Exemplo de uso de tabaco fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationtobaccouse
+# alcoholuse
+  Observation/b359a2d8-dfef-4147-b5a1-3a6437263650:
+     name: Exemplo de uso de álcool.
+     description: Exemplo de uso de álcool fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationalcoholuse
+  Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
+     name: Exemplo de organização.
+     description: Exemplo de organização de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
+  Organization/1428c345-c221-411f-880f-6fb163817387:
+     name: Exemplo de organização.
+     description: Exemplo de organização de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
+  Organization/7b98fd1d-5f85-40f5-9436-2c767ab734ae:
+     name: Exemplo de organização.
+     description: Exemplo de organização de saúde fictícia.
+     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization   
+#male
+  Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e:
+    name: Exemplo de paciente.
+    description: Exemplo de paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
+#female
+  Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617:
+    name: Exemplo de paciente.
+    description: Exemplo de paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
+#child
+  Patient/b1997888-85fd-41b6-bf94-6242cf3c8265:
+    name: Exemplo de paciente.
+    description: Exemplo de paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient
+  Practitioner/d3b61455-f432-48f0-b83b-ba825922d735:
+    name: Exemplo de profissional de saúde.
+    description: Exemplo de profissional de saúde fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner
+  PractitionerRole/69ba81d5-37fe-471e-99d8-e53649ccdeed:
+    name: Exemplo de papel de profissional de saúde.
+    description: Exemplo de papel de profissional de saúde fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole
+  Procedure/b0030c23-bd7d-445e-bfe5-020828f7dbaf:
+    name: Exemplo de procedimento de saúde.
+    description: Exemplo de procedimento de saúde.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-procedure
+  RelatedPerson/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
+    name: Exemplo de uma pessoa relacionada ao paciente.
+    description: Exemplo de uma pessoa relacionada ao paciente.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson
+  #RegistroAtendimentoClinico/7681618d-399d-4291-b321-32ce6d645088:
+   # name: Exemplo de registro de atendimento clínico ao paciente.
+    #description: Exemplo de registro de atendimento clínico ao paciente.
+    #exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-registroatendimentoclinico
+#  ServiceRequest/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
+#    name: Exemplo de uma requisição de serviço.
+#    description: Exemplo de uma requisição de serviço.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest
+#   Specimen/2f42ddad-b9bb-4f68-b5b9-426054529f31:
+#     name: Exemplo de amostra.
+#     description: Exemplo de amostra de um paciente fictício.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen
+#   SumarioAlta/4e14ddc8-13de-4c7f-8913-bfa81633b81b:
+#     name: Exemplo de sumário alta.
+#     description: Exemplo de sumário alta de um paciente fictício.
+#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sumarioalta
+#  VitalSigns/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
+#    name: Exemplo de sinal vital.
+#    description: Exemplo de sinal vital de um paciente fictício.
+#    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-vitalsigns
+
 #   Bundle/234c1054-83a7-4adf-9387-b673b96664d5:
 #     name: Exemplo de IPS Brasileiro.
 #     description: Exemplo de IPS Brasileiro com REL, RIA, RAC e RPM.    
@@ -194,8 +369,6 @@ pages:
     title: Baixar
   premissas.xml:
     title: Princípios, Premissas
-  design.xml:
-    title: Convenções de design
   estrutura.xml:
     title: Estrutura
   modelos.xml:

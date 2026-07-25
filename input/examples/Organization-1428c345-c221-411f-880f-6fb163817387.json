@@ -1,0 +1,118 @@
+{
+    "resourceType": "Organization",
+    "id": "1428c345-c221-411f-880f-6fb163817387",
+    "identifier": [
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "TAX",
+              "display": "Tax ID number"
+            }
+          ]
+        },
+        "system": "https://saude.gov.br/fhir/sid/cnpj",
+        "value": "61590410000124",
+        "assigner": {
+          "display": "Cadastro Nacional da Pessoa Jurídica (CNPJ)"
+        }
+      },
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "PRN",
+              "display": "Provider number"
+            }
+          ]
+        },
+        "system": "https://saude.gov.br/fhir/sid/cnes",
+        "value": "2079127",
+        "assigner": {
+          "display": "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"
+        }
+      }
+    ],
+    "language": "pt-BR",
+    "active": true,
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+            "code": "5",
+            "display": "HOSPITAL GERAL"
+          }
+        ],
+        "text": "Hospital Geral"
+      }
+    ],
+    "name": "Hospital Sírio-Libanês",
+    "alias": [
+      "HSL"
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55-11-3394-0200",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "contato@siriolibanes.com.br",
+        "use": "work"
+      },
+      {
+        "system": "fax",
+        "value": "+55-11-3394-0299",
+        "use": "work"
+      }
+    ],
+    "address": [
+      {
+        "use": "work",
+        "type": "both",
+        "line": [
+          "Rua Dona Adma Jafet, 91"
+        ],
+        "city": "São Paulo",
+        "district": "Bela Vista",
+        "state": "SP",
+        "postalCode": "01308-050",
+        "country": "BR"
+      }
+    ],
+    "contact": [
+      {
+        "purpose": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+              "code": "ADMIN",
+              "display": "Administrative"
+            }
+          ]
+        },
+        "name": {
+          "text": "Departamento Administrativo"
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+55-11-3394-0300",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "administracao@siriolibanes.com.br",
+            "use": "work"
+          }
+        ]
+      }
+    ]
+  }
+  

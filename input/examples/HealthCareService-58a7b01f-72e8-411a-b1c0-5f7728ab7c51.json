@@ -1,0 +1,57 @@
+{
+    "resourceType": "HealthcareService",
+    "id": "58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+    "identifier": [
+      {
+        "system": "https://saude.gov.br/fhir/sid/cnes",
+        "value": "2788578"
+      }
+    ],
+    "language": "pt-BR",  
+    "active": true,
+    "providedBy": {
+      "reference": "Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+      "display": "Consultório Dr. José Silva"
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+            "code": "2",
+            "display": "CENTRO DE SAUDE/UNIDADE BASICA"
+          }
+        ]
+      }
+    ],
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+            "code": "2",
+            "display": "CENTRO DE SAUDE/UNIDADE BASICA"
+          }
+        ]
+      }
+    ],
+    "name": "UBS INDIANOPOLIS SIGMUND FREUD",
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55 11 3394-0200",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "administracao@consultoriojosesilva.com.br",
+        "use": "work"
+      }
+    ],
+    "availabilityExceptions": "24 X 7",
+    "availableTime": [
+      {
+        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"]
+      }
+    ]
+  }

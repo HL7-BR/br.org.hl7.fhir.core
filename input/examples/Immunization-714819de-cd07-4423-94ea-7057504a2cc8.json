@@ -1,0 +1,134 @@
+{
+    "resourceType": "Immunization",
+    "id": "714819de-cd07-4423-94ea-7057504a2cc8",
+    "identifier": [
+      {
+        "system": "https://hospital.example.org/immunizations",
+        "value": "IMM12345"
+      }
+    ],
+    "language": "pt-BR",
+    "status": "completed",
+    "vaccineCode": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRImunobiologico",
+          "code": "87",
+          "display": "COVID-19 PFIZER - COMIRNATY"
+        }
+      ],
+      "text": "Vacina PFIZER COMINARTY COVID-19"
+    },
+    "patient": {
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "display": "José da Silva"
+    },
+    "occurrenceDateTime": "2024-06-01T14:30:00Z",
+    "primarySource": true,
+    "reportOrigin": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRegistroOrigem",
+          "code": "2",
+          "display": "Vaccination abroad"
+        }
+      ]
+    },
+    "location": {
+      "reference": "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+      "display": "Clínica Geral - Enfermaria Norte"
+    },
+    "manufacturer": {
+      "display": "Pfizer"
+    },
+    "lotNumber": "12345AB",
+    "expirationDate": "2024-12-31",
+    "site": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRLocalAplicacao",
+          "code": "20",
+          "display": "Face Anterolateral Externa do Braço Esquerdo"
+        }
+      ]
+    },
+    "route": {
+      "coding": [
+        {
+          "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRViaAdministracao",
+          "code": "10890",
+          "display": "Intramuscular"
+        }
+      ]
+    },
+    "doseQuantity": {
+      "value": 0.3,
+      "unit": "mL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mL"
+    },
+    "performer": [
+      {
+        "function": {
+          "coding": [
+            {
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+              "code": "223505",
+              "display": "ENFERMEIRO"
+            }
+          ]
+        },
+        "actor": {
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
+        }
+      }
+    ],
+    "reasonCode": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BREstrategiaVacinacao",
+            "code": "1",
+            "display": "Rotina"
+          }
+        ]
+      }
+    ],
+    "protocolApplied": [
+      {
+        "series": "COVID-19 Primary Series",
+        "targetDisease": [
+          {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+                "code": "U04",
+                "display": "Síndrome respiratória aguda grave [severe acute respiratory syndrome SARS]"
+              }
+            ]
+          }
+        ],
+        "doseNumberString": "1",
+        "extension": [
+          {
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-pesquisaclinica",
+            "extension": [
+              {
+                "url": "numeroProtocoloEstudoANVISA",
+                "valueString": "12345-ANVISA"
+              },
+              {
+                "url": "numeroVersaoProtocoloEstudo",
+                "valueString": "v1.0"
+              },
+              {
+                "url": "numeroRegistroVacinaAnvisa",
+                "valueString": "98765-VAC"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
