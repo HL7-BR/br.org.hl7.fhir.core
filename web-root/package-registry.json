@@ -9,14 +9,14 @@
       "ci-build" : "https://br-core-ig.web.app",
       "version-count" : 1,
       "latest" : {
-        "version" : "0.1.1",
-        "date" : "2024-08-27",
-        "path" : "https://br-core.saude.gov.br/fhir/v0.1.1"
+        "version" : "1.0.0",
+        "date" : "2026-07-25",
+        "path" : "https://br-core.saude.gov.br/fhir/v1.0.0"
       },
       "milestone" : {
-        "version" : "0.1.1",
-        "date" : "2024-08-27",
-        "path" : "https://br-core.saude.gov.br/fhir/v0.1.1"
+        "version" : "1.0.0",
+        "date" : "2026-07-25",
+        "path" : "https://br-core.saude.gov.br/fhir/v1.0.0"
       }
     }
   ]
