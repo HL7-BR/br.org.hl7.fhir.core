@@ -1,0 +1,82 @@
+{
+    "resourceType": "CareTeam",
+    "id": "0af04a2a-5174-438d-85ae-fc83df65541e",
+    "language": "pt-BR",
+    "status": "active",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRModalidadeAssistencial",
+            "code": "04",
+            "display": "Atenção Hospitalar"
+          }
+        ],
+        "text": "Time de Coordenação de Cuidado"
+      }
+    ],
+    "name": "Equipe de Saúde da Família - Unidade São Paulo",
+    "subject": {
+      "reference": "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+      "display": "Ana Beatriz"
+    },
+    "participant": [
+      {
+        "role": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "PRF",
+                "display": "performer"
+              }
+            ]
+          }
+        ],
+        "member": {
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
+        },
+        "onBehalfOf": {
+          "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+          "display": "Hospital Sírio-Libanês"
+        },
+        "period": {
+          "start": "2023-01-01"
+        }
+      },
+      {
+        "role": [
+          {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+                "code": "225125",
+                "display": "MEDICO CLINICO"
+              }
+            ]
+          }
+        ],
+        "member": {
+          "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display": "Maria Clara"
+        },
+        "period": {
+          "start": "2023-01-01"
+        }
+      }
+    ],
+    "managingOrganization": [
+      {
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+55 11 98765-4321",
+        "use": "work"
+      }
+    ]
+  }

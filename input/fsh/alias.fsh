@@ -1,5 +1,11 @@
-Alias: $structuredefinition-br-core-populacao-tradicional = https://br-core.saude.gov.br/StructureDefinition/br-core-populacao-tradicional
+Alias: $loinc = https://loinc.org/
 
-Alias: $codesystem-br-core-populacao-tradicional = https://terminologia.saude.gov.br/CodeSystem/BRPopulacaoTradicional
+Alias: $structuredefinition-patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-birthPlace
 
-Alias: $valueset-br-core-populacao-tradicional = https://terminologia.saude.gov.br/fhir/ValueSet/BRPopulacaoTradicional
+Alias: $structuredefinition-patient-genderIdentity = https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips
+
+Alias: $structuredefinition-patient-racaBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips
+
+Alias: $structuredefinition-patient-povoIndigenaBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/povo-indigena-br-ips
+
+Alias: $structuredefinition-patient-sexoNascimentoBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips

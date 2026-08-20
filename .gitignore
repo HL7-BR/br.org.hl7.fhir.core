@@ -1,17 +1,16 @@
 # Temporary folders #
 #####################
 temp
-template
 output
+template
 fsh-generated
 node_modules
 log
 packages
 
-# Don't commit this because it's so large #
-###########################################
-/input-cache/org.hl7.fhir.publisher.jar
-/input-cache/publisher.jar
+# Build cache do IG Publisher (regenerado, nao versionar) #
+###########################################################
+/input-cache/
 
 # Windows generated files #
 ###########################
@@ -33,3 +32,21 @@ Thumbs.db
 /web-root/fhir
 ig-registry
 ig-history
+
+# Deploy / publish local - NAO VERSIONAR (contem credenciais) #
+###############################################################
+/deploy.bat
+/publish.bat
+/build.bat
+/build-and-publish.bat
+/.firebase/
+/.firebaserc
+/firebase.json
+.env
+
+# Documentos de trabalho, fora do escopo do IG #
+################################################
+/BR-Core-Consent-Narrativa-FHIR-Layout.docx
+/RELATORIO-TERMINOLOGIA-OCL.md
+/Requirements-fromNarrative.json
+/StructureDefinition-mypatient.html

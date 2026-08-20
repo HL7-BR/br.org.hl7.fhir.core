@@ -8,219 +8,329 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
 
     <table>
         <tbody>
-            <tr>
+        <tr>
                 <td>
-                    <a href="StructureDefinition-AllergyIntoleranceBRIPS.html"
-                        title="StructureDefinition/AllergyIntoleranceBRIPS">AllergyIntoleranceBRIPS</a>
+                    <a href="StructureDefinition-br-core-allergyintolerance.html"
+                        title="StructureDefinition/br-core-allergyintolerance.fsh">br-core-allergyintolerance</a>
                 </td>
                 <td>
-                    <p>Alergia ou intolerância (geralmente: risco de reação adversa a uma
-                        substância)</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-BundleBRIPS.html"
-                        title="StructureDefinition/BundleBRIPS">BundleBRIPS</a>
-                </td>
-                <td>
-                    <p>Esse perfil representa as restrições aplicadas ao recurso Bundle no Guia
-                        de Implementação do International Patient Summary (IPS).</p>
+                    <p>Este perfil define as características mínimas para o recurso br-core-allergyintolerance registrar, pesquisar e buscar alergias/reações adversas associadas a um paciente.</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-CompositionBRIPS.html"
-                        title="StructureDefinition/CompositionBRIPS">CompositionBRIPS</a>
+                    <a href="StructureDefinition-br-core-address.html"
+                        title="StructureDefinition/br-core-address.fsh">br-core-address</a>
                 </td>
                 <td>
-                    <p>Documento clínico usado para representar o conjunto de dados do International Patient Summary (IPS). Um documento de International Patient Summary (IPS) é um extrato de registro eletrônico de saúde que contém informações essenciais de saúde sobre um assunto de cuidado. O conjunto de dados IPS é mínimo e não exaustivo; independente de especialidade e independente de condição; mas ainda clinicamente relevante. Conforme especificado na EN 17269 e na ISO 27269, foi concebido para apoiar o cenário de utilização de «cuidados transfronteiriços não planeados», mas não se limita a ele. Pretende ser internacional, ou seja, fornecer soluções genéricas para aplicação global além de uma determinada região ou país. 
-                        Este perfil é baseado no perfil ClinicalDocument.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-ConditionBRIPS.html"
-                        title="StructureDefinition/ConditionBRIPS">ConditionBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Condition no Guia de Implementação FHIR do International Patient Summary
-                     Um registro de um problema é representado no sumário do paciente como uma instância do recurso Condition restringido por esse perfil.</p>
+                    <p>Este perfil define o tipo de dado Address para uso no contexto brasileiro, incluindo extensões para aldeia, DSEI e polo base.</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-DiagnosticReportBRIPS.html"
-                        title="StructureDefinition/DiagnosticReportBRIPS">DiagnosticReportBRIPS</a>
+                    <a href="StructureDefinition-br-core-appointment.html"
+                        title="StructureDefinition/br-core-appointment.fsh">br-core-appointment</a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso DiagnosticReport para representar testes de diagnóstico e relatórios de procedimentos 
-                    em um sumário do paciente.</p>
+                    <p>Este perfil descreve o agendamento de atendimentos e procedimentos, incluindo status, participantes, horários e justificativas clínicas.</p>
+                </td>
+            </tr>
+<tr>
+                <td>
+                    <a href="StructureDefinition-br-core-capacidadefuncional.html"
+                        title="StructureDefinition/br-core-capacidadefuncional.fsh">br-core-capacidadefuncional</a>
+                </td>
+                <td>
+                    <p>Este perfil é utilizado para registrar informações detalhadas sobre a condição, problema, diagnóstico ou outro evento, situação, problema ou conceito clínico que caracteriza a incapacidade funcional do paciente.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-careplan.html"
+                        title="StructureDefinition/br-core-careplan.fsh">br-core-careplan</a>
+                </td>
+                <td>
+                    <p>Este perfil descreve a intenção de como um ou mais profissionais pretendem prestar cuidados a um determinado paciente, grupo ou comunidade por um período de tempo, possivelmente limitado ao cuidado de uma condição específica ou conjunto de condições.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-careteam.html"
+                        title="StructureDefinition/br-core-careteam.fsh">br-core-careteam</a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso CareTeam que inclui todas as pessoas e organizações que planejam participar da coordenação e prestação de cuidados a um paciente.</p>
+                </td>
+            </tr>
+  <tr>
+  <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-composition.html"
+                        title="StructureDefinition/br-core-composition.fsh">br-core-composition</a>
+                </td>
+                <td>
+                    <p>Este perfil representa conjunto de informações relacionadas aos cuidados em sáude que são reunidas em um único bundle lógico que estabelece seu próprio contexto e atesta quem está fazendo a declaração. Uma Composição define a estrutura e o conteúdo narrativo necessários para um documento. </p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-ImagingStudyBRIPS.html"
-                        title="StructureDefinition/ImagingStudyBRIPS">ImagingStudyBRIPS</a>
+                    <a href="StructureDefinition-br-core-condition.html"
+                        title="StructureDefinition/br-core-condition.fsh">br-core-condition</a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso ImagingStudy pelo projeto IPS, que especifica as informações sobre um estudo de imagem DICOM
-                     do qual este resultado de imagem faz parte.</p>
+                    <p>Este perfil é utilizado para registrar informações detalhadas sobre uma condição, problema, diagnóstico ou outro evento, situação, problema ou conceito clínico que atingiu um nível de preocupação.</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-ImmunizationBRIPS.html"
-                        title="StructureDefinition/ImmunizationBRIPS">ImmunizationBRIPS</a>
+                    <a href="StructureDefinition-br-core-consent.html"
+                        title="StructureDefinition/br-core-consent.fsh">br-core-consent</a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso de Imunização pelo Guia de Implementação FHIR do International Patient Summary (IPS). 
-                    Um registro de uma imunização é representado no sumário do paciente como uma instância de um recurso de Imunização restrito por esse perfil.</p>
+                    <p>Este perfil define as características mínimas para registrar consentimentos de tratamento de dados pessoais em conformidade com a LGPD.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-diagnosticreport.html"
+                        title="StructureDefinition/br-core-diagnosticreport.fsh">br-core-diagnosticreport</a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso DiagnosticReport  que representa as descobertas e a interpretação de testes diagnósticos realizados em pacientes, grupos de pacientes, dispositivos e locais, e/ou amostras derivadas destes.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-encounter.html"
+                        title="StructureDefinition/br-core-encounter.fsh">br-core-encounter</a>
+                </td>
+                <td>
+                    <p>Este perfil descreve uma interação entre um paciente e o(s) prestador(es) de  serviços saúde com a finalidade de fornecer serviço(s) de saúde ou avaliar o estado de saúde de um paciente.</p>
                 </td>
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-MedicationBRIPS.html"
-                        title="StructureDefinition/MedicationBRIPS">MedicationBRIPS</a>
+                    <a href="StructureDefinition-br-core-healthcareservice.html"
+                        title="StructureDefinition/br-core-healthcareservice.fsh">br-core-healthcareservice </a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Medicação pelo Guia de Implementação FHIR do International Patient Summary (IPS), baseado no FHIR R4. 
-                    Um medicamento é descrito no resumo do paciente como uma instância de um recurso Medication restrito por esse perfil.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-MedicationRequestBRIPS.html"
-                        title="StructureDefinition/MedicationRequestBRIPS">MedicationRequestBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso MedicationRequest pelo Guia de Implementação FHIR do International Patient Summary (IPS), baseado no FHIR R4. 
-                    Um registro de uma solicitação de medicação é representado no sumário do paciente como uma instância de um recurso MedicationRequest restrito por esse perfil.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-MedicationStatementBRIPS.html"
-                        title="StructureDefinition/MedicationStatementBRIPS">
-                        MedicationStatementBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso MedicationStatement pelo Guia de Implementação FHIR do International Patient Summary (IPS), baseado no FHIR R4. 
-                    Um registro de uma declaração de medicação é representado no sumário do paciente como uma instância de um recurso MedicationStatement restrito por esse perfil.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-ObservationResultsBRIPS.html"
-                        title="StructureDefinition/ObservationResultsBRIPS">ObservationResultsBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil restringe o recurso Observation para representar vários tipos de resultados e observações associadas em um sumário do paciente. 
-                    Este é o perfil base do qual derivam os outros perfis de resultados.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="StructureDefinition-ObservationResultsLaboratoryBRIPS.html"
-                        title="StructureDefinition/ObservationResultsLaboratoryBRIPS">
-                        ObservationResultsLaboratoryBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil restringe o recurso Observation para representar resultados produzidos 
-                    por testes laboratoriais ou painéis/estudos em um sumário do paciente.</p>
-                </td>
-            </tr>
-           <tr>
-                <td>
-                    <a href="StructureDefinition-ObservationResultsPathologyBRIPS.html"
-                        title="StructureDefinition/ObservationResultsPathologyBRIPS">
-                        ObservationResultsPathologyBRIPS</a>
-                </td>
-                <td>
-                    <p>Este perfil restringe o recurso Observation para representar resultados produzidos por exames
-                     de patologia clínica em um sumário do paciente.</p>
+                    <p>Este perfil restringe o recurso HealthcareService que representa os detalhes de um serviço de saúde disponível em um local.</p>
                 </td>
             </tr>
              <tr>
                 <td>
-                    <a href="StructureDefinition-ObservationResultsRadiologyBRIPS.html"
-                        title="StructureDefinition/ObservationResultsRadiologyBRIPS">
-                        ObservationResultsRadiologyBRIPS</a>
+                    <a href="StructureDefinition-br-core-immunization.html"
+                        title="StructureDefinition/br-core-immunization.fsh">br-core-immunization </a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Observation pelo projeto IPS, que especifica 
-                    uma observação radiológica para o International Patient Summary com base no padrão FHIR R4.</p>
+                    <p>Este perfil restringe o recurso Immunization que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte.</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-OrganizationBRIPS.html"
-                        title="StructureDefinition/OrganizationBRIPS">OrganizationBRIPS</a>
+                    <a href="StructureDefinition-br-core-location.html"
+                        title="StructureDefinition/br-core-location.fsh">br-core-location </a>
                 </td>
                 <td>
-                    <p>Espaço físico delimitado e permanente onde são realizadas ações e serviços de
-                        saúde humana sob responsabilidade técnica.</p>
+                    <p>Este perfil restringe o recurso Location que aborda detalhes e informações da posição de um local físico onde os serviços são fornecidos e os recursos e participantes podem ser armazenados, encontrados, contidos ou acomodados.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-medication.html"
+                        title="StructureDefinition/br-core-medication.fsh">br-core-medication </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR Medication e identifica um medicamento para fins de prescrição, dispensação e administração de um medicamento, bem como para fazer declarações sobre medicamentos no Brasil.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-medicationrequest.html"
+                        title="StructureDefinition/br-core-medicationrequest.fsh">br-core-medicationrequest </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR MedicationRequest e descreve uma solicitação para fornecimento instruções para administração de um medicamento ao paciente.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-medicationadministration.html"
+                        title="StructureDefinition/br-core-medicationadministration.fsh">br-core-medicationadministration </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR MedicationAdministration e descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde.</p>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-medicationdispense.html"
+                        title="StructureDefinition/br-core-medicationdispense.fsh">br-core-medicationdispense </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR MedicationDispense e descreve que um medicamento deve ser ou foi dispensado para uma pessoa/paciente. O recurso inclui a descrição do medicamento (suprimento) fornecido bem como as instruções para a sua administração. A dispensação do medicamento é o resultado de um  pedido de medicamentos feito por um sistema de informações.  </p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-PatientBRIPS.html"
-                        title="StructureDefinition/PatientBRIPS">PatientBRIPS</a>
+                    <a href="StructureDefinition-br-core-medicationstatement.html"
+                        title="StructureDefinition/br-core-medicationstatement.fsh">br-core-medicationstatement </a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Patient pelo International Patient Summary (IPS) FHIR Implementation Guide 
-                    e descreve as expectativas mínimas para o recurso Patient quando utilizado na Composition do IPS ou num dos referidos recursos.</p>
-                </td>
+                    <p>Este perfil restringe o recurso FHIR R4 MedicationStatement e descreve uma declaração de um paciente, um prestador de serviços de saúde ou outra parte de que um medicamento é tomado, foi tomado ou deve ser tomado por um paciente. </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-PractitionerBRIPS.html"
-                        title="StructureDefinition/PractitionerBRIPS">PractitionerBRIPS</a>
+                    <a href="StructureDefinition-br-core-observation.html"
+                        title="StructureDefinition/br-core-observation.fsh">br-core-observation </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso do profissional de saúde para representar um profissional de saúde 
-                    que atua como observador dos resultados desta imagem.</p>
-                </td>
+                    <p>Este rperfil restringe o recurso FHIR R4 Observation e registra medidas e declarações simples feitas sobre um paciente, dispositivo ou outro assunto. </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-PractitionerRoleBRIPS.html"
-                        title="StructureDefinition/PractitionerRoleBRIPS">PractitionerRoleBRIPS</a>
+                    <a href="StructureDefinition-br-core-observationalcoholuse.html"
+                        title="StructureDefinition/br-core-observationalcoholuse.fsh">br-core-observationalcohooluse </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso PractitionerRole para representar um profissional que atua como observador 
-                    dos resultados do Observation para uma organização específica.</p>
-                </td>
+                    <p>Este perfil restringe o recurso FHIR Observation, projetado para documentar a avaliação do uso de álcool em um resumo de paciente.  </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-ProcedureBRIPS.html"
-                        title="StructureDefinition/ProcedureBRIPS">ProcedureBRIPS</a>
+                    <a href="StructureDefinition-br-core-observationbreastfeedingstatus.html"
+                        title="StructureDefinition/br-core-observationbreastfeedingstatus.fsh">br-core-observationbreastfeedingstatus </a>
                 </td>
                 <td>
-                    <p>Este perfil representa as restrições aplicadas ao recurso Procedure pelo projeto IPS, que especifica uma entrada 
-                    do Histórico de Procedimentos para o sumário Internacional do paciente com base no padrão FHIR R4.</p>
-                </td>
+                    <p>Esse perfil restringe o recurso Observation para registrar informações sobre o tipo de aleitamento materno do paciente nos seus primeiros anos de vida  </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-VitalSignsBRIPS.html"
-                        title="StructureDefinition/VitalSignsBRIPS">VitalSignsBRIPS</a>
+                    <a href="StructureDefinition-br-core-observationpregnancyedd.html"
+                        title="StructureDefinition/br-core-observationpregnancyedd.fsh">br-core-obserobservationpregnancyedd </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso VitalSigns para representar os sinais vitais do paciente.</p>
-                </td>
+                    <p>Este perfil restringe o recurso Observation para representar a data prevista para o parto.  </p>
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-SpecimenBRIPS.html"
-                        title="StructureDefinition/SpecimenBRIPS">SpecimenBRIPS</a>
+                    <a href="StructureDefinition-br-core-observationpregnancyoutcome.html"
+                        title="StructureDefinition/br-core-observationpregnancyoutcome.fsh">br-core-pbservationpregnancyoutcome </a>
                 </td>
                 <td>
-                    <p>Este perfil restringe o recurso Specimen para representar as características de amostras biológicas no contexto de resultados
-                     laboratoriais integrados a um sumário do paciente.</p>
-                </td>
+                    <p>Este perfil restringe o recurso Observation para representar a data prevista para o parto.  </p>
             </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-observationpregnancystatus.html"
+                        title="StructureDefinition/br-core-observationpregnancystatus.fsh">br-core-observationpregnancystatus </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso Observation para representar o histórico resumido dos resultados da gravidez.  </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-observationtobaccouse.html"
+                        title="StructureDefinition/br-core-observationtobaccouse.fsh">br-core-observationtobaccouse </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso Observation para representar a avaliação sobre tabagismo em um registro de atendimento clínico ou em um sumário do paciente.  </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-organization.html"
+                        title="StructureDefinition/br-core-organization.fsh">br-core-organization </a>
+                </td>
+                <td>
+                    <p>Este perfil representa um agrupamento formal ou informal reconhecido de pessoas ou organizações com o propósito de alcançar alguma forma de ação coletiva. Inclui empresas, instituições, corporações, departamentos, grupos comunitários, grupos de práticas de saúde, planos de saúde, empresas fabricantes de produtos medicinais, entre outros.  </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-patient.html"
+                        title="StructureDefinition/br-core-patient.fsh">br-core-patient </a>
+                </td>
+                <td>Este perfil representa todas as informações demográficas e administrativas necessárias para descrever um paciente no Brasil, com as respectivas legislações dos elementos e domínios obrigatórios conforme abaixo.  O perfil br-core-patient herda do recurso FHIR R4 Patient para definições de escopo e uso. Este perfil representa um agrupamento formal ou informal reconhecido de pessoas ou organizações com o propósito de alcançar alguma forma de ação coletiva. Inclui empresas, instituições, corporações, departamentos, grupos comunitários, grupos de práticas de saúde, planos de saúde, empresas fabricantes de produtos medicinais, entre outros.  </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-practitioner.html"
+                        title="StructureDefinition/br-core-practitioner.fsh">br-core-practitioner </a>
+                </td>
+                <td> Este perfil representa uma pessoa que está direta ou indiretamente envolvida na prestação de cuidados de saúde ou serviços relacionados ao paciente. </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-practitionerrole.html"
+                        title="StructureDefinition/br-core-practitionerrole.fsh">br-core-practitionerrole </a>
+                </td>
+                <td> Este perfil representa um conjunto específico de funções/locais/especialidades/serviços que um profissional pode desempenhar em uma organização por um período de tempo.  </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-procedure.html"
+                        title="StructureDefinition/br-core-procedure.fsh">br-core-procedure </a>
+                </td>
+                <td> Este perfil descreve uma ação que é ou foi realizada em ou para um paciente. Pode ser uma intervenção física como uma operação, ou menos invasiva como serviços de longo prazo, aconselhamento ou hipnoterapia. </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-registroatendimentoclinico.html"
+                        title="StructureDefinition/br-core-registroatendimentoclinico.fsh">br-core-registroatendimentoclinico </a>
+                </td>
+                <td> Esse perfil representa um documento clínico, o registro de atendimento clínico, definido pela PORTARIA Nº 234, DE 18 DE JULHO DE 2022, que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-relatedperson.html"
+                        title="StructureDefinition/br-core-relatedperson.fsh">br-core-relatedperson </a>
+                </td>
+                <td> Este perfil contém as informações sobre uma pessoa envolvida no cuidado de um paciente, mas que não é alvo de cuidados de saúde nem tem responsabilidade formal no processo de cuidado.  </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-servicerequest.html"
+                        title="StructureDefinition/br-core-servicerequest.fsh">br-core-servicerequest </a>
+                </td>
+                <td> Este perfil representa  uma solicitação de serviço, como investigações diagnósticas, tratamentos ou operações a serem realizadas.  </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-schedule.html"
+                        title="StructureDefinition/br-core-schedule.fsh">br-core-schedule </a>
+                </td>
+                <td> Este perfil representa agendas e disponibilidades de profissionais, serviços ou locais de saúde para suporte ao processo de agendamento. </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-slot.html"
+                        title="StructureDefinition/br-core-slot.fsh">br-core-slot </a>
+                </td>
+                <td> Este perfil representa blocos de tempo disponíveis ou reservados em uma agenda para marcação de consultas e procedimentos. </p>
+            </tr>
+            <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-specimen.html"
+                        title="StructureDefinition/br-core-specimen.fsh">br-core-specimen </a>
+                </td>
+                <td> Este perfil representa as características de amostras biológicas no contexto de resultados laboratoriais.   </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-sumarioalta.html"
+                        title="StructureDefinition/br-core-sumarioalta.fsh">br-core-sumarioalta </a>
+                </td>
+                <td> Este perfil representa as informações da alta hospitalar, conforme a PORTARIA Nº 701, DE 29 DE SETEMBRO DE 2022.   </p>
+            </tr>
+             <tr>
+                <td>
+                    <a href="StructureDefinition-br-core-vitalsigns.html"
+                        title="StructureDefinition/br-core-vitalsigns.fsh">br-core-vitalsigns </a>
+                </td>
+                <td> Este perfil representa medidas de sinais vitais. O perfil especifica quais elementos principais, extensões, vocabulários e conjuntos de valores DEVEM estar presentes no recurso e restringe como os elementos são usados.   </p>
+            </tr>
+  </p>
+           
         </tbody>
     </table>
 </div>

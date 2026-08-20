@@ -1,0 +1,81 @@
+Profile: BRCoreDiagnosticReport
+Parent: http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+Id: br-core-diagnosticreport
+Description: "Este perfil restringe o recurso [DiagnosticReport](https://hl7.org/fhir/R4/diagnosticreport.html) que representa as descobertas e a interpretação de testes diagnósticos realizados em pacientes, grupos de pacientes, dispositivos e locais, e/ou espécimes derivados destes. O relatório inclui contexto clínico, como solicitação e informações do provedor, e alguma mistura de resultados atômicos, imagens, interpretações textuais e codificadas, e representação formatada de relatórios diagnósticos"
+
+* id ^short = "Identificador lógico deste artefato"
+* id ^definition = "Identificador lógico deste artefato"
+* meta ^short = "Metadados sobre o recurso"
+* meta ^definition = "Metadados sobre o recurso" 
+* implicitRules ^short = "Um conjunto de regras sob as quais este conteúdo foi criado"
+* implicitRules ^definition = "Um conjunto de regras sob as quais este conteúdo foi criado"
+* language ^short = "Idioma do recurso"
+* language ^definition = "Idioma do recurso"
+* text ^short = "Resumo do texto do recurso em linguagem natural"
+* text ^definition = "Resumo do texto do recurso em linguagem natural"
+* contained ^short = "Recursos contidos no recurso"
+* contained ^definition = "Recursos contidos no recurso"
+* extension ^short = "Extensões adicionais que não fazem parte do modelo base"
+* extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
+* extension ^slicing.discriminator.type = #value
+* extension ^slicing.discriminator.path = "url"
+* extension ^slicing.rules = #open
+* extension contains https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport-conduta named conduta 0..*
+* extension[conduta] ^short = "Conduta associada ao laudo"
+* extension[conduta] ^definition = "Esta extensão representa uma conduta associada ao laudo, fornecendo orientações ou sugestões baseadas nos resultados do diagnóstico para o manejo clínico do paciente."
+* modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+* modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+* identifier ^short = "Identificadores externos para este recurso"
+* identifier ^definition = "Identificadores externos para este recurso"
+* basedOn ^short = "O que foi solicitado"
+* basedOn ^definition = "O que foi solicitado"
+* basedOn only Reference(br-core-careplan or ImmunizationRecommendation or br-core-medicationrequest or NutritionOrder or br-core-servicerequest)
+* status ^short = "O status do relatório de diagnóstico"
+* status ^definition = "O status do relatório de diagnóstico"
+* category ^short = "Categoria do serviço" 
+* category ^definition = "Categoria do serviço"
+* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado (example)
+* code ^short = "Nome/Código para este relatório de diagnóstico"
+* code ^definition = "Nome/Código para este relatório de diagnóstico"
+* subject ^short = "O indivíduo do relatório - geralmente, mas nem sempre, o paciente"
+* subject ^definition = "O indivíduo do relatório - geralmente, mas nem sempre, o paciente"
+* subject only Reference(br-core-patient)
+* encounter ^short = "Evento de assistência médica quando o teste foi solicitado"
+* encounter ^definition = "Evento de assistência médica quando o teste foi solicitado"
+* encounter only Reference(br-core-encounter)
+* effective[x] ^short = "Tempo/período de tempo clinicamente relevante para o relatório"
+* effective[x] ^definition = "Tempo/período de tempo clinicamente relevante para o relatório"
+* issued ^short = "Data e hora em que esta versão foi feita"
+* issued ^definition = "Data e hora em que esta versão foi feita"
+* performer ^short = "Serviço de diagnóstico (SADT) responsável"
+* performer ^definition = "Serviço de diagnóstico (SADT) responsável"
+* performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam)
+* resultsInterpreter ^short = "Intérprete de resultado"
+* resultsInterpreter ^definition = "Intérprete de resultado"
+* resultsInterpreter only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam)
+* specimen ^short = "Amostras deste relatório"
+* specimen ^definition = "Amostras deste relatório"
+* specimen only Reference(br-core-specimen)
+* result ^short = "Observations"
+* result ^definition = "Observations"
+* result only Reference(br-core-observation)
+* imagingStudy ^short = "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico"
+* imagingStudy ^definition = "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico"
+* media ^short = "Imagens associadas a este relatório"
+* media ^definition = "Imagens associadas a este relatório"
+* media.id ^short = "Identificador único para referência cruzada"
+* media.id ^definition = "Identificador único para referência cruzada"
+* media.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
+* media.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
+* media.modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+* media.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+* media.comment ^short = "Comentário sobre a imagem"
+* media.comment ^definition = "Comentário sobre a imagem"
+* media.link ^short = "Referência à fonte da imagem"
+* media.link ^definition = "Referência à fonte da imagem"
+* conclusion ^short = "Conclusão clínica (interpretação) dos resultados"
+* conclusion ^definition = "Conclusão clínica (interpretação) dos resultados"
+* conclusionCode ^short = "Códigos da conclusão clínica dos resultados"
+* conclusionCode ^definition = "Códigos da conclusão clínica dos resultados"
+* presentedForm ^short = "Relatório completo conforme emitido"
+* presentedForm ^definition = "Relatório completo conforme emitido"

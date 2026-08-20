@@ -1,0 +1,113 @@
+{
+    "resourceType": "Condition",
+    "id": "91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+    "language": "pt-BR",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        }
+      ]
+    },
+    "verificationStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        }
+      ]
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCategoriaDiagnostico",
+            "code": "01",
+            "display": "Principal"
+          }
+        ]
+      }
+    ],
+    "severity": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "6736007"
+        }
+      ]
+    },
+    "bodySite": [
+      {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "80891009",
+            "display": "Heart structure (body structure)"
+          }
+        ],
+         "text": "Coração"
+      }
+    ],
+    "code": {
+      "coding": [
+          {
+            "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+            "code": "B34.2",
+            "display": "Infecção por coronavírus de localização não especificada"
+          }
+        ]
+    },
+    "subject": {
+      "reference": "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "type": "Patient",
+      "display": "João Carlos Silva"
+    },
+    "encounter": {
+      "reference": "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "display": "Ambulatorial"
+    },
+    "onsetDateTime": "2024-03-28",
+    "recordedDate": "2024-04-05T10:00:00Z",
+    "recorder": {
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
+    },
+    "asserter": {
+      "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display": "Maria Clara"
+    },
+    "evidence": [
+      {
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+                "code": "R50.9",
+                "display": "Febre não especificada"
+              },
+              {
+                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+                "code": "R05",
+                "display": "Tosse"
+              }
+            ]
+          }
+        ],
+        "detail": [
+          {
+            "reference": "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+            "display": "Vital Signs"
+          }
+        ]
+      }
+    ],
+    "note": [
+      {
+        "text": "Paciente apresentou melhora significativa após início do tratamento com antibióticos."
+      }
+    ]
+  }

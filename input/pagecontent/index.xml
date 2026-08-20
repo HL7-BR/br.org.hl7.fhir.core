@@ -1,112 +1,14 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <a name="intro"> </a>
   <h3>Introdução</h3>
 
-  <p align="justify">
-    O projeto IPS Brasil é um projeto PROADI – NUP 25000.087254/2022-79 sob a gestão da Coordenação
-    Geral de Inovação e Informática em Saúde (CGIIS) da Secretaria de Saúde Digital do Ministério da
-    Saúde do Brasil. O projeto foi executado pelo Hospital Sírio Libanês no período de janeiro a
-    dezembro de 2023. O objetivo geral do Projeto foi o de gerar o Sumário Internacional do Paciente
-    no Ministério da Saúde nos componentes de Imunização, Exames, Alergias/Reações Adversas e
-    Medicamentos como apoio à implantação da ESD 20-28.
-    As seguintes etapas foram realizadas na construção deste Guia de Implantação:
-  </p>
+  <p align="justify">O Guia de Implementação FHIR br-core é um marco na padronização da interoperabilidade em saúde no Brasil, servindo como o núcleo de implementação do padrão HL7 FHIR adaptado ao contexto brasileiro. Desenvolvido sob a liderança da Coordenação Geral de Inovação e Informática em Saúde (CGIIS) da Secretaria de Saúde Digital do Ministério da Saúde, e em alinhamento à Estratégia de Saúde Digital do Brasil 2020-2028 (ESD 20-28), este guia apoia a consolidação de um ecossistema de dados interoperáveis, promovendo maior eficiência, segurança e qualidade na troca de informações em saúde.</p>
 
-  <p align="justify">
-    Fase 1 – Repositório Semântico – nesta fase todas as terminologias adotadas na RNDS para os
-    componentes de Imunização, Exames, Alergias/Reações Adversas, Medicamentos, bem como as
-    terminologias internacionais adotadas no IPS incluindo SNOMED CT IPS, e os Dicionários do HL7
-    FHIR R4 utilizados nos perfis que compõem o IPS foram carregados no serviço de terminologia open
-    source Open Concept Lab – OCL, compatível com o padrão HL7 Common Terminology Services 2;
-  </p>
+  <p align="justify">Baseado nas melhores práticas internacionais, o br-core considera as necessidades e especificidades do sistema de saúde brasileiro. O guia é resultado de um esforço colaborativo entre instituições públicas e privadas, com suporte técnico e normativo de organizações nacionais e internacionais, como o HL7 International e a Organização Pan-Americana de Saúde (PAHO).</p>
 
-  <p align="justify">
-    Fase 2- Os mapeamentos entre os vocabulários locais e os vocabulários internacionais do IPS e
-    inserir estes dados como mapas de conceito foram também carregados no serviço de terminologia
-    OCL. As regras identificação dos graus de equivalência e cardinalidade dos mapeamentos foi
-    conform a norma ABNT ISO TR – 12300 Informática em saúde — Princípios de mapeamento entre
-    sistemas terminológicos. O grau de equivalência dos mapeamentos conforme a norma ABNT/ISSO 12300
-    é descrito como: 1 - Equivalência de significado léxica e também conceitual; 2-Equivalência de
-    significado, mas com sinonímia; 3 -O conceito-fonte é mais amplo e tem menos significado
-    específico que o conceito/termo-alvo; 4 - O conceito-fonte é mais restrito e tem mais
-    significado específico que o conceito/termo-alvo; 5 - Nenhum mapeamento é possível;
-  </p>
+  <p align="justify">O Guia br-core oferece diretrizes claras para a adoção e implementação do FHIR no Brasil, promovendo a interoperabilidade semântica e técnica entre sistemas de saúde. Além disso, ele harmoniza dados entre esferas públicas e privadas e alinha o Brasil com padrões globais, assegurando a inserção do país em redes de saúde digital como a Global Digital Health Network (GDHCN).</p>
 
-  <p align="justify">
-    Fase 3 – Os acoplamentos semânticos e referenciais nos perfis HL7 FHIR do IPS conforme os
-    vocabulários nacionais e mapas de conceito definidos e incorporados no serviço de terminologia
-    OCL;
-  </p>
-
-  <p align="justify">
-    Fase 4 – O Guia de Implementação do IPS Brasil foi gerado;
-  </p>
-
-  <p align="justify">
-    Fase 5 – A prova de conceito por meio de uma conectatona foi a participação nos eixos 1 –
-    Sumário Internacional do Paciente e 2 – Certificado de Vacina DDCC conforme OMS da conectatona
-    RACSEL/LACPASS em São Paulo de 12 a 14 de novembro de 2023. A conectatona foi organizada pela
-    Organização Pan Americana de Saúde (PAHO - https://www.paho.org/en), Banco Interamericano de
-    Desenvolvimento (BID - https://www.iadb.org/pt-br ) , Red de América Latina y el Caribe de Salud
-    Digital ( RACSEL - https://www.racsel.org), Centro Nacional en Sistemas de Información en Salud
-    (CENS - https://cens.cl) e IHE Catalyst (IHE-Catalyst - https://ihe-catalyst.net). O Brasil
-    recebeu prêmio destaque nas trilhas um e dois.
-  </p>
-
-  <a name="estrutura"> </a>
-  <h3>Estrutura do IPS</h3>
-
-  <p align="justify">
-    O Sumário Internacional do Paciente (International Patient Summary - IPS) é resultado de um trabalho coordenado e harmonizado entre as principais organizações produtoras de padrões  em informática em saúde (OPPIS): o Comitê Europeu ISO de Informática em Saúde - CEN215, o comitê ISO 215 Health Informatics, o HL7  e SNOMED International [1]. O IPS foi publicado como padrão ISO em 2021 pelo Comitê ISO 215 como a norma ISO 27269:2021 Health informatics — International patient summary [2]. Em junho de 2021, os países membros do G7 assinaram a declaração de Oxford, se comprometendo a adotar o Sumário Internacional do Paciente - (International Patient Summary - IPS) como padrão de troca de informação em saúde entre os países [3].  A iniciativa do G7 foi estendida para o G20 e o primeiro piloto de implantação global do IPS tem como foco o bloco de imunização COVID com a emissão do certificado internacional de imunização COVID-19.
-  </p>
-
-  <p align="justify">    
-    O Sumário Internacional do Paciente (International Patient Summary – IPS) é um registro eletrônico de saúde que contém informações essenciais de saúde destinadas ao uso em cenários de atendimento não programados e transfronteiriços para garantir que os dados do paciente os acompanhem em qualquer lugar garantindo assim, a continuidade do cuidado. O IPS  é composto por diferentes seções principais:    
-  </p>
+  <p align="justify">Este guia consolida os avanços do Brasil na área de interoperabilidade em saúde, fortalecendo a infraestrutura nacional para alcançar uma troca de informações segura e eficaz, com impacto direto na qualidade do cuidado em saúde.</p>
   
-  <p align="justify">
-    Cabeçalho – contém os dados do paciente, do profissional de saúde que gerou o sumário, da organização custodiante das informações e assinatura digital;  
-  </p>
-  
-  <p align="justify">
-    Sumário de Medicações – medicações em uso pelo paciente; Alergias e Intolerâncias – alergias e intolerâncias do paciente;  
-  </p>
-  
-  <p align="justify">    
-    Lista de Problemas – condições clínicas do paciente; 
-  </p>
-
-  <p align="justify">
-    Imunizações – lista de imunizantes administrados no paciente;     
-  </p>
-
-  <p align="justify">    
-    Histórico de Procedimentos – lista de procedimentos clínicos/cirúrgicos relevantes que o paciente foi submetido; 
-  </p>
-   
-  <p align="justify">
-    Dispositivos Médicos – dispositivos que o paciente possui e Resultados de Exames  - laudos de exames atuais do paciente.  
-  </p>
-    
-  <p align="justify">
-    Seções adicionais podem, ainda, compor o IPS, tais como:   sinais vitais, história pregressa incluindo a história obstétrica e social, status funcional, plano de cuidados e diretivas avançadas de vida [1]. A Figura 1 exibe a estrutura do Sumário Internacional do Paciente.
-  </p>
-
-  <img src="ips-estrutura.png" alt="IPS" width="100%" height="100%"/>
-  <p align="center">Imagem 1 - Estrutura do IPS Brasil.</p>
-
-  <p align="justify">
-    O IPS está hoje em desenvolvimento por vários países, nos diferentes continentes: Nova Zelândia, Vietnam, Holanda, Suécia, Inglaterra, Canadá e na América Latina pela Argentina e Brasil. Para garantir a interoperabilidade semântica das informações coletadas por diferentes países a maior e mais utilizada terminologia clínica disponível SNOMED-CT oferece um subconjunto de cerca de 30.000 conceitos de uso livre para a comunidade de desenvolvedores do padrão IPS: SNOMED-CT IPS [4].  
-  </p>
-
-  <p align="justify">
-    O IPS é um extrato de um registro eletrônico de saúde que contém informações essenciais de saúde destinadas ao uso em ambientes de cuidados não programados e transfronteiriços [1,2]. O IPS é composto por diferentes seções principais: Cabeçalho – contém os dados do paciente, do profissional de saúde que gerou o resumo, a organização custodiante da informação e a assinatura digital; Resumo de Medicamentos – medicamentos em uso pelo paciente; Alergias e Intolerâncias – alergias e intolerâncias dos pacientes; Lista de Problemas – condições clínicas do paciente; Imunizações – lista de vacinas administradas ao paciente; Histórico de Procedimentos – relação de procedimentos clínicos/cirúrgicos relevantes aos quais o paciente foi submetido; Dispositivos Médicos – dispositivos que o paciente possui e Resultados de Testes – relatórios atuais de testes de pacientes. Seções adicionais também podem compor o IPS: sinais vitais, história pregressa incluindo história obstétrica e social, estado funcional, plano de cuidados e diretrizes avançadas de vida [1,2].
-  </p>
-
-  <a name="escopo"> </a>
-  <h3>Escopo</h3>
-
-  <p align="justify">
-    Conforme Plano de Trabalho aprovado pela publicação em DOU de Nº 235, quinta-feira, 15 de dezembro de 2022, seção 3, ISSN 1677-7069, o escopo para o desenvolvimento do Sumário Internacional do Paciente para o Brasil (BR IPS) foi de construir o Guia de Implantação do Sumário Internacional do Paciente – IPS BRASIL para os componentes Imunização, Exames, Alergias/Reações Adversas e Medicamentos, conforme os padrões Health Level 7 Fast Healthcare Interoperability Resources (HL7-FHIR).
-  </p>
 </div>
