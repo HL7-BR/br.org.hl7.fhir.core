@@ -10,7 +10,7 @@
 id: br.gov.saude.br-core.fhir
 canonical: https://br-core.saude.gov.br/fhir
 url: https://br-core.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.br-core.fhir
-name: BR-CORE
+name: BRCORE
 title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
@@ -37,7 +37,7 @@ releaseLabel: STU1
 # as IG.publisher.  The contact details and/or additional publishers
 # will be translated into IG.contact values.
 publisher:
-  name: Ministério do Saúde do Brasil 
+  name: Ministério da Saúde do Brasil 
   url: https://gov.br/saude
   email: contato@gointerop.com
 
