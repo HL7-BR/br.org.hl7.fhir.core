@@ -8,6 +8,9 @@
   "mode": "working",
   "path": "https://br-core.saude.gov.br/fhir/v1.0.0",
   "ci-build": "https://br-core-ig.web.app",
+  "registry-description": "Guia de implementação do Core do Brasil que estabelece os perfis para interoperabilidade e transações em território brasileiro",
+  "registry-country": "br",
+  "registry-authority": "Ministério da Saúde do Brasil",
   "first": true,
   "status": "release",
   "sequence": "Releases"
