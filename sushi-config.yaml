@@ -16,7 +16,7 @@ description: Guia de Implementação Core de Interoperabilidade em Saúde Digita
 status: active
 license: CC0-1.0
 date: 2023-05-08
-version: 1.0.0
+version: 1.1.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
