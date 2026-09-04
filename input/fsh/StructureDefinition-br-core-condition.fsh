@@ -37,7 +37,7 @@ Description: "Este perfil representa as restrições aplicadas ao recurso FHIR R
 * bodySite from http://hl7.org/fhir/ValueSet/body-site (example)
 * code ^short = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
 * code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRProblemaDiagnostico (example)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaConmdi (example)
 * subject ^short = "Referência aos dados sobre o indivíduo cuja a condição de saúde está sendo avaliada"
 * subject ^definition = "Referência aos dados sobre o indivíduo cuja a condição de saúde está sendo avaliada"
 * subject only Reference(br-core-patient)
