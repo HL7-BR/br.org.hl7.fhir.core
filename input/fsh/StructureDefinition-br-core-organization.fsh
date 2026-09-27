@@ -29,7 +29,9 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier contains
     cnes 0..1 and
     cpf 0..1 and
-    cnpj 0..1
+    cnpj 0..1 and
+    dsei 0..1 and
+    poloBase 0..1
 * identifier[cnes] ^short = "Identificador do estabelecimento (CNES)"
 * identifier[cnes] ^definition = "Identificador do estabelecimento"
 * identifier[cnes].id ^short = "Id lógico do identificador do estabelecimento"
@@ -223,6 +225,134 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * identifier[cnpj].assigner.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
 * identifier[cnpj].assigner.display ^short = "Nome da entidade que atribuiu o identificador da organização"
 * identifier[cnpj].assigner.display ^definition = "Nome da entidade que atribuiu o identificador da organização"
+* identifier[dsei] ^short = "Identificador do Distrito Sanitário Especial Indígena (DSEI)"
+* identifier[dsei] ^definition = "Identificador do Distrito Sanitário Especial Indígena (DSEI) atribuído pela Secretaria de Saúde Indígena (SESAI)"
+* identifier[dsei].id ^short = "Id lógico do identificador do estabelecimento"
+* identifier[dsei].id ^definition = "Id lógico do identificador do estabelecimento"
+* identifier[dsei].extension ^short = "Extensões do identificador do estabelecimento"
+* identifier[dsei].extension ^definition = "Extensões incluídas no identificador do estabelecimento"
+* identifier[dsei].use ^short = "Uso do identificador do estabelecimento"
+* identifier[dsei].use ^definition = "usual: identificador usual do estabelecimento. official: identificador oficial do estabelecimento. temp: identificador temporário do estabelecimento. secondary: identificador secundário do estabelecimento"
+* identifier[dsei].use = http://hl7.org/fhir/identifier-use#official (exactly)
+* identifier[dsei].type ^short = "Tipo do identificador do estabelecimento"
+* identifier[dsei].type ^definition = "Código que representa o tipo do identificador do estabelecimento"
+* identifier[dsei].type ^binding.description = "Tipo do identificador do estabelecimento"
+* identifier[dsei].type ^binding.strength = #required
+* identifier[dsei].type ^binding.valueSet = http://hl7.org/fhir/ValueSet/identifier-type
+* identifier[dsei].type.id ^short = "Id lógico do tipo do identificador do estabelecimento"
+* identifier[dsei].type.id ^definition = "Id lógico do tipo do identificador do estabelecimento"
+* identifier[dsei].type.extension ^short = "Extensões do tipo do identificador do estabelecimento"
+* identifier[dsei].type.extension ^definition = "Extensões incluídas no tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding 1..1
+* identifier[dsei].type.coding ^short = "Codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding ^definition = "Codificação que representa o tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.id ^short = "Id lógico da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.id ^definition = "Id lógico da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.extension ^short = "Extensões da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.extension ^definition = "Extensões incluídas na codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.system 1..1
+* identifier[dsei].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203" (exactly)
+* identifier[dsei].type.coding.system ^short = "Sistema da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.system ^definition = "Sistema que identifica a codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.version ^short = "Versão da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.version ^definition = "Versão da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.code 1..1
+* identifier[dsei].type.coding.code ^short = "Código da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.code ^definition = "Código que representa a codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.display ^short = "Texto da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.display ^definition = "Texto que representa a codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.userSelected ^short = "Seleção do usuário da codificação do tipo do identificador do estabelecimento"
+* identifier[dsei].type.coding.userSelected ^definition = "Indica se a codificação do tipo do identificador do estabelecimento foi selecionada pelo usuário"
+* identifier[dsei].type.text ^short = "Texto do tipo do identificador do estabelecimento"
+* identifier[dsei].type.text ^definition = "Texto que representa o tipo do identificador do estabelecimento"
+* identifier[dsei].system 1..1
+* identifier[dsei].system ^short = "Sistema do identificador do estabelecimento"
+* identifier[dsei].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
+* identifier[dsei].system = "https://saude.gov.br/fhir/sid/dsei" (exactly)
+* identifier[dsei].value 1..1
+* identifier[dsei].value ^short = "Valor do identificador do estabelecimento"
+* identifier[dsei].value ^definition = "Valor do identificador do estabelecimento"
+* identifier[dsei].period ^short = "Período de uso do identificador do estabelecimento"
+* identifier[dsei].period ^definition = "Período de tempo durante o qual o identificador do estabelecimento foi utilizado"
+* identifier[dsei].assigner ^short = "Referência à organização que atribuiu o identificador ao estabelecimento"
+* identifier[dsei].assigner ^definition = "Referência à organização que atribuiu o identificador ao estabelecimento"
+* identifier[dsei].assigner only Reference(br-core-organization)
+* identifier[dsei].assigner.id ^short = "Identificador único para referência cruzada"
+* identifier[dsei].assigner.id ^short = "Identificador único para referência cruzada"
+* identifier[dsei].assigner.extension ^short = "Extensões adicionais definidas pela implementação"
+* identifier[dsei].assigner.extension ^definition = "Extensões adicionais definidas pela implementação"
+* identifier[dsei].assigner.reference ^short = "Referência literal, URL relativa, interna ou absoluta"
+* identifier[dsei].assigner.reference ^definition = "Referência literal, URL relativa, interna ou absoluta"
+* identifier[dsei].assigner.type ^short = "Tipo referenciado (p. ex. br-core-patient)"
+* identifier[dsei].assigner.type ^definition = "Tipo referenciado (p. ex. br-core-patient)"
+* identifier[dsei].assigner.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
+* identifier[dsei].assigner.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
+* identifier[dsei].assigner.display ^short = "Nome da entidade que atribuiu o identificador da organização"
+* identifier[dsei].assigner.display ^definition = "Nome da entidade que atribuiu o identificador da organização"
+* identifier[poloBase] ^short = "Identificador do Polo Base"
+* identifier[poloBase] ^definition = "Identificador do Polo Base atribuído pela Secretaria de Saúde Indígena (SESAI)"
+* identifier[poloBase].id ^short = "Id lógico do identificador do estabelecimento"
+* identifier[poloBase].id ^definition = "Id lógico do identificador do estabelecimento"
+* identifier[poloBase].extension ^short = "Extensões do identificador do estabelecimento"
+* identifier[poloBase].extension ^definition = "Extensões incluídas no identificador do estabelecimento"
+* identifier[poloBase].use ^short = "Uso do identificador do estabelecimento"
+* identifier[poloBase].use ^definition = "usual: identificador usual do estabelecimento. official: identificador oficial do estabelecimento. temp: identificador temporário do estabelecimento. secondary: identificador secundário do estabelecimento"
+* identifier[poloBase].use = http://hl7.org/fhir/identifier-use#official (exactly)
+* identifier[poloBase].type ^short = "Tipo do identificador do estabelecimento"
+* identifier[poloBase].type ^definition = "Código que representa o tipo do identificador do estabelecimento"
+* identifier[poloBase].type ^binding.description = "Tipo do identificador do estabelecimento"
+* identifier[poloBase].type ^binding.strength = #required
+* identifier[poloBase].type ^binding.valueSet = http://hl7.org/fhir/ValueSet/identifier-type
+* identifier[poloBase].type.id ^short = "Id lógico do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.id ^definition = "Id lógico do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.extension ^short = "Extensões do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.extension ^definition = "Extensões incluídas no tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding 1..1
+* identifier[poloBase].type.coding ^short = "Codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding ^definition = "Codificação que representa o tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.id ^short = "Id lógico da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.id ^definition = "Id lógico da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.extension ^short = "Extensões da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.extension ^definition = "Extensões incluídas na codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.system 1..1
+* identifier[poloBase].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203" (exactly)
+* identifier[poloBase].type.coding.system ^short = "Sistema da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.system ^definition = "Sistema que identifica a codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.version ^short = "Versão da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.version ^definition = "Versão da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.code 1..1
+* identifier[poloBase].type.coding.code ^short = "Código da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.code ^definition = "Código que representa a codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.display ^short = "Texto da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.display ^definition = "Texto que representa a codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.userSelected ^short = "Seleção do usuário da codificação do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.coding.userSelected ^definition = "Indica se a codificação do tipo do identificador do estabelecimento foi selecionada pelo usuário"
+* identifier[poloBase].type.text ^short = "Texto do tipo do identificador do estabelecimento"
+* identifier[poloBase].type.text ^definition = "Texto que representa o tipo do identificador do estabelecimento"
+* identifier[poloBase].system 1..1
+* identifier[poloBase].system ^short = "Sistema do identificador do estabelecimento"
+* identifier[poloBase].system ^definition = "Sistema que identifica o tipo do identificador do estabelecimento"
+* identifier[poloBase].system = "https://saude.gov.br/fhir/sid/polo-base" (exactly)
+* identifier[poloBase].value 1..1
+* identifier[poloBase].value ^short = "Valor do identificador do estabelecimento"
+* identifier[poloBase].value ^definition = "Valor do identificador do estabelecimento"
+* identifier[poloBase].period ^short = "Período de uso do identificador do estabelecimento"
+* identifier[poloBase].period ^definition = "Período de tempo durante o qual o identificador do estabelecimento foi utilizado"
+* identifier[poloBase].assigner ^short = "Referência à organização que atribuiu o identificador ao estabelecimento"
+* identifier[poloBase].assigner ^definition = "Referência à organização que atribuiu o identificador ao estabelecimento"
+* identifier[poloBase].assigner only Reference(br-core-organization)
+* identifier[poloBase].assigner.id ^short = "Identificador único para referência cruzada"
+* identifier[poloBase].assigner.id ^short = "Identificador único para referência cruzada"
+* identifier[poloBase].assigner.extension ^short = "Extensões adicionais definidas pela implementação"
+* identifier[poloBase].assigner.extension ^definition = "Extensões adicionais definidas pela implementação"
+* identifier[poloBase].assigner.reference ^short = "Referência literal, URL relativa, interna ou absoluta"
+* identifier[poloBase].assigner.reference ^definition = "Referência literal, URL relativa, interna ou absoluta"
+* identifier[poloBase].assigner.type ^short = "Tipo referenciado (p. ex. br-core-patient)"
+* identifier[poloBase].assigner.type ^definition = "Tipo referenciado (p. ex. br-core-patient)"
+* identifier[poloBase].assigner.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
+* identifier[poloBase].assigner.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
+* identifier[poloBase].assigner.display ^short = "Nome da entidade que atribuiu o identificador da organização"
+* identifier[poloBase].assigner.display ^definition = "Nome da entidade que atribuiu o identificador da organização"
 * active ^short = "Indica se a Organização está ativa" 
 * active ^definition = "Indica se a Organização está ativa"
 * type ^short = "Tipo da organização"

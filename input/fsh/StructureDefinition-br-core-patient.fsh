@@ -371,6 +371,13 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * address.id ^definition = "Identificação unívoca para o recurso em um sistema"
 * address.extension ^short = "Extensões adicionais"
 * address.extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
+* address.extension contains
+    br-core-address-aldeia named aldeia 0..1 and
+    br-core-address-dsei named dsei 0..1
+* address.extension[aldeia] ^short = "Aldeia indígena do endereço do paciente"
+* address.extension[aldeia] ^definition = "Referência à aldeia indígena onde o paciente reside"
+* address.extension[dsei] ^short = "DSEI do endereço do paciente"
+* address.extension[dsei] ^definition = "Referência ao Distrito Sanitário Especial Indígena (DSEI) responsável pela região do endereço do paciente"
 * address.use ^short = "Uso do endereço"
 * address.use ^definition = "home | work | temp | old - propósito do endereço"
 * address.type ^short = "Tipo de endereço"

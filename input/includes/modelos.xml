@@ -19,15 +19,6 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-address.html"
-                        title="StructureDefinition/br-core-address.fsh">br-core-address</a>
-                </td>
-                <td>
-                    <p>Este perfil define o tipo de dado Address para uso no contexto brasileiro, incluindo extensões para aldeia, DSEI e polo base.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <a href="StructureDefinition-br-core-appointment.html"
                         title="StructureDefinition/br-core-appointment.fsh">br-core-appointment</a>
                 </td>
