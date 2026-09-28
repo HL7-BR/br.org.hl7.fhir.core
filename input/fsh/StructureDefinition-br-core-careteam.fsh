@@ -1,69 +1,86 @@
 Profile: BRCoreCareTeam
-Parent: http://hl7.org/fhir/StructureDefinition/CareTeam
+Parent: CareTeam
 Id: br-core-careteam
-Title: "br-core-careteam"
-Description: "Este perfil restringe o recurso [CareTeam](https://hl7.org/fhir/R4/careteam.html) que inclui todas as pessoas e organizações que planejam participar da coordenação e prestação de cuidados a um paciente"
+Title: "BR-Core CareTeam"
+Description: "Equipe de cuidado no contexto brasileiro. O identificador da equipe pode ser o Identificador Nacional de Equipe (INE) do CNES e/ou identificadores atribuídos por estabelecimentos, secretarias de saúde ou sistemas de informação."
+* ^status = #draft
+* ^experimental = false
 
-* id ^short = "Identificador lógico deste artefato"
-* id ^definition = "Identificador lógico deste artefato"
-* meta ^short = "Metadados sobre o recurso"
-* meta ^definition = "Metadados sobre o recurso" 
-* implicitRules ^short = "Um conjunto de regras sob as quais este conteúdo foi criado"
-* implicitRules ^definition = "Um conjunto de regras sob as quais este conteúdo foi criado"
-* language ^short = "Idioma do recurso"
-* language ^definition = "Idioma do recurso"
-* text ^short = "Resumo do texto do recurso em linguagem natural"
-* text ^definition = "Resumo do texto do recurso em linguagem natural"
-* contained ^short = "Recursos contidos no recurso"
-* contained ^definition = "Recursos contidos no recurso"
-* extension ^short = "Extensões adicionais que não fazem parte do modelo base"
-* extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
-* modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
-* modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
-* identifier ^short = "Identificadores externos para este recurso"
-* identifier ^definition = "Identificadores externos para este recurso"
-* status ^short = "proposed | active | suspended | inactive | entered-in-error"
-* status ^definition = "proposed | active | suspended | inactive | entered-in-error"
-* category ^short = "Tipo da equipe assistêncial"
-* category ^definition = "Tipo da equipe assistêncial"
-* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencial
-* name ^short = "Nome da equipe assistêncial"
-* name ^definition = "Nome da equipe assistêncial"
-* subject ^short = "Paciente referenciado pela equipe assistêncial"
-* subject ^definition = "Paciente referenciado pela equipe assistêncial"
-* subject only Reference(br-core-patient)
-* encounter ^short = "Referência ao atendimento"
-* encounter ^definition = "Referência ao atendimento"
-* encounter only Reference(br-core-encounter)
-* period ^short = "Período de atendimento pela a equipe assistêncial"
-* period ^definition = "Período de atendimento pela a equipe assistêncial"
-* participant ^short = "Lista de participantes envolvidos no atendimento"
-* participant ^definition = "Lista de participantes envolvidos no atendimento"
-* participant.id ^short = "Identificador único para referência cruzada"
-* participant.id ^definition = "Identificador único para referência cruzada"
-* participant.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
-* participant.modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
-* participant.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
-* participant.role ^short = "Função do participante na equipe assistêncial"
-* participant.role ^definition = "Função do participante na equipe assistêncial"
-* participant.role from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (example)
-* participant.member ^short = "Referência ao partipante"
-* participant.member ^definition = "Referência ao partipante"
-* participant.member only Reference(br-core-practitioner or br-core-practitionerrole or br-core-relatedperson or br-core-patient or br-core-organization or br-core-careteam)
-* participant.onBehalfOf ^short = "Organização do participante"
-* participant.onBehalfOf ^definition = "Organização do participante"
-* participant.onBehalfOf only Reference(br-core-organization)
-* participant.period ^short = "Período de tempo do participante atua no time assistêncial"
-* participant.period ^definition = "Período de tempo do participante atua no time assistêncial"
-* reasonCode ^short = "Motivo pelo qual a equipe assistência foi criada"
-* reasonCode ^definition = "Motivo pelo qual a equipe assistência foi criada"
-* reasonReference ^short = "Referência aos diagnóstico que esta equipe assistencial cobre"
-* reasonReference ^definition = "Referência aos diagnóstico que esta equipe assistencial cobre"
-* reasonReference only Reference(br-core-condition)
-* managingOrganization ^short = "Organização da equipe assistêncial"
-* managingOrganization ^definition = "Organização da equipe assistêncial"
-* managingOrganization only Reference(br-core-organization)
-* telecom ^short = "Contato da equipe assistencial"
-* telecom ^definition = "Contato da equipe assistencial"
-* note ^short = "Comentários adicionais sobre a equipe assistencial"
-* note ^definition = "Comentários adicionais sobre a equipe assistencial"
+// identifier            0..*  Identifier
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier ^slicing.ordered = false
+* identifier ^slicing.description = "Fatiamento por system. INE é slice nomeado; demais identificadores são admitidos pelo slicing aberto."
+* identifier contains ine 0..1
+* identifier[ine] ^short = "INE: Identificador Nacional de Equipe (CNES)"
+* identifier[ine] ^definition = "Identificador Nacional de Equipe atribuído pelo CNES, usado quando a equipe está cadastrada no CNES."
+* identifier[ine].system 1..1
+* identifier[ine].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/ine" (exactly)
+* identifier[ine].value 1..1
+
+// status                0..1  code                       CareTeamStatus (required)
+// category              0..*  CodeableConcept            CareTeamCategory (example)
+// name                  0..1  string
+// subject               0..1  Reference(Patient | Group)
+// encounter             0..1  Reference(Encounter)
+// period                0..1  Period
+// participant           0..*  BackboneElement            ctm-1
+//   role                0..*  CodeableConcept            ParticipantRoles (example)
+//   member              0..1  Reference(Practitioner | PractitionerRole | RelatedPerson | Patient | Organization | CareTeam)
+//   onBehalfOf          0..1  Reference(Organization)
+//   period              0..1  Period
+// reasonCode            0..*  CodeableConcept            SNOMED CT Clinical Findings (example)
+// reasonReference       0..*  Reference(Condition)
+// managingOrganization  0..*  Reference(Organization)
+// telecom               0..*  ContactPoint
+// note                  0..*  Annotation
+
+// =====================================================================
+// Exemplos
+// =====================================================================
+
+Instance: br-core-careteam-esf-ine
+InstanceOf: BRCoreCareTeam
+Usage: #example
+Title: "Equipe de Saúde da Família identificada por INE"
+Description: "Equipe cadastrada no CNES, identificada pelo INE."
+* identifier[ine].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/ine"
+* identifier[ine].value = "0000123456"
+* identifier[ine].use = #official
+* status = #active
+* name = "ESF Vila Esperança 01"
+* participant[0].member = Reference(PractitionerRole/medica-esf-01)
+* participant[1].member = Reference(PractitionerRole/enfermeira-esf-01)
+* managingOrganization = Reference(Organization/ubs-vila-esperanca)
+
+Instance: br-core-careteam-hospitalar-local
+InstanceOf: BRCoreCareTeam
+Usage: #example
+Title: "Equipe hospitalar com identificador institucional"
+Description: "Equipe sem INE, identificada pelo hospital que a mantém."
+* identifier[0].system = "https://hospital-exemplo.org.br/fhir/NamingSystem/equipes"
+* identifier[0].value = "EMTN-UTI-02"
+* identifier[0].use = #usual
+* identifier[0].assigner = Reference(Organization/hospital-exemplo)
+* status = #active
+* name = "Equipe Multiprofissional de Terapia Nutricional - UTI Adulto"
+* participant[0].member = Reference(PractitionerRole/nutricionista-uti-01)
+* managingOrganization = Reference(Organization/hospital-exemplo)
+
+Instance: br-core-careteam-emad-ine-local
+InstanceOf: BRCoreCareTeam
+Usage: #example
+Title: "EMAD com INE e identificador municipal"
+Description: "Equipe cadastrada no CNES que também possui identificador no sistema da secretaria municipal."
+* identifier[ine].system = "https://terminologia.saude.gov.br/fhir/NamingSystem/ine"
+* identifier[ine].value = "0000654321"
+* identifier[ine].use = #official
+* identifier[1].system = "https://sms-exemplo.gov.br/fhir/NamingSystem/equipes"
+* identifier[1].value = "EMAD-NORTE-03"
+* identifier[1].use = #secondary
+* identifier[1].assigner = Reference(Organization/sms-exemplo)
+* status = #active
+* name = "EMAD Regional Norte 03"
+* participant[0].member = Reference(PractitionerRole/medico-emad-03)
+* managingOrganization = Reference(Organization/sms-exemplo)
