@@ -14,7 +14,9 @@ Este perfil deve possuir minimamente um identificador que pode ser o Cadastro Na
 
 ### Extensões
 
-Este perfil não possui extensões.
+Este perfil possui a seguinte extensão:
+
+* **subType** ([br-core-organization-subtype](StructureDefinition-br-core-organization-subtype.html)), 0..1: subtipo do estabelecimento de saúde, que detalha o tipo informado em `Organization.type`. Binding *preferred* ao ValueSet [SubtipoEstabelecimento](https://terminologia.saude.gov.br/fhir/ValueSet/SubtipoEstabelecimento), que inclui, por exemplo, Distrito Sanitário Especial Indígena (DSEI) e Polo-base da Saúde Indígena.
 
 ### Limites e relacionamentos
 
