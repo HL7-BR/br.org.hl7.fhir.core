@@ -58,7 +58,7 @@ jurisdiction: urn:iso:std:iso:3166#BR "Brazil"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  br.gov.saude.terminologia.fhir: 1.0.0
+  br.gov.saude.terminologia.fhir: 1.2.0
   br.gov.saude.ips.fhir: 1.0.0
 
 # The global property corresponds to the IG.global property, but it
