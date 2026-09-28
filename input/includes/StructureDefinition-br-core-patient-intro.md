@@ -190,6 +190,13 @@ O endereço do paciente será representado pelo tipo de dados Address do FHIR R4
       <td>Reference(<a href="StructureDefinition-br-core-organization.html">br-core-organization</a>)</td>
       <td>Extensão <a href="StructureDefinition-br-core-address-dsei.html">br-core-address-dsei</a>. Uso no contexto da saúde indígena.</td>
     </tr>
+    <tr>
+      <td>extension:municipio</td>
+      <td>Código IBGE do município do endereço</td>
+      <td>0..1</td>
+      <td>CodeableConcept</td>
+      <td>Extensão <a href="StructureDefinition-br-core-address-municipio.html">br-core-address-municipio</a>. Binding <i>required</i> em <a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRMunicipio">https://terminologia.saude.gov.br/fhir/ValueSet/BRMunicipio</a>.</td>
+    </tr>
   </tbody>
 </table>
 
