@@ -17,6 +17,10 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * contained ^definition = "Recursos contidos no recurso"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
+* extension contains
+    BRCoreOrganizationSubType named subType 0..1
+* extension[subType] ^short = "Subtipo do estabelecimento de saúde"
+* extension[subType] ^definition = "Subtipo do estabelecimento de saúde, que detalha o tipo informado em Organization.type"
 * modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * identifier ^short = "Identificadores externos para este recurso"
