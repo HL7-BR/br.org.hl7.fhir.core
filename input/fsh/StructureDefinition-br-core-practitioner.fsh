@@ -528,6 +528,13 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * telecom ^definition = "nformações do(s) meio(s) de contato com o profissional. Não devem ser informados meios de contato pessoais, apenas profissionais"
 * address ^short = "Endereços do profissional"
 * address ^definition = "Dados do(s) endereço(s) onde o profissional pode ser localizado. Não devem ser informados endereços pessoais, apenas profissionais"
+* address.extension contains
+    br-core-address-aldeia named aldeia 0..1 and
+    br-core-address-municipio named municipio 0..1
+* address.extension[aldeia] ^short = "Aldeia indígena do endereço"
+* address.extension[aldeia] ^definition = "Aldeia indígena do endereço profissional"
+* address.extension[municipio] ^short = "Município do endereço (código IBGE)"
+* address.extension[municipio] ^definition = "Código IBGE do município do endereço profissional"
 * gender ^short = "Sexo"
 * gender ^definition = "male: masculino. female: feminino. unknown: ignorado"
 * birthDate ^short = "Data de nascimento"

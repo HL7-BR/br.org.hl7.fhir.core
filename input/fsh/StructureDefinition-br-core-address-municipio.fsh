@@ -1,8 +1,8 @@
 Extension: BRCoreMunicipio
 Id: br-core-address-municipio
 Title: "Município (código IBGE)"
-Description: "Extensão que permite informar o código IBGE do município do endereço do paciente."
-Context: Patient.address
+Description: "Extensão que permite informar o código IBGE do município do endereço do paciente, do estabelecimento ou do profissional."
+Context: Patient.address, Organization.address, Practitioner.address
 
 * ^version = "1.0.0"
 * ^status = #active
@@ -14,7 +14,7 @@ Context: Patient.address
 * ^copyright = "Copyright © 2026 HL7 Brasil"
 * . 0..1
 * . ^short = "Município do endereço (código IBGE)"
-* . ^definition = "Código IBGE do município do endereço do paciente."
+* . ^definition = "Código IBGE do município do endereço."
 * . ^comment = "Complementa Address.city, que continua contendo o nome do município em texto."
 * value[x] 1..1
 * value[x] only CodeableConcept

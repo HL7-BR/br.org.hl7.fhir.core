@@ -130,7 +130,10 @@ Os profissionais também são frequentemente agrupados em CareTeams independente
 
 ### Extensões
 
-Este perfil não possui extensões.
+Este perfil possui as seguintes extensões:
+
+* **address.aldeia** ([br-core-address-aldeia](StructureDefinition-br-core-address-aldeia.html)), 0..1: código da aldeia indígena do endereço profissional, no contexto da saúde indígena. Binding *required* ao ValueSet [BRAldeia](https://terminologia.saude.gov.br/fhir/ValueSet/BRAldeia).
+* **address.municipio** ([br-core-address-municipio](StructureDefinition-br-core-address-municipio.html)), 0..1: código IBGE do município do endereço profissional. Binding *required* ao ValueSet [BRMunicipio](https://terminologia.saude.gov.br/fhir/ValueSet/BRMunicipio).
 
 ### Limites e relacionamentos
 

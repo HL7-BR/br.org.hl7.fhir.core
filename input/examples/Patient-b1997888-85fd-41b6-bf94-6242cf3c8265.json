@@ -36,7 +36,10 @@
         {
             "use": "official",
             "family": "Oliveira",
-            "given": ["Ana", "Beatriz"]
+            "given": [
+                "Ana",
+                "Beatriz"
+            ]
         }
     ],
     "telecom": [
@@ -64,7 +67,6 @@
                     {
                         "system": "http://snomed.info/sct",
                         "code": "446141000124107"
-
                     }
                 ]
             }
@@ -79,7 +81,7 @@
                         "display": "Preta"
                     }
                 ]
-            } 
+            }
         },
         {
             "url": "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
@@ -96,13 +98,63 @@
     ],
     "address": [
         {
+            "extension": [
+                {
+                    "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+                                "code": "3106200",
+                                "display": "Belo Horizonte"
+                            }
+                        ]
+                    }
+                }
+            ],
             "use": "home",
             "type": "both",
             "text": "Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010",
-            "line": ["Rua da Bahia, 300"],
+            "line": [
+                "Rua da Bahia, 300"
+            ],
             "city": "Belo Horizonte",
             "state": "MG",
             "postalCode": "30160-010",
+            "country": "Brasil"
+        },
+        {
+            "extension": [
+                {
+                    "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-aldeia",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAldeia",
+                                "code": "65329",
+                                "display": "KAA GUY MIRIM"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+                                "code": "3522109",
+                                "display": "Itanhaém"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "use": "old",
+            "type": "physical",
+            "text": "Aldeia Kaa Guy Mirim, Itanhaém, SP",
+            "city": "Itanhaém",
+            "state": "SP",
             "country": "Brasil"
         }
     ],
@@ -122,7 +174,10 @@
             "name": {
                 "use": "official",
                 "family": "Oliveira",
-                "given": ["Juliana", "Cristina"]
+                "given": [
+                    "Juliana",
+                    "Cristina"
+                ]
             },
             "telecom": [
                 {
@@ -139,7 +194,9 @@
             "address": {
                 "use": "home",
                 "text": "Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010",
-                "line": ["Rua da Bahia, 300"],
+                "line": [
+                    "Rua da Bahia, 300"
+                ],
                 "city": "Belo Horizonte",
                 "state": "MG",
                 "postalCode": "30160-010",
