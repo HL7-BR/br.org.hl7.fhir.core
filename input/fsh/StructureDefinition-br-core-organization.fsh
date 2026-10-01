@@ -373,6 +373,13 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * address 1..1
 * address ^short = "Endereço"
 * address ^definition = "Endereço"
+* address.extension contains
+    br-core-address-aldeia named aldeia 0..1 and
+    br-core-address-municipio named municipio 0..1
+* address.extension[aldeia] ^short = "Aldeia indígena do endereço"
+* address.extension[aldeia] ^definition = "Aldeia indígena do endereço do estabelecimento"
+* address.extension[municipio] ^short = "Município do endereço (código IBGE)"
+* address.extension[municipio] ^definition = "Código IBGE do município do endereço do estabelecimento"
 * partOf ^short = "Referência à Organização associada (p.ex. Mantenedora)"
 * partOf ^definition = "Referência à Organização associada (p.ex. Mantenedora)"
 * partOf only Reference(br-core-organization)

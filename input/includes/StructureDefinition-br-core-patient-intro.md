@@ -178,17 +178,10 @@ O endereço do paciente será representado pelo tipo de dados Address do FHIR R4
     </tr>
     <tr>
       <td>extension:aldeia</td>
-      <td>Aldeia indígena onde o paciente reside</td>
+      <td>Aldeia indígena do endereço do paciente</td>
       <td>0..1</td>
-      <td>Reference(<a href="StructureDefinition-br-core-location.html">br-core-location</a>)</td>
-      <td>Extensão <a href="StructureDefinition-br-core-address-aldeia.html">br-core-address-aldeia</a>. Uso no contexto da saúde indígena.</td>
-    </tr>
-    <tr>
-      <td>extension:dsei</td>
-      <td>Distrito Sanitário Especial Indígena (DSEI) responsável pela região do endereço</td>
-      <td>0..1</td>
-      <td>Reference(<a href="StructureDefinition-br-core-organization.html">br-core-organization</a>)</td>
-      <td>Extensão <a href="StructureDefinition-br-core-address-dsei.html">br-core-address-dsei</a>. Uso no contexto da saúde indígena.</td>
+      <td>CodeableConcept</td>
+      <td>Extensão <a href="StructureDefinition-br-core-address-aldeia.html">br-core-address-aldeia</a>. Binding <i>required</i> em <a href="https://terminologia.saude.gov.br/fhir/ValueSet/BRAldeia">https://terminologia.saude.gov.br/fhir/ValueSet/BRAldeia</a>.</td>
     </tr>
     <tr>
       <td>extension:municipio</td>

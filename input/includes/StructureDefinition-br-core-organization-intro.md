@@ -14,9 +14,11 @@ Este perfil deve possuir minimamente um identificador que pode ser o Cadastro Na
 
 ### Extensões
 
-Este perfil possui a seguinte extensão:
+Este perfil possui as seguintes extensões:
 
 * **subType** ([br-core-organization-subtype](StructureDefinition-br-core-organization-subtype.html)), 0..1: subtipo do estabelecimento de saúde, que detalha o tipo informado em `Organization.type`. Binding *preferred* ao ValueSet [SubtipoEstabelecimento](https://terminologia.saude.gov.br/fhir/ValueSet/SubtipoEstabelecimento), que inclui, por exemplo, Distrito Sanitário Especial Indígena (DSEI) e Polo-base da Saúde Indígena.
+* **address.aldeia** ([br-core-address-aldeia](StructureDefinition-br-core-address-aldeia.html)), 0..1: código da aldeia indígena do endereço do estabelecimento, no contexto da saúde indígena. Binding *required* ao ValueSet [BRAldeia](https://terminologia.saude.gov.br/fhir/ValueSet/BRAldeia).
+* **address.municipio** ([br-core-address-municipio](StructureDefinition-br-core-address-municipio.html)), 0..1: código IBGE do município do endereço do estabelecimento. Binding *required* ao ValueSet [BRMunicipio](https://terminologia.saude.gov.br/fhir/ValueSet/BRMunicipio).
 
 ### Limites e relacionamentos
 
