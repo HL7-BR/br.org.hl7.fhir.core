@@ -1,0 +1,1974 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-medicationadministration",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationadministration",
+  "version" : "1.4.0",
+  "name" : "BRCoreMedicationAdministration",
+  "title" : "br-core-medicationadministration",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Descreve o evento de um paciente consumindo ou de algum medicamento sendo administrado a um paciente. Isso pode ser tão simples quanto engolir um comprimido ou pode ser uma infusão de longa duração. Recursos relacionados vinculam esse evento à prescrição de autorização e ao atendimento specífco entre o paciente e o profissional de saúde",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "w3c.prov",
+    "uri" : "http://www.w3.org/ns/prov",
+    "name" : "W3C PROV"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationAdministration",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "MedicationAdministration",
+      "path" : "MedicationAdministration",
+      "short" : "Administration of medication to a patient",
+      "definition" : "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "workflow",
+        "map" : "Event"
+      },
+      {
+        "identity" : "rim",
+        "map" : "SubstanceAdministration"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.id",
+      "path" : "MedicationAdministration.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "MedicationAdministration.meta",
+      "path" : "MedicationAdministration.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "MedicationAdministration.implicitRules",
+      "path" : "MedicationAdministration.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "MedicationAdministration.language",
+      "path" : "MedicationAdministration.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "MedicationAdministration.text",
+      "path" : "MedicationAdministration.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.contained",
+      "path" : "MedicationAdministration.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.extension",
+      "path" : "MedicationAdministration.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "MedicationAdministration.modifierExtension",
+      "path" : "MedicationAdministration.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "MedicationAdministration.identifier",
+      "path" : "MedicationAdministration.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "comment" : "This is a business identifier, not a resource identifier.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.identifier"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.instantiates",
+      "path" : "MedicationAdministration.instantiates",
+      "short" : "Instancia protocolo ou definição",
+      "definition" : "Instancia protocolo ou definição",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.instantiates",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.instantiates"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=DEFN].target[classCode=unspecified]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.partOf",
+      "path" : "MedicationAdministration.partOf",
+      "short" : "Parte do evento referenciado",
+      "definition" : "Parte do evento referenciado",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.partOf",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationadministration",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-procedure"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.partOf"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=COMP]/target[classCode=SBADM or PROC,moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.status",
+      "path" : "MedicationAdministration.status",
+      "short" : "Códigos de status de administração de medicamentos",
+      "definition" : "Códigos de status de administração de medicamentos",
+      "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationAdministrationStatus"
+        }],
+        "strength" : "required",
+        "description" : "A set of codes indicating the current status of a MedicationAdministration.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/medication-admin-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.status"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-20-Completion Status"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".statusCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.statusReason",
+      "path" : "MedicationAdministration.statusReason",
+      "short" : "Motivo da não realização da administração",
+      "definition" : "Motivo da não realização da administração",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.statusReason",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.statusReason"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.category",
+      "path" : "MedicationAdministration.category",
+      "short" : "Tipo de uso de medicamentos",
+      "definition" : "Tipo de uso de medicamentos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.category",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationAdministrationCategory"
+        }],
+        "strength" : "preferred",
+        "description" : "A coded concept describing where the medication administered is expected to occur.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/medication-admin-category|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.medication[x]",
+      "path" : "MedicationAdministration.medication[x]",
+      "short" : "O que foi administrado",
+      "definition" : "O que foi administrado",
+      "comment" : "If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.medication[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Medication|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationCode"
+        }],
+        "strength" : "example",
+        "description" : "Codes identifying substance or product that can be administered.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/medication-codes|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.code"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-5-Administered Code"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=CSM].role[classCode=ADMM]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.subject",
+      "path" : "MedicationAdministration.subject",
+      "short" : "Referência ao paciente que recebeu o medicamento",
+      "definition" : "Referência ao paciente que recebeu o medicamento",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.subject",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PID-3-Patient ID List"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].role[classCode=PAT]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.context",
+      "path" : "MedicationAdministration.context",
+      "short" : "Referência ao atendimento que administrou o medicamento",
+      "definition" : "Referência ao atendimento que administrou o medicamento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.context",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.context"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PV1-19-Visit Number"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.supportingInformation",
+      "path" : "MedicationAdministration.supportingInformation",
+      "short" : "Informações adicionais para suporte à administração",
+      "definition" : "Informações adicionais para suporte à administração",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.supportingInformation",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.effective[x]",
+      "path" : "MedicationAdministration.effective[x]",
+      "short" : "Hora de início e término da administração do medicamento",
+      "definition" : "Hora de início e término da administração do medicamento",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.effective[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.performer",
+      "path" : "MedicationAdministration.performer",
+      "short" : "Quem realizou a administração da medicamento e o que eles fizeram",
+      "definition" : "Quem realizou a administração da medicamento e o que eles fizeram",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.performer",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation='AP' (RXA-10 is deprecated)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF]"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.performer.id",
+      "path" : "MedicationAdministration.performer.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.performer.extension",
+      "path" : "MedicationAdministration.performer.extension",
+      "short" : "Conteúdo adicional definido pelas implementações",
+      "definition" : "Conteúdo adicional definido pelas implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "MedicationAdministration.performer.modifierExtension",
+      "path" : "MedicationAdministration.performer.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "MedicationAdministration.performer.function",
+      "path" : "MedicationAdministration.performer.function",
+      "short" : "Função do profissional que administrou o medicamento",
+      "definition" : "Função do profissional que administrou o medicamento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.performer.function",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/med-admin-perform-function"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.function"
+      },
+      {
+        "identity" : "rim",
+        "map" : "participation[typeCode=PRF].functionCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.performer.actor",
+      "path" : "MedicationAdministration.performer.actor",
+      "short" : "Referência ao profissional que realizou a administraçãoexampleamento",
+      "definition" : "Referência ao profissional que realizou a administração do medicamento",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.performer.actor",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "http://hl7.org/fhir/StructureDefinition/Device"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.actor"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".role"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.reasonCode",
+      "path" : "MedicationAdministration.reasonCode",
+      "short" : "Motivo da administração do medicamento",
+      "definition" : "Motivo da administração do medicamento",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.reasonCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationAdministrationReason"
+        }],
+        "strength" : "example",
+        "description" : "A set of codes indicating the reason why the MedicationAdministration was made.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-given-codes|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.reasonCode"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXE-27 Give Indication"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".reasonCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.reasonReference",
+      "path" : "MedicationAdministration.reasonReference",
+      "short" : "Referência à condição ou observação que é o motivo da administração do medicamento",
+      "definition" : "Referência à condição ou observação que é o motivo da administração do medicamento",
+      "comment" : "This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.reasonReference",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.reasonReference"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.why[x]"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use ASSERTION\"].value"
+      },
+      {
+        "identity" : "w3c.prov",
+        "map" : "no mapping"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.request",
+      "path" : "MedicationAdministration.request",
+      "short" : "Referência à solicitação do medicamento",
+      "definition" : "Referência à solicitação do medicamento",
+      "comment" : "This is a reference to the MedicationRequest  where the intent is either order or instance-order.  It should not reference MedicationRequests where the intent is any other value.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.request",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.basedOn"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC-2-Placer Order Number / ORC-3-Filler Order Number"
+      },
+      {
+        "identity" : "rim",
+        "map" : "InFullfillmentOf->SubstanceAdministration"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.device",
+      "path" : "MedicationAdministration.device",
+      "short" : "Referência ao dispositivo utilizado para administrar o medicamento",
+      "definition" : "Referência ao dispositivo utilizado para administrar o medicamento",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.device",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Device|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "PRT-10 Participation Device / RXR-3 Administrative Device"
+      },
+      {
+        "identity" : "rim",
+        "map" : "device->Access  OR device->AssignedDevice"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.note",
+      "path" : "MedicationAdministration.note",
+      "short" : "Informações sobre a administração do medicamento",
+      "definition" : "Informações sobre a administração do medicamento",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.note"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage",
+      "path" : "MedicationAdministration.dosage",
+      "short" : "Dose administrada do medicamento",
+      "definition" : "Dose administrada do medicamento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "mad-1",
+        "severity" : "error",
+        "human" : "SHALL have at least one of dosage.dose or dosage.rate[x]",
+        "expression" : "dose.exists() or rate.exists()",
+        "xpath" : "exists(f:dose) or exists(f:*[starts-with(local-name(.), 'rate')])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "component->SubstanceAdministrationEvent"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.id",
+      "path" : "MedicationAdministration.dosage.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.extension",
+      "path" : "MedicationAdministration.dosage.extension",
+      "short" : "Conteúdo adicional definido pelas implementações",
+      "definition" : "Conteúdo adicional definido pelas implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "MedicationAdministration.dosage.modifierExtension",
+      "path" : "MedicationAdministration.dosage.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "MedicationAdministration.dosage.text",
+      "path" : "MedicationAdministration.dosage.text",
+      "short" : "Instruções de dosagem em texto livre, por exemplo, SIG",
+      "definition" : "Instruções de dosagem em texto livre, por exemplo, SIG",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".text"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.site",
+      "path" : "MedicationAdministration.dosage.site",
+      "short" : "Local do corpo que o corpo foi administrado",
+      "definition" : "Local do corpo que o corpo foi administrado",
+      "comment" : "If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](http://hl7.org/fhir/R4/extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.site",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXR-2 Administration Site / RXR-6 Administration Site Modifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".approachSiteCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.route",
+      "path" : "MedicationAdministration.dosage.route",
+      "short" : "Via de administração do medicamento",
+      "definition" : "Via de administração do medicamento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.route",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXR-1-Route"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".routeCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.method",
+      "path" : "MedicationAdministration.dosage.method",
+      "short" : "Método de admnistração do medicamento",
+      "definition" : "Método de admnistração do medicamento",
+      "comment" : "One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.method",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationAdministrationMethod"
+        }],
+        "strength" : "example",
+        "description" : "A coded concept describing the technique by which the medicine is administered.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/administration-method-codes|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXR-4-Administration Method"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".methodCode"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.dose",
+      "path" : "MedicationAdministration.dosage.dose",
+      "short" : "Quantidade da dose do medicamento",
+      "definition" : "Quantidade da dose do medicamento",
+      "comment" : "If the administration is not instantaneous (rate is present), this can be specified to convey the total amount administered over period of time of a single administration.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.dose",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-6 Administered Amount / RXA-7 Administered Units"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".doseQuantity"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.dosage.rate[x]",
+      "path" : "MedicationAdministration.dosage.rate[x]",
+      "short" : "Quantidade da dose por unidade de tempo",
+      "definition" : "Quantidade da dose por unidade de tempo",
+      "comment" : "If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "MedicationAdministration.dosage.rate[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Ratio"
+      },
+      {
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-12-Administered Per (Time Unit)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".rateQuantity"
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.eventHistory",
+      "path" : "MedicationAdministration.eventHistory",
+      "short" : "Referência à uma lista de eventos",
+      "definition" : "Referência à uma lista de eventos",
+      "comment" : "This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationAdministration.eventHistory",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Provenance|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "MedicationAdministration",
+      "path" : "MedicationAdministration"
+    },
+    {
+      "id" : "MedicationAdministration.id",
+      "path" : "MedicationAdministration.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "MedicationAdministration.meta",
+      "path" : "MedicationAdministration.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "MedicationAdministration.implicitRules",
+      "path" : "MedicationAdministration.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "MedicationAdministration.language",
+      "path" : "MedicationAdministration.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "MedicationAdministration.text",
+      "path" : "MedicationAdministration.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "MedicationAdministration.contained",
+      "path" : "MedicationAdministration.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "MedicationAdministration.extension",
+      "path" : "MedicationAdministration.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "MedicationAdministration.modifierExtension",
+      "path" : "MedicationAdministration.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "MedicationAdministration.identifier",
+      "path" : "MedicationAdministration.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "MedicationAdministration.instantiates",
+      "path" : "MedicationAdministration.instantiates",
+      "short" : "Instancia protocolo ou definição",
+      "definition" : "Instancia protocolo ou definição"
+    },
+    {
+      "id" : "MedicationAdministration.partOf",
+      "path" : "MedicationAdministration.partOf",
+      "short" : "Parte do evento referenciado",
+      "definition" : "Parte do evento referenciado",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationadministration",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-procedure"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.status",
+      "path" : "MedicationAdministration.status",
+      "short" : "Códigos de status de administração de medicamentos",
+      "definition" : "Códigos de status de administração de medicamentos"
+    },
+    {
+      "id" : "MedicationAdministration.statusReason",
+      "path" : "MedicationAdministration.statusReason",
+      "short" : "Motivo da não realização da administração",
+      "definition" : "Motivo da não realização da administração",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"
+      }
+    },
+    {
+      "id" : "MedicationAdministration.category",
+      "path" : "MedicationAdministration.category",
+      "short" : "Tipo de uso de medicamentos",
+      "definition" : "Tipo de uso de medicamentos"
+    },
+    {
+      "id" : "MedicationAdministration.medication[x]",
+      "path" : "MedicationAdministration.medication[x]",
+      "short" : "O que foi administrado",
+      "definition" : "O que foi administrado"
+    },
+    {
+      "id" : "MedicationAdministration.subject",
+      "path" : "MedicationAdministration.subject",
+      "short" : "Referência ao paciente que recebeu o medicamento",
+      "definition" : "Referência ao paciente que recebeu o medicamento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.context",
+      "path" : "MedicationAdministration.context",
+      "short" : "Referência ao atendimento que administrou o medicamento",
+      "definition" : "Referência ao atendimento que administrou o medicamento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.supportingInformation",
+      "path" : "MedicationAdministration.supportingInformation",
+      "short" : "Informações adicionais para suporte à administração",
+      "definition" : "Informações adicionais para suporte à administração"
+    },
+    {
+      "id" : "MedicationAdministration.effective[x]",
+      "path" : "MedicationAdministration.effective[x]",
+      "short" : "Hora de início e término da administração do medicamento",
+      "definition" : "Hora de início e término da administração do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.performer",
+      "path" : "MedicationAdministration.performer",
+      "short" : "Quem realizou a administração da medicamento e o que eles fizeram",
+      "definition" : "Quem realizou a administração da medicamento e o que eles fizeram"
+    },
+    {
+      "id" : "MedicationAdministration.performer.id",
+      "path" : "MedicationAdministration.performer.id",
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "MedicationAdministration.performer.extension",
+      "path" : "MedicationAdministration.performer.extension",
+      "short" : "Conteúdo adicional definido pelas implementações",
+      "definition" : "Conteúdo adicional definido pelas implementações"
+    },
+    {
+      "id" : "MedicationAdministration.performer.modifierExtension",
+      "path" : "MedicationAdministration.performer.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "MedicationAdministration.performer.function",
+      "path" : "MedicationAdministration.performer.function",
+      "short" : "Função do profissional que administrou o medicamento",
+      "definition" : "Função do profissional que administrou o medicamento",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/med-admin-perform-function"
+      }
+    },
+    {
+      "id" : "MedicationAdministration.performer.actor",
+      "path" : "MedicationAdministration.performer.actor",
+      "short" : "Referência ao profissional que realizou a administraçãoexampleamento",
+      "definition" : "Referência ao profissional que realizou a administração do medicamento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "http://hl7.org/fhir/StructureDefinition/Device"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.reasonCode",
+      "path" : "MedicationAdministration.reasonCode",
+      "short" : "Motivo da administração do medicamento",
+      "definition" : "Motivo da administração do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.reasonReference",
+      "path" : "MedicationAdministration.reasonReference",
+      "short" : "Referência à condição ou observação que é o motivo da administração do medicamento",
+      "definition" : "Referência à condição ou observação que é o motivo da administração do medicamento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.request",
+      "path" : "MedicationAdministration.request",
+      "short" : "Referência à solicitação do medicamento",
+      "definition" : "Referência à solicitação do medicamento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest"]
+      }]
+    },
+    {
+      "id" : "MedicationAdministration.device",
+      "path" : "MedicationAdministration.device",
+      "short" : "Referência ao dispositivo utilizado para administrar o medicamento",
+      "definition" : "Referência ao dispositivo utilizado para administrar o medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.note",
+      "path" : "MedicationAdministration.note",
+      "short" : "Informações sobre a administração do medicamento",
+      "definition" : "Informações sobre a administração do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.dosage",
+      "path" : "MedicationAdministration.dosage",
+      "short" : "Dose administrada do medicamento",
+      "definition" : "Dose administrada do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.id",
+      "path" : "MedicationAdministration.dosage.id",
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.extension",
+      "path" : "MedicationAdministration.dosage.extension",
+      "short" : "Conteúdo adicional definido pelas implementações",
+      "definition" : "Conteúdo adicional definido pelas implementações"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.modifierExtension",
+      "path" : "MedicationAdministration.dosage.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.text",
+      "path" : "MedicationAdministration.dosage.text",
+      "short" : "Instruções de dosagem em texto livre, por exemplo, SIG",
+      "definition" : "Instruções de dosagem em texto livre, por exemplo, SIG"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.site",
+      "path" : "MedicationAdministration.dosage.site",
+      "short" : "Local do corpo que o corpo foi administrado",
+      "definition" : "Local do corpo que o corpo foi administrado",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+      }
+    },
+    {
+      "id" : "MedicationAdministration.dosage.route",
+      "path" : "MedicationAdministration.dosage.route",
+      "short" : "Via de administração do medicamento",
+      "definition" : "Via de administração do medicamento",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration"
+      }
+    },
+    {
+      "id" : "MedicationAdministration.dosage.method",
+      "path" : "MedicationAdministration.dosage.method",
+      "short" : "Método de admnistração do medicamento",
+      "definition" : "Método de admnistração do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.dose",
+      "path" : "MedicationAdministration.dosage.dose",
+      "short" : "Quantidade da dose do medicamento",
+      "definition" : "Quantidade da dose do medicamento"
+    },
+    {
+      "id" : "MedicationAdministration.dosage.rate[x]",
+      "path" : "MedicationAdministration.dosage.rate[x]",
+      "short" : "Quantidade da dose por unidade de tempo",
+      "definition" : "Quantidade da dose por unidade de tempo"
+    },
+    {
+      "id" : "MedicationAdministration.eventHistory",
+      "path" : "MedicationAdministration.eventHistory",
+      "short" : "Referência à uma lista de eventos",
+      "definition" : "Referência à uma lista de eventos"
+    }]
+  }
+}

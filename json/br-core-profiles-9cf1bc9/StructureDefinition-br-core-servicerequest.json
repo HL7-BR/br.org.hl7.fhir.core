@@ -1,0 +1,2227 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-servicerequest",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest",
+  "version" : "1.4.0",
+  "name" : "BRCoreServiceRequest",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este recurso restringe o recurso [ServiceRequest](https://hl7.org/fhir/R4/servicerequest.html) que registra uma solicitação de serviço, como investigações diagnósticas, tratamentos ou operações a serem realizadas",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "quick",
+    "uri" : "http://siframework.org/cqf",
+    "name" : "Quality Improvement and Clinical Knowledge (QUICK)"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ServiceRequest",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "ServiceRequest",
+      "path" : "ServiceRequest",
+      "short" : "A request for a service to be performed",
+      "definition" : "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.",
+      "alias" : ["diagnostic request",
+      "referral",
+      "referral request",
+      "transfer of care request"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "prr-1",
+        "severity" : "error",
+        "human" : "orderDetail SHALL only be present if code is present",
+        "expression" : "orderDetail.empty() or code.exists()",
+        "xpath" : "exists(f:code) or not(exists(f:orderDetail))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/ServiceRequest"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "workflow",
+        "map" : "Request"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Act[moodCode<=INT]"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.id",
+      "path" : "ServiceRequest.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "ServiceRequest.meta",
+      "path" : "ServiceRequest.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "ServiceRequest.implicitRules",
+      "path" : "ServiceRequest.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "ServiceRequest.language",
+      "path" : "ServiceRequest.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "ServiceRequest.text",
+      "path" : "ServiceRequest.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.contained",
+      "path" : "ServiceRequest.contained",
+      "short" : "Contained, inline Resources",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.extension",
+      "path" : "ServiceRequest.extension",
+      "short" : "Extension",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "ServiceRequest.modifierExtension",
+      "path" : "ServiceRequest.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "ServiceRequest.identifier",
+      "path" : "ServiceRequest.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "comment" : "The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.identifier"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.2, ORC.3, RF1-6 / RF1-11,"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".identifier"
+      },
+      {
+        "identity" : "quick",
+        "map" : "ClinicalStatement.identifier"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.instantiatesCanonical",
+      "path" : "ServiceRequest.instantiatesCanonical",
+      "short" : "Instancia o protocolo ou definição FHIR",
+      "definition" : "Instancia o protocolo ou definição FHIR",
+      "comment" : "Note: This is a business identifier, not a resource identifier (see [discussion](http://hl7.org/fhir/R4/resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.instantiatesCanonical",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "canonical",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ActivityDefinition|4.0.1",
+        "http://hl7.org/fhir/StructureDefinition/PlanDefinition|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.instantiatesCanonical"
+      },
+      {
+        "identity" : "v2",
+        "map" : "Varies by domain"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=DEFN].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.instantiatesUri",
+      "path" : "ServiceRequest.instantiatesUri",
+      "short" : "Instancia protocolo externo ou definição",
+      "definition" : "Instancia protocolo externo ou definição",
+      "comment" : "This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.instantiatesUri",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.instantiatesUri"
+      },
+      {
+        "identity" : "v2",
+        "map" : "Varies by domain"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=DEFN].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.basedOn",
+      "path" : "ServiceRequest.basedOn",
+      "short" : "Referência aos planos de cuidado/solicitações/medicamentos associados a esta requisição",
+      "definition" : "Referência aos planos de cuidado/solicitações/medicamentos associados a esta requisição",
+      "alias" : ["fulfills"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.basedOn",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.basedOn"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.8 (plus others)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=FLFS].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.replaces",
+      "path" : "ServiceRequest.replaces",
+      "short" : "Referência à requisição a ser substituida",
+      "definition" : "Referência à requisição a ser substituida",
+      "alias" : ["supersedes",
+      "prior",
+      "renewed order"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.replaces",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.replaces"
+      },
+      {
+        "identity" : "v2",
+        "map" : "Handled by message location of ORC (ORC.1=RO or RU)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=RPLC].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.requisition",
+      "path" : "ServiceRequest.requisition",
+      "short" : "Identificador da requisição",
+      "definition" : "Identificador da requisição",
+      "comment" : "Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.",
+      "requirements" : "Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.",
+      "alias" : ["grouperId",
+      "groupIdentifier"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.requisition",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.groupIdentifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.4"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.status",
+      "path" : "ServiceRequest.status",
+      "short" : "Status da requisição",
+      "definition" : "Status da requisição",
+      "comment" : "The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](http://hl7.org/fhir/R4/event.html) for general discussion) or using the [Task](http://hl7.org/fhir/R4/task.html) resource.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceRequestStatus"
+        }],
+        "strength" : "required",
+        "description" : "The status of a service order.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/request-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.status"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.5,RF1-1"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".status"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Action.currentStatus"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.intent",
+      "path" : "ServiceRequest.intent",
+      "short" : "Código da intencionalidade desta requisição",
+      "definition" : "Código da intencionalidade desta requisição",
+      "comment" : "This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.intent",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element changes the interpretation of all descriptive attributes. For example \"the time the request is recommended to occur\" vs. \"the time the request is authorized to occur\" or \"who is recommended to perform the request\" vs. \"who is authorized to perform the request",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceRequestIntent"
+        }],
+        "strength" : "required",
+        "description" : "The kind of service request.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/request-intent|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.intent"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "v2",
+        "map" : "N/A"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.category",
+      "path" : "ServiceRequest.category",
+      "short" : "Categoria desta requisição",
+      "definition" : "Categoria desta requisição",
+      "comment" : "There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.",
+      "requirements" : "Used for filtering what service request are retrieved and displayed.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.category",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RF1-5"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"INT\"].code"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.priority",
+      "path" : "ServiceRequest.priority",
+      "short" : "Prioridade desta requisição",
+      "definition" : "Prioridade desta requisição",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.priority",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "meaningWhenMissing" : "If missing, this task should be performed with normal priority",
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.priority"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.grade"
+      },
+      {
+        "identity" : "v2",
+        "map" : "TQ1.9, RF1-2"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".priorityCode"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.doNotPerform",
+      "path" : "ServiceRequest.doNotPerform",
+      "short" : "Verdadeiro se o serviço/procedimento não deve ser executado",
+      "definition" : "Verdadeiro se o serviço/procedimento não deve ser executado",
+      "comment" : "In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.",
+      "requirements" : "Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.doNotPerform",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "meaningWhenMissing" : "If missing, the request is a positive request e.g. \"do perform\"",
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur.",
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.doNotPerform"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".actionNegationInd"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.code",
+      "path" : "ServiceRequest.code",
+      "short" : "Código do procedimento solicitado",
+      "definition" : "Código do procedimento solicitado",
+      "comment" : "Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code.",
+      "alias" : ["service requested"],
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.code",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.code"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PR1-3 / OBR-4  (varies by domain)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Procedure.procedureCode"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.orderDetail",
+      "path" : "ServiceRequest.orderDetail",
+      "short" : "Informações adicionais da requesição",
+      "definition" : "Informações adicionais da requesição",
+      "comment" : "For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element.",
+      "alias" : ["detailed instructions"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.orderDetail",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["prr-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "OrderDetail"
+        }],
+        "strength" : "example",
+        "description" : "Codified order entry details which are based on order context.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/servicerequest-orderdetail|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "NTE"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Procedure.procedureCode"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.quantity[x]",
+      "path" : "ServiceRequest.quantity[x]",
+      "short" : "Quantidade de procedimento solicitados",
+      "definition" : "Quantidade de procedimento solicitados",
+      "requirements" : "When ordering a service the number of service items may need to be specified separately from the the service item.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.quantity[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity"
+      },
+      {
+        "code" : "Ratio"
+      },
+      {
+        "code" : "Range"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "NTE"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".quantity"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.subject",
+      "path" : "ServiceRequest.subject",
+      "short" : "Referência ao paciente/grupo/localidade/dispositivo associado a esta requisição",
+      "definition" : "Referência ao paciente/grupo/localidade/dispositivo associado a esta requisição",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.subject",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Group",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location",
+        "http://hl7.org/fhir/StructureDefinition/Device"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PID"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].role"
+      },
+      {
+        "identity" : "quick",
+        "map" : "ClinicalStatement.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.encounter",
+      "path" : "ServiceRequest.encounter",
+      "short" : "Referência ao atendimento relacionado a esta requisição",
+      "definition" : "Referência ao atendimento relacionado a esta requisição",
+      "alias" : ["context"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.encounter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.encounter"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PV1"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]"
+      },
+      {
+        "identity" : "quick",
+        "map" : "ClinicalStatement.encounter"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.occurrence[x]",
+      "path" : "ServiceRequest.occurrence[x]",
+      "short" : "Quando o procedimento deve ocorrer",
+      "definition" : "Quando o procedimento deve ocorrer",
+      "alias" : ["schedule"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.occurrence[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Period"
+      },
+      {
+        "code" : "Timing"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.planned"
+      },
+      {
+        "identity" : "v2",
+        "map" : "TQ1/TQ2, OBR-7/OBR-8"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Procedure.procedureSchedule"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.asNeeded[x]",
+      "path" : "ServiceRequest.asNeeded[x]",
+      "short" : "Pré-condições para a realização do procedimento",
+      "definition" : "Pré-condições para a realização do procedimento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.asNeeded[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      },
+      {
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ProcedureAsNeededReason"
+        }],
+        "strength" : "example",
+        "description" : "A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/medication-as-needed-reason|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Proposal.prnReason.reason"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.authoredOn",
+      "path" : "ServiceRequest.authoredOn",
+      "short" : "Data de assinatura da requisição",
+      "definition" : "Data de assinatura da requisição",
+      "alias" : ["orderedOn"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.authoredOn",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.authoredOn"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.recorded"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.9,  RF1-7 / RF1-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=AUT].time"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Proposal.proposedAtTime"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.requester",
+      "path" : "ServiceRequest.requester",
+      "short" : "Referência ao profissional/organização/paciente/dispotivo/pessoa relacionada que está solicitando o procedimento",
+      "definition" : "Referência ao profissional/organização/paciente/dispotivo/pessoa relacionada que está solicitando o procedimento",
+      "comment" : "This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource.",
+      "alias" : ["author",
+      "orderer"],
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.requester",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.requester"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.author"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.12, PRT"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=AUT].role"
+      },
+      {
+        "identity" : "quick",
+        "map" : "ClinicalStatement.statementAuthor"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.performerType",
+      "path" : "ServiceRequest.performerType",
+      "short" : "Função do profissional executante solicitado",
+      "definition" : "Função do profissional executante solicitado",
+      "comment" : "This is a  role, not  a participation type.  In other words, does not describe the task but describes the capacity.  For example, “compounding pharmacy”, “psychiatrist” or “internal referral”.",
+      "alias" : ["specialty"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.performerType",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceRequestParticipantRole"
+        }],
+        "strength" : "example",
+        "description" : "Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/participant-role|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.performerType"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PRT, RF!-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF].role[scoper.determinerCode=KIND].code"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.performer",
+      "path" : "ServiceRequest.performer",
+      "short" : "Referência ao profissional executante solicitado",
+      "definition" : "Referência ao profissional executante solicitado",
+      "comment" : "If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [request-performerOrder extension](http://hl7.org/fhir/R4/extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B).",
+      "alias" : ["request recipient"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.performer",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.performer"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PRT, Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.locationCode",
+      "path" : "ServiceRequest.locationCode",
+      "short" : "Localização solicitada",
+      "definition" : "Localização solicitada",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.locationCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceRequestLocation"
+        }],
+        "strength" : "example",
+        "description" : "A location type where services are delivered.",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=LOC].role[scoper.determinerCode=KIND].code"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.locationReference",
+      "path" : "ServiceRequest.locationReference",
+      "short" : "ReferÇencia à localização solicitada",
+      "definition" : "ReferÇencia à localização solicitada",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.locationReference",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=LOC].role[scoper.determinerCode=INSTANCE]"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.reasonCode",
+      "path" : "ServiceRequest.reasonCode",
+      "short" : "Explicação/Justificativa para procedimento ou serviço",
+      "definition" : "Explicação/Justificativa para procedimento ou serviço",
+      "comment" : "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](http://hl7.org/fhir/R4/servicerequest-example-di.html).",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.reasonCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceRequestReason"
+        }],
+        "strength" : "example",
+        "description" : "Diagnosis or problem codes justifying the reason for requesting the service investigation.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/procedure-reason|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.reasonCode"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.why[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.16, RF1-10"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".reasonCode"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.reasonReference",
+      "path" : "ServiceRequest.reasonReference",
+      "short" : "Referência à explicação/justificativa para serviço ou procedimento",
+      "definition" : "Referência à explicação/justificativa para serviço ou procedimento",
+      "comment" : "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.conclusionCode`.   When using a reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request.  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](http://hl7.org/fhir/R4/servicerequest-example-di.html).",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.reasonReference",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport",
+        "http://hl7.org/fhir/StructureDefinition/DocumentReference"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.reasonReference"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.why[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC.16"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=RSON].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.insurance",
+      "path" : "ServiceRequest.insurance",
+      "short" : "Referência às coberturas associadas",
+      "definition" : "Referência às coberturas associadas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.insurance",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Coverage|4.0.1",
+        "http://hl7.org/fhir/StructureDefinition/ClaimResponse|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.insurance"
+      },
+      {
+        "identity" : "v2",
+        "map" : "IN1/IN2"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=COVBY].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.supportingInfo",
+      "path" : "ServiceRequest.supportingInfo",
+      "short" : "Referência às informações adicionais",
+      "definition" : "Referência às informações adicionais",
+      "comment" : "To represent information about how the services are to be delivered use the `instructions` element.",
+      "alias" : ["Ask at order entry question",
+      "AOE"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.supportingInfo",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.supportingInfo"
+      },
+      {
+        "identity" : "v2",
+        "map" : "Accompanying segments"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=PERT].target"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.specimen",
+      "path" : "ServiceRequest.specimen",
+      "short" : "Referência à amostras associadas",
+      "definition" : "Referência à amostras associadas",
+      "comment" : "Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, if the request is entered first with an unknown specimen, then the [Specimen](http://hl7.org/fhir/R4/specimen.html) resource points to the ServiceRequest.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.specimen",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SPC].role"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.bodySite",
+      "path" : "ServiceRequest.bodySite",
+      "short" : "Local anatômico associado ao procedimento",
+      "definition" : "Local anatômico associado ao procedimento",
+      "comment" : "Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](http://hl7.org/fhir/R4/extension-procedure-targetbodystructure.html).",
+      "requirements" : "Knowing where the procedure is performed is important for tracking if multiple sites are possible.",
+      "alias" : ["location"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.bodySite",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM"
+      },
+      {
+        "identity" : "rim",
+        "map" : "targetSiteCode"
+      },
+      {
+        "identity" : "quick",
+        "map" : "Procedure.targetBodySite"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.note",
+      "path" : "ServiceRequest.note",
+      "short" : "Comentários",
+      "definition" : "Comentários",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.note"
+      },
+      {
+        "identity" : "v2",
+        "map" : "NTE"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]"
+      },
+      {
+        "identity" : "quick",
+        "map" : "ClinicalStatement.additionalText"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.patientInstruction",
+      "path" : "ServiceRequest.patientInstruction",
+      "short" : "Instruções para o paciente",
+      "definition" : "Instruções para o paciente",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "ServiceRequest.patientInstruction",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "NTE"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".text"
+      }]
+    },
+    {
+      "id" : "ServiceRequest.relevantHistory",
+      "path" : "ServiceRequest.relevantHistory",
+      "short" : "Referência ao recurso Provenance",
+      "definition" : "Referência ao recurso Provenance",
+      "comment" : "This might not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "ServiceRequest.relevantHistory",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Provenance|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Request.relevantHistory"
+      },
+      {
+        "identity" : "v2",
+        "map" : "N/A"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "ServiceRequest",
+      "path" : "ServiceRequest"
+    },
+    {
+      "id" : "ServiceRequest.id",
+      "path" : "ServiceRequest.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "ServiceRequest.meta",
+      "path" : "ServiceRequest.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "ServiceRequest.implicitRules",
+      "path" : "ServiceRequest.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "ServiceRequest.language",
+      "path" : "ServiceRequest.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "ServiceRequest.text",
+      "path" : "ServiceRequest.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "ServiceRequest.contained",
+      "path" : "ServiceRequest.contained",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "ServiceRequest.extension",
+      "path" : "ServiceRequest.extension",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "ServiceRequest.modifierExtension",
+      "path" : "ServiceRequest.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "ServiceRequest.identifier",
+      "path" : "ServiceRequest.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "ServiceRequest.instantiatesCanonical",
+      "path" : "ServiceRequest.instantiatesCanonical",
+      "short" : "Instancia o protocolo ou definição FHIR",
+      "definition" : "Instancia o protocolo ou definição FHIR"
+    },
+    {
+      "id" : "ServiceRequest.instantiatesUri",
+      "path" : "ServiceRequest.instantiatesUri",
+      "short" : "Instancia protocolo externo ou definição",
+      "definition" : "Instancia protocolo externo ou definição"
+    },
+    {
+      "id" : "ServiceRequest.basedOn",
+      "path" : "ServiceRequest.basedOn",
+      "short" : "Referência aos planos de cuidado/solicitações/medicamentos associados a esta requisição",
+      "definition" : "Referência aos planos de cuidado/solicitações/medicamentos associados a esta requisição",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.replaces",
+      "path" : "ServiceRequest.replaces",
+      "short" : "Referência à requisição a ser substituida",
+      "definition" : "Referência à requisição a ser substituida"
+    },
+    {
+      "id" : "ServiceRequest.requisition",
+      "path" : "ServiceRequest.requisition",
+      "short" : "Identificador da requisição",
+      "definition" : "Identificador da requisição"
+    },
+    {
+      "id" : "ServiceRequest.status",
+      "path" : "ServiceRequest.status",
+      "short" : "Status da requisição",
+      "definition" : "Status da requisição"
+    },
+    {
+      "id" : "ServiceRequest.intent",
+      "path" : "ServiceRequest.intent",
+      "short" : "Código da intencionalidade desta requisição",
+      "definition" : "Código da intencionalidade desta requisição"
+    },
+    {
+      "id" : "ServiceRequest.category",
+      "path" : "ServiceRequest.category",
+      "short" : "Categoria desta requisição",
+      "definition" : "Categoria desta requisição",
+      "min" : 1,
+      "max" : "1",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaProcedimento"
+      }
+    },
+    {
+      "id" : "ServiceRequest.priority",
+      "path" : "ServiceRequest.priority",
+      "short" : "Prioridade desta requisição",
+      "definition" : "Prioridade desta requisição",
+      "min" : 1,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCaraterAtendimentoMIRA"
+      }
+    },
+    {
+      "id" : "ServiceRequest.doNotPerform",
+      "path" : "ServiceRequest.doNotPerform",
+      "short" : "Verdadeiro se o serviço/procedimento não deve ser executado",
+      "definition" : "Verdadeiro se o serviço/procedimento não deve ser executado"
+    },
+    {
+      "id" : "ServiceRequest.code",
+      "path" : "ServiceRequest.code",
+      "short" : "Código do procedimento solicitado",
+      "definition" : "Código do procedimento solicitado",
+      "min" : 1,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRProcedimentosNacionais"
+      }
+    },
+    {
+      "id" : "ServiceRequest.orderDetail",
+      "path" : "ServiceRequest.orderDetail",
+      "short" : "Informações adicionais da requesição",
+      "definition" : "Informações adicionais da requesição"
+    },
+    {
+      "id" : "ServiceRequest.quantity[x]",
+      "path" : "ServiceRequest.quantity[x]",
+      "short" : "Quantidade de procedimento solicitados",
+      "definition" : "Quantidade de procedimento solicitados"
+    },
+    {
+      "id" : "ServiceRequest.subject",
+      "path" : "ServiceRequest.subject",
+      "short" : "Referência ao paciente/grupo/localidade/dispositivo associado a esta requisição",
+      "definition" : "Referência ao paciente/grupo/localidade/dispositivo associado a esta requisição",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Group",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location",
+        "http://hl7.org/fhir/StructureDefinition/Device"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.encounter",
+      "path" : "ServiceRequest.encounter",
+      "short" : "Referência ao atendimento relacionado a esta requisição",
+      "definition" : "Referência ao atendimento relacionado a esta requisição"
+    },
+    {
+      "id" : "ServiceRequest.occurrence[x]",
+      "path" : "ServiceRequest.occurrence[x]",
+      "short" : "Quando o procedimento deve ocorrer",
+      "definition" : "Quando o procedimento deve ocorrer"
+    },
+    {
+      "id" : "ServiceRequest.asNeeded[x]",
+      "path" : "ServiceRequest.asNeeded[x]",
+      "short" : "Pré-condições para a realização do procedimento",
+      "definition" : "Pré-condições para a realização do procedimento"
+    },
+    {
+      "id" : "ServiceRequest.authoredOn",
+      "path" : "ServiceRequest.authoredOn",
+      "short" : "Data de assinatura da requisição",
+      "definition" : "Data de assinatura da requisição"
+    },
+    {
+      "id" : "ServiceRequest.requester",
+      "path" : "ServiceRequest.requester",
+      "short" : "Referência ao profissional/organização/paciente/dispotivo/pessoa relacionada que está solicitando o procedimento",
+      "definition" : "Referência ao profissional/organização/paciente/dispotivo/pessoa relacionada que está solicitando o procedimento",
+      "min" : 1,
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.performerType",
+      "path" : "ServiceRequest.performerType",
+      "short" : "Função do profissional executante solicitado",
+      "definition" : "Função do profissional executante solicitado"
+    },
+    {
+      "id" : "ServiceRequest.performer",
+      "path" : "ServiceRequest.performer",
+      "short" : "Referência ao profissional executante solicitado",
+      "definition" : "Referência ao profissional executante solicitado",
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.locationCode",
+      "path" : "ServiceRequest.locationCode",
+      "short" : "Localização solicitada",
+      "definition" : "Localização solicitada"
+    },
+    {
+      "id" : "ServiceRequest.locationReference",
+      "path" : "ServiceRequest.locationReference",
+      "short" : "ReferÇencia à localização solicitada",
+      "definition" : "ReferÇencia à localização solicitada",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.reasonCode",
+      "path" : "ServiceRequest.reasonCode",
+      "short" : "Explicação/Justificativa para procedimento ou serviço",
+      "definition" : "Explicação/Justificativa para procedimento ou serviço"
+    },
+    {
+      "id" : "ServiceRequest.reasonReference",
+      "path" : "ServiceRequest.reasonReference",
+      "short" : "Referência à explicação/justificativa para serviço ou procedimento",
+      "definition" : "Referência à explicação/justificativa para serviço ou procedimento",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport",
+        "http://hl7.org/fhir/StructureDefinition/DocumentReference"]
+      }]
+    },
+    {
+      "id" : "ServiceRequest.insurance",
+      "path" : "ServiceRequest.insurance",
+      "short" : "Referência às coberturas associadas",
+      "definition" : "Referência às coberturas associadas"
+    },
+    {
+      "id" : "ServiceRequest.supportingInfo",
+      "path" : "ServiceRequest.supportingInfo",
+      "short" : "Referência às informações adicionais",
+      "definition" : "Referência às informações adicionais"
+    },
+    {
+      "id" : "ServiceRequest.specimen",
+      "path" : "ServiceRequest.specimen",
+      "short" : "Referência à amostras associadas",
+      "definition" : "Referência à amostras associadas"
+    },
+    {
+      "id" : "ServiceRequest.bodySite",
+      "path" : "ServiceRequest.bodySite",
+      "short" : "Local anatômico associado ao procedimento",
+      "definition" : "Local anatômico associado ao procedimento",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+      }
+    },
+    {
+      "id" : "ServiceRequest.note",
+      "path" : "ServiceRequest.note",
+      "short" : "Comentários",
+      "definition" : "Comentários"
+    },
+    {
+      "id" : "ServiceRequest.patientInstruction",
+      "path" : "ServiceRequest.patientInstruction",
+      "short" : "Instruções para o paciente",
+      "definition" : "Instruções para o paciente"
+    },
+    {
+      "id" : "ServiceRequest.relevantHistory",
+      "path" : "ServiceRequest.relevantHistory",
+      "short" : "Referência ao recurso Provenance",
+      "definition" : "Referência ao recurso Provenance"
+    }]
+  }
+}

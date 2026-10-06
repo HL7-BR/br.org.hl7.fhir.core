@@ -1,0 +1,1910 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-allergyintolerance",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-allergyintolerance",
+  "version" : "1.4.0",
+  "name" : "BRCoreAllergyIntolerance",
+  "title" : "br-core-allergyintolerance",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil define as características mínimas para o recurso [br-core-allergyintolerance](StructureDefinition-br-core-allergyintolerance.html) registrar, pesquisar e buscar alergias/reações adversas associadas a um paciente. O perfil especifica quais elementos principais, extensões, vocabulários e conjuntos de valores **DEVEM** estar presentes e restringe como os elementos são usados. Além disso, fornece a base para o desenvolvimento de padrões para casos de uso específicos promove a interoperabilidade e a adoção. ",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "AllergyIntolerance",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "AllergyIntolerance",
+      "path" : "AllergyIntolerance",
+      "short" : "Allergy or Intolerance (generally: Risk of adverse reaction to a substance)",
+      "definition" : "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.",
+      "comment" : "Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.",
+      "alias" : ["Allergy",
+      "Intolerance",
+      "Adverse Reaction"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "ait-1",
+        "severity" : "error",
+        "human" : "AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error.",
+        "expression" : "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').exists() or clinicalStatus.exists()",
+        "xpath" : "f:verificationStatus/f:coding/f:code/@value='entered-in-error' or exists(f:clinicalStatus)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"
+      },
+      {
+        "key" : "ait-2",
+        "severity" : "error",
+        "human" : "AllergyIntolerance.clinicalStatus SHALL NOT be present if verification Status is entered-in-error",
+        "expression" : "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').empty() or clinicalStatus.empty()",
+        "xpath" : "not(f:verificationStatus/f:coding/f:code/@value='entered-in-error') or not(exists(f:clinicalStatus))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"
+      },
+      {
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Observation[classCode=OBS, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.id",
+      "path" : "AllergyIntolerance.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "AllergyIntolerance.meta",
+      "path" : "AllergyIntolerance.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "AllergyIntolerance.implicitRules",
+      "path" : "AllergyIntolerance.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "AllergyIntolerance.language",
+      "path" : "AllergyIntolerance.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "AllergyIntolerance.text",
+      "path" : "AllergyIntolerance.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.contained",
+      "path" : "AllergyIntolerance.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.extension",
+      "path" : "AllergyIntolerance.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "AllergyIntolerance.modifierExtension",
+      "path" : "AllergyIntolerance.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "AllergyIntolerance.identifier",
+      "path" : "AllergyIntolerance.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "comment" : "This is a business identifier, not a resource identifier (see [discussion](http://hl7.org/fhir/R4/resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.",
+      "requirements" : "Allows identification of the AllergyIntolerance as it is known by various participating systems and in a way that remains consistent across servers.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "IAM-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : "id"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.clinicalStatus",
+      "path" : "AllergyIntolerance.clinicalStatus",
+      "short" : "O estado clínico da alergia ou intolerância",
+      "definition" : "O estado clínico da alergia ou intolerância",
+      "comment" : "Refer to [discussion](http://hl7.org/fhir/R4/extensibility.html#Special-Case) if clincalStatus is missing data.\nThe data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.clinicalStatus",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["ait-1",
+      "ait-2"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the status contains the codes inactive and resolved that mark the AllergyIntolerance as no longer active.",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceClinicalStatus"
+        }],
+        "strength" : "required",
+        "description" : "The clinical status of the allergy or intolerance.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-clinical|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"clinicalStatus\", moodCode=EVN].value"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.verificationStatus",
+      "path" : "AllergyIntolerance.verificationStatus",
+      "short" : "Declaração sobre a certeza associada a uma propensão, ou risco potencial, de uma reação à substância identificada",
+      "definition" : "Declaração sobre a certeza associada a uma propensão, ou risco potencial, de uma reação à substância identificada",
+      "comment" : "The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.verificationStatus",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["ait-1",
+      "ait-2"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the status contains the codes refuted and entered-in-error that mark the AllergyIntolerance as not currently valid.",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceVerificationStatus"
+        }],
+        "strength" : "required",
+        "description" : "Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-verification|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.type",
+      "path" : "AllergyIntolerance.type",
+      "short" : "Identificação do mecanismo fisiológico subjacente a um Risco de Reação",
+      "definition" : "Identificação do mecanismo fisiológico subjacente a um Risco de Reação",
+      "comment" : "Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term \"allergy\" is used rather generically and may overlap with the use of \"intolerance\" - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.",
+      "alias" : ["Category",
+      "Class"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceType"
+        }],
+        "strength" : "required",
+        "description" : "Identification of the underlying physiological mechanism for a Reaction Risk.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/allergy-intolerance-type|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "v2",
+        "map" : "IAM-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : "code"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.category",
+      "path" : "AllergyIntolerance.category",
+      "short" : "Categoria de uma substância identificada associada a alergias ou intolerâncias: comida | medicamento | ambiente | biológico",
+      "definition" : "Categoria de uma substância identificada associada a alergias ou intolerâncias: comida | medicamento | ambiente | biológico",
+      "comment" : "This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don't have a category valued will not be returned.  Refer to [search](http://hl7.org/fhir/R4/search.html) for more information on how to search category with a :missing modifier to get allergies that don't have a category.  Additionally, category should be used with caution because category can be subjective based on the sender.",
+      "alias" : ["Category",
+      "Type",
+      "Reaction Type",
+      "Class"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.category",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceCategory"
+        }],
+        "strength" : "required",
+        "description" : "Category of an identified substance associated with allergies or intolerances.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/allergy-intolerance-category|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "v2",
+        "map" : "AL1-2"
+      },
+      {
+        "identity" : "rim",
+        "map" : "value < IntoleranceValue (Agent)"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.criticality",
+      "path" : "AllergyIntolerance.criticality",
+      "short" : "Criticalidade da reação: baixo | alto | incapaz de avaliar",
+      "definition" : "Criticalidade da reação: baixo | alto | incapaz de avaliar",
+      "comment" : "The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).  Systems that capture a severity at the condition level are actually representing the concept of criticality whereas the severity documented at the reaction level is representing the true reaction severity.  Existing systems that are capturing both condition criticality and reaction severity may use the term \"severity\" to represent both.  Criticality is the worst it could be in the future (i.e. situation-agnostic) whereas severity is situation-dependent.",
+      "alias" : ["Severity",
+      "Seriousness",
+      "Contra-indication",
+      "Risk"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.criticality",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceCriticality"
+        }],
+        "strength" : "required",
+        "description" : "Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.grade"
+      },
+      {
+        "identity" : "v2",
+        "map" : "AL1-4"
+      },
+      {
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.code",
+      "path" : "AllergyIntolerance.code",
+      "short" : "Tipo de substância/produto, condição de alergia ou intolerância ou ou código para alergia ausente/desconhecida",
+      "definition" : "Tipo de substância/produto, condição de alergia ou intolerância ou ou código para alergia ausente/desconhecida",
+      "comment" : "It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\r\rWhen a substance or product code is specified for the 'code' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the 'type' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\r\rThe 'substanceExposureRisk' extension is available as a structured and more flexible alternative to the 'code' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the 'substanceExposureRisk' extension is present, the AllergyIntolerance.code element SHALL be omitted.",
+      "alias" : ["Code"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.code",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "AL1-3 / IAM-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : "substance/product:\r\r.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rnegated/excluded substance/product:\r\r.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rpositive or negated/excluded condition/situation:\r\rObservation.code=ASSERTION; Observation.value"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient",
+      "path" : "AllergyIntolerance.patient",
+      "short" : "Referência do paciente",
+      "definition" : "Referência do paciente",
+      "alias" : ["Patient"],
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.patient",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "(PID-3)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].role[classCode=PAT]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.id",
+      "path" : "AllergyIntolerance.patient.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.extension",
+      "path" : "AllergyIntolerance.patient.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "AllergyIntolerance.patient.reference",
+      "path" : "AllergyIntolerance.patient.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta",
+      "comment" : "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.reference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "condition" : ["ref-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.type",
+      "path" : "AllergyIntolerance.patient.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo: Paciente)",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo: Paciente)",
+      "comment" : "This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "FHIRResourceTypeExt"
+        }],
+        "strength" : "extensible",
+        "description" : "Aa resource (or, for logical models, the URI of the logical model).",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-types|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.identifier",
+      "path" : "AllergyIntolerance.patient.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida",
+      "comment" : "When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy. \n\nWhen both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference\n\nApplications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.\n\nReference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.identifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".identifier"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.display",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "AllergyIntolerance.patient.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso",
+      "comment" : "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.display",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.encounter",
+      "path" : "AllergyIntolerance.encounter",
+      "short" : "Quando a alergia ou intolerância foi afirmada",
+      "definition" : "Quando a alergia ou intolerância foi afirmada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.encounter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.onset[x]",
+      "path" : "AllergyIntolerance.onset[x]",
+      "short" : "Quando a alergia ou a intolerância foi identificada",
+      "definition" : "Quando a alergia ou a intolerância foi identificada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.onset[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Age"
+      },
+      {
+        "code" : "Period"
+      },
+      {
+        "code" : "Range"
+      },
+      {
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.init"
+      },
+      {
+        "identity" : "rim",
+        "map" : "effectiveTime.low"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.recordedDate",
+      "path" : "AllergyIntolerance.recordedDate",
+      "short" : "Data em que a primeira versão da instância do recurso foi registrada",
+      "definition" : "Data em que a primeira versão da instância do recurso foi registrada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.recordedDate",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.recorded"
+      },
+      {
+        "identity" : "v2",
+        "map" : "IAM-13"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=AUT].time"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.recorder",
+      "path" : "AllergyIntolerance.recorder",
+      "short" : "Quem registrou a alergia/reação adversa",
+      "definition" : "Quem registrou a alergia/reação adversa",
+      "alias" : ["Author"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.recorder",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.author"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=AUT].role"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.asserter",
+      "path" : "AllergyIntolerance.asserter",
+      "short" : "Fonte da informação sobre a alergia/reação adversa",
+      "definition" : "Fonte da informação sobre a alergia/reação adversa",
+      "comment" : "The recorder takes responsibility for the content, but can reference the source from where they got it.",
+      "alias" : ["Source",
+      "Informant"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.asserter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.source"
+      },
+      {
+        "identity" : "v2",
+        "map" : "IAM-14 (if patient) / IAM-18 (if practitioner)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=INF].role"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.lastOccurrence",
+      "path" : "AllergyIntolerance.lastOccurrence",
+      "short" : "Data (/hora) da última ocorrência conhecida de uma reação",
+      "definition" : "Data (/hora) da última ocorrência conhecida de uma reação",
+      "comment" : "This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. 'In Childhood, '10 years ago' the Comment element should be used.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.lastOccurrence",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)].effectiveTime"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.note",
+      "path" : "AllergyIntolerance.note",
+      "short" : "Texto adicional não capturado em outros campos",
+      "definition" : "Texto adicional não capturado em outros campos.",
+      "comment" : "For example: including reason for flagging a seriousness of 'High Risk'; and instructions related to future exposure or administration of the substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "subjectOf.observationEvent[code=\"annotation\"].value"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction",
+      "path" : "AllergyIntolerance.reaction",
+      "short" : "Eventos de reação adversa relacionados à exposição da substância",
+      "definition" : "Eventos de reação adversa relacionados à exposição da substância",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.id",
+      "path" : "AllergyIntolerance.reaction.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.extension",
+      "path" : "AllergyIntolerance.reaction.extension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.modifierExtension",
+      "path" : "AllergyIntolerance.reaction.modifierExtension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.substance",
+      "path" : "AllergyIntolerance.reaction.substance",
+      "short" : "Substância específica ou produto farmacêutico considerado responsável pelo evento",
+      "definition" : "Substância específica ou produto farmacêutico considerado responsável pelo evento",
+      "comment" : "Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The 'code' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, \"penicillins\"), the 'reaction.substance' element could be used to code the specific substance that was identified as having caused the reaction (for example, \"amoxycillin\"). Duplication of the value in the 'code' and 'reaction.substance' elements is acceptable when a specific substance has been recorded in 'code'.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.substance",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.manifestation",
+      "path" : "AllergyIntolerance.reaction.manifestation",
+      "short" : "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED International Patient Set (IPS) do SNOMED CT (IPS Free Set)",
+      "definition" : "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED IPS do SNOMED CT (IPS Free Set)",
+      "comment" : "Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.",
+      "alias" : ["Symptoms",
+      "Signs"],
+      "min" : 1,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.manifestation",
+        "min" : 1,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRReacoesAdversasMedDRA"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "AL1-5"
+      },
+      {
+        "identity" : "rim",
+        "map" : "code"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.description",
+      "path" : "AllergyIntolerance.reaction.description",
+      "short" : "Descrição do evento como um todo",
+      "definition" : "Descrição do evento como um todo",
+      "comment" : "Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.",
+      "alias" : ["Narrative",
+      "Text"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.description",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "text"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.onset",
+      "path" : "AllergyIntolerance.reaction.onset",
+      "short" : "Data (/hora) em que as manifestações apareceram",
+      "definition" : "Data (/hora) em que as manifestações apareceram",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.onset",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "AL1-6"
+      },
+      {
+        "identity" : "rim",
+        "map" : "effectiveTime.low"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.severity",
+      "path" : "AllergyIntolerance.reaction.severity",
+      "short" : "Avaliação clínica da gravidade de um evento de reação: leve | moderado | grave (do evento como um todo)",
+      "definition" : "Avaliação clínica da gravidade de um evento de reação: leve | moderado | grave (do evento como um todo)",
+      "comment" : "It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.severity",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AllergyIntoleranceSeverity"
+        }],
+        "strength" : "required",
+        "description" : "Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/reaction-event-severity|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.exposureRoute",
+      "path" : "AllergyIntolerance.reaction.exposureRoute",
+      "short" : "Como o sujeito foi exposto à substância",
+      "definition" : "Como o sujeito foi exposto à substância",
+      "comment" : "Coding of the route of exposure with a terminology should be used wherever possible.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.exposureRoute",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].routeCode"
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.note",
+      "path" : "AllergyIntolerance.reaction.note",
+      "short" : "Texto sobre evento não capturado em outros campos",
+      "definition" : "Texto sobre evento não capturado em outros campos",
+      "comment" : "Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "AllergyIntolerance.reaction.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "subjectOf.observationEvent[code=\"annotation\"].value"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "AllergyIntolerance",
+      "path" : "AllergyIntolerance"
+    },
+    {
+      "id" : "AllergyIntolerance.id",
+      "path" : "AllergyIntolerance.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "AllergyIntolerance.meta",
+      "path" : "AllergyIntolerance.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "AllergyIntolerance.implicitRules",
+      "path" : "AllergyIntolerance.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "AllergyIntolerance.language",
+      "path" : "AllergyIntolerance.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "AllergyIntolerance.text",
+      "path" : "AllergyIntolerance.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "AllergyIntolerance.contained",
+      "path" : "AllergyIntolerance.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "AllergyIntolerance.extension",
+      "path" : "AllergyIntolerance.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "AllergyIntolerance.modifierExtension",
+      "path" : "AllergyIntolerance.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "AllergyIntolerance.identifier",
+      "path" : "AllergyIntolerance.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "AllergyIntolerance.clinicalStatus",
+      "path" : "AllergyIntolerance.clinicalStatus",
+      "short" : "O estado clínico da alergia ou intolerância",
+      "definition" : "O estado clínico da alergia ou intolerância"
+    },
+    {
+      "id" : "AllergyIntolerance.verificationStatus",
+      "path" : "AllergyIntolerance.verificationStatus",
+      "short" : "Declaração sobre a certeza associada a uma propensão, ou risco potencial, de uma reação à substância identificada",
+      "definition" : "Declaração sobre a certeza associada a uma propensão, ou risco potencial, de uma reação à substância identificada"
+    },
+    {
+      "id" : "AllergyIntolerance.type",
+      "path" : "AllergyIntolerance.type",
+      "short" : "Identificação do mecanismo fisiológico subjacente a um Risco de Reação",
+      "definition" : "Identificação do mecanismo fisiológico subjacente a um Risco de Reação"
+    },
+    {
+      "id" : "AllergyIntolerance.category",
+      "path" : "AllergyIntolerance.category",
+      "short" : "Categoria de uma substância identificada associada a alergias ou intolerâncias: comida | medicamento | ambiente | biológico",
+      "definition" : "Categoria de uma substância identificada associada a alergias ou intolerâncias: comida | medicamento | ambiente | biológico"
+    },
+    {
+      "id" : "AllergyIntolerance.criticality",
+      "path" : "AllergyIntolerance.criticality",
+      "short" : "Criticalidade da reação: baixo | alto | incapaz de avaliar",
+      "definition" : "Criticalidade da reação: baixo | alto | incapaz de avaliar"
+    },
+    {
+      "id" : "AllergyIntolerance.code",
+      "path" : "AllergyIntolerance.code",
+      "short" : "Tipo de substância/produto, condição de alergia ou intolerância ou ou código para alergia ausente/desconhecida",
+      "definition" : "Tipo de substância/produto, condição de alergia ou intolerância ou ou código para alergia ausente/desconhecida",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos"
+      }
+    },
+    {
+      "id" : "AllergyIntolerance.patient",
+      "path" : "AllergyIntolerance.patient",
+      "short" : "Referência do paciente",
+      "definition" : "Referência do paciente",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.patient.id",
+      "path" : "AllergyIntolerance.patient.id",
+      "short" : "Identificador exclusivo para referência entre elementos",
+      "definition" : "Identificador exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "AllergyIntolerance.patient.extension",
+      "path" : "AllergyIntolerance.patient.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "AllergyIntolerance.patient.reference",
+      "path" : "AllergyIntolerance.patient.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta"
+    },
+    {
+      "id" : "AllergyIntolerance.patient.type",
+      "path" : "AllergyIntolerance.patient.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo: Paciente)",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo: Paciente)"
+    },
+    {
+      "id" : "AllergyIntolerance.patient.identifier",
+      "path" : "AllergyIntolerance.patient.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida"
+    },
+    {
+      "id" : "AllergyIntolerance.patient.display",
+      "path" : "AllergyIntolerance.patient.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso"
+    },
+    {
+      "id" : "AllergyIntolerance.encounter",
+      "path" : "AllergyIntolerance.encounter",
+      "short" : "Quando a alergia ou intolerância foi afirmada",
+      "definition" : "Quando a alergia ou intolerância foi afirmada",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.onset[x]",
+      "path" : "AllergyIntolerance.onset[x]",
+      "short" : "Quando a alergia ou a intolerância foi identificada",
+      "definition" : "Quando a alergia ou a intolerância foi identificada"
+    },
+    {
+      "id" : "AllergyIntolerance.recordedDate",
+      "path" : "AllergyIntolerance.recordedDate",
+      "short" : "Data em que a primeira versão da instância do recurso foi registrada",
+      "definition" : "Data em que a primeira versão da instância do recurso foi registrada"
+    },
+    {
+      "id" : "AllergyIntolerance.recorder",
+      "path" : "AllergyIntolerance.recorder",
+      "short" : "Quem registrou a alergia/reação adversa",
+      "definition" : "Quem registrou a alergia/reação adversa",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.asserter",
+      "path" : "AllergyIntolerance.asserter",
+      "short" : "Fonte da informação sobre a alergia/reação adversa",
+      "definition" : "Fonte da informação sobre a alergia/reação adversa",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson"]
+      }]
+    },
+    {
+      "id" : "AllergyIntolerance.lastOccurrence",
+      "path" : "AllergyIntolerance.lastOccurrence",
+      "short" : "Data (/hora) da última ocorrência conhecida de uma reação",
+      "definition" : "Data (/hora) da última ocorrência conhecida de uma reação"
+    },
+    {
+      "id" : "AllergyIntolerance.note",
+      "path" : "AllergyIntolerance.note",
+      "short" : "Texto adicional não capturado em outros campos",
+      "definition" : "Texto adicional não capturado em outros campos."
+    },
+    {
+      "id" : "AllergyIntolerance.reaction",
+      "path" : "AllergyIntolerance.reaction",
+      "short" : "Eventos de reação adversa relacionados à exposição da substância",
+      "definition" : "Eventos de reação adversa relacionados à exposição da substância"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.id",
+      "path" : "AllergyIntolerance.reaction.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.extension",
+      "path" : "AllergyIntolerance.reaction.extension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.modifierExtension",
+      "path" : "AllergyIntolerance.reaction.modifierExtension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.substance",
+      "path" : "AllergyIntolerance.reaction.substance",
+      "short" : "Substância específica ou produto farmacêutico considerado responsável pelo evento",
+      "definition" : "Substância específica ou produto farmacêutico considerado responsável pelo evento",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRAlergenos"
+      }
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.manifestation",
+      "path" : "AllergyIntolerance.reaction.manifestation",
+      "short" : "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED International Patient Set (IPS) do SNOMED CT (IPS Free Set)",
+      "definition" : "Código para a manifestação de reação de alergia ou intolerância do subconjunto SNOMED IPS do SNOMED CT (IPS Free Set)",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRReacoesAdversasMedDRA"
+      }
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.description",
+      "path" : "AllergyIntolerance.reaction.description",
+      "short" : "Descrição do evento como um todo",
+      "definition" : "Descrição do evento como um todo"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.onset",
+      "path" : "AllergyIntolerance.reaction.onset",
+      "short" : "Data (/hora) em que as manifestações apareceram",
+      "definition" : "Data (/hora) em que as manifestações apareceram"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.severity",
+      "path" : "AllergyIntolerance.reaction.severity",
+      "short" : "Avaliação clínica da gravidade de um evento de reação: leve | moderado | grave (do evento como um todo)",
+      "definition" : "Avaliação clínica da gravidade de um evento de reação: leve | moderado | grave (do evento como um todo)"
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.exposureRoute",
+      "path" : "AllergyIntolerance.reaction.exposureRoute",
+      "short" : "Como o sujeito foi exposto à substância",
+      "definition" : "Como o sujeito foi exposto à substância",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration"
+      }
+    },
+    {
+      "id" : "AllergyIntolerance.reaction.note",
+      "path" : "AllergyIntolerance.reaction.note",
+      "short" : "Texto sobre evento não capturado em outros campos",
+      "definition" : "Texto sobre evento não capturado em outros campos"
+    }]
+  }
+}

@@ -1,0 +1,3170 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-immunization",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-immunization",
+  "version" : "1.4.0",
+  "name" : "BRCoreImmunization",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil restringe o recurso [Immunization](https://hl7.org/fhir/R4/immunization.html) que descreve o evento em que um paciente recebe uma vacina ou um registro de uma imunização conforme relatado por um paciente, um médico ou outra parte",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "cda",
+    "uri" : "http://hl7.org/v3/cda",
+    "name" : "CDA (R2)"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Immunization",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Immunization",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "Immunization",
+      "path" : "Immunization",
+      "short" : "Immunization event information",
+      "definition" : "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Immunization",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "workflow",
+        "map" : "Event"
+      },
+      {
+        "identity" : "v2",
+        "map" : "VXU_V04"
+      },
+      {
+        "identity" : "rim",
+        "map" : "SubstanceAdministration"
+      }]
+    },
+    {
+      "id" : "Immunization.id",
+      "path" : "Immunization.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.meta",
+      "path" : "Immunization.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.implicitRules",
+      "path" : "Immunization.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.language",
+      "path" : "Immunization.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "Immunization.text",
+      "path" : "Immunization.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "Immunization.contained",
+      "path" : "Immunization.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.extension",
+      "path" : "Immunization.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.modifierExtension",
+      "path" : "Immunization.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.identifier",
+      "path" : "Immunization.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Immunization.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.identifier"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id"
+      }]
+    },
+    {
+      "id" : "Immunization.status",
+      "path" : "Immunization.status",
+      "short" : "O status do evento de administração de imunobiológico",
+      "definition" : "O status do evento de administração de imunobiológico",
+      "comment" : "Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains statuses entered-in-error and not-done which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ImmunizationStatus"
+        }],
+        "strength" : "required",
+        "description" : "A set of codes indicating the current status of an Immunization.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.status"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : "statusCode"
+      }]
+    },
+    {
+      "id" : "Immunization.statusReason",
+      "path" : "Immunization.statusReason",
+      "short" : "O motivo pelo qual o imunobiológico não foi administrado",
+      "definition" : "O motivo pelo qual o imunobiológico não foi administrado",
+      "comment" : "This is generally only used for the status of \"not-done\". The reason for performing the immunization event is captured in reasonCode, not here.",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.statusReason",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ImmunizationStatusReason"
+        }],
+        "strength" : "example",
+        "description" : "The reason why a vaccine was not administered.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-status-reason|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.statusReason"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"
+      }]
+    },
+    {
+      "id" : "Immunization.vaccineCode",
+      "path" : "Immunization.vaccineCode",
+      "short" : "Imunobiológico administrado",
+      "definition" : "Imunobiológico administrado",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.vaccineCode",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.code"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-5"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code"
+      }]
+    },
+    {
+      "id" : "Immunization.patient",
+      "path" : "Immunization.patient",
+      "short" : "O paciente que recebeu o imunobiológico",
+      "definition" : "O paciente que recebeu o imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.patient",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PID-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".partipication[ttypeCode=].role"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "Immunization.patient.id",
+      "path" : "Immunization.patient.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Immunization.patient.extension",
+      "path" : "Immunization.patient.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.patient.reference",
+      "path" : "Immunization.patient.reference",
+      "short" : "Referência literal,relativa, interna ou externa ou URL",
+      "definition" : "Referência literal,relativa, interna ou externa ou URL",
+      "comment" : "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.reference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "condition" : ["ref-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.patient.type",
+      "path" : "Immunization.patient.type",
+      "short" : "O tipo de referência utilizada",
+      "definition" : "O tipo de referência utilizada",
+      "comment" : "This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "FHIRResourceTypeExt"
+        }],
+        "strength" : "extensible",
+        "description" : "Aa resource (or, for logical models, the URI of the logical model).",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-types|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.patient.identifier",
+      "path" : "Immunization.patient.identifier",
+      "short" : "Referência lógica,quando a referência literal não é conhecida",
+      "definition" : "Referência lógica,quando a referência literal não é conhecida",
+      "comment" : "When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy. \n\nWhen both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference\n\nApplications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.\n\nReference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.identifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".identifier"
+      }]
+    },
+    {
+      "id" : "Immunization.patient.display",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "Immunization.patient.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso",
+      "comment" : "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.display",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.encounter",
+      "path" : "Immunization.encounter",
+      "short" : "Referência ao atendimento no qual o imunobiológico foi administrado",
+      "definition" : "Referência ao atendimento no qual o imunobiológico foi administrado",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.encounter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.context"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PV1-19"
+      },
+      {
+        "identity" : "rim",
+        "map" : "component->EncounterEvent"
+      }]
+    },
+    {
+      "id" : "Immunization.occurrence[x]",
+      "path" : "Immunization.occurrence[x]",
+      "short" : "Data em que o imunobiológico foi administrado",
+      "definition" : "Data em que o imunobiológico foi administrado",
+      "comment" : "When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.occurrence[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value"
+      }]
+    },
+    {
+      "id" : "Immunization.recorded",
+      "path" : "Immunization.recorded",
+      "short" : "Data em que o primeiro registro de vacinação foi feito",
+      "definition" : "Data em que o primeiro registro de vacinação foi feito",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.recorded",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.recorded"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=AUT].time"
+      }]
+    },
+    {
+      "id" : "Immunization.primarySource",
+      "path" : "Immunization.primarySource",
+      "short" : "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde",
+      "definition" : "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde",
+      "comment" : "Reflects the “reliability” of the content.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.primarySource",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.source"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : "immunization.uncertaintycode (if primary source=false, uncertainty=U)"
+      }]
+    },
+    {
+      "id" : "Immunization.reportOrigin",
+      "path" : "Immunization.reportOrigin",
+      "short" : "Indica a fonte do registro de vacinação relatado",
+      "definition" : "Indica a fonte do registro de vacinação relatado",
+      "comment" : "Should not be populated if primarySource = True, not required even if primarySource = False.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.reportOrigin",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.source"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported) .participation[typeCode=INF].role[classCode=LIC] (this syntax for health care professional) .participation[typeCode=INF].role[classCode=PRS] (this syntax for family member)"
+      }]
+    },
+    {
+      "id" : "Immunization.location",
+      "path" : "Immunization.location",
+      "short" : "Local onde o imunobiológico foi administrado",
+      "definition" : "Local onde o imunobiológico foi administrado",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.location",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.location"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.where[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "RXA-27  (or RXA-11, deprecated as of v2.7)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=LOC].COCT_MT240000UV"
+      }]
+    },
+    {
+      "id" : "Immunization.manufacturer",
+      "path" : "Immunization.manufacturer",
+      "short" : "Fabricante do imunobiológico",
+      "definition" : "Fabricante do imunobiológico",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.manufacturer",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-17"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name"
+      }]
+    },
+    {
+      "id" : "Immunization.lotNumber",
+      "path" : "Immunization.lotNumber",
+      "short" : "Número do lote do imunobiológico",
+      "definition" : "Número do lote do imunobiológico",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.lotNumber",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-15"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText"
+      }]
+    },
+    {
+      "id" : "Immunization.expirationDate",
+      "path" : "Immunization.expirationDate",
+      "short" : "Data de validade do imunobiológico",
+      "definition" : "Data de validade do imunobiológico",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.expirationDate",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "date"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-16"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime"
+      }]
+    },
+    {
+      "id" : "Immunization.site",
+      "path" : "Immunization.site",
+      "short" : "Local de administração do imunobiológico",
+      "definition" : "Local de administração do imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.site",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXR-2"
+      },
+      {
+        "identity" : "rim",
+        "map" : "observation.targetSiteCode"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code"
+      }]
+    },
+    {
+      "id" : "Immunization.route",
+      "path" : "Immunization.route",
+      "short" : "Via de administração do imunobiológico",
+      "definition" : "Via de administração do imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.route",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXR-1"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".routeCode"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code"
+      }]
+    },
+    {
+      "id" : "Immunization.doseQuantity",
+      "path" : "Immunization.doseQuantity",
+      "short" : "Quantidade de imunobiológico administrado",
+      "definition" : "Quantidade de imunobiológico administrado",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.doseQuantity",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-6 / RXA-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".doseQuantity"
+      }]
+    },
+    {
+      "id" : "Immunization.performer",
+      "path" : "Immunization.performer",
+      "short" : "Profissional de saúde que administrou o imunobiológico",
+      "definition" : "Profissional de saúde que administrou o imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.performer",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC-12 / RXA-10"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"
+      }]
+    },
+    {
+      "id" : "Immunization.performer.id",
+      "path" : "Immunization.performer.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Immunization.performer.extension",
+      "path" : "Immunization.performer.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.performer.modifierExtension",
+      "path" : "Immunization.performer.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.performer.function",
+      "path" : "Immunization.performer.function",
+      "short" : "Função do profissional de saúde no evento de administração de imunobiológico",
+      "definition" : "Função do profissional de saúde no evento de administração de imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.performer.function",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.function"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation.functionCode"
+      }]
+    },
+    {
+      "id" : "Immunization.performer.actor",
+      "path" : "Immunization.performer.actor",
+      "short" : "Profissional de saúde que administrou o imunobiológico",
+      "definition" : "Profissional de saúde que administrou o imunobiológico",
+      "comment" : "When the individual practitioner who performed the action is known, it is best to send.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.performer.actor",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.actor"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".player"
+      }]
+    },
+    {
+      "id" : "Immunization.note",
+      "path" : "Immunization.note",
+      "short" : "Observações adicionais sobre o evento de administração de imunobiológico",
+      "definition" : "Observações adicionais sobre o evento de administração de imunobiológico",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.note"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBX-5 : OBX-3 = 48767-8"
+      },
+      {
+        "identity" : "rim",
+        "map" : "note"
+      }]
+    },
+    {
+      "id" : "Immunization.reasonCode",
+      "path" : "Immunization.reasonCode",
+      "short" : "Motivo pelo qual o imunobiológico foi administrado",
+      "definition" : "Motivo pelo qual o imunobiológico foi administrado",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.reasonCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.reasonCode"
+      },
+      {
+        "identity" : "rim",
+        "map" : "[actionNegationInd=false].reasonCode"
+      }]
+    },
+    {
+      "id" : "Immunization.reasonReference",
+      "path" : "Immunization.reasonReference",
+      "short" : "Referência ao motivo pelo qual o imunobiológico foi administrado",
+      "definition" : "Referência ao motivo pelo qual o imunobiológico foi administrado",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.reasonReference",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.reasonReference"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.isSubpotent",
+      "path" : "Immunization.isSubpotent",
+      "short" : "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada",
+      "definition" : "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada",
+      "comment" : "Typically, the recognition of the dose being sub-potent is retrospective, after the administration (ex. notification of a manufacturer recall after administration). However, in the case of a partial administration (the patient moves unexpectedly and only some of the dose is actually administered), subpotency may be recognized immediately, but it is still important to record the event.",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.isSubpotent",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "meaningWhenMissing" : "By default, a dose should be considered to be potent.",
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because an immunization event with a subpotent vaccine doesn't protect the patient the same way as a potent dose.",
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "RXA-20 = PA (partial administration)"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.subpotentReason",
+      "path" : "Immunization.subpotentReason",
+      "short" : "Reason for being subpotent",
+      "definition" : "Reason why a dose is considered to be subpotent.",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.subpotentReason",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SubpotentReason"
+        }],
+        "strength" : "example",
+        "description" : "The reason why a dose is considered to be subpotent.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-subpotent-reason|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.education",
+      "path" : "Immunization.education",
+      "short" : "Informações sobre a educação do paciente sobre o imunobiológico",
+      "definition" : "Informações sobre a educação do paciente sobre o imunobiológico",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.education",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "imm-1",
+        "severity" : "error",
+        "human" : "One of documentType or reference SHALL be present",
+        "expression" : "documentType.exists() or reference.exists()",
+        "xpath" : "exists(f:documentType) or exists(f:reference)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Immunization"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.education.id",
+      "path" : "Immunization.education.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Immunization.education.extension",
+      "path" : "Immunization.education.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.education.modifierExtension",
+      "path" : "Immunization.education.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.education.documentType",
+      "path" : "Immunization.education.documentType",
+      "short" : "Tipo de documento educacional",
+      "definition" : "Tipo de documento educacional",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.education.documentType",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-5 : OBX-3 = 69764-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.education.reference",
+      "path" : "Immunization.education.reference",
+      "short" : "Referência ao documento educacional",
+      "definition" : "Referência ao documento educacional",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.education.reference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.education.publicationDate",
+      "path" : "Immunization.education.publicationDate",
+      "short" : "Data de publicação do documento educacional",
+      "definition" : "Data de publicação do documento educacional",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.education.publicationDate",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-5 : OBX-3 = 29768-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.education.presentationDate",
+      "path" : "Immunization.education.presentationDate",
+      "short" : "Data de apresentação do documento educacional",
+      "definition" : "Data de apresentação do documento educacional",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.education.presentationDate",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-5 : OBX-3 = 29769-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.programEligibility",
+      "path" : "Immunization.programEligibility",
+      "short" : "Informações sobre a elegibilidade do paciente para o programa de imunização",
+      "definition" : "Informações sobre a elegibilidade do paciente para o programa de imunização",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.programEligibility",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRElegibilidadeImunobiologico"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-5 : OBX-3 = 64994-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.fundingSource",
+      "path" : "Immunization.fundingSource",
+      "short" : "Fonte de financiamento do imunobiológico",
+      "definition" : "Fonte de financiamento do imunobiológico",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.fundingSource",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-funding-source"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.reaction",
+      "path" : "Immunization.reaction",
+      "short" : "Reações adversas do paciente ao imunobiológico",
+      "definition" : "Reações adversas do paciente ao imunobiológico",
+      "comment" : "A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case, it should be recorded as a new AllergyIntolerance resource instance as most systems will not query against past Immunization.reaction elements.",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.reaction",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Observation[classCode=obs].code"
+      }]
+    },
+    {
+      "id" : "Immunization.reaction.id",
+      "path" : "Immunization.reaction.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Immunization.reaction.extension",
+      "path" : "Immunization.reaction.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.reaction.modifierExtension",
+      "path" : "Immunization.reaction.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.reaction.date",
+      "path" : "Immunization.reaction.date",
+      "short" : "Data em que a reação adversa ocorreu",
+      "definition" : "Data em que a reação adversa ocorreu",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.reaction.date",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Immunization.reaction.detail",
+      "path" : "Immunization.reaction.detail",
+      "short" : "Detalhes sobre a reação adversa",
+      "definition" : "Detalhes sobre a reação adversa",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.reaction.detail",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX-5"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".value"
+      }]
+    },
+    {
+      "id" : "Immunization.reaction.reported",
+      "path" : "Immunization.reaction.reported",
+      "short" : "Indica que a reação adversa foi relatada pelo paciente",
+      "definition" : "Indica que a reação adversa foi relatada pelo paciente",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.reaction.reported",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "(HL7 v2 doesn't seem to provide for this)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied",
+      "path" : "Immunization.protocolApplied",
+      "short" : "Protocolos aplicados  durante a administração do imunobiológico",
+      "definition" : "Protocolos aplicados  durante a administração do imunobiológico",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.protocolApplied",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.id",
+      "path" : "Immunization.protocolApplied.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.extension",
+      "path" : "Immunization.protocolApplied.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "ordered" : false,
+        "rules" : "open"
+      },
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.protocolApplied.extension:pesquisaClinica",
+      "path" : "Immunization.protocolApplied.extension",
+      "sliceName" : "pesquisaClinica",
+      "short" : "Pesquisa clínica",
+      "definition" : "Pesquisa clínica",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-pesquisaclinica"]
+      }],
+      "condition" : ["ele-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Immunization.protocolApplied.modifierExtension",
+      "path" : "Immunization.protocolApplied.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Immunization.protocolApplied.series",
+      "path" : "Immunization.protocolApplied.series",
+      "short" : "Nome da série do imunobiológico",
+      "definition" : "Nome da série do imunobiológico",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.protocolApplied.series",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.authority",
+      "path" : "Immunization.protocolApplied.authority",
+      "short" : "Autoridade que definiu o protocolo de administração do imunobiológico",
+      "definition" : "Autoridade que definiu o protocolo de administração do imunobiológico",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Immunization.protocolApplied.authority",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.targetDisease",
+      "path" : "Immunization.protocolApplied.targetDisease",
+      "short" : "Doença alvo do imunobiológico",
+      "definition" : "Doença alvo do imunobiológico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Immunization.protocolApplied.targetDisease",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.doseNumber[x]",
+      "path" : "Immunization.protocolApplied.doseNumber[x]",
+      "short" : "Número da dose do imunobiológico",
+      "definition" : "Número da dose do imunobiológico",
+      "comment" : "The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.protocolApplied.doseNumber[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRDose"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.seriesDoses[x]",
+      "path" : "Immunization.protocolApplied.seriesDoses[x]",
+      "short" : "Número de doses da série do imunobiológico",
+      "definition" : "Número de doses da série do imunobiológico",
+      "comment" : "The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Immunization.protocolApplied.seriesDoses[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "positiveInt"
+      },
+      {
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Immunization",
+      "path" : "Immunization"
+    },
+    {
+      "id" : "Immunization.id",
+      "path" : "Immunization.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "Immunization.meta",
+      "path" : "Immunization.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "Immunization.implicitRules",
+      "path" : "Immunization.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "Immunization.language",
+      "path" : "Immunization.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "Immunization.text",
+      "path" : "Immunization.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "Immunization.contained",
+      "path" : "Immunization.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "Immunization.extension",
+      "path" : "Immunization.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "Immunization.modifierExtension",
+      "path" : "Immunization.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Immunization.identifier",
+      "path" : "Immunization.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "Immunization.status",
+      "path" : "Immunization.status",
+      "short" : "O status do evento de administração de imunobiológico",
+      "definition" : "O status do evento de administração de imunobiológico"
+    },
+    {
+      "id" : "Immunization.statusReason",
+      "path" : "Immunization.statusReason",
+      "short" : "O motivo pelo qual o imunobiológico não foi administrado",
+      "definition" : "O motivo pelo qual o imunobiológico não foi administrado",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.vaccineCode",
+      "path" : "Immunization.vaccineCode",
+      "short" : "Imunobiológico administrado",
+      "definition" : "Imunobiológico administrado",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico"
+      }
+    },
+    {
+      "id" : "Immunization.patient",
+      "path" : "Immunization.patient",
+      "short" : "O paciente que recebeu o imunobiológico",
+      "definition" : "O paciente que recebeu o imunobiológico",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }]
+    },
+    {
+      "id" : "Immunization.patient.id",
+      "path" : "Immunization.patient.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Immunization.patient.extension",
+      "path" : "Immunization.patient.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.patient.reference",
+      "path" : "Immunization.patient.reference",
+      "short" : "Referência literal,relativa, interna ou externa ou URL",
+      "definition" : "Referência literal,relativa, interna ou externa ou URL"
+    },
+    {
+      "id" : "Immunization.patient.type",
+      "path" : "Immunization.patient.type",
+      "short" : "O tipo de referência utilizada",
+      "definition" : "O tipo de referência utilizada"
+    },
+    {
+      "id" : "Immunization.patient.identifier",
+      "path" : "Immunization.patient.identifier",
+      "short" : "Referência lógica,quando a referência literal não é conhecida",
+      "definition" : "Referência lógica,quando a referência literal não é conhecida"
+    },
+    {
+      "id" : "Immunization.patient.display",
+      "path" : "Immunization.patient.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso"
+    },
+    {
+      "id" : "Immunization.encounter",
+      "path" : "Immunization.encounter",
+      "short" : "Referência ao atendimento no qual o imunobiológico foi administrado",
+      "definition" : "Referência ao atendimento no qual o imunobiológico foi administrado",
+      "max" : "0",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }]
+    },
+    {
+      "id" : "Immunization.occurrence[x]",
+      "path" : "Immunization.occurrence[x]",
+      "short" : "Data em que o imunobiológico foi administrado",
+      "definition" : "Data em que o imunobiológico foi administrado"
+    },
+    {
+      "id" : "Immunization.recorded",
+      "path" : "Immunization.recorded",
+      "short" : "Data em que o primeiro registro de vacinação foi feito",
+      "definition" : "Data em que o primeiro registro de vacinação foi feito",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.primarySource",
+      "path" : "Immunization.primarySource",
+      "short" : "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde",
+      "definition" : "Indica se o registro de vacinação foi relatado pelo paciente ou por um profissional de saúde"
+    },
+    {
+      "id" : "Immunization.reportOrigin",
+      "path" : "Immunization.reportOrigin",
+      "short" : "Indica a fonte do registro de vacinação relatado",
+      "definition" : "Indica a fonte do registro de vacinação relatado",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRRegistroOrigem"
+      }
+    },
+    {
+      "id" : "Immunization.location",
+      "path" : "Immunization.location",
+      "short" : "Local onde o imunobiológico foi administrado",
+      "definition" : "Local onde o imunobiológico foi administrado",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }]
+    },
+    {
+      "id" : "Immunization.manufacturer",
+      "path" : "Immunization.manufacturer",
+      "short" : "Fabricante do imunobiológico",
+      "definition" : "Fabricante do imunobiológico",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Immunization.lotNumber",
+      "path" : "Immunization.lotNumber",
+      "short" : "Número do lote do imunobiológico",
+      "definition" : "Número do lote do imunobiológico"
+    },
+    {
+      "id" : "Immunization.expirationDate",
+      "path" : "Immunization.expirationDate",
+      "short" : "Data de validade do imunobiológico",
+      "definition" : "Data de validade do imunobiológico"
+    },
+    {
+      "id" : "Immunization.site",
+      "path" : "Immunization.site",
+      "short" : "Local de administração do imunobiológico",
+      "definition" : "Local de administração do imunobiológico",
+      "min" : 1,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRLocalAplicacao"
+      }
+    },
+    {
+      "id" : "Immunization.route",
+      "path" : "Immunization.route",
+      "short" : "Via de administração do imunobiológico",
+      "definition" : "Via de administração do imunobiológico",
+      "min" : 1,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRViaAdministracao"
+      }
+    },
+    {
+      "id" : "Immunization.doseQuantity",
+      "path" : "Immunization.doseQuantity",
+      "short" : "Quantidade de imunobiológico administrado",
+      "definition" : "Quantidade de imunobiológico administrado"
+    },
+    {
+      "id" : "Immunization.performer",
+      "path" : "Immunization.performer",
+      "short" : "Profissional de saúde que administrou o imunobiológico",
+      "definition" : "Profissional de saúde que administrou o imunobiológico",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Immunization.performer.id",
+      "path" : "Immunization.performer.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Immunization.performer.extension",
+      "path" : "Immunization.performer.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.performer.modifierExtension",
+      "path" : "Immunization.performer.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.performer.function",
+      "path" : "Immunization.performer.function",
+      "short" : "Função do profissional de saúde no evento de administração de imunobiológico",
+      "definition" : "Função do profissional de saúde no evento de administração de imunobiológico",
+      "min" : 1,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      }
+    },
+    {
+      "id" : "Immunization.performer.actor",
+      "path" : "Immunization.performer.actor",
+      "short" : "Profissional de saúde que administrou o imunobiológico",
+      "definition" : "Profissional de saúde que administrou o imunobiológico",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Immunization.note",
+      "path" : "Immunization.note",
+      "short" : "Observações adicionais sobre o evento de administração de imunobiológico",
+      "definition" : "Observações adicionais sobre o evento de administração de imunobiológico",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.reasonCode",
+      "path" : "Immunization.reasonCode",
+      "short" : "Motivo pelo qual o imunobiológico foi administrado",
+      "definition" : "Motivo pelo qual o imunobiológico foi administrado",
+      "max" : "1",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BREstrategiaVacinacao"
+      }
+    },
+    {
+      "id" : "Immunization.reasonReference",
+      "path" : "Immunization.reasonReference",
+      "short" : "Referência ao motivo pelo qual o imunobiológico foi administrado",
+      "definition" : "Referência ao motivo pelo qual o imunobiológico foi administrado",
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-condition",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport"]
+      }]
+    },
+    {
+      "id" : "Immunization.isSubpotent",
+      "path" : "Immunization.isSubpotent",
+      "short" : "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada",
+      "definition" : "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.subpotentReason",
+      "path" : "Immunization.subpotentReason",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.education",
+      "path" : "Immunization.education",
+      "short" : "Informações sobre a educação do paciente sobre o imunobiológico",
+      "definition" : "Informações sobre a educação do paciente sobre o imunobiológico",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.education.id",
+      "path" : "Immunization.education.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Immunization.education.extension",
+      "path" : "Immunization.education.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.education.modifierExtension",
+      "path" : "Immunization.education.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.education.documentType",
+      "path" : "Immunization.education.documentType",
+      "short" : "Tipo de documento educacional",
+      "definition" : "Tipo de documento educacional",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.education.reference",
+      "path" : "Immunization.education.reference",
+      "short" : "Referência ao documento educacional",
+      "definition" : "Referência ao documento educacional",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.education.publicationDate",
+      "path" : "Immunization.education.publicationDate",
+      "short" : "Data de publicação do documento educacional",
+      "definition" : "Data de publicação do documento educacional",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.education.presentationDate",
+      "path" : "Immunization.education.presentationDate",
+      "short" : "Data de apresentação do documento educacional",
+      "definition" : "Data de apresentação do documento educacional",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.programEligibility",
+      "path" : "Immunization.programEligibility",
+      "short" : "Informações sobre a elegibilidade do paciente para o programa de imunização",
+      "definition" : "Informações sobre a elegibilidade do paciente para o programa de imunização",
+      "max" : "0",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRElegibilidadeImunobiologico"
+      }
+    },
+    {
+      "id" : "Immunization.fundingSource",
+      "path" : "Immunization.fundingSource",
+      "short" : "Fonte de financiamento do imunobiológico",
+      "definition" : "Fonte de financiamento do imunobiológico",
+      "max" : "0",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-funding-source"
+      }
+    },
+    {
+      "id" : "Immunization.reaction",
+      "path" : "Immunization.reaction",
+      "short" : "Reações adversas do paciente ao imunobiológico",
+      "definition" : "Reações adversas do paciente ao imunobiológico",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.reaction.id",
+      "path" : "Immunization.reaction.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Immunization.reaction.extension",
+      "path" : "Immunization.reaction.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.reaction.modifierExtension",
+      "path" : "Immunization.reaction.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.reaction.date",
+      "path" : "Immunization.reaction.date",
+      "short" : "Data em que a reação adversa ocorreu",
+      "definition" : "Data em que a reação adversa ocorreu",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.reaction.detail",
+      "path" : "Immunization.reaction.detail",
+      "short" : "Detalhes sobre a reação adversa",
+      "definition" : "Detalhes sobre a reação adversa",
+      "max" : "0",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation"]
+      }]
+    },
+    {
+      "id" : "Immunization.reaction.reported",
+      "path" : "Immunization.reaction.reported",
+      "short" : "Indica que a reação adversa foi relatada pelo paciente",
+      "definition" : "Indica que a reação adversa foi relatada pelo paciente",
+      "max" : "0"
+    },
+    {
+      "id" : "Immunization.protocolApplied",
+      "path" : "Immunization.protocolApplied",
+      "short" : "Protocolos aplicados  durante a administração do imunobiológico",
+      "definition" : "Protocolos aplicados  durante a administração do imunobiológico",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Immunization.protocolApplied.id",
+      "path" : "Immunization.protocolApplied.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Immunization.protocolApplied.extension",
+      "path" : "Immunization.protocolApplied.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "ordered" : false,
+        "rules" : "open"
+      },
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.protocolApplied.extension:pesquisaClinica",
+      "path" : "Immunization.protocolApplied.extension",
+      "sliceName" : "pesquisaClinica",
+      "short" : "Pesquisa clínica",
+      "definition" : "Pesquisa clínica",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-pesquisaclinica"]
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.modifierExtension",
+      "path" : "Immunization.protocolApplied.modifierExtension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Immunization.protocolApplied.series",
+      "path" : "Immunization.protocolApplied.series",
+      "short" : "Nome da série do imunobiológico",
+      "definition" : "Nome da série do imunobiológico"
+    },
+    {
+      "id" : "Immunization.protocolApplied.authority",
+      "path" : "Immunization.protocolApplied.authority",
+      "short" : "Autoridade que definiu o protocolo de administração do imunobiológico",
+      "definition" : "Autoridade que definiu o protocolo de administração do imunobiológico",
+      "max" : "0",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Immunization.protocolApplied.targetDisease",
+      "path" : "Immunization.protocolApplied.targetDisease",
+      "short" : "Doença alvo do imunobiológico",
+      "definition" : "Doença alvo do imunobiológico",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCID10"
+      }
+    },
+    {
+      "id" : "Immunization.protocolApplied.doseNumber[x]",
+      "path" : "Immunization.protocolApplied.doseNumber[x]",
+      "short" : "Número da dose do imunobiológico",
+      "definition" : "Número da dose do imunobiológico",
+      "type" : [{
+        "code" : "string"
+      }],
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRDose"
+      }
+    },
+    {
+      "id" : "Immunization.protocolApplied.seriesDoses[x]",
+      "path" : "Immunization.protocolApplied.seriesDoses[x]",
+      "short" : "Número de doses da série do imunobiológico",
+      "definition" : "Número de doses da série do imunobiológico"
+    }]
+  }
+}

@@ -1,0 +1,2043 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-healthcareservice",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice",
+  "version" : "1.4.0",
+  "name" : "BRCoreHealthcareService",
+  "title" : "br-core-healthcareservice",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil restringe o recurso [HealthcareService](https://hl7.org/fhir/R4/healthcareservice.html) que representa os detalhes de um serviço de saúde disponível em um local",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "HealthcareService",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/HealthcareService",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "HealthcareService",
+      "path" : "HealthcareService",
+      "short" : "The details of a healthcare service available at a location",
+      "definition" : "The details of a healthcare service available at a location.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "rim",
+        "map" : "act[classCode=ACT][moodCode=DEF]"
+      }]
+    },
+    {
+      "id" : "HealthcareService.id",
+      "path" : "HealthcareService.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.meta",
+      "path" : "HealthcareService.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.implicitRules",
+      "path" : "HealthcareService.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.language",
+      "path" : "HealthcareService.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "HealthcareService.text",
+      "path" : "HealthcareService.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "HealthcareService.contained",
+      "path" : "HealthcareService.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "HealthcareService.extension",
+      "path" : "HealthcareService.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.modifierExtension",
+      "path" : "HealthcareService.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.identifier",
+      "path" : "HealthcareService.identifier",
+      "short" : "Identificadores deste recurso",
+      "definition" : "Identificadores deste recurso",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      }]
+    },
+    {
+      "id" : "HealthcareService.active",
+      "path" : "HealthcareService.active",
+      "short" : "Se este registro está em uso ativo",
+      "definition" : "Se este registro está em uso ativo",
+      "comment" : "This element is labeled as a modifier because it may be used to mark that the resource was created in error.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.active",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "meaningWhenMissing" : "This resource is generally assumed to be active if no value is provided for the active element",
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid",
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".statusCode"
+      }]
+    },
+    {
+      "id" : "HealthcareService.providedBy",
+      "path" : "HealthcareService.providedBy",
+      "short" : "Referência à organização que fornece este serviço",
+      "definition" : "Referência à organização que fornece este serviço",
+      "comment" : "This property is recommended to be the same as the Location's managingOrganization, and if not provided should be interpreted as such. If the Location does not have a managing Organization, then this property should be populated.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.providedBy",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".scopingRole.Organization"
+      }]
+    },
+    {
+      "id" : "HealthcareService.category",
+      "path" : "HealthcareService.category",
+      "short" : "Categoria de serviço",
+      "definition" : "Categoria de serviço",
+      "comment" : "Selecting a Service Category then determines the list of relevant service types that can be selected in the primary service type.",
+      "alias" : ["service category"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.category",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "HealthcareService.type",
+      "path" : "HealthcareService.type",
+      "short" : "Tipo de serviço",
+      "definition" : "Tipo de serviço",
+      "alias" : ["service type"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.type",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code"
+      }]
+    },
+    {
+      "id" : "HealthcareService.specialty",
+      "path" : "HealthcareService.specialty",
+      "short" : "Especialidades atendidas",
+      "definition" : "Especialidades atendidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.specialty",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code"
+      }]
+    },
+    {
+      "id" : "HealthcareService.location",
+      "path" : "HealthcareService.location",
+      "short" : "Referência aos locais onde o serviço pode ser prestado",
+      "definition" : "Referência aos locais onde o serviço pode ser prestado",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.location",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Location|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.where[x]"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".location.role[classCode=SDLOC]"
+      }]
+    },
+    {
+      "id" : "HealthcareService.name",
+      "path" : "HealthcareService.name",
+      "short" : "Nome do serviço",
+      "definition" : "Nome do serviço",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.name",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".name"
+      }]
+    },
+    {
+      "id" : "HealthcareService.comment",
+      "path" : "HealthcareService.comment",
+      "short" : "Comentários sobre o serviço",
+      "definition" : "Comentários sobre o serviço",
+      "comment" : "Would expect that a user would not see this information on a search results, and it would only be available when viewing the complete details of the service.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.comment",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".location.role[classCode=SDLOC].desc"
+      }]
+    },
+    {
+      "id" : "HealthcareService.extraDetails",
+      "path" : "HealthcareService.extraDetails",
+      "short" : "Detalhes extras sobre o serviço",
+      "definition" : "Detalhes extras sobre o serviço",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.extraDetails",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "markdown"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].text"
+      }]
+    },
+    {
+      "id" : "HealthcareService.photo",
+      "path" : "HealthcareService.photo",
+      "short" : "Anexos para facilitar a identificação do serviço",
+      "definition" : "Anexos para facilitar a identificação do serviço",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.photo",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Attachment"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=SBJ].observation.value"
+      }]
+    },
+    {
+      "id" : "HealthcareService.telecom",
+      "path" : "HealthcareService.telecom",
+      "short" : "Contatos relacionados ao serviço de saúde",
+      "definition" : "Contatos relacionados ao serviço de saúde",
+      "comment" : "If this is empty, then refer to the location's contacts.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.telecom",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "ContactPoint"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".telecom"
+      }]
+    },
+    {
+      "id" : "HealthcareService.coverageArea",
+      "path" : "HealthcareService.coverageArea",
+      "short" : "Área de abrangência do serviço",
+      "definition" : "Área de abrangência do serviço",
+      "comment" : "The locations referenced by the coverage area can include both specific locations, including areas, and also conceptual domains too (mode = kind), such as a physical area (tri-state area) and some other attribute (covered by Example Care Organization). These types of Locations are often not managed by any specific organization. This could also include generic locations such as \"in-home\".",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.coverageArea",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Location|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".location.role[classCode=SDLOC].subjectOf.A_SpatialCoordinate"
+      }]
+    },
+    {
+      "id" : "HealthcareService.serviceProvisionCode",
+      "path" : "HealthcareService.serviceProvisionCode",
+      "short" : "Condições sob as quais o serviço está disponível/oferecido",
+      "definition" : "Condições sob as quais o serviço está disponível/oferecido",
+      "comment" : "The provision means being commissioned by, contractually obliged or financially sourced. Types of costings that may apply to this healthcare service, such if the service may be available for free, some discounts available, or fees apply.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.serviceProvisionCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/TipoConvenio"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]"
+      }]
+    },
+    {
+      "id" : "HealthcareService.eligibility",
+      "path" : "HealthcareService.eligibility",
+      "short" : "Elegibilidade",
+      "definition" : "Elegibilidade",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.eligibility",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.eligibility.id",
+      "path" : "HealthcareService.eligibility.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "HealthcareService.eligibility.extension",
+      "path" : "HealthcareService.eligibility.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.eligibility.modifierExtension",
+      "path" : "HealthcareService.eligibility.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.eligibility.code",
+      "path" : "HealthcareService.eligibility.code",
+      "short" : "Valor codificado para a elegibilidade",
+      "definition" : "Valor codificado para a elegibilidade",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.eligibility.code",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceEligibility"
+        }],
+        "strength" : "example",
+        "description" : "Coded values underwhich a specific service is made available."
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]"
+      }]
+    },
+    {
+      "id" : "HealthcareService.eligibility.comment",
+      "path" : "HealthcareService.eligibility.comment",
+      "short" : "Descreve as condições de elegibilidade do serviço",
+      "definition" : "Descreve as condições de elegibilidade do serviço",
+      "comment" : "The description of service eligibility should, in general, not exceed one or two paragraphs. It should be sufficient for a prospective consumer to determine if they are likely to be eligible or not. Where eligibility requirements and conditions are complex, it may simply be noted that an eligibility assessment is required. Where eligibility is determined by an outside source, such as an Act of Parliament, this should be noted, preferably with a reference to a commonly available copy of the source document such as a web page.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.eligibility.comment",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "markdown"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT].text"
+      }]
+    },
+    {
+      "id" : "HealthcareService.program",
+      "path" : "HealthcareService.program",
+      "short" : "Programas que este serviço atende",
+      "definition" : "Programas que este serviço atende",
+      "comment" : "Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, ….",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.program",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PERT].observation"
+      }]
+    },
+    {
+      "id" : "HealthcareService.characteristic",
+      "path" : "HealthcareService.characteristic",
+      "short" : "Características do serviço",
+      "definition" : "Características do serviço",
+      "comment" : "These could be such things as is wheelchair accessible.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.characteristic",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ServiceCharacteristic"
+        }],
+        "strength" : "example",
+        "description" : "A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PERT].observation"
+      }]
+    },
+    {
+      "id" : "HealthcareService.communication",
+      "path" : "HealthcareService.communication",
+      "short" : "Idiomas oferecido por este serviço",
+      "definition" : "Idiomas oferecido por este serviço",
+      "comment" : "When using this property it indicates that the service is available with this language, it is not derived from the practitioners, and not all are required to use this language, just that this language is available while scheduling.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.communication",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "HealthcareService.referralMethod",
+      "path" : "HealthcareService.referralMethod",
+      "short" : "Formas pelas quais o serviço aceita referências",
+      "definition" : "Formas pelas quais o serviço aceita referências",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.referralMethod",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ReferralMethod"
+        }],
+        "strength" : "example",
+        "description" : "The methods of referral can be used when referring to a specific HealthCareService resource.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/service-referral-method|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PERT].observation"
+      }]
+    },
+    {
+      "id" : "HealthcareService.appointmentRequired",
+      "path" : "HealthcareService.appointmentRequired",
+      "short" : "Se for necessário agendamento para acesso a este serviço",
+      "definition" : "Se for necessário agendamento para acesso a este serviço",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.appointmentRequired",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".actrelationship[typeCode=PERT].observation"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime",
+      "path" : "HealthcareService.availableTime",
+      "short" : "Horários de funcionamento do serviço",
+      "definition" : "Horários de funcionamento do serviço",
+      "comment" : "More detailed availability information may be provided in associated Schedule/Slot resources.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.availableTime",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime.id",
+      "path" : "HealthcareService.availableTime.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime.extension",
+      "path" : "HealthcareService.availableTime.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.availableTime.modifierExtension",
+      "path" : "HealthcareService.availableTime.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.availableTime.daysOfWeek",
+      "path" : "HealthcareService.availableTime.daysOfWeek",
+      "short" : "Dias da semana: seg, ter, qua,qui, sex, sab,dom",
+      "definition" : "Dias da semana: seg, ter, qua,qui, sex, sab,dom",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.availableTime.daysOfWeek",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "DaysOfWeek"
+        }],
+        "strength" : "required",
+        "description" : "The days of the week.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/days-of-week|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime.allDay",
+      "path" : "HealthcareService.availableTime.allDay",
+      "short" : "Se disponível 24 horas",
+      "definition" : "Se disponível 24 horas",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.availableTime.allDay",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime.availableStartTime",
+      "path" : "HealthcareService.availableTime.availableStartTime",
+      "short" : "Horário de abertura",
+      "definition" : "Horário de abertura",
+      "comment" : "The time zone is expected to be for where this HealthcareService is provided at.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.availableTime.availableStartTime",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "time"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availableTime.availableEndTime",
+      "path" : "HealthcareService.availableTime.availableEndTime",
+      "short" : "Hora de fechamento",
+      "definition" : "Hora de fechamento",
+      "comment" : "The time zone is expected to be for where this HealthcareService is provided at.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.availableTime.availableEndTime",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "time"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.notAvailable",
+      "path" : "HealthcareService.notAvailable",
+      "short" : "Não disponível",
+      "definition" : "Não disponível",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.notAvailable",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.notAvailable.id",
+      "path" : "HealthcareService.notAvailable.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "HealthcareService.notAvailable.extension",
+      "path" : "HealthcareService.notAvailable.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "HealthcareService.notAvailable.modifierExtension",
+      "path" : "HealthcareService.notAvailable.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "HealthcareService.notAvailable.description",
+      "path" : "HealthcareService.notAvailable.description",
+      "short" : "Motivo da indisponibilidade do serviço",
+      "definition" : "Motivo da indisponibilidade do serviço",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.notAvailable.description",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "HealthcareService.notAvailable.during",
+      "path" : "HealthcareService.notAvailable.during",
+      "short" : "Período da indisponibilidade",
+      "definition" : "Período da indisponibilidade",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.notAvailable.during",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.availabilityExceptions",
+      "path" : "HealthcareService.availabilityExceptions",
+      "short" : "Descrição das exceções de disponibilidade",
+      "definition" : "Descrição das exceções de disponibilidade",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "HealthcareService.availabilityExceptions",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "HealthcareService.endpoint",
+      "path" : "HealthcareService.endpoint",
+      "short" : "Endpoints técnicos que fornecem acesso a serviços eletrônicos operados para o serviço de saúde",
+      "definition" : "Endpoints técnicos que fornecem acesso a serviços eletrônicos operados para o serviço de saúde",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "HealthcareService.endpoint",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "HealthcareService",
+      "path" : "HealthcareService"
+    },
+    {
+      "id" : "HealthcareService.id",
+      "path" : "HealthcareService.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "HealthcareService.meta",
+      "path" : "HealthcareService.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "HealthcareService.implicitRules",
+      "path" : "HealthcareService.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "HealthcareService.language",
+      "path" : "HealthcareService.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "HealthcareService.text",
+      "path" : "HealthcareService.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "HealthcareService.contained",
+      "path" : "HealthcareService.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "HealthcareService.extension",
+      "path" : "HealthcareService.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "HealthcareService.modifierExtension",
+      "path" : "HealthcareService.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "HealthcareService.identifier",
+      "path" : "HealthcareService.identifier",
+      "short" : "Identificadores deste recurso",
+      "definition" : "Identificadores deste recurso"
+    },
+    {
+      "id" : "HealthcareService.active",
+      "path" : "HealthcareService.active",
+      "short" : "Se este registro está em uso ativo",
+      "definition" : "Se este registro está em uso ativo"
+    },
+    {
+      "id" : "HealthcareService.providedBy",
+      "path" : "HealthcareService.providedBy",
+      "short" : "Referência à organização que fornece este serviço",
+      "definition" : "Referência à organização que fornece este serviço"
+    },
+    {
+      "id" : "HealthcareService.category",
+      "path" : "HealthcareService.category",
+      "short" : "Categoria de serviço",
+      "definition" : "Categoria de serviço",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoEstabelecimentoSaude"
+      }
+    },
+    {
+      "id" : "HealthcareService.type",
+      "path" : "HealthcareService.type",
+      "short" : "Tipo de serviço",
+      "definition" : "Tipo de serviço",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      }
+    },
+    {
+      "id" : "HealthcareService.specialty",
+      "path" : "HealthcareService.specialty",
+      "short" : "Especialidades atendidas",
+      "definition" : "Especialidades atendidas",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      }
+    },
+    {
+      "id" : "HealthcareService.location",
+      "path" : "HealthcareService.location",
+      "short" : "Referência aos locais onde o serviço pode ser prestado",
+      "definition" : "Referência aos locais onde o serviço pode ser prestado"
+    },
+    {
+      "id" : "HealthcareService.name",
+      "path" : "HealthcareService.name",
+      "short" : "Nome do serviço",
+      "definition" : "Nome do serviço"
+    },
+    {
+      "id" : "HealthcareService.comment",
+      "path" : "HealthcareService.comment",
+      "short" : "Comentários sobre o serviço",
+      "definition" : "Comentários sobre o serviço"
+    },
+    {
+      "id" : "HealthcareService.extraDetails",
+      "path" : "HealthcareService.extraDetails",
+      "short" : "Detalhes extras sobre o serviço",
+      "definition" : "Detalhes extras sobre o serviço"
+    },
+    {
+      "id" : "HealthcareService.photo",
+      "path" : "HealthcareService.photo",
+      "short" : "Anexos para facilitar a identificação do serviço",
+      "definition" : "Anexos para facilitar a identificação do serviço"
+    },
+    {
+      "id" : "HealthcareService.telecom",
+      "path" : "HealthcareService.telecom",
+      "short" : "Contatos relacionados ao serviço de saúde",
+      "definition" : "Contatos relacionados ao serviço de saúde"
+    },
+    {
+      "id" : "HealthcareService.coverageArea",
+      "path" : "HealthcareService.coverageArea",
+      "short" : "Área de abrangência do serviço",
+      "definition" : "Área de abrangência do serviço"
+    },
+    {
+      "id" : "HealthcareService.serviceProvisionCode",
+      "path" : "HealthcareService.serviceProvisionCode",
+      "short" : "Condições sob as quais o serviço está disponível/oferecido",
+      "definition" : "Condições sob as quais o serviço está disponível/oferecido",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/TipoConvenio"
+      }
+    },
+    {
+      "id" : "HealthcareService.eligibility",
+      "path" : "HealthcareService.eligibility",
+      "short" : "Elegibilidade",
+      "definition" : "Elegibilidade"
+    },
+    {
+      "id" : "HealthcareService.eligibility.id",
+      "path" : "HealthcareService.eligibility.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "HealthcareService.eligibility.extension",
+      "path" : "HealthcareService.eligibility.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "HealthcareService.eligibility.modifierExtension",
+      "path" : "HealthcareService.eligibility.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "HealthcareService.eligibility.code",
+      "path" : "HealthcareService.eligibility.code",
+      "short" : "Valor codificado para a elegibilidade",
+      "definition" : "Valor codificado para a elegibilidade"
+    },
+    {
+      "id" : "HealthcareService.eligibility.comment",
+      "path" : "HealthcareService.eligibility.comment",
+      "short" : "Descreve as condições de elegibilidade do serviço",
+      "definition" : "Descreve as condições de elegibilidade do serviço"
+    },
+    {
+      "id" : "HealthcareService.program",
+      "path" : "HealthcareService.program",
+      "short" : "Programas que este serviço atende",
+      "definition" : "Programas que este serviço atende",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRProgramaSaude"
+      }
+    },
+    {
+      "id" : "HealthcareService.characteristic",
+      "path" : "HealthcareService.characteristic",
+      "short" : "Características do serviço",
+      "definition" : "Características do serviço"
+    },
+    {
+      "id" : "HealthcareService.communication",
+      "path" : "HealthcareService.communication",
+      "short" : "Idiomas oferecido por este serviço",
+      "definition" : "Idiomas oferecido por este serviço"
+    },
+    {
+      "id" : "HealthcareService.referralMethod",
+      "path" : "HealthcareService.referralMethod",
+      "short" : "Formas pelas quais o serviço aceita referências",
+      "definition" : "Formas pelas quais o serviço aceita referências"
+    },
+    {
+      "id" : "HealthcareService.appointmentRequired",
+      "path" : "HealthcareService.appointmentRequired",
+      "short" : "Se for necessário agendamento para acesso a este serviço",
+      "definition" : "Se for necessário agendamento para acesso a este serviço"
+    },
+    {
+      "id" : "HealthcareService.availableTime",
+      "path" : "HealthcareService.availableTime",
+      "short" : "Horários de funcionamento do serviço",
+      "definition" : "Horários de funcionamento do serviço"
+    },
+    {
+      "id" : "HealthcareService.availableTime.id",
+      "path" : "HealthcareService.availableTime.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "HealthcareService.availableTime.extension",
+      "path" : "HealthcareService.availableTime.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "HealthcareService.availableTime.modifierExtension",
+      "path" : "HealthcareService.availableTime.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "HealthcareService.availableTime.daysOfWeek",
+      "path" : "HealthcareService.availableTime.daysOfWeek",
+      "short" : "Dias da semana: seg, ter, qua,qui, sex, sab,dom",
+      "definition" : "Dias da semana: seg, ter, qua,qui, sex, sab,dom"
+    },
+    {
+      "id" : "HealthcareService.availableTime.allDay",
+      "path" : "HealthcareService.availableTime.allDay",
+      "short" : "Se disponível 24 horas",
+      "definition" : "Se disponível 24 horas"
+    },
+    {
+      "id" : "HealthcareService.availableTime.availableStartTime",
+      "path" : "HealthcareService.availableTime.availableStartTime",
+      "short" : "Horário de abertura",
+      "definition" : "Horário de abertura"
+    },
+    {
+      "id" : "HealthcareService.availableTime.availableEndTime",
+      "path" : "HealthcareService.availableTime.availableEndTime",
+      "short" : "Hora de fechamento",
+      "definition" : "Hora de fechamento"
+    },
+    {
+      "id" : "HealthcareService.notAvailable",
+      "path" : "HealthcareService.notAvailable",
+      "short" : "Não disponível",
+      "definition" : "Não disponível"
+    },
+    {
+      "id" : "HealthcareService.notAvailable.id",
+      "path" : "HealthcareService.notAvailable.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "HealthcareService.notAvailable.extension",
+      "path" : "HealthcareService.notAvailable.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "HealthcareService.notAvailable.modifierExtension",
+      "path" : "HealthcareService.notAvailable.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "HealthcareService.notAvailable.description",
+      "path" : "HealthcareService.notAvailable.description",
+      "short" : "Motivo da indisponibilidade do serviço",
+      "definition" : "Motivo da indisponibilidade do serviço"
+    },
+    {
+      "id" : "HealthcareService.notAvailable.during",
+      "path" : "HealthcareService.notAvailable.during",
+      "short" : "Período da indisponibilidade",
+      "definition" : "Período da indisponibilidade"
+    },
+    {
+      "id" : "HealthcareService.availabilityExceptions",
+      "path" : "HealthcareService.availabilityExceptions",
+      "short" : "Descrição das exceções de disponibilidade",
+      "definition" : "Descrição das exceções de disponibilidade"
+    },
+    {
+      "id" : "HealthcareService.endpoint",
+      "path" : "HealthcareService.endpoint",
+      "short" : "Endpoints técnicos que fornecem acesso a serviços eletrônicos operados para o serviço de saúde",
+      "definition" : "Endpoints técnicos que fornecem acesso a serviços eletrônicos operados para o serviço de saúde"
+    }]
+  }
+}

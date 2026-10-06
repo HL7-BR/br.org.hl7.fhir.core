@@ -1,0 +1,1634 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-location",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location",
+  "version" : "1.4.0",
+  "name" : "BRCoreLocation",
+  "title" : "br-core-location",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4/location.html) que aborda detalhes e informações da posição de um local físico onde os serviços são fornecidos e os recursos e participantes podem ser armazenados, encontrados, contidos ou acomodados",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Location",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Location",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "Location",
+      "path" : "Location",
+      "short" : "Details and position information for a physical place",
+      "definition" : "Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".Role[classCode=SDLC]"
+      }]
+    },
+    {
+      "id" : "Location.id",
+      "path" : "Location.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Location.meta",
+      "path" : "Location.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Location.implicitRules",
+      "path" : "Location.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "Location.language",
+      "path" : "Location.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "Location.text",
+      "path" : "Location.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "Location.contained",
+      "path" : "Location.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Location.extension",
+      "path" : "Location.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Location.modifierExtension",
+      "path" : "Location.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "Location.identifier",
+      "path" : "Location.identifier",
+      "short" : "Identificadores para este recurso",
+      "definition" : "Identificadores para este recurso",
+      "requirements" : "Organization label locations in registries, need to keep track of those.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      }]
+    },
+    {
+      "id" : "Location.status",
+      "path" : "Location.status",
+      "short" : "Indica se o local ainda está em uso: active | suspended | inactive",
+      "definition" : "Indica se o local ainda está em uso: active | suspended | inactive",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.status",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "LocationStatus"
+        }],
+        "strength" : "required",
+        "description" : "Indicates whether the location is still in use.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/location-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".statusCode"
+      }]
+    },
+    {
+      "id" : "Location.operationalStatus",
+      "path" : "Location.operationalStatus",
+      "short" : "O status operacional do local (normalmente apenas para uma cama/quarto)",
+      "definition" : "O status operacional do local (normalmente apenas para uma cama/quarto)",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.operationalStatus",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Coding"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "OperationalStatus"
+        }],
+        "strength" : "preferred",
+        "description" : "The operational status if the location (where typically a bed/room).",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0116"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Location.name",
+      "path" : "Location.name",
+      "short" : "Nome do local",
+      "definition" : "Nome do local",
+      "comment" : "If the name of a location changes, consider putting the old name in the alias column so that it can still be located through searches.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.name",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".name"
+      }]
+    },
+    {
+      "id" : "Location.alias",
+      "path" : "Location.alias",
+      "short" : "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado",
+      "definition" : "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado",
+      "comment" : "There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the location.",
+      "requirements" : "Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.alias",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".name"
+      }]
+    },
+    {
+      "id" : "Location.description",
+      "path" : "Location.description",
+      "short" : "Detalhes adicionais sobre o local que podem ser exibidos como informações adicionais para identificar o local além do seu nome",
+      "definition" : "Detalhes adicionais sobre o local que podem ser exibidos como informações adicionais para identificar o local além do seu nome",
+      "requirements" : "Humans need additional information to verify a correct location has been identified.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.description",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".playingEntity[classCode=PLC determinerCode=INSTANCE].desc"
+      }]
+    },
+    {
+      "id" : "Location.mode",
+      "path" : "Location.mode",
+      "short" : "Indica se uma instância deste recurso representa um local específico ou uma classe de locais",
+      "definition" : "Indica se uma instância deste recurso representa um local específico ou uma classe de locais",
+      "comment" : "This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood.",
+      "requirements" : "When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.mode",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "LocationMode"
+        }],
+        "strength" : "required",
+        "description" : "Indicates whether a resource instance represents a specific location or a class of locations.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/location-mode|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".playingEntity[classCode=PLC].determinerCode"
+      }]
+    },
+    {
+      "id" : "Location.type",
+      "path" : "Location.type",
+      "short" : "Tipo de serviço oferecido",
+      "definition" : "Tipo de serviço oferecido",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.type",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "Location.telecom",
+      "path" : "Location.telecom",
+      "short" : "Detalhes de contato do local",
+      "definition" : "Detalhes de contato do local",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.telecom",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "ContactPoint"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".telecom"
+      }]
+    },
+    {
+      "id" : "Location.address",
+      "path" : "Location.address",
+      "short" : "Endereço do local",
+      "definition" : "Endereço do local",
+      "comment" : "Additional addresses should be recorded using another instance of the Location resource, or via the Organization.",
+      "requirements" : "If locations can be visited, we need to keep track of their address.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.address",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Address"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".addr"
+      }]
+    },
+    {
+      "id" : "Location.physicalType",
+      "path" : "Location.physicalType",
+      "short" : "Estrutura física do local",
+      "definition" : "Estrutura física do local",
+      "requirements" : "For purposes of showing relevant locations in queries, we need to categorize locations.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.physicalType",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".playingEntity [classCode=PLC].code"
+      }]
+    },
+    {
+      "id" : "Location.position",
+      "path" : "Location.position",
+      "short" : "A localização geográfica absoluta",
+      "definition" : "A localização geográfica absoluta",
+      "requirements" : "For mobile applications and automated route-finding knowing the exact location of the Location is required.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.position",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".playingEntity [classCode=PLC determinerCode=INSTANCE].positionText"
+      }]
+    },
+    {
+      "id" : "Location.position.id",
+      "path" : "Location.position.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Location.position.extension",
+      "path" : "Location.position.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Location.position.modifierExtension",
+      "path" : "Location.position.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Location.position.longitude",
+      "path" : "Location.position.longitude",
+      "short" : "Longitude com referência WGS84",
+      "definition" : "Longitude com referência WGS84",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.position.longitude",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"
+      }]
+    },
+    {
+      "id" : "Location.position.latitude",
+      "path" : "Location.position.latitude",
+      "short" : "Latitude com referência WGS84",
+      "definition" : "Latitude com referência WGS84",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.position.latitude",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"
+      }]
+    },
+    {
+      "id" : "Location.position.altitude",
+      "path" : "Location.position.altitude",
+      "short" : "Altitude com referência WGS84",
+      "definition" : "Altitude com referência WGS84",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.position.altitude",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"
+      }]
+    },
+    {
+      "id" : "Location.managingOrganization",
+      "path" : "Location.managingOrganization",
+      "short" : "Referência à organização responsável pelo provisionamento e manutenção",
+      "definition" : "Referência à organização responsável pelo provisionamento e manutenção",
+      "comment" : "This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.",
+      "requirements" : "Need to know who manages the location.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.managingOrganization",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".scopingEntity[classCode=ORG determinerKind=INSTANCE]"
+      }]
+    },
+    {
+      "id" : "Location.partOf",
+      "path" : "Location.partOf",
+      "short" : "Referência à outro local que esta localidade é parte",
+      "definition" : "Referência à outro local que esta localidade é parte",
+      "requirements" : "For purposes of location, display and identification, knowing which locations are located within other locations is important.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.partOf",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy",
+          "valueBoolean" : true
+        }],
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".inboundLink[typeCode=PART].source[classCode=SDLC]"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation",
+      "path" : "Location.hoursOfOperation",
+      "short" : "Horário de funcionamento",
+      "definition" : "Horário de funcionamento",
+      "comment" : "This type of information is commonly found published in directories and on websites informing customers when the facility is available.\n\nSpecific services within the location may have their own hours which could be shorter (or longer) than the locations hours.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.hoursOfOperation",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation.id",
+      "path" : "Location.hoursOfOperation.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation.extension",
+      "path" : "Location.hoursOfOperation.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Location.hoursOfOperation.modifierExtension",
+      "path" : "Location.hoursOfOperation.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Location.hoursOfOperation.daysOfWeek",
+      "path" : "Location.hoursOfOperation.daysOfWeek",
+      "short" : "Dias da semana",
+      "definition" : "Dias da semana",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.hoursOfOperation.daysOfWeek",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "DaysOfWeek"
+        }],
+        "strength" : "required",
+        "description" : "The days of the week.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/days-of-week|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation.allDay",
+      "path" : "Location.hoursOfOperation.allDay",
+      "short" : "Se o local está aberto o dia inteiro",
+      "definition" : "Se o local está aberto o dia inteiro",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.hoursOfOperation.allDay",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation.openingTime",
+      "path" : "Location.hoursOfOperation.openingTime",
+      "short" : "Horário de abertura do local",
+      "definition" : "Horário de abertura do local",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.hoursOfOperation.openingTime",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "time"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation.closingTime",
+      "path" : "Location.hoursOfOperation.closingTime",
+      "short" : "Horário de fechamento do local",
+      "definition" : "Horário de fechamento do local",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.hoursOfOperation.closingTime",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "time"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Location.availabilityExceptions",
+      "path" : "Location.availabilityExceptions",
+      "short" : "Descrição das exceções de disponibilidade",
+      "definition" : "Descrição das exceções de disponibilidade",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Location.availabilityExceptions",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Location.endpoint",
+      "path" : "Location.endpoint",
+      "short" : "Endpoints técnicos que fornecem acesso aos serviços operados para o local",
+      "definition" : "Endpoints técnicos que fornecem acesso aos serviços operados para o local",
+      "requirements" : "Organizations may have different systems at different locations that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Location.endpoint",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Location",
+      "path" : "Location"
+    },
+    {
+      "id" : "Location.id",
+      "path" : "Location.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "Location.meta",
+      "path" : "Location.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "Location.implicitRules",
+      "path" : "Location.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "Location.language",
+      "path" : "Location.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "Location.text",
+      "path" : "Location.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "Location.contained",
+      "path" : "Location.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "Location.extension",
+      "path" : "Location.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "Location.modifierExtension",
+      "path" : "Location.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Location.identifier",
+      "path" : "Location.identifier",
+      "short" : "Identificadores para este recurso",
+      "definition" : "Identificadores para este recurso"
+    },
+    {
+      "id" : "Location.status",
+      "path" : "Location.status",
+      "short" : "Indica se o local ainda está em uso: active | suspended | inactive",
+      "definition" : "Indica se o local ainda está em uso: active | suspended | inactive",
+      "min" : 1
+    },
+    {
+      "id" : "Location.operationalStatus",
+      "path" : "Location.operationalStatus",
+      "short" : "O status operacional do local (normalmente apenas para uma cama/quarto)",
+      "definition" : "O status operacional do local (normalmente apenas para uma cama/quarto)"
+    },
+    {
+      "id" : "Location.name",
+      "path" : "Location.name",
+      "short" : "Nome do local",
+      "definition" : "Nome do local",
+      "min" : 1
+    },
+    {
+      "id" : "Location.alias",
+      "path" : "Location.alias",
+      "short" : "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado",
+      "definition" : "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado"
+    },
+    {
+      "id" : "Location.description",
+      "path" : "Location.description",
+      "short" : "Detalhes adicionais sobre o local que podem ser exibidos como informações adicionais para identificar o local além do seu nome",
+      "definition" : "Detalhes adicionais sobre o local que podem ser exibidos como informações adicionais para identificar o local além do seu nome"
+    },
+    {
+      "id" : "Location.mode",
+      "path" : "Location.mode",
+      "short" : "Indica se uma instância deste recurso representa um local específico ou uma classe de locais",
+      "definition" : "Indica se uma instância deste recurso representa um local específico ou uma classe de locais"
+    },
+    {
+      "id" : "Location.type",
+      "path" : "Location.type",
+      "short" : "Tipo de serviço oferecido",
+      "definition" : "Tipo de serviço oferecido",
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      }
+    },
+    {
+      "id" : "Location.telecom",
+      "path" : "Location.telecom",
+      "short" : "Detalhes de contato do local",
+      "definition" : "Detalhes de contato do local"
+    },
+    {
+      "id" : "Location.address",
+      "path" : "Location.address",
+      "short" : "Endereço do local",
+      "definition" : "Endereço do local"
+    },
+    {
+      "id" : "Location.physicalType",
+      "path" : "Location.physicalType",
+      "short" : "Estrutura física do local",
+      "definition" : "Estrutura física do local",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRInstalacoesFisicas"
+      }
+    },
+    {
+      "id" : "Location.position",
+      "path" : "Location.position",
+      "short" : "A localização geográfica absoluta",
+      "definition" : "A localização geográfica absoluta"
+    },
+    {
+      "id" : "Location.position.id",
+      "path" : "Location.position.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Location.position.extension",
+      "path" : "Location.position.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Location.position.modifierExtension",
+      "path" : "Location.position.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Location.position.longitude",
+      "path" : "Location.position.longitude",
+      "short" : "Longitude com referência WGS84",
+      "definition" : "Longitude com referência WGS84"
+    },
+    {
+      "id" : "Location.position.latitude",
+      "path" : "Location.position.latitude",
+      "short" : "Latitude com referência WGS84",
+      "definition" : "Latitude com referência WGS84"
+    },
+    {
+      "id" : "Location.position.altitude",
+      "path" : "Location.position.altitude",
+      "short" : "Altitude com referência WGS84",
+      "definition" : "Altitude com referência WGS84"
+    },
+    {
+      "id" : "Location.managingOrganization",
+      "path" : "Location.managingOrganization",
+      "short" : "Referência à organização responsável pelo provisionamento e manutenção",
+      "definition" : "Referência à organização responsável pelo provisionamento e manutenção"
+    },
+    {
+      "id" : "Location.partOf",
+      "path" : "Location.partOf",
+      "short" : "Referência à outro local que esta localidade é parte",
+      "definition" : "Referência à outro local que esta localidade é parte",
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy",
+          "valueBoolean" : true
+        }],
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }]
+    },
+    {
+      "id" : "Location.hoursOfOperation",
+      "path" : "Location.hoursOfOperation",
+      "short" : "Horário de funcionamento",
+      "definition" : "Horário de funcionamento"
+    },
+    {
+      "id" : "Location.hoursOfOperation.id",
+      "path" : "Location.hoursOfOperation.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Location.hoursOfOperation.extension",
+      "path" : "Location.hoursOfOperation.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "Location.hoursOfOperation.modifierExtension",
+      "path" : "Location.hoursOfOperation.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Location.hoursOfOperation.daysOfWeek",
+      "path" : "Location.hoursOfOperation.daysOfWeek",
+      "short" : "Dias da semana",
+      "definition" : "Dias da semana"
+    },
+    {
+      "id" : "Location.hoursOfOperation.allDay",
+      "path" : "Location.hoursOfOperation.allDay",
+      "short" : "Se o local está aberto o dia inteiro",
+      "definition" : "Se o local está aberto o dia inteiro"
+    },
+    {
+      "id" : "Location.hoursOfOperation.openingTime",
+      "path" : "Location.hoursOfOperation.openingTime",
+      "short" : "Horário de abertura do local",
+      "definition" : "Horário de abertura do local"
+    },
+    {
+      "id" : "Location.hoursOfOperation.closingTime",
+      "path" : "Location.hoursOfOperation.closingTime",
+      "short" : "Horário de fechamento do local",
+      "definition" : "Horário de fechamento do local"
+    },
+    {
+      "id" : "Location.availabilityExceptions",
+      "path" : "Location.availabilityExceptions",
+      "short" : "Descrição das exceções de disponibilidade",
+      "definition" : "Descrição das exceções de disponibilidade"
+    },
+    {
+      "id" : "Location.endpoint",
+      "path" : "Location.endpoint",
+      "short" : "Endpoints técnicos que fornecem acesso aos serviços operados para o local",
+      "definition" : "Endpoints técnicos que fornecem acesso aos serviços operados para o local"
+    }]
+  }
+}

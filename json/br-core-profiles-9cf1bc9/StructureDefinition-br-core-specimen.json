@@ -1,0 +1,2354 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-specimen",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen",
+  "version" : "1.4.0",
+  "name" : "BRCoreSpecimen",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil restringe o recurso Specimen para representar as características de amostras biológicas no contexto de resultados laboratoriais integrados a um Sumário do Paciente. O recurso Specimen descreve uma amostra utilizada para análise laboratorial",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Specimen",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Specimen",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "Specimen",
+      "path" : "Specimen",
+      "short" : "Sample for analysis",
+      "definition" : "A sample to be used for analysis.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Role[classCode=SPEC]"
+      }]
+    },
+    {
+      "id" : "Specimen.id",
+      "path" : "Specimen.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.meta",
+      "path" : "Specimen.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.implicitRules",
+      "path" : "Specimen.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.language",
+      "path" : "Specimen.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "Specimen.text",
+      "path" : "Specimen.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "Specimen.contained",
+      "path" : "Specimen.contained",
+      "short" : "Contained, inline Resources",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Specimen.extension",
+      "path" : "Specimen.extension",
+      "short" : "Extension",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.modifierExtension",
+      "path" : "Specimen.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.identifier",
+      "path" : "Specimen.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-2"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      }]
+    },
+    {
+      "id" : "Specimen.accessionIdentifier",
+      "path" : "Specimen.accessionIdentifier",
+      "short" : "Identificador atribuído pelo laboratório",
+      "definition" : "Identificador atribuído pelo laboratório",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.accessionIdentifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-30 (v2.7+)"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id"
+      }]
+    },
+    {
+      "id" : "Specimen.status",
+      "path" : "Specimen.status",
+      "short" : "Status da amostra: disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra",
+      "definition" : "Status da amostra: disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra",
+      "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.status",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SpecimenStatus"
+        }],
+        "strength" : "required",
+        "description" : "Codes providing the status/availability of a specimen.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-20"
+      },
+      {
+        "identity" : "rim",
+        "map" : "status"
+      }]
+    },
+    {
+      "id" : "Specimen.type",
+      "path" : "Specimen.type",
+      "short" : "Tipo de material que compõem a amostra",
+      "definition" : "Tipo de material que compõem a amostra",
+      "comment" : "The type can change the way that a specimen is handled and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-4 and possibly SPM-5"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "Specimen.subject",
+      "path" : "Specimen.subject",
+      "short" : "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo",
+      "definition" : "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo",
+      "requirements" : "Must know the subject context.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.subject",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Group",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "http://hl7.org/fhir/StructureDefinition/Substance",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".scoper  or  .scoper.playsRole"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "Specimen.subject.id",
+      "path" : "Specimen.subject.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Specimen.subject.extension",
+      "path" : "Specimen.subject.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.subject.reference",
+      "path" : "Specimen.subject.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta",
+      "comment" : "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.reference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "condition" : ["ref-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Specimen.subject.type",
+      "path" : "Specimen.subject.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo, Paciente)",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo, Paciente)",
+      "comment" : "This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "FHIRResourceTypeExt"
+        }],
+        "strength" : "extensible",
+        "description" : "Aa resource (or, for logical models, the URI of the logical model).",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-types|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Specimen.subject.identifier",
+      "path" : "Specimen.subject.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida",
+      "comment" : "When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy. \n\nWhen both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference\n\nApplications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.\n\nReference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.identifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".identifier"
+      }]
+    },
+    {
+      "id" : "Specimen.subject.display",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "Specimen.subject.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso",
+      "comment" : "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.display",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Specimen.receivedTime",
+      "path" : "Specimen.receivedTime",
+      "short" : "Data/hora em que a amostra foi recebida para processamento",
+      "definition" : "Data/hora em que a amostra foi recebida para processamento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.receivedTime",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-18"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].act[code=SPCREC, moodCode=EVN].effectiveTime"
+      }]
+    },
+    {
+      "id" : "Specimen.parent",
+      "path" : "Specimen.parent",
+      "short" : "Referencia a origem da amostra",
+      "definition" : "Referencia a origem da amostra",
+      "comment" : "The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.parent",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)"
+      }]
+    },
+    {
+      "id" : "Specimen.request",
+      "path" : "Specimen.request",
+      "short" : "Referencia a requisição associada",
+      "definition" : "Referencia a requisição associada",
+      "comment" : "The request may be explicit or implied such with a ServiceRequest that requires a blood draw.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.request",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.why[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC? OBR-2/3?"
+      },
+      {
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=FLFS].target"
+      }]
+    },
+    {
+      "id" : "Specimen.collection",
+      "path" : "Specimen.collection",
+      "short" : "Detalhes da coleta",
+      "definition" : "Detalhes da coleta",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-14"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].act[classCode=SPECCOLLECT, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.id",
+      "path" : "Specimen.collection.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.extension",
+      "path" : "Specimen.collection.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.collection.modifierExtension",
+      "path" : "Specimen.collection.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.collection.collector",
+      "path" : "Specimen.collection.collector",
+      "short" : "Referência ao profissional responsável pela coleta",
+      "definition" : "Referência ao profissional responsável pela coleta",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.collector",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PRT"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PFM].role"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.collected[x]",
+      "path" : "Specimen.collection.collected[x]",
+      "short" : "Data/Hora-Período da coleta",
+      "definition" : "Data/Hora-Período da coleta",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.collected[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.init"
+      },
+      {
+        "identity" : "v2",
+        "map" : "SPM-17"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.duration",
+      "path" : "Specimen.collection.duration",
+      "short" : "Duração da coleta",
+      "definition" : "Duracao da coleta",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.duration",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Duration"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.init"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.quantity",
+      "path" : "Specimen.collection.quantity",
+      "short" : "Quantidade de amostra coletada",
+      "definition" : "Quantidade de amostra coletada",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.quantity",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-12"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].role[classCode=SPEC].player.quantity"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.method",
+      "path" : "Specimen.collection.method",
+      "short" : "Método de coleta da amostra",
+      "definition" : "Método de coleta da amostra",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.method",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-collection-method"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".methodCode"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.bodySite",
+      "path" : "Specimen.collection.bodySite",
+      "short" : "Local anatômico de coleta da amostra",
+      "definition" : "Local anatômico de coleta da amostra",
+      "comment" : "If the use case requires  BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [bodySite](http://hl7.org/fhir/R4/extension-bodysite.html).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.bodySite",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "BodySite"
+        }],
+        "strength" : "example",
+        "description" : "Codes describing anatomical locations. May include laterality.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-8 and SPM-9"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".targetSiteCode"
+      }]
+    },
+    {
+      "id" : "Specimen.collection.fastingStatus[x]",
+      "path" : "Specimen.collection.fastingStatus[x]",
+      "short" : "Tempo de jejum do paciente, se for o caso",
+      "definition" : "Tempo de jejum do paciente, se for o caso",
+      "comment" : "Representing fasting status using this element is preferred to representing it with an observation using a 'pre-coordinated code'  such as  LOINC 2005-7 (Calcium [Moles/​time] in 2 hour Urine --12 hours fasting), or  using  a component observation ` such as `Observation.component code`  = LOINC 49541-6 (Fasting status - Reported).",
+      "requirements" : "Many diagnostic tests require fasting  to facilitate accurate interpretation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.collection.fastingStatus[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Duration"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "FastingStatus"
+        }],
+        "strength" : "extensible",
+        "description" : "Codes describing the fasting status of the patient.",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0916"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBR-"
+      }]
+    },
+    {
+      "id" : "Specimen.processing",
+      "path" : "Specimen.processing",
+      "short" : "Detalhes da etapa de processamento da amostra e respectivos passos",
+      "definition" : "Detalhes da etapa de processamento da amostra e respectivos passos",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.processing",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".participation[typeCode=SBJ].act[code=SPCTRT, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "Specimen.processing.id",
+      "path" : "Specimen.processing.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Specimen.processing.extension",
+      "path" : "Specimen.processing.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.processing.modifierExtension",
+      "path" : "Specimen.processing.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.processing.description",
+      "path" : "Specimen.processing.description",
+      "short" : "Texto que descreve o procedimento",
+      "definition" : "Texto que descreve o procedimento",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.processing.description",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".text"
+      }]
+    },
+    {
+      "id" : "Specimen.processing.procedure",
+      "path" : "Specimen.processing.procedure",
+      "short" : "Indica a etapa de tratamento aplicada a amostra",
+      "definition" : "Indica a etapa de tratamento aplicada a amostra",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.processing.procedure",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SpecimenProcessingProcedure"
+        }],
+        "strength" : "example",
+        "description" : "Type indicating the technique used to process the specimen.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-processing-procedure|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "Specimen.processing.additive",
+      "path" : "Specimen.processing.additive",
+      "short" : "Referência ao material utilizado na etapa de processamento da amostra",
+      "definition" : "Referência ao material utilizado na etapa de processamento da amostra",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.processing.additive",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Substance|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-6"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=CSM].role[classCode=ADTV].code"
+      }]
+    },
+    {
+      "id" : "Specimen.processing.time[x]",
+      "path" : "Specimen.processing.time[x]",
+      "short" : "Data e hora do processamento da amostra",
+      "definition" : "Data e hora do processamento da amostra",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.processing.time[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      }]
+    },
+    {
+      "id" : "Specimen.container",
+      "path" : "Specimen.container",
+      "short" : "Recipiente que contém a amostra (tubo/lâmina, etc.)",
+      "definition" : "Recipiente que contém a amostra (tubo/lâmina, etc.)",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.container",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".player.scopingRole[classCode=CONT].scoper"
+      }]
+    },
+    {
+      "id" : "Specimen.container.id",
+      "path" : "Specimen.container.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Specimen.container.extension",
+      "path" : "Specimen.container.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Specimen.container.modifierExtension",
+      "path" : "Specimen.container.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Specimen.container.identifier",
+      "path" : "Specimen.container.identifier",
+      "short" : "Id do recipiente",
+      "definition" : "Id do recipiente que contém a amostra",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.container.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SAC-3"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".id"
+      }]
+    },
+    {
+      "id" : "Specimen.container.description",
+      "path" : "Specimen.container.description",
+      "short" : "Descrição do recipiente",
+      "definition" : "Descrição do recipiente que contém a amostra",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.container.description",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".desc"
+      }]
+    },
+    {
+      "id" : "Specimen.container.type",
+      "path" : "Specimen.container.type",
+      "short" : "Tipo de recipiente associado a amostra",
+      "definition" : "Tipo de recipiente associado a amostra",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.container.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SpecimenContainerType"
+        }],
+        "strength" : "example",
+        "description" : "Type of specimen container.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-container-type|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-27"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "Specimen.container.capacity",
+      "path" : "Specimen.container.capacity",
+      "short" : "Volume ou tamanho do recipiente",
+      "definition" : "Volume ou tamanho do recipiente",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.container.capacity",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".quantity"
+      }]
+    },
+    {
+      "id" : "Specimen.container.specimenQuantity",
+      "path" : "Specimen.container.specimenQuantity",
+      "short" : "Quantidade de amostra no recipiente",
+      "definition" : "Quantidade de amostra no recipiente",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.container.specimenQuantity",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/SimpleQuantity|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SAC-23 (value) SAC-24 (units"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".playedRole[classCode=CONT].quantity"
+      }]
+    },
+    {
+      "id" : "Specimen.container.additive[x]",
+      "path" : "Specimen.container.additive[x]",
+      "short" : "Aditivo associado ao recipiente",
+      "definition" : "Aditivo associado ao recipiente",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Specimen.container.additive[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Substance|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SpecimenContainerAdditive"
+        }],
+        "strength" : "example",
+        "description" : "Substance added to specimen container.",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0371"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SAC-27"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".scopesRole[classCode=ADTV].player"
+      }]
+    },
+    {
+      "id" : "Specimen.condition",
+      "path" : "Specimen.condition",
+      "short" : "Condições da amostra",
+      "definition" : "Condições da amostra",
+      "comment" : "Specimen condition is an observation made about the specimen.  It's a point-in-time assessment.  It can be used to assess its quality or appropriateness for a specific test.",
+      "requirements" : "The specimen condition can be used to assess its quality or appropriateness for a specific test.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.condition",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0493"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM-24"
+      }]
+    },
+    {
+      "id" : "Specimen.note",
+      "path" : "Specimen.note",
+      "short" : "Comentários",
+      "definition" : "Comentários",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Specimen.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Specimen",
+      "path" : "Specimen"
+    },
+    {
+      "id" : "Specimen.id",
+      "path" : "Specimen.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "Specimen.meta",
+      "path" : "Specimen.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "Specimen.implicitRules",
+      "path" : "Specimen.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "Specimen.language",
+      "path" : "Specimen.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "Specimen.text",
+      "path" : "Specimen.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "Specimen.contained",
+      "path" : "Specimen.contained",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "Specimen.extension",
+      "path" : "Specimen.extension",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "Specimen.modifierExtension",
+      "path" : "Specimen.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Specimen.identifier",
+      "path" : "Specimen.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "Specimen.accessionIdentifier",
+      "path" : "Specimen.accessionIdentifier",
+      "short" : "Identificador atribuído pelo laboratório",
+      "definition" : "Identificador atribuído pelo laboratório"
+    },
+    {
+      "id" : "Specimen.status",
+      "path" : "Specimen.status",
+      "short" : "Status da amostra: disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra",
+      "definition" : "Status da amostra: disponível | indisponível | insatisfatório | inserido com erro: códigos que fornecem o status/disponibilidade de uma amostra"
+    },
+    {
+      "id" : "Specimen.type",
+      "path" : "Specimen.type",
+      "short" : "Tipo de material que compõem a amostra",
+      "definition" : "Tipo de material que compõem a amostra",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRTipoAmostra"
+      }
+    },
+    {
+      "id" : "Specimen.subject",
+      "path" : "Specimen.subject",
+      "short" : "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo",
+      "definition" : "Referência de onde veio a amostra. Pode ser de paciente(s), de um local (por exemplo, a fonte de uma amostra ambiental) ou uma amostra de uma substância ou dispositivo",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "http://hl7.org/fhir/StructureDefinition/Group",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "http://hl7.org/fhir/StructureDefinition/Substance",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"]
+      }]
+    },
+    {
+      "id" : "Specimen.subject.id",
+      "path" : "Specimen.subject.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Specimen.subject.extension",
+      "path" : "Specimen.subject.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Specimen.subject.reference",
+      "path" : "Specimen.subject.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta"
+    },
+    {
+      "id" : "Specimen.subject.type",
+      "path" : "Specimen.subject.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo, Paciente)",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo, Paciente)"
+    },
+    {
+      "id" : "Specimen.subject.identifier",
+      "path" : "Specimen.subject.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida"
+    },
+    {
+      "id" : "Specimen.subject.display",
+      "path" : "Specimen.subject.display",
+      "short" : "Texto alternativo para o recurso",
+      "definition" : "Texto alternativo para o recurso"
+    },
+    {
+      "id" : "Specimen.receivedTime",
+      "path" : "Specimen.receivedTime",
+      "short" : "Data/hora em que a amostra foi recebida para processamento",
+      "definition" : "Data/hora em que a amostra foi recebida para processamento"
+    },
+    {
+      "id" : "Specimen.parent",
+      "path" : "Specimen.parent",
+      "short" : "Referencia a origem da amostra",
+      "definition" : "Referencia a origem da amostra",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen"]
+      }]
+    },
+    {
+      "id" : "Specimen.request",
+      "path" : "Specimen.request",
+      "short" : "Referencia a requisição associada",
+      "definition" : "Referencia a requisição associada",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest"]
+      }]
+    },
+    {
+      "id" : "Specimen.collection",
+      "path" : "Specimen.collection",
+      "short" : "Detalhes da coleta",
+      "definition" : "Detalhes da coleta"
+    },
+    {
+      "id" : "Specimen.collection.id",
+      "path" : "Specimen.collection.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Specimen.collection.extension",
+      "path" : "Specimen.collection.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Specimen.collection.modifierExtension",
+      "path" : "Specimen.collection.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Specimen.collection.collector",
+      "path" : "Specimen.collection.collector",
+      "short" : "Referência ao profissional responsável pela coleta",
+      "definition" : "Referência ao profissional responsável pela coleta",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole"]
+      }]
+    },
+    {
+      "id" : "Specimen.collection.collected[x]",
+      "path" : "Specimen.collection.collected[x]",
+      "short" : "Data/Hora-Período da coleta",
+      "definition" : "Data/Hora-Período da coleta",
+      "min" : 1
+    },
+    {
+      "id" : "Specimen.collection.duration",
+      "path" : "Specimen.collection.duration",
+      "short" : "Duração da coleta",
+      "definition" : "Duracao da coleta"
+    },
+    {
+      "id" : "Specimen.collection.quantity",
+      "path" : "Specimen.collection.quantity",
+      "short" : "Quantidade de amostra coletada",
+      "definition" : "Quantidade de amostra coletada",
+      "min" : 1
+    },
+    {
+      "id" : "Specimen.collection.method",
+      "path" : "Specimen.collection.method",
+      "short" : "Método de coleta da amostra",
+      "definition" : "Método de coleta da amostra",
+      "min" : 1,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-collection-method"
+      }
+    },
+    {
+      "id" : "Specimen.collection.bodySite",
+      "path" : "Specimen.collection.bodySite",
+      "short" : "Local anatômico de coleta da amostra",
+      "definition" : "Local anatômico de coleta da amostra"
+    },
+    {
+      "id" : "Specimen.collection.fastingStatus[x]",
+      "path" : "Specimen.collection.fastingStatus[x]",
+      "short" : "Tempo de jejum do paciente, se for o caso",
+      "definition" : "Tempo de jejum do paciente, se for o caso"
+    },
+    {
+      "id" : "Specimen.processing",
+      "path" : "Specimen.processing",
+      "short" : "Detalhes da etapa de processamento da amostra e respectivos passos",
+      "definition" : "Detalhes da etapa de processamento da amostra e respectivos passos"
+    },
+    {
+      "id" : "Specimen.processing.id",
+      "path" : "Specimen.processing.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Specimen.processing.extension",
+      "path" : "Specimen.processing.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Specimen.processing.modifierExtension",
+      "path" : "Specimen.processing.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Specimen.processing.description",
+      "path" : "Specimen.processing.description",
+      "short" : "Texto que descreve o procedimento",
+      "definition" : "Texto que descreve o procedimento"
+    },
+    {
+      "id" : "Specimen.processing.procedure",
+      "path" : "Specimen.processing.procedure",
+      "short" : "Indica a etapa de tratamento aplicada a amostra",
+      "definition" : "Indica a etapa de tratamento aplicada a amostra"
+    },
+    {
+      "id" : "Specimen.processing.additive",
+      "path" : "Specimen.processing.additive",
+      "short" : "Referência ao material utilizado na etapa de processamento da amostra",
+      "definition" : "Referência ao material utilizado na etapa de processamento da amostra"
+    },
+    {
+      "id" : "Specimen.processing.time[x]",
+      "path" : "Specimen.processing.time[x]",
+      "short" : "Data e hora do processamento da amostra",
+      "definition" : "Data e hora do processamento da amostra"
+    },
+    {
+      "id" : "Specimen.container",
+      "path" : "Specimen.container",
+      "short" : "Recipiente que contém a amostra (tubo/lâmina, etc.)",
+      "definition" : "Recipiente que contém a amostra (tubo/lâmina, etc.)"
+    },
+    {
+      "id" : "Specimen.container.id",
+      "path" : "Specimen.container.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Specimen.container.extension",
+      "path" : "Specimen.container.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Specimen.container.modifierExtension",
+      "path" : "Specimen.container.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Specimen.container.identifier",
+      "path" : "Specimen.container.identifier",
+      "short" : "Id do recipiente",
+      "definition" : "Id do recipiente que contém a amostra"
+    },
+    {
+      "id" : "Specimen.container.description",
+      "path" : "Specimen.container.description",
+      "short" : "Descrição do recipiente",
+      "definition" : "Descrição do recipiente que contém a amostra"
+    },
+    {
+      "id" : "Specimen.container.type",
+      "path" : "Specimen.container.type",
+      "short" : "Tipo de recipiente associado a amostra",
+      "definition" : "Tipo de recipiente associado a amostra"
+    },
+    {
+      "id" : "Specimen.container.capacity",
+      "path" : "Specimen.container.capacity",
+      "short" : "Volume ou tamanho do recipiente",
+      "definition" : "Volume ou tamanho do recipiente"
+    },
+    {
+      "id" : "Specimen.container.specimenQuantity",
+      "path" : "Specimen.container.specimenQuantity",
+      "short" : "Quantidade de amostra no recipiente",
+      "definition" : "Quantidade de amostra no recipiente"
+    },
+    {
+      "id" : "Specimen.container.additive[x]",
+      "path" : "Specimen.container.additive[x]",
+      "short" : "Aditivo associado ao recipiente",
+      "definition" : "Aditivo associado ao recipiente"
+    },
+    {
+      "id" : "Specimen.condition",
+      "path" : "Specimen.condition",
+      "short" : "Condições da amostra",
+      "definition" : "Condições da amostra",
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0493"
+      }
+    },
+    {
+      "id" : "Specimen.note",
+      "path" : "Specimen.note",
+      "short" : "Comentários",
+      "definition" : "Comentários"
+    }]
+  }
+}

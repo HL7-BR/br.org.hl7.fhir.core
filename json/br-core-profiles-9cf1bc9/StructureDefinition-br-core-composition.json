@@ -1,0 +1,3395 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-composition",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition",
+  "version" : "1.4.0",
+  "name" : "BRCoreComposition",
+  "title" : "br-core-composition",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Um conjunto de informações relacionadas aos cuidados em sáude que são reunidas em um único bundle lógico que estabelece seu próprio contexto e atesta quem está fazendo a declaração. Uma Composition define a estrutura e o conteúdo narrativo necessários para um documento. No entanto, uma Composition sozinha não constitui um documento. Em vez disso, a Composition deve ser a primeira entrada em um Bundle onde Bundle.type=document, e quaisquer outros recursos referenciados da Composition devem ser incluídos como entradas subsequentes no Bundle (por exemplo, Patient, Practitioner, Encounter, etc.)",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "cda",
+    "uri" : "http://hl7.org/v3/cda",
+    "name" : "CDA (R2)"
+  },
+  {
+    "identity" : "fhirdocumentreference",
+    "uri" : "http://hl7.org/fhir/documentreference",
+    "name" : "FHIR DocumentReference"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Composition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Composition",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "Composition",
+      "path" : "Composition",
+      "short" : "A set of resources composed into a single coherent clinical statement with clinical attestation",
+      "definition" : "A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).",
+      "comment" : "While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "workflow",
+        "map" : "Event"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Document[classCode=\"DOC\" and moodCode=\"EVN\" and isNormalAct()]"
+      },
+      {
+        "identity" : "cda",
+        "map" : "ClinicalDocument"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "when described by DocumentReference"
+      }]
+    },
+    {
+      "id" : "Composition.id",
+      "path" : "Composition.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.meta",
+      "path" : "Composition.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.implicitRules",
+      "path" : "Composition.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.language",
+      "path" : "Composition.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "Composition.text",
+      "path" : "Composition.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "Composition.contained",
+      "path" : "Composition.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Composition.extension",
+      "path" : "Composition.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.modifierExtension",
+      "path" : "Composition.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.identifier",
+      "path" : "Composition.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "comment" : "Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.identifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.identifier"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Document.id / Document.setId"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".setId"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.masterIdentifier"
+      }]
+    },
+    {
+      "id" : "Composition.status",
+      "path" : "Composition.status",
+      "short" : "Status/Situação da Composition",
+      "definition" : "Status/Situação da Composition: preliminar, definitivo, alterado, inserido com erro",
+      "comment" : "If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"entered-in-error\" is why this element is labeled as a modifier of other elements.   \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.",
+      "requirements" : "Need to be able to mark interim, amended, or withdrawn compositions or documents.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-status"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.status"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "rim",
+        "map" : "interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\""
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.status"
+      }]
+    },
+    {
+      "id" : "Composition.type",
+      "path" : "Composition.type",
+      "short" : "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)",
+      "definition" : "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)",
+      "comment" : "For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding.",
+      "requirements" : "Key metadata element describing the composition, used in searching/filtering.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.type",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/doc-typecodes"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.code"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./code"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".code"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.type"
+      }]
+    },
+    {
+      "id" : "Composition.type.id",
+      "path" : "Composition.type.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.type.extension",
+      "path" : "Composition.type.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.type.coding",
+      "path" : "Composition.type.coding",
+      "short" : "Código definido por uma terminologia",
+      "definition" : "Código definido por uma terminologia",
+      "comment" : "Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true.",
+      "requirements" : "Allows for alternative encodings within a code system, and translations to other code systems.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "CodeableConcept.coding",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Coding"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.1-8, C*E.10-22"
+      },
+      {
+        "identity" : "rim",
+        "map" : "union(., ./translation)"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.id",
+      "path" : "Composition.type.coding.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.extension",
+      "path" : "Composition.type.coding.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.type.coding.system",
+      "path" : "Composition.type.coding.system",
+      "short" : "Identificador do sistema de terminologia",
+      "definition" : "Identidficador do sistema de terminologia",
+      "comment" : "The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously.",
+      "requirements" : "Need to be unambiguous about the source of the definition of the symbol.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Coding.system",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.3"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./codeSystem"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.version",
+      "path" : "Composition.type.coding.version",
+      "short" : "Versão da terminologia LOINC - se relevante",
+      "definition" : "Versão da terminologia LOINC - se relevante",
+      "comment" : "Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Coding.version",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.7"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./codeSystemVersion"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.code",
+      "path" : "Composition.type.coding.code",
+      "short" : "Código conforme terminologia",
+      "definition" : "Código conforme terminologia",
+      "requirements" : "Need to refer to a particular code in the system.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Coding.code",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.1"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./code"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.display",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "Composition.type.coding.display",
+      "short" : "Descrição conforme definição da terminologia LOINC",
+      "definition" : "Descrição conforme definição da terminologia LOINC",
+      "requirements" : "Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Coding.display",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.2 - but note this is not well followed"
+      },
+      {
+        "identity" : "rim",
+        "map" : "CV.displayName"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"
+      }]
+    },
+    {
+      "id" : "Composition.type.coding.userSelected",
+      "path" : "Composition.type.coding.userSelected",
+      "short" : "Se esta codificação foi escolhida diretamente pelo usuário",
+      "definition" : "Se esta codificação foi escolhida diretamente pelo usuário",
+      "comment" : "Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.",
+      "requirements" : "This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Coding.userSelected",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "Sometimes implied by being first"
+      },
+      {
+        "identity" : "rim",
+        "map" : "CD.codingRationale"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]"
+      }]
+    },
+    {
+      "id" : "Composition.type.text",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "Composition.type.text",
+      "short" : "Representação em texto livre do conceito",
+      "definition" : "Representação em texto livre do conceito",
+      "comment" : "Very often the text is the same as a displayName of one of the codings.",
+      "requirements" : "The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "CodeableConcept.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "C*E.9. But note many systems use C*E.2 for this"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./originalText[mediaType/code=\"text/plain\"]/data"
+      },
+      {
+        "identity" : "orim",
+        "map" : "fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"
+      }]
+    },
+    {
+      "id" : "Composition.category",
+      "path" : "Composition.category",
+      "short" : "Categoria da Composition",
+      "definition" : "Categoria da Composition",
+      "comment" : "This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)).",
+      "requirements" : "Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.category",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/document-classcodes"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code"
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumenttReference.category"
+      }]
+    },
+    {
+      "id" : "Composition.subject",
+      "path" : "Composition.subject",
+      "short" : "Sobre quem e/ou sobre o que é a Composition",
+      "definition" : "Sobre quem e/ou sobre o que é a Composition",
+      "comment" : "For clinical documents, this is usually the patient.",
+      "requirements" : "Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.subject",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".recordTarget"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "Composition.subject.id",
+      "path" : "Composition.subject.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.subject.extension",
+      "path" : "Composition.subject.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.subject.reference",
+      "path" : "Composition.subject.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta",
+      "comment" : "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.reference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "condition" : ["ref-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Composition.subject.type",
+      "path" : "Composition.subject.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo,'Paciente')",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo,'Paciente')",
+      "comment" : "This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.type",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "FHIRResourceTypeExt"
+        }],
+        "strength" : "extensible",
+        "description" : "Aa resource (or, for logical models, the URI of the logical model).",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-types|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Composition.subject.identifier",
+      "path" : "Composition.subject.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida",
+      "comment" : "When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy. \n\nWhen both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference\n\nApplications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.\n\nReference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.identifier",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".identifier"
+      }]
+    },
+    {
+      "id" : "Composition.subject.display",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+        "valueBoolean" : true
+      }],
+      "path" : "Composition.subject.display",
+      "short" : "Referência ao paciente ou grupo deste atendimento",
+      "definition" : "Referência ao paciente ou grupo deste atendimento",
+      "comment" : "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Reference.display",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Composition.encounter",
+      "path" : "Composition.encounter",
+      "short" : "Contato assistencial descrito nesta Composition",
+      "definition" : "Contato assistencial descrito nesta Composition",
+      "requirements" : "Provides context for the composition and supports searching.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.encounter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.context"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "rim",
+        "map" : "unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".componentOf.encompassingEncounter"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.context.encounter"
+      }]
+    },
+    {
+      "id" : "Composition.date",
+      "path" : "Composition.date",
+      "short" : "Data de edição da Composition",
+      "definition" : "Data de edição da Composition",
+      "comment" : "The Last Modified Date on the composition may be after the date of the document was attested without being changed.",
+      "requirements" : "dateTime is used for tracking, organizing versions and searching. Note that this is the time of *authoring*. When packaged in a document, [Bundle.timestamp](http://hl7.org/fhir/R4/bundle-definitions.html#Bundle.timestamp) is the date of packaging.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.date",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".effectiveTime[type=\"TS\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".effectiveTime"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.content.attachment.date, DocumentReference.created"
+      }]
+    },
+    {
+      "id" : "Composition.author",
+      "path" : "Composition.author",
+      "short" : "Quem e/ou o que foi o autor desta Composition",
+      "definition" : "Quem e/ou o que foi o autor desta Compositon",
+      "requirements" : "Identifies who is responsible for the content.",
+      "min" : 1,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.author",
+        "min" : 1,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.author"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".author.assignedAuthor"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.agent"
+      }]
+    },
+    {
+      "id" : "Composition.title",
+      "path" : "Composition.title",
+      "short" : "Sumário Internacional do Paciente",
+      "definition" : "Sumário Internacional do Paciente",
+      "comment" : "For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a \"consultation\" or \"progress note\"). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.title",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./title"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".title"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.description, DocumentReference.content.attachment.title"
+      }]
+    },
+    {
+      "id" : "Composition.confidentiality",
+      "path" : "Composition.confidentiality",
+      "short" : "Códigos que especificam o nível de confidencialidade da Composition",
+      "definition" : "Códigos que especificam o nível de confidencialidade da Composition",
+      "comment" : "The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).  This element is labeled as a modifier because highly confidential documents must not be treated as if they are not.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.confidentiality",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".confidentialityCode"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".confidentialityCode"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.securityLabel"
+      }]
+    },
+    {
+      "id" : "Composition.attester",
+      "path" : "Composition.attester",
+      "short" : "Responsável por atestar a acurácia da Composition",
+      "definition" : "Responsável por atestar a acurácia da Composition",
+      "comment" : "Only list each attester once.",
+      "requirements" : "Identifies responsibility for the accuracy of the composition content.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.attester",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".authenticator/.legalAuthenticator"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.authenticator"
+      }]
+    },
+    {
+      "id" : "Composition.attester.id",
+      "path" : "Composition.attester.id",
+      "representation" : ["xmlAttr"],
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.attester.extension",
+      "path" : "Composition.attester.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.attester.modifierExtension",
+      "path" : "Composition.attester.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.attester.mode",
+      "path" : "Composition.attester.mode",
+      "short" : "Métodolo utilizada para autenticar a Composition",
+      "definition" : "Métodolo utilizada para autenticar a Composition: pessoal, profissional, legal, oficial",
+      "requirements" : "Indicates the level of authority of the attestation.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.attester.mode",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-attestation-mode"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "unique(./modeCode)"
+      },
+      {
+        "identity" : "cda",
+        "map" : "implied by .authenticator/.legalAuthenticator"
+      }]
+    },
+    {
+      "id" : "Composition.attester.time",
+      "path" : "Composition.attester.time",
+      "short" : "Quando a Composition foi atestada",
+      "definition" : "Quando a Composition foi atestada",
+      "requirements" : "Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.attester.time",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./time[type=\"TS\" and isNormalDatatype()]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".authenticator.time"
+      }]
+    },
+    {
+      "id" : "Composition.attester.party",
+      "path" : "Composition.attester.party",
+      "short" : "Referência à quem atestou a Composition",
+      "definition" : "Referência à quem atestou a Composition",
+      "requirements" : "Identifies who has taken on the responsibility for accuracy of the composition content.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.attester.party",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.witness"
+      },
+      {
+        "identity" : "rim",
+        "map" : "./role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()] or ./role[classCode=\"ASSIGNED\" and isNormalRole and not(player)]/scoper[determinerCode=\"INST\" and classCode=\"ORG\" and isNormalEntity()]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".authenticator.assignedEnttty"
+      }]
+    },
+    {
+      "id" : "Composition.custodian",
+      "path" : "Composition.custodian",
+      "short" : "Identifica a organização ou grupo responsável pela Composition",
+      "definition" : "Identifica a organização ou grupo responsável pela Composition",
+      "comment" : "This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However, it is important that this information be known when working with a derived document, so providing a custodian is encouraged.",
+      "requirements" : "Identifies where to go to find the current version, where to report issues, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.custodian",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".custodian.assignedCustodian"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.custodian"
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo",
+      "path" : "Composition.relatesTo",
+      "short" : "Relações que esta Composition tem com outras composições ou recursos",
+      "definition" : "Relações que esta Composition tem com outras composições ou recursos",
+      "comment" : "A document is a version specific composition.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.relatesTo",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".outboundRelationship"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".relatedDocument"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.relatesTo"
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo.id",
+      "path" : "Composition.relatesTo.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo.extension",
+      "path" : "Composition.relatesTo.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.relatesTo.modifierExtension",
+      "path" : "Composition.relatesTo.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.relatesTo.code",
+      "path" : "Composition.relatesTo.code",
+      "short" : "Código da asssociação da Composition",
+      "definition" : "Código da asssociação da Composition",
+      "comment" : "If this document appends another document, then the document cannot be fully understood without also accessing the referenced document.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.relatesTo.code",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/document-relationship-type"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".outboundRelationship.typeCode"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".relatedDocument.typeCode"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.relatesTo.code"
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo.target[x]",
+      "path" : "Composition.relatesTo.target[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "open"
+      },
+      "short" : "Relacionamento alvo",
+      "definition" : "Relacionamento alvo",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.relatesTo.target[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Composition|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".target[classCode=\"DOC\", moodCode=\"EVN\"].id"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".relatedDocument.id"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.relatesTo.target"
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo.target[x]:targetReference",
+      "path" : "Composition.relatesTo.target[x]",
+      "sliceName" : "targetReference",
+      "short" : "Referência à Composition alvo",
+      "definition" : "Referência à Composition alvo",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.relatesTo.target[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".target[classCode=\"DOC\", moodCode=\"EVN\"].id"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".relatedDocument.id"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.relatesTo.target"
+      }]
+    },
+    {
+      "id" : "Composition.event",
+      "path" : "Composition.event",
+      "short" : "O serviço especializado  como uma colonoscopia ou uma apendicectomia, sendo documentado",
+      "definition" : "O serviço especializado  como uma colonoscopia ou uma apendicectomia, sendo documentado",
+      "comment" : "The event needs to be consistent with the type element, though can provide further information if desired.",
+      "requirements" : "Provides context for the composition and creates a linkage between a resource describing an event and the composition created describing the event.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.event",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=\"SUBJ\"].target[classCode<'ACT']"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".documentationOf.serviceEvent"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.event"
+      }]
+    },
+    {
+      "id" : "Composition.event.id",
+      "path" : "Composition.event.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador  único para o elemento dentro de um recurso (para referências internas). Este pode ser qualquer valor de string que não contenha espaços",
+      "definition" : "Identificador  único para o elemento dentro de um recurso (para referências internas). Este pode ser qualquer valor de string que não contenha espaços",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.event.extension",
+      "path" : "Composition.event.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.event.modifierExtension",
+      "path" : "Composition.event.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.event.code",
+      "path" : "Composition.event.code",
+      "short" : "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'",
+      "definition" : "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'",
+      "comment" : "An event can further specialize the act inherent in the typeCode, such as where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.event.code",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ActCode"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".code"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".code"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.event.code"
+      }]
+    },
+    {
+      "id" : "Composition.event.period",
+      "path" : "Composition.event.period",
+      "short" : "O período de tempo coberto pela composition. Não há declaração de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo",
+      "definition" : "O período de tempo coberto pela composition. Não há declaração de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.event.period",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".effectiveTime"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".effectiveTime"
+      },
+      {
+        "identity" : "fhirdocumentreference",
+        "map" : "DocumentReference.event.period"
+      }]
+    },
+    {
+      "id" : "Composition.event.detail",
+      "path" : "Composition.event.detail",
+      "short" : "Referência aos eventos da Composition",
+      "definition" : "Referência aos eventos da Composition",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.event.detail",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=\"SUBJ\"].target"
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.section",
+      "path" : "Composition.section",
+      "short" : "A secção inicial da composition a partir da qual as demais seções são definidas",
+      "definition" : "A secção inicial da composition a partir da qual as demais seções são definidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.section",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "cmp-1",
+        "severity" : "error",
+        "human" : "A section must contain at least one of text, entries, or sub-sections",
+        "expression" : "text.exists() or entry.exists() or section.exists()",
+        "xpath" : "exists(f:text) or exists(f:entry) or exists(f:section)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Composition"
+      },
+      {
+        "key" : "cmp-2",
+        "severity" : "error",
+        "human" : "A section can only have an emptyReason if it is empty",
+        "expression" : "emptyReason.empty() or entry.empty()",
+        "xpath" : "not(exists(f:emptyReason) and exists(f:entry))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Composition"
+      },
+      {
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".component.structuredBody.component.section"
+      }]
+    },
+    {
+      "id" : "Composition.section.id",
+      "path" : "Composition.section.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador exclusivo para referência entre elemento",
+      "definition" : "Identificador exclusivo para referência entre elementos",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.section.extension",
+      "path" : "Composition.section.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Composition.section.modifierExtension",
+      "path" : "Composition.section.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "Composition.section.title",
+      "path" : "Composition.section.title",
+      "short" : "Título da seção",
+      "definition" : "Título da seção",
+      "comment" : "The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element.",
+      "requirements" : "Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized.",
+      "alias" : ["header",
+      "label",
+      "caption"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.title",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./title"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".title"
+      }]
+    },
+    {
+      "id" : "Composition.section.code",
+      "path" : "Composition.section.code",
+      "short" : "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção",
+      "definition" : "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção",
+      "comment" : "The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.   \n\nIf the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.",
+      "requirements" : "Provides computable standardized labels to topics within the document.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.code",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/doc-section-codes"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./code"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".code"
+      }]
+    },
+    {
+      "id" : "Composition.section.author",
+      "path" : "Composition.section.author",
+      "short" : "Referência à quem e/ou o que foi o autor desta seção",
+      "definition" : "Referência à quem e/ou o que foi o autor desta seção",
+      "requirements" : "Identifies who is responsible for the content.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.section.author",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.author"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".author.assignedAuthor"
+      }]
+    },
+    {
+      "id" : "Composition.section.focus",
+      "path" : "Composition.section.focus",
+      "short" : "Referência ao recurso associado desta seção",
+      "definition" : "Referência ao recurso associado desta seção",
+      "comment" : "Typically, sections in a doument are about the subject of the document, whether that is a  patient, or group of patients, location, or device, or whatever. For some kind of documents, some sections actually contain data about related entities. Typical examples are  a section in a newborn discharge summary concerning the mother, or family history documents, with a section about each family member, though there are many other examples.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.focus",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "cda",
+        "map" : ".subject? (CDA did not differentiate between subject and focus)"
+      }]
+    },
+    {
+      "id" : "Composition.section.text",
+      "path" : "Composition.section.text",
+      "short" : "Resumo em texto livre da seção",
+      "definition" : "Resumo em texto livre da seção",
+      "comment" : "Document profiles may define what content should be represented in the narrative to ensure clinical safety.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "condition" : ["cmp-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".text"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".text"
+      }]
+    },
+    {
+      "id" : "Composition.section.mode",
+      "path" : "Composition.section.mode",
+      "short" : "Método de processamento da seção",
+      "definition" : "Método de processamento da seção",
+      "comment" : "This element is labeled as a modifier because a change list must not be misunderstood as a complete list.",
+      "requirements" : "Sections are used in various ways, and it must be known in what way it is safe to use the entries in them.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.mode",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-mode"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value"
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.section.orderedBy",
+      "path" : "Composition.section.orderedBy",
+      "short" : "Ordem dos itens nas section.entry",
+      "definition" : "Ordem dos itens nas section.entry",
+      "comment" : "Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order.",
+      "requirements" : "Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.orderedBy",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-empty-reason"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=COMP].sequenceNumber > 1"
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.section.entry",
+      "path" : "Composition.section.entry",
+      "short" : "Uma referência ao recurso a partir do qual a narrativa da seção é derivada",
+      "definition" : "Uma referência ao recurso a partir do qual a narrativa da seção é derivada",
+      "comment" : "If there are no entries in the list, an emptyReason SHOULD be provided.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.section.entry",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource|4.0.1"]
+      }],
+      "condition" : ["cmp-2"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".entry"
+      }]
+    },
+    {
+      "id" : "Composition.section.emptyReason",
+      "path" : "Composition.section.emptyReason",
+      "short" : "Explicação porquê a seção está vazia",
+      "definition" : "Explicação porquê a seção está vazia",
+      "comment" : "The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.",
+      "requirements" : "Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.section.emptyReason",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["cmp-2"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SectionEmptyReason"
+        }],
+        "strength" : "preferred",
+        "description" : "If a section is empty, why it is empty.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-empty-reason|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=SUBJ,code<ListEmptyReason].value[type=CD]"
+      },
+      {
+        "identity" : "cda",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Composition.section.section",
+      "path" : "Composition.section.section",
+      "short" : "Uma subseção aninhada dentro desta seção",
+      "definition" : "Uma subseção aninhada dentro desta seção",
+      "comment" : "Nested sections are primarily used to help human readers navigate to particular portions of the document.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.section.section",
+        "min" : 0,
+        "max" : "*"
+      },
+      "contentReference" : "http://hl7.org/fhir/StructureDefinition/Composition#Composition.section",
+      "condition" : ["cmp-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".component.section"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Composition.id",
+      "path" : "Composition.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "Composition.meta",
+      "path" : "Composition.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "Composition.implicitRules",
+      "path" : "Composition.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "Composition.language",
+      "path" : "Composition.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "Composition.text",
+      "path" : "Composition.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "Composition.contained",
+      "path" : "Composition.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "Composition.extension",
+      "path" : "Composition.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "Composition.modifierExtension",
+      "path" : "Composition.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Composition.identifier",
+      "path" : "Composition.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "Composition.status",
+      "path" : "Composition.status",
+      "short" : "Status/Situação da Composition",
+      "definition" : "Status/Situação da Composition: preliminar, definitivo, alterado, inserido com erro",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-status"
+      }
+    },
+    {
+      "id" : "Composition.type",
+      "path" : "Composition.type",
+      "short" : "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)",
+      "definition" : "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/doc-typecodes"
+      }
+    },
+    {
+      "id" : "Composition.type.id",
+      "path" : "Composition.type.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Composition.type.extension",
+      "path" : "Composition.type.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.type.coding",
+      "path" : "Composition.type.coding",
+      "short" : "Código definido por uma terminologia",
+      "definition" : "Código definido por uma terminologia"
+    },
+    {
+      "id" : "Composition.type.coding.id",
+      "path" : "Composition.type.coding.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Composition.type.coding.extension",
+      "path" : "Composition.type.coding.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.type.coding.system",
+      "path" : "Composition.type.coding.system",
+      "short" : "Identificador do sistema de terminologia",
+      "definition" : "Identidficador do sistema de terminologia"
+    },
+    {
+      "id" : "Composition.type.coding.version",
+      "path" : "Composition.type.coding.version",
+      "short" : "Versão da terminologia LOINC - se relevante",
+      "definition" : "Versão da terminologia LOINC - se relevante"
+    },
+    {
+      "id" : "Composition.type.coding.code",
+      "path" : "Composition.type.coding.code",
+      "short" : "Código conforme terminologia",
+      "definition" : "Código conforme terminologia"
+    },
+    {
+      "id" : "Composition.type.coding.display",
+      "path" : "Composition.type.coding.display",
+      "short" : "Descrição conforme definição da terminologia LOINC",
+      "definition" : "Descrição conforme definição da terminologia LOINC"
+    },
+    {
+      "id" : "Composition.type.coding.userSelected",
+      "path" : "Composition.type.coding.userSelected",
+      "short" : "Se esta codificação foi escolhida diretamente pelo usuário",
+      "definition" : "Se esta codificação foi escolhida diretamente pelo usuário"
+    },
+    {
+      "id" : "Composition.type.text",
+      "path" : "Composition.type.text",
+      "short" : "Representação em texto livre do conceito",
+      "definition" : "Representação em texto livre do conceito"
+    },
+    {
+      "id" : "Composition.category",
+      "path" : "Composition.category",
+      "short" : "Categoria da Composition",
+      "definition" : "Categoria da Composition",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/document-classcodes"
+      }
+    },
+    {
+      "id" : "Composition.subject",
+      "path" : "Composition.subject",
+      "short" : "Sobre quem e/ou sobre o que é a Composition",
+      "definition" : "Sobre quem e/ou sobre o que é a Composition",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }]
+    },
+    {
+      "id" : "Composition.subject.id",
+      "path" : "Composition.subject.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Composition.subject.extension",
+      "path" : "Composition.subject.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.subject.reference",
+      "path" : "Composition.subject.reference",
+      "short" : "Referência literal, URL relativa, interna ou absoluta",
+      "definition" : "Referência literal, URL relativa, interna ou absoluta"
+    },
+    {
+      "id" : "Composition.subject.type",
+      "path" : "Composition.subject.type",
+      "short" : "Tipo ao qual a referência se refere (por exemplo,'Paciente')",
+      "definition" : "Tipo ao qual a referência se refere (por exemplo,'Paciente')"
+    },
+    {
+      "id" : "Composition.subject.identifier",
+      "path" : "Composition.subject.identifier",
+      "short" : "Referência lógica, quando a referência literal não é conhecida",
+      "definition" : "Referência lógica, quando a referência literal não é conhecida"
+    },
+    {
+      "id" : "Composition.subject.display",
+      "path" : "Composition.subject.display",
+      "short" : "Referência ao paciente ou grupo deste atendimento",
+      "definition" : "Referência ao paciente ou grupo deste atendimento"
+    },
+    {
+      "id" : "Composition.encounter",
+      "path" : "Composition.encounter",
+      "short" : "Contato assistencial descrito nesta Composition",
+      "definition" : "Contato assistencial descrito nesta Composition",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }]
+    },
+    {
+      "id" : "Composition.date",
+      "path" : "Composition.date",
+      "short" : "Data de edição da Composition",
+      "definition" : "Data de edição da Composition"
+    },
+    {
+      "id" : "Composition.author",
+      "path" : "Composition.author",
+      "short" : "Quem e/ou o que foi o autor desta Composition",
+      "definition" : "Quem e/ou o que foi o autor desta Compositon",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Composition.title",
+      "path" : "Composition.title",
+      "short" : "Sumário Internacional do Paciente",
+      "definition" : "Sumário Internacional do Paciente"
+    },
+    {
+      "id" : "Composition.confidentiality",
+      "path" : "Composition.confidentiality",
+      "short" : "Códigos que especificam o nível de confidencialidade da Composition",
+      "definition" : "Códigos que especificam o nível de confidencialidade da Composition",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification"
+      }
+    },
+    {
+      "id" : "Composition.attester",
+      "path" : "Composition.attester",
+      "short" : "Responsável por atestar a acurácia da Composition",
+      "definition" : "Responsável por atestar a acurácia da Composition"
+    },
+    {
+      "id" : "Composition.attester.id",
+      "path" : "Composition.attester.id",
+      "short" : "ID exclusivo para referência entre elementos",
+      "definition" : "ID exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Composition.attester.extension",
+      "path" : "Composition.attester.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.attester.modifierExtension",
+      "path" : "Composition.attester.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Composition.attester.mode",
+      "path" : "Composition.attester.mode",
+      "short" : "Métodolo utilizada para autenticar a Composition",
+      "definition" : "Métodolo utilizada para autenticar a Composition: pessoal, profissional, legal, oficial",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-attestation-mode"
+      }
+    },
+    {
+      "id" : "Composition.attester.time",
+      "path" : "Composition.attester.time",
+      "short" : "Quando a Composition foi atestada",
+      "definition" : "Quando a Composition foi atestada"
+    },
+    {
+      "id" : "Composition.attester.party",
+      "path" : "Composition.attester.party",
+      "short" : "Referência à quem atestou a Composition",
+      "definition" : "Referência à quem atestou a Composition",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Composition.custodian",
+      "path" : "Composition.custodian",
+      "short" : "Identifica a organização ou grupo responsável pela Composition",
+      "definition" : "Identifica a organização ou grupo responsável pela Composition",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Composition.relatesTo",
+      "path" : "Composition.relatesTo",
+      "short" : "Relações que esta Composition tem com outras composições ou recursos",
+      "definition" : "Relações que esta Composition tem com outras composições ou recursos"
+    },
+    {
+      "id" : "Composition.relatesTo.id",
+      "path" : "Composition.relatesTo.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "Composition.relatesTo.extension",
+      "path" : "Composition.relatesTo.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.relatesTo.modifierExtension",
+      "path" : "Composition.relatesTo.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Composition.relatesTo.code",
+      "path" : "Composition.relatesTo.code",
+      "short" : "Código da asssociação da Composition",
+      "definition" : "Código da asssociação da Composition",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/document-relationship-type"
+      }
+    },
+    {
+      "id" : "Composition.relatesTo.target[x]",
+      "path" : "Composition.relatesTo.target[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "open"
+      },
+      "short" : "Relacionamento alvo",
+      "definition" : "Relacionamento alvo"
+    },
+    {
+      "id" : "Composition.relatesTo.target[x]:targetReference",
+      "path" : "Composition.relatesTo.target[x]",
+      "sliceName" : "targetReference",
+      "short" : "Referência à Composition alvo",
+      "definition" : "Referência à Composition alvo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-composition"]
+      }]
+    },
+    {
+      "id" : "Composition.event",
+      "path" : "Composition.event",
+      "short" : "O serviço especializado  como uma colonoscopia ou uma apendicectomia, sendo documentado",
+      "definition" : "O serviço especializado  como uma colonoscopia ou uma apendicectomia, sendo documentado"
+    },
+    {
+      "id" : "Composition.event.id",
+      "path" : "Composition.event.id",
+      "short" : "Identificador  único para o elemento dentro de um recurso (para referências internas). Este pode ser qualquer valor de string que não contenha espaços",
+      "definition" : "Identificador  único para o elemento dentro de um recurso (para referências internas). Este pode ser qualquer valor de string que não contenha espaços"
+    },
+    {
+      "id" : "Composition.event.extension",
+      "path" : "Composition.event.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.event.modifierExtension",
+      "path" : "Composition.event.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Composition.event.code",
+      "path" : "Composition.event.code",
+      "short" : "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'",
+      "definition" : "Esta lista de códigos representa os principais atos clínicos, como uma colonoscopia ou uma apendicectomia, sendo documentados. Em alguns casos, o evento é inerente ao typeCode, como um 'Histórico e Relatório Físico', no qual o procedimento documentado é necessariamente um ato de 'Histórico e Físico'",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ActCode"
+      }
+    },
+    {
+      "id" : "Composition.event.period",
+      "path" : "Composition.event.period",
+      "short" : "O período de tempo coberto pela composition. Não há declaração de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo",
+      "definition" : "O período de tempo coberto pela composition. Não há declaração de que a documentação seja uma representação completa para este período, apenas que documenta eventos durante esse tempo"
+    },
+    {
+      "id" : "Composition.event.detail",
+      "path" : "Composition.event.detail",
+      "short" : "Referência aos eventos da Composition",
+      "definition" : "Referência aos eventos da Composition"
+    },
+    {
+      "id" : "Composition.section",
+      "path" : "Composition.section",
+      "short" : "A secção inicial da composition a partir da qual as demais seções são definidas",
+      "definition" : "A secção inicial da composition a partir da qual as demais seções são definidas"
+    },
+    {
+      "id" : "Composition.section.id",
+      "path" : "Composition.section.id",
+      "short" : "Identificador exclusivo para referência entre elemento",
+      "definition" : "Identificador exclusivo para referência entre elementos"
+    },
+    {
+      "id" : "Composition.section.extension",
+      "path" : "Composition.section.extension",
+      "short" : "Conteúdo adicional definido por implementações",
+      "definition" : "Conteúdo adicional definido por implementações"
+    },
+    {
+      "id" : "Composition.section.modifierExtension",
+      "path" : "Composition.section.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas",
+      "definition" : "Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas"
+    },
+    {
+      "id" : "Composition.section.title",
+      "path" : "Composition.section.title",
+      "short" : "Título da seção",
+      "definition" : "Título da seção"
+    },
+    {
+      "id" : "Composition.section.code",
+      "path" : "Composition.section.code",
+      "short" : "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção",
+      "definition" : "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/doc-section-codes"
+      }
+    },
+    {
+      "id" : "Composition.section.author",
+      "path" : "Composition.section.author",
+      "short" : "Referência à quem e/ou o que foi o autor desta seção",
+      "definition" : "Referência à quem e/ou o que foi o autor desta seção",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "http://hl7.org/fhir/StructureDefinition/Device",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+      }]
+    },
+    {
+      "id" : "Composition.section.focus",
+      "path" : "Composition.section.focus",
+      "short" : "Referência ao recurso associado desta seção",
+      "definition" : "Referência ao recurso associado desta seção"
+    },
+    {
+      "id" : "Composition.section.text",
+      "path" : "Composition.section.text",
+      "short" : "Resumo em texto livre da seção",
+      "definition" : "Resumo em texto livre da seção"
+    },
+    {
+      "id" : "Composition.section.mode",
+      "path" : "Composition.section.mode",
+      "short" : "Método de processamento da seção",
+      "definition" : "Método de processamento da seção",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-mode"
+      }
+    },
+    {
+      "id" : "Composition.section.orderedBy",
+      "path" : "Composition.section.orderedBy",
+      "short" : "Ordem dos itens nas section.entry",
+      "definition" : "Ordem dos itens nas section.entry",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-empty-reason"
+      }
+    },
+    {
+      "id" : "Composition.section.entry",
+      "path" : "Composition.section.entry",
+      "short" : "Uma referência ao recurso a partir do qual a narrativa da seção é derivada",
+      "definition" : "Uma referência ao recurso a partir do qual a narrativa da seção é derivada"
+    },
+    {
+      "id" : "Composition.section.emptyReason",
+      "path" : "Composition.section.emptyReason",
+      "short" : "Explicação porquê a seção está vazia",
+      "definition" : "Explicação porquê a seção está vazia"
+    },
+    {
+      "id" : "Composition.section.section",
+      "path" : "Composition.section.section",
+      "short" : "Uma subseção aninhada dentro desta seção",
+      "definition" : "Uma subseção aninhada dentro desta seção"
+    }]
+  }
+}

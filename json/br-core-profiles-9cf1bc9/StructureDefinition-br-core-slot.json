@@ -1,0 +1,970 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-slot",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-slot",
+  "version" : "1.4.0",
+  "name" : "BRCoreSlot",
+  "title" : "br-core-slot",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Perfil brasileiro do recurso FHIR R4 Slot, utilizado para representar a disponibilidade e reservas de tempo em sistemas de agendamento, interoperabilidade e integração com a RNDS, permitindo a comunicação entre agendas, prestadores e sistemas de marcação de consultas e procedimentos.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "ical",
+    "uri" : "http://ietf.org/rfc/2445",
+    "name" : "iCalendar"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Slot",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Slot",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "Slot",
+      "path" : "Slot",
+      "short" : "A slot of time on a schedule that may be available for booking appointments",
+      "definition" : "A slot of time on a schedule that may be available for booking appointments.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Slot",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "rim",
+        "map" : "n/a"
+      },
+      {
+        "identity" : "ical",
+        "map" : "(refer to the Availability resource for the header mapping details)"
+      }]
+    },
+    {
+      "id" : "Slot.id",
+      "path" : "Slot.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Slot.meta",
+      "path" : "Slot.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso, incluindo versão, autor e histórico de atualização",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Slot.implicitRules",
+      "path" : "Slot.implicitRules",
+      "short" : "Conjunto de regras usadas para criar o conteúdo",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "Slot.language",
+      "path" : "Slot.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma em que o recurso está escrito",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "Slot.text",
+      "path" : "Slot.text",
+      "short" : "Resumo narrativo em linguagem natural",
+      "definition" : "Resumo narrativo em linguagem natural do conteúdo deste recurso",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "Slot.contained",
+      "path" : "Slot.contained",
+      "short" : "Recursos aninhados",
+      "definition" : "Recursos contidos neste recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Slot.extension",
+      "path" : "Slot.extension",
+      "short" : "Extensões adicionais não previstas no modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.modifierExtension",
+      "path" : "Slot.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.identifier",
+      "path" : "Slot.identifier",
+      "short" : "Identificador externo do slot",
+      "definition" : "Identificadores atribuídos a este slot em sistemas locais ou nacionais",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Slot.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      }]
+    },
+    {
+      "id" : "Slot.serviceCategory",
+      "path" : "Slot.serviceCategory",
+      "short" : "Categoria do serviço",
+      "definition" : "Categoria ampla do serviço representado pelo slot (p.ex. consulta, exame, vacinação)",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Slot.serviceCategory",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencial"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      }]
+    },
+    {
+      "id" : "Slot.serviceType",
+      "path" : "Slot.serviceType",
+      "short" : "Tipo de serviço",
+      "definition" : "Tipo específico de serviço/atendimento associado ao slot",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Slot.serviceType",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRFormaOrganizacaoTabelaSUS"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      }]
+    },
+    {
+      "id" : "Slot.specialty",
+      "path" : "Slot.specialty",
+      "short" : "Especialidade clínica",
+      "definition" : "Especialidade clínica associada ao slot",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Slot.specialty",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      }]
+    },
+    {
+      "id" : "Slot.appointmentType",
+      "path" : "Slot.appointmentType",
+      "short" : "Tipo de agendamento",
+      "definition" : "Tipo de agendamento permitido para este slot",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.appointmentType",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0276"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      }]
+    },
+    {
+      "id" : "Slot.schedule",
+      "path" : "Slot.schedule",
+      "short" : "Referência para agenda",
+      "definition" : "Referência à agenda associada a este slot",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.schedule",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-schedule"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Slot.status",
+      "path" : "Slot.status",
+      "short" : "Status do slot",
+      "definition" : "Status do slot em relação à disponibilidade (busy | free | busy-unavailable | busy-tentative | entered-in-error)",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/slotstatus"
+      },
+      "mapping" : [{
+        "identity" : "ical",
+        "map" : "FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded"
+      }]
+    },
+    {
+      "id" : "Slot.start",
+      "path" : "Slot.start",
+      "short" : "Data/hora de início do slot",
+      "definition" : "Data e hora de início do período de tempo do slot",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.start",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "instant"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.planned"
+      },
+      {
+        "identity" : "ical",
+        "map" : "FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded"
+      }]
+    },
+    {
+      "id" : "Slot.end",
+      "path" : "Slot.end",
+      "short" : "Data/hora de término do slot",
+      "definition" : "Data e hora de término do período de tempo do slot",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.end",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "instant"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.planned"
+      },
+      {
+        "identity" : "ical",
+        "map" : "FREEBUSY:19980314T233000Z/(end) If the freeBusyType is BUSY, then this value can be excluded (as shown)"
+      }]
+    },
+    {
+      "id" : "Slot.overbooked",
+      "path" : "Slot.overbooked",
+      "short" : "Indica se o slot permite sobreposição de marcações",
+      "definition" : "Indica se o slot pode ser utilizado além da capacidade normal",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.overbooked",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "meaningWhenMissing" : "If overbooked is missing, systems may assume that there are still appointments available",
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.comment",
+      "path" : "Slot.comment",
+      "short" : "Comentários adicionais sobre o slot",
+      "definition" : "Notas ou observações adicionais sobre o slot, como restrições ou orientações",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Slot.comment",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.comment.id",
+      "path" : "Slot.comment.id",
+      "representation" : ["xmlAttr"],
+      "short" : "xml:id (or equivalent in JSON)",
+      "definition" : "unique id for the element within a resource (for internal references)",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.comment.extension",
+      "path" : "Slot.comment.extension",
+      "short" : "Extensões adicionais para comentários",
+      "definition" : "Extensões que qualificam ou complementam os comentários sobre o slot",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Slot.comment.value",
+      "path" : "Slot.comment.value",
+      "representation" : ["xmlAttr"],
+      "short" : "Primitive value for string",
+      "definition" : "The actual value",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "string.value",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/regex",
+          "valueString" : "[ \\r\\n\\t\\S]+"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "maxLength" : 1048576,
+      "isModifier" : false,
+      "isSummary" : false
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Slot",
+      "path" : "Slot"
+    },
+    {
+      "id" : "Slot.id",
+      "path" : "Slot.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "Slot.meta",
+      "path" : "Slot.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso, incluindo versão, autor e histórico de atualização"
+    },
+    {
+      "id" : "Slot.implicitRules",
+      "path" : "Slot.implicitRules",
+      "short" : "Conjunto de regras usadas para criar o conteúdo",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "Slot.language",
+      "path" : "Slot.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma em que o recurso está escrito"
+    },
+    {
+      "id" : "Slot.text",
+      "path" : "Slot.text",
+      "short" : "Resumo narrativo em linguagem natural",
+      "definition" : "Resumo narrativo em linguagem natural do conteúdo deste recurso"
+    },
+    {
+      "id" : "Slot.contained",
+      "path" : "Slot.contained",
+      "short" : "Recursos aninhados",
+      "definition" : "Recursos contidos neste recurso"
+    },
+    {
+      "id" : "Slot.extension",
+      "path" : "Slot.extension",
+      "short" : "Extensões adicionais não previstas no modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "Slot.modifierExtension",
+      "path" : "Slot.modifierExtension",
+      "short" : "Extensões que não podem ser ignoradas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "Slot.identifier",
+      "path" : "Slot.identifier",
+      "short" : "Identificador externo do slot",
+      "definition" : "Identificadores atribuídos a este slot em sistemas locais ou nacionais"
+    },
+    {
+      "id" : "Slot.serviceCategory",
+      "path" : "Slot.serviceCategory",
+      "short" : "Categoria do serviço",
+      "definition" : "Categoria ampla do serviço representado pelo slot (p.ex. consulta, exame, vacinação)",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRModalidadeAssistencial"
+      }
+    },
+    {
+      "id" : "Slot.serviceType",
+      "path" : "Slot.serviceType",
+      "short" : "Tipo de serviço",
+      "definition" : "Tipo específico de serviço/atendimento associado ao slot",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRFormaOrganizacaoTabelaSUS"
+      }
+    },
+    {
+      "id" : "Slot.specialty",
+      "path" : "Slot.specialty",
+      "short" : "Especialidade clínica",
+      "definition" : "Especialidade clínica associada ao slot",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao"
+      }
+    },
+    {
+      "id" : "Slot.appointmentType",
+      "path" : "Slot.appointmentType",
+      "short" : "Tipo de agendamento",
+      "definition" : "Tipo de agendamento permitido para este slot",
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0276"
+      }
+    },
+    {
+      "id" : "Slot.schedule",
+      "path" : "Slot.schedule",
+      "short" : "Referência para agenda",
+      "definition" : "Referência à agenda associada a este slot",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-schedule"]
+      }]
+    },
+    {
+      "id" : "Slot.status",
+      "path" : "Slot.status",
+      "short" : "Status do slot",
+      "definition" : "Status do slot em relação à disponibilidade (busy | free | busy-unavailable | busy-tentative | entered-in-error)",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/slotstatus"
+      }
+    },
+    {
+      "id" : "Slot.start",
+      "path" : "Slot.start",
+      "short" : "Data/hora de início do slot",
+      "definition" : "Data e hora de início do período de tempo do slot"
+    },
+    {
+      "id" : "Slot.end",
+      "path" : "Slot.end",
+      "short" : "Data/hora de término do slot",
+      "definition" : "Data e hora de término do período de tempo do slot"
+    },
+    {
+      "id" : "Slot.overbooked",
+      "path" : "Slot.overbooked",
+      "short" : "Indica se o slot permite sobreposição de marcações",
+      "definition" : "Indica se o slot pode ser utilizado além da capacidade normal"
+    },
+    {
+      "id" : "Slot.comment",
+      "path" : "Slot.comment",
+      "short" : "Comentários adicionais sobre o slot",
+      "definition" : "Notas ou observações adicionais sobre o slot, como restrições ou orientações"
+    },
+    {
+      "id" : "Slot.comment.extension",
+      "path" : "Slot.comment.extension",
+      "short" : "Extensões adicionais para comentários",
+      "definition" : "Extensões que qualificam ou complementam os comentários sobre o slot"
+    }]
+  }
+}

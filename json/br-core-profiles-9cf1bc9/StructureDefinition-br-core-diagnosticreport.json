@@ -1,0 +1,1664 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "br-core-diagnosticreport",
+  "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport",
+  "version" : "1.4.0",
+  "name" : "BRCoreDiagnosticReport",
+  "status" : "active",
+  "date" : "2026-10-06T12:04:22-03:00",
+  "publisher" : "Ministério da Saúde do Brasil",
+  "contact" : [{
+    "name" : "Ministério da Saúde do Brasil",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://gov.br/saude"
+    },
+    {
+      "system" : "email",
+      "value" : "contato@gointerop.com"
+    }]
+  },
+  {
+    "name" : "Italo Macedo",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "italo@gointerop.com",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este perfil restringe o recurso [DiagnosticReport](https://hl7.org/fhir/R4/diagnosticreport.html) que representa as descobertas e a interpretação de testes diagnósticos realizados em pacientes, grupos de pacientes, dispositivos e locais, e/ou espécimes derivados destes. O relatório inclui contexto clínico, como solicitação e informações do provedor, e alguma mistura de resultados atômicos, imagens, interpretações textuais e codificadas, e representação formatada de relatórios diagnósticos",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "BR",
+      "display" : "Brazil"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "DiagnosticReport",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "4.0.1"
+    }],
+    "element" : [{
+      "id" : "DiagnosticReport",
+      "path" : "DiagnosticReport",
+      "short" : "A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports",
+      "definition" : "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.",
+      "comment" : "This is intended to capture a single report and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.",
+      "alias" : ["Report",
+      "Test",
+      "Result",
+      "Results",
+      "Labs",
+      "Laboratory"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "dom-2",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+        "expression" : "contained.contained.empty()",
+        "xpath" : "not(parent::f:contained and f:contained)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-3",
+        "severity" : "error",
+        "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+        "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
+        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-4",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+        "expression" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "key" : "dom-5",
+        "severity" : "error",
+        "human" : "If a resource is contained in another resource, it SHALL NOT have a security label",
+        "expression" : "contained.meta.security.empty()",
+        "xpath" : "not(exists(f:contained/*/f:meta/f:security))",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+          "valueBoolean" : true
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+          "valueMarkdown" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+        }],
+        "key" : "dom-6",
+        "severity" : "warning",
+        "human" : "A resource should have narrative for robust management",
+        "expression" : "text.`div`.exists()",
+        "xpath" : "exists(f:text/h:div)",
+        "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Entity. Role, or Act"
+      },
+      {
+        "identity" : "workflow",
+        "map" : "Event"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORU -> OBR"
+      },
+      {
+        "identity" : "rim",
+        "map" : "Observation[classCode=OBS, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.id",
+      "path" : "DiagnosticReport.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato",
+      "comment" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "DiagnosticReport.meta",
+      "path" : "DiagnosticReport.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.meta",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "DiagnosticReport.implicitRules",
+      "path" : "DiagnosticReport.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "comment" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.implicitRules",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation",
+      "isSummary" : true
+    },
+    {
+      "id" : "DiagnosticReport.language",
+      "path" : "DiagnosticReport.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso",
+      "comment" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Resource.language",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+          "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "Language"
+        }],
+        "strength" : "preferred",
+        "description" : "A human language.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/languages|4.0.1"
+      }
+    },
+    {
+      "id" : "DiagnosticReport.text",
+      "path" : "DiagnosticReport.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural",
+      "comment" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+      "alias" : ["narrative",
+      "html",
+      "xhtml",
+      "display"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DomainResource.text",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Narrative"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "Act.text?"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.contained",
+      "path" : "DiagnosticReport.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso",
+      "comment" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels.",
+      "alias" : ["inline resources",
+      "anonymous resources",
+      "contained resources"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.contained",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Resource"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.extension",
+      "path" : "DiagnosticReport.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "rules" : "open"
+      },
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "DiagnosticReport.extension:conduta",
+      "path" : "DiagnosticReport.extension",
+      "sliceName" : "conduta",
+      "short" : "Conduta associada ao laudo",
+      "definition" : "Esta extensão representa uma conduta associada ao laudo, fornecendo orientações ou sugestões baseadas nos resultados do diagnóstico para o manejo clínico do paciente.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport-conduta"]
+      }],
+      "condition" : ["ele-1"],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "DiagnosticReport.modifierExtension",
+      "path" : "DiagnosticReport.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+      "isSummary" : false
+    },
+    {
+      "id" : "DiagnosticReport.identifier",
+      "path" : "DiagnosticReport.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso",
+      "comment" : "Usually assigned by the Information System of the diagnostic service provider (filler id).",
+      "requirements" : "Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context.",
+      "alias" : ["ReportID",
+      "Filler ID",
+      "Placer ID"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.identifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.identifier"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-51/ for globally unique filler ID  - OBR-3 , For non-globally unique filler-id the flller/placer number must be combined with the universal service Id -  OBR-2(if present)+OBR-3+OBR-4"
+      },
+      {
+        "identity" : "rim",
+        "map" : "id"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.basedOn",
+      "path" : "DiagnosticReport.basedOn",
+      "short" : "O que foi solicitado",
+      "definition" : "O que foi solicitado",
+      "comment" : "Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.",
+      "requirements" : "This allows tracing of authorization for the report and tracking whether proposals/recommendations were acted upon.",
+      "alias" : ["Request"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.basedOn",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan",
+        "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest",
+        "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.basedOn"
+      },
+      {
+        "identity" : "v2",
+        "map" : "ORC? OBR-2/3?"
+      },
+      {
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=FLFS].target"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.status",
+      "path" : "DiagnosticReport.status",
+      "short" : "O status do relatório de diagnóstico",
+      "definition" : "O status do relatório de diagnóstico",
+      "requirements" : "Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.status",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "code"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "DiagnosticReportStatus"
+        }],
+        "strength" : "required",
+        "description" : "The status of the diagnostic report.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.status"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.status"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-25 (not 1:1 mapping)"
+      },
+      {
+        "identity" : "rim",
+        "map" : "statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type \"revise\""
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.category",
+      "path" : "DiagnosticReport.category",
+      "short" : "Categoria do serviço",
+      "definition" : "Categoria do serviço",
+      "comment" : "Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.",
+      "alias" : ["Department",
+      "Sub-department",
+      "Service",
+      "Discipline"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.category",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      },
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.class"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-24"
+      },
+      {
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.code",
+      "path" : "DiagnosticReport.code",
+      "short" : "Nome/Código para este relatório de diagnóstico",
+      "definition" : "Nome/Código para este relatório de diagnóstico",
+      "alias" : ["Type"],
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.code",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "DiagnosticReportCodes"
+        }],
+        "strength" : "preferred",
+        "description" : "Codes that describe Diagnostic Reports.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/report-codes|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.code"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.what[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
+      },
+      {
+        "identity" : "rim",
+        "map" : "code"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.subject",
+      "path" : "DiagnosticReport.subject",
+      "short" : "O indivíduo do relatório - geralmente, mas nem sempre, o paciente",
+      "definition" : "O indivíduo do relatório - geralmente, mas nem sempre, o paciente",
+      "requirements" : "SHALL know the subject context.",
+      "alias" : ["Patient"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.subject",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.subject"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PID-3 (no HL7 v2 mapping for Group or Device)"
+      },
+      {
+        "identity" : "rim",
+        "map" : "participation[typeCode=SBJ]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.subject"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.encounter",
+      "path" : "DiagnosticReport.encounter",
+      "short" : "Evento de assistência médica quando o teste foi solicitado",
+      "definition" : "Evento de assistência médica quando o teste foi solicitado",
+      "comment" : "This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter  but still be tied to the context of the encounter  (e.g. pre-admission laboratory tests).",
+      "requirements" : "Links the request to the Encounter context.",
+      "alias" : ["Context"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.encounter",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.encounter"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.context"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PV1-19"
+      },
+      {
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.effective[x]",
+      "path" : "DiagnosticReport.effective[x]",
+      "short" : "Tempo/período de tempo clinicamente relevante para o relatório",
+      "definition" : "Tempo/período de tempo clinicamente relevante para o relatório",
+      "comment" : "If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.",
+      "requirements" : "Need to know where in the patient history to file/present this report.",
+      "alias" : ["Observation time",
+      "Effective Time",
+      "Occurrence"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.effective[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      },
+      {
+        "code" : "Period"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-7"
+      },
+      {
+        "identity" : "rim",
+        "map" : "effectiveTime"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.issued",
+      "path" : "DiagnosticReport.issued",
+      "short" : "Data e hora em que esta versão foi feita",
+      "definition" : "Data e hora em que esta versão foi feita",
+      "comment" : "May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report.",
+      "requirements" : "Clinicians need to be able to check the date that the report was released.",
+      "alias" : ["Date published",
+      "Date Issued",
+      "Date Verified"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.issued",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "instant"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "w5",
+        "map" : "FiveWs.recorded"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-22"
+      },
+      {
+        "identity" : "rim",
+        "map" : "participation[typeCode=VRF or AUT].time"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.performer",
+      "path" : "DiagnosticReport.performer",
+      "short" : "Serviço de diagnóstico (SADT) responsável",
+      "definition" : "Serviço de diagnóstico (SADT) responsável",
+      "comment" : "This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.",
+      "requirements" : "Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis.",
+      "alias" : ["Laboratory",
+      "Service",
+      "Practitioner",
+      "Department",
+      "Company",
+      "Authorized by",
+      "Director"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.performer",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.actor"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "PRT-8 (where this PRT-4-Participation = \"PO\")"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.resultsInterpreter",
+      "path" : "DiagnosticReport.resultsInterpreter",
+      "short" : "Intérprete de resultado",
+      "definition" : "Intérprete de resultado",
+      "comment" : "Might not be the same entity that takes responsibility for the clinical report.",
+      "requirements" : "Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis.",
+      "alias" : ["Analyzed by",
+      "Reported by"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.resultsInterpreter",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.performer.actor"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.actor"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBR-32, PRT-8 (where this PRT-4-Participation = \"PI\")"
+      },
+      {
+        "identity" : "rim",
+        "map" : ".participation[typeCode=PRF]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.specimen",
+      "path" : "DiagnosticReport.specimen",
+      "short" : "Amostras deste relatório",
+      "definition" : "Amostras deste relatório",
+      "comment" : "If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per observation or group.",
+      "requirements" : "Need to be able to report information about the collected specimens on which the report is based.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.specimen",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "SPM"
+      },
+      {
+        "identity" : "rim",
+        "map" : "participation[typeCode=SBJ]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.result",
+      "path" : "DiagnosticReport.result",
+      "short" : "Observations",
+      "definition" : "Observations",
+      "comment" : "Observations can contain observations.",
+      "requirements" : "Need to support individual results, or  groups of results, where the result grouping is arbitrary, but meaningful.",
+      "alias" : ["Data",
+      "Atomic Value",
+      "Result",
+      "Atomic result",
+      "Data",
+      "Test",
+      "Analyte",
+      "Battery",
+      "Organizer"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.result",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBXs"
+      },
+      {
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=COMP].target"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.imagingStudy",
+      "path" : "DiagnosticReport.imagingStudy",
+      "short" : "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico",
+      "definition" : "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico",
+      "comment" : "ImagingStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.imagingStudy",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ImagingStudy|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.media",
+      "path" : "DiagnosticReport.media",
+      "short" : "Imagens associadas a este relatório",
+      "definition" : "Imagens associadas a este relatório",
+      "requirements" : "Many diagnostic services include images in the report as part of their service.",
+      "alias" : ["DICOM",
+      "Slides",
+      "Scans"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.media",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX?"
+      },
+      {
+        "identity" : "rim",
+        "map" : "outboundRelationship[typeCode=COMP].target"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.media.id",
+      "path" : "DiagnosticReport.media.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "string"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.media.extension",
+      "path" : "DiagnosticReport.media.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "DiagnosticReport.media.modifierExtension",
+      "path" : "DiagnosticReport.media.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "BackboneElement.modifierExtension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+      "isSummary" : true
+    },
+    {
+      "id" : "DiagnosticReport.media.comment",
+      "path" : "DiagnosticReport.media.comment",
+      "short" : "Comentário sobre a imagem",
+      "definition" : "Comentário sobre a imagem",
+      "comment" : "The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.",
+      "requirements" : "The provider of the report should make a comment about each image included in the report.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.media.comment",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.media.link",
+      "path" : "DiagnosticReport.media.link",
+      "short" : "Referência à fonte da imagem",
+      "definition" : "Referência à fonte da imagem",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.media.link",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Media|4.0.1"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : ".value.reference"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.conclusion",
+      "path" : "DiagnosticReport.conclusion",
+      "short" : "Conclusão clínica (interpretação) dos resultados",
+      "definition" : "Conclusão clínica (interpretação) dos resultados",
+      "requirements" : "Need to be able to provide a conclusion that is not lost among the basic result data.",
+      "alias" : ["Report"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "DiagnosticReport.conclusion",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX"
+      },
+      {
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.conclusionCode",
+      "path" : "DiagnosticReport.conclusionCode",
+      "short" : "Códigos da conclusão clínica dos resultados",
+      "definition" : "Códigos da conclusão clínica dos resultados",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.conclusionCode",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AdjunctDiagnosis"
+        }],
+        "strength" : "example",
+        "description" : "Diagnosis codes provided as adjuncts to the report.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings|4.0.1"
+      },
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX"
+      },
+      {
+        "identity" : "rim",
+        "map" : "inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)"
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.presentedForm",
+      "path" : "DiagnosticReport.presentedForm",
+      "short" : "Relatório completo conforme emitido",
+      "definition" : "Relatório completo conforme emitido",
+      "comment" : "\"application/pdf\" is recommended as the most reliable and interoperable in this context.",
+      "requirements" : "Gives laboratory the ability to provide its own fully formatted report for clinical fidelity.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.presentedForm",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Attachment"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "v2",
+        "map" : "OBX"
+      },
+      {
+        "identity" : "rim",
+        "map" : "text (type=ED)"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "DiagnosticReport",
+      "path" : "DiagnosticReport"
+    },
+    {
+      "id" : "DiagnosticReport.id",
+      "path" : "DiagnosticReport.id",
+      "short" : "Identificador lógico deste artefato",
+      "definition" : "Identificador lógico deste artefato"
+    },
+    {
+      "id" : "DiagnosticReport.meta",
+      "path" : "DiagnosticReport.meta",
+      "short" : "Metadados sobre o recurso",
+      "definition" : "Metadados sobre o recurso"
+    },
+    {
+      "id" : "DiagnosticReport.implicitRules",
+      "path" : "DiagnosticReport.implicitRules",
+      "short" : "Um conjunto de regras sob as quais este conteúdo foi criado",
+      "definition" : "Um conjunto de regras sob as quais este conteúdo foi criado"
+    },
+    {
+      "id" : "DiagnosticReport.language",
+      "path" : "DiagnosticReport.language",
+      "short" : "Idioma do recurso",
+      "definition" : "Idioma do recurso"
+    },
+    {
+      "id" : "DiagnosticReport.text",
+      "path" : "DiagnosticReport.text",
+      "short" : "Resumo do texto do recurso em linguagem natural",
+      "definition" : "Resumo do texto do recurso em linguagem natural"
+    },
+    {
+      "id" : "DiagnosticReport.contained",
+      "path" : "DiagnosticReport.contained",
+      "short" : "Recursos contidos no recurso",
+      "definition" : "Recursos contidos no recurso"
+    },
+    {
+      "id" : "DiagnosticReport.extension",
+      "path" : "DiagnosticReport.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "rules" : "open"
+      },
+      "short" : "Extensões adicionais que não fazem parte do modelo base",
+      "definition" : "Extensões adicionais que não fazem parte do modelo base"
+    },
+    {
+      "id" : "DiagnosticReport.extension:conduta",
+      "path" : "DiagnosticReport.extension",
+      "sliceName" : "conduta",
+      "short" : "Conduta associada ao laudo",
+      "definition" : "Esta extensão representa uma conduta associada ao laudo, fornecendo orientações ou sugestões baseadas nos resultados do diagnóstico para o manejo clínico do paciente.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport-conduta"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.modifierExtension",
+      "path" : "DiagnosticReport.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "DiagnosticReport.identifier",
+      "path" : "DiagnosticReport.identifier",
+      "short" : "Identificadores externos para este recurso",
+      "definition" : "Identificadores externos para este recurso"
+    },
+    {
+      "id" : "DiagnosticReport.basedOn",
+      "path" : "DiagnosticReport.basedOn",
+      "short" : "O que foi solicitado",
+      "definition" : "O que foi solicitado",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan",
+        "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-medicationrequest",
+        "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-servicerequest"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.status",
+      "path" : "DiagnosticReport.status",
+      "short" : "O status do relatório de diagnóstico",
+      "definition" : "O status do relatório de diagnóstico"
+    },
+    {
+      "id" : "DiagnosticReport.category",
+      "path" : "DiagnosticReport.category",
+      "short" : "Categoria do serviço",
+      "definition" : "Categoria do serviço",
+      "binding" : {
+        "strength" : "example",
+        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRServicoEspecializado"
+      }
+    },
+    {
+      "id" : "DiagnosticReport.code",
+      "path" : "DiagnosticReport.code",
+      "short" : "Nome/Código para este relatório de diagnóstico",
+      "definition" : "Nome/Código para este relatório de diagnóstico"
+    },
+    {
+      "id" : "DiagnosticReport.subject",
+      "path" : "DiagnosticReport.subject",
+      "short" : "O indivíduo do relatório - geralmente, mas nem sempre, o paciente",
+      "definition" : "O indivíduo do relatório - geralmente, mas nem sempre, o paciente",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-patient"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.encounter",
+      "path" : "DiagnosticReport.encounter",
+      "short" : "Evento de assistência médica quando o teste foi solicitado",
+      "definition" : "Evento de assistência médica quando o teste foi solicitado",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.effective[x]",
+      "path" : "DiagnosticReport.effective[x]",
+      "short" : "Tempo/período de tempo clinicamente relevante para o relatório",
+      "definition" : "Tempo/período de tempo clinicamente relevante para o relatório"
+    },
+    {
+      "id" : "DiagnosticReport.issued",
+      "path" : "DiagnosticReport.issued",
+      "short" : "Data e hora em que esta versão foi feita",
+      "definition" : "Data e hora em que esta versão foi feita"
+    },
+    {
+      "id" : "DiagnosticReport.performer",
+      "path" : "DiagnosticReport.performer",
+      "short" : "Serviço de diagnóstico (SADT) responsável",
+      "definition" : "Serviço de diagnóstico (SADT) responsável",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.resultsInterpreter",
+      "path" : "DiagnosticReport.resultsInterpreter",
+      "short" : "Intérprete de resultado",
+      "definition" : "Intérprete de resultado",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole",
+        "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.specimen",
+      "path" : "DiagnosticReport.specimen",
+      "short" : "Amostras deste relatório",
+      "definition" : "Amostras deste relatório",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.result",
+      "path" : "DiagnosticReport.result",
+      "definition" : "Observations",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observation"]
+      }]
+    },
+    {
+      "id" : "DiagnosticReport.imagingStudy",
+      "path" : "DiagnosticReport.imagingStudy",
+      "short" : "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico",
+      "definition" : "Referência as imagens associadas ao relatório de diagnóstico ao relatório de diagnóstico"
+    },
+    {
+      "id" : "DiagnosticReport.media",
+      "path" : "DiagnosticReport.media",
+      "short" : "Imagens associadas a este relatório",
+      "definition" : "Imagens associadas a este relatório"
+    },
+    {
+      "id" : "DiagnosticReport.media.id",
+      "path" : "DiagnosticReport.media.id",
+      "short" : "Identificador único para referência cruzada",
+      "definition" : "Identificador único para referência cruzada"
+    },
+    {
+      "id" : "DiagnosticReport.media.extension",
+      "path" : "DiagnosticReport.media.extension",
+      "short" : "Extensões adicionais que não fazem parte do modelo de dados básico",
+      "definition" : "Extensões adicionais que não fazem parte do modelo de dados básico"
+    },
+    {
+      "id" : "DiagnosticReport.media.modifierExtension",
+      "path" : "DiagnosticReport.media.modifierExtension",
+      "short" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas",
+      "definition" : "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
+    },
+    {
+      "id" : "DiagnosticReport.media.comment",
+      "path" : "DiagnosticReport.media.comment",
+      "short" : "Comentário sobre a imagem",
+      "definition" : "Comentário sobre a imagem"
+    },
+    {
+      "id" : "DiagnosticReport.media.link",
+      "path" : "DiagnosticReport.media.link",
+      "short" : "Referência à fonte da imagem",
+      "definition" : "Referência à fonte da imagem"
+    },
+    {
+      "id" : "DiagnosticReport.conclusion",
+      "path" : "DiagnosticReport.conclusion",
+      "short" : "Conclusão clínica (interpretação) dos resultados",
+      "definition" : "Conclusão clínica (interpretação) dos resultados"
+    },
+    {
+      "id" : "DiagnosticReport.conclusionCode",
+      "path" : "DiagnosticReport.conclusionCode",
+      "short" : "Códigos da conclusão clínica dos resultados",
+      "definition" : "Códigos da conclusão clínica dos resultados"
+    },
+    {
+      "id" : "DiagnosticReport.presentedForm",
+      "path" : "DiagnosticReport.presentedForm",
+      "short" : "Relatório completo conforme emitido",
+      "definition" : "Relatório completo conforme emitido"
+    }]
+  }
+}
