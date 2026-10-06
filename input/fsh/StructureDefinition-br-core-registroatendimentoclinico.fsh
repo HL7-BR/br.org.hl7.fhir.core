@@ -491,7 +491,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[capacidadeFuncional].title ^short = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].title ^definition = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].code ^short = "Classificação da seção da Composition/Document"
-* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document - LOINC 54522-8"
+* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document - LOINC 47420-5"
 * section[capacidadeFuncional].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -507,8 +507,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[capacidadeFuncional].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[capacidadeFuncional].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[capacidadeFuncional].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#54522-8"
-* section[capacidadeFuncional].code = $loinc#54522-8
+* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#47420-5"
+* section[capacidadeFuncional].code = $loinc#47420-5
 * section[capacidadeFuncional].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[capacidadeFuncional].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[capacidadeFuncional].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"

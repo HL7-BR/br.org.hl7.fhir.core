@@ -77,7 +77,7 @@ As seções do modelo de informação da [PORTARIA Nº 701](https://bvsms.saude.
     </tr>
     <tr>
       <td>Composition.section[diagnosticosAdmissao].code.coding.code</td>
-      <td>fixo em “42347-5”	</td>
+      <td>fixo em “46241-6”	</td>
     </tr>
     <tr>
       <td>Composition.section[diagnosticosAdmissao].code.coding.display</td>
@@ -109,7 +109,7 @@ As seções do modelo de informação da [PORTARIA Nº 701](https://bvsms.saude.
     </tr>
     <tr>
       <td>Composition.section[prescricaoAlta].code.coding.code</td>
-      <td>Fixo em “8654-6”</td>
+      <td>Fixo em “10183-2”</td>
     </tr>
     <tr>
       <td>Composition.section[prescricaoAlta].code.coding.display</td>
@@ -125,7 +125,7 @@ As seções do modelo de informação da [PORTARIA Nº 701](https://bvsms.saude.
     </tr>
     <tr>
       <td>Composition.section[capacidadeFuncional].code</td>
-      <td>Fixo em “54522-8”</td>
+      <td>Fixo em “47420-5”</td>
     </tr>
     <tr>
       <td>Composition.section[capacidadeFuncional].code.coding.display</td>

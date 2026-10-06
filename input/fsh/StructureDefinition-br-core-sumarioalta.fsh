@@ -44,7 +44,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].title ^short = "Título da seção - Fixo em 'Diagnósticos Admissão'"
 * section[diagnosticosAdmissao].title ^definition = "Título da seção - Fixo em 'Diagnósticos Admissão'"
 * section[diagnosticosAdmissao].code ^short = "Classificação da seção da Composition/Document"
-* section[diagnosticosAdmissao].code ^definition = "Classificação da seção da Composition/Document - LOINC 42347-5"
+* section[diagnosticosAdmissao].code ^definition = "Classificação da seção da Composition/Document - LOINC 46241-6"
 * section[diagnosticosAdmissao].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAdmissao].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAdmissao].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -60,8 +60,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAdmissao].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAdmissao].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[diagnosticosAdmissao].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5"
-* section[diagnosticosAdmissao].code = $loinc#42347-5
+* section[diagnosticosAdmissao].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#46241-6"
+* section[diagnosticosAdmissao].code = $loinc#46241-6
 * section[diagnosticosAdmissao].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAdmissao].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[diagnosticosAdmissao].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
@@ -252,7 +252,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].title ^short = "Título da seção - Fixo em 'Prescrição da Alta'"
 * section[prescricaoAlta].title ^definition = "Título da seção - Fixo em 'Prescrição da Alta'"
 * section[prescricaoAlta].code ^short = "Classificação da seção da Composition/Document"
-* section[prescricaoAlta].code ^definition = "Classificação da seção da Composition/Document - LOINC 8654-6"
+* section[prescricaoAlta].code ^definition = "Classificação da seção da Composition/Document - LOINC 10183-2"
 * section[prescricaoAlta].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -268,8 +268,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[prescricaoAlta].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[prescricaoAlta].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[prescricaoAlta].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#8654-6"
-* section[prescricaoAlta].code = $loinc#8654-6
+* section[prescricaoAlta].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#10183-2"
+* section[prescricaoAlta].code = $loinc#10183-2
 * section[prescricaoAlta].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[prescricaoAlta].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[prescricaoAlta].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
@@ -356,7 +356,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].title ^short = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].title ^definition = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].code ^short = "Classificação da seção da Composition/Document"
-* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document - LOINC 54522-8"
+* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document - LOINC 47420-5"
 * section[capacidadeFuncional].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -372,8 +372,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[capacidadeFuncional].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[capacidadeFuncional].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#54522-8"
-* section[capacidadeFuncional].code = $loinc#54522-8
+* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#47420-5"
+* section[capacidadeFuncional].code = $loinc#47420-5
 * section[capacidadeFuncional].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[capacidadeFuncional].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[capacidadeFuncional].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
