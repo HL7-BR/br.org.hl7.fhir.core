@@ -1,4 +1,4 @@
-Alias: $loinc = https://loinc.org/
+Alias: $loinc = http://loinc.org
 
 Alias: $structuredefinition-patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-birthPlace
 

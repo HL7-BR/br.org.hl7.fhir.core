@@ -1,7 +1,8 @@
 Profile: BRCoreCapacidadeFuncional
 Parent: br-core-condition
 Id: br-core-capacidadefuncional
-Description: "Este perfil herda do recurso [br-core-condition](StructureDefinition-br-core-condition.html)"
+Title: "br-core-capacidadefuncional"
+Description: "Capacidade funcional ou incapacidade do indivíduo (achado funcional), registrada como Condition. Herda do [br-core-condition](StructureDefinition-br-core-condition.html)."
 
 * id ^short = "Identificador lógico deste artefato"
 * id ^definition = "Identificador lógico deste artefato"
@@ -46,13 +47,12 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * category ^short = "Categoria da condição" 
 * category ^definition = "Categoria da condição"
 * category 0..1
-* category from https://terminologia.saude.gov.br/fhir/ValueSet/BRCategoriaDiagnostico (required)
 * severity ^short = "Severidade da condição" 
 * severity ^definition = "Severidade da condição" 
-* code ^definition = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
-* code ^short = "Identifica a suspeita diagnóstica com relação à condição de saúde avaliada"
+* code ^definition = "Achado funcional (capacidade ou incapacidade). Preferencialmente SNOMED CT (Functional finding); CID-10 ou CIAP-2 da condição de base podem vir como codificação adicional"
+* code ^short = "Achado funcional (capacidade ou incapacidade)"
 * code 1..1
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRTerminologiaSuspeitaDiagnostica (required)
+* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRCapacidadeFuncional (preferred)
 * code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
@@ -69,17 +69,14 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * subject.type ^definition = "Tipo de recurso ao qual a referência é feita"
 * subject.identifier ^short = "Referência lógica, quando a referência literal não é conhecida"
 * subject.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
-* subject.identifier 1..1
 * subject.identifier.id ^short = "Identificador único para referência cruzada"
 * subject.identifier.id ^definition = "Identificador único para referência cruzada"
 * subject.identifier.extension ^short = "Extensões adicionais definidas pela implementação"
 * subject.identifier.extension ^definition = "Extensões adicionais definidas pela implementação"
 * subject.identifier.type ^short = "Descrição do identificador"
 * subject.identifier.type ^definition = "Descrição do identificador"
-* subject.identifier.system 1..1
 * subject.identifier.system ^short = "O namespace do valor do identificador"
 * subject.identifier.system ^definition = "O namespace do valor do identificador"
-* subject.identifier.value 1..1
 * subject.identifier.value ^short = "Valor único do identificador"
 * subject.identifier.value ^definition = "Valor único do identificador"
 * subject.identifier.period ^short = "Período de tempo no qual este identicador é/ou foi válido para utilização"
@@ -105,7 +102,6 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * asserter only Reference(br-core-patient or br-core-practitioner or br-core-practitionerrole or br-core-relatedperson)
 * stage ^short = "Estágio/grau da condição, geralmente avaliado formalmente"
 * stage ^definition = "Estágio/grau da condição, geralmente avaliado formalmente"
-* stage 1..*
 * stage.id ^short = "Identificador único para referência cruzada"
 * stage.id ^definition = "Identificador único para referência cruzada"
 * stage.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
@@ -114,8 +110,8 @@ Description: "Este perfil herda do recurso [br-core-condition](StructureDefiniti
 * stage.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * stage.summary ^short = "Códigos descrevendo estágios da condição (por exemplo, estágios de câncer)"
 * stage.summary ^definition = "Códigos descrevendo estágios da condição (por exemplo, estágios de câncer)"
-* stage.assessment ^short = "Referência aos dados de diagnóstico de laboratório clínico relacionados à suspeita diagnóstica"
-* stage.assessment ^definition = "Referência aos dados de diagnóstico de laboratório clínico relacionados à suspeita diagnóstica"
+* stage.assessment ^short = "Avaliação que sustenta o grau (escala, observação, laudo)"
+* stage.assessment ^definition = "Referência à avaliação que sustenta o grau de capacidade funcional: escala aplicada, observação ou laudo"
 * stage.assessment only Reference(ClinicalImpression or br-core-diagnosticreport or br-core-observation)
 * stage.type ^short = "Códigos que descrevem  o tipo do estadiamento (por exemplo, clínico ou patológico)"
 * stage.type ^definition = "Códigos que descrevem  o tipo do estadiamento (por exemplo, clínico ou patológico)"

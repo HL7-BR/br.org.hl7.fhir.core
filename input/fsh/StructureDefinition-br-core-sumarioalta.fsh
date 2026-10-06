@@ -17,7 +17,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * category 0..1
 
 //Slicing
-* section ^slicing.discriminator.type = #profile
+* section ^slicing.discriminator.type = #pattern
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
 * section ^short = "Seções do sumário de alta"
@@ -44,7 +44,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].title ^short = "Título da seção - Fixo em 'Diagnósticos Admissão'"
 * section[diagnosticosAdmissao].title ^definition = "Título da seção - Fixo em 'Diagnósticos Admissão'"
 * section[diagnosticosAdmissao].code ^short = "Classificação da seção da Composition/Document"
-* section[diagnosticosAdmissao].code ^definition = "Classificação da seção da Composition/Document"
+* section[diagnosticosAdmissao].code ^definition = "Classificação da seção da Composition/Document - LOINC 42347-5"
 * section[diagnosticosAdmissao].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAdmissao].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAdmissao].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -57,15 +57,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[diagnosticosAdmissao].code.coding.system ^short = "Identificador da terminologia"
 * section[diagnosticosAdmissao].code.coding.system ^definition = "Identidade da terminologia"
-* section[diagnosticosAdmissao].code.coding.system = $loinc
 * section[diagnosticosAdmissao].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAdmissao].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAdmissao].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[diagnosticosAdmissao].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[diagnosticosAdmissao].code.coding.code = #42347-5
+* section[diagnosticosAdmissao].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5"
+* section[diagnosticosAdmissao].code = $loinc#42347-5
 * section[diagnosticosAdmissao].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAdmissao].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[diagnosticosAdmissao].code.coding.display = "Admission Diagnosis"
 * section[diagnosticosAdmissao].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAdmissao].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAdmissao].code.text ^short = "Representação em texto do conceito"
@@ -80,8 +78,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAdmissao].mode ^definition = "Método de processamento da seção"
 * section[diagnosticosAdmissao].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[diagnosticosAdmissao].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[diagnosticosAdmissao].entry ^short = "Medicamentos relevantes para o sumário internacional do paciente"
-* section[diagnosticosAdmissao].entry ^definition = "Medicamentos relevantes para o sumário internacional do paciente"
+* section[diagnosticosAdmissao].entry ^short = "Diagnósticos da admissão"
+* section[diagnosticosAdmissao].entry ^definition = "Diagnósticos da admissão relevantes para o sumário de alta"
 * section[diagnosticosAdmissao].entry only Reference(br-core-condition)
 * section[diagnosticosAdmissao].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[diagnosticosAdmissao].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -98,7 +96,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[alergiasIntolerancias].title ^short = "Título da seção - Fixo em 'Alergias e Intolerâncias'"
 * section[alergiasIntolerancias].title ^definition = "Título da seção - Fixo em 'Alergias e Intolerâncias'"
 * section[alergiasIntolerancias].code ^short = "Classificação da seção da Composition/Document"
-* section[alergiasIntolerancias].code ^definition = "Classificação da seção da Composition/Document"
+* section[alergiasIntolerancias].code ^definition = "Classificação da seção da Composition/Document - LOINC 48765-2"
 * section[alergiasIntolerancias].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[alergiasIntolerancias].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[alergiasIntolerancias].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -111,15 +109,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[alergiasIntolerancias].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[alergiasIntolerancias].code.coding.system ^short = "Identificador da terminologia"
 * section[alergiasIntolerancias].code.coding.system ^definition = "Identidade da terminologia"
-* section[alergiasIntolerancias].code.coding.system = $loinc
 * section[alergiasIntolerancias].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[alergiasIntolerancias].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[alergiasIntolerancias].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[alergiasIntolerancias].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[alergiasIntolerancias].code.coding.code = #48765-2
+* section[alergiasIntolerancias].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#48765-2"
+* section[alergiasIntolerancias].code = $loinc#48765-2
 * section[alergiasIntolerancias].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[alergiasIntolerancias].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[alergiasIntolerancias].code.coding.display = "Allergies and adverse reactions Document"
 * section[alergiasIntolerancias].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[alergiasIntolerancias].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[alergiasIntolerancias].code.text ^short = "Representação em texto do conceito"
@@ -134,8 +130,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[alergiasIntolerancias].mode ^definition = "Método de processamento da seção"
 * section[alergiasIntolerancias].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[alergiasIntolerancias].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[alergiasIntolerancias].entry ^short = "Alergias e Intolerâncias relevantes para o sumário internacional do paciente"
-* section[alergiasIntolerancias].entry ^definition = "Alergias e Intolerâncias relevantes para o sumário internacional do paciente"
+* section[alergiasIntolerancias].entry ^short = "Alergias e Intolerâncias relevantes para o sumário de alta"
+* section[alergiasIntolerancias].entry ^definition = "Alergias e Intolerâncias relevantes para o sumário de alta"
 * section[alergiasIntolerancias].entry only Reference(br-core-allergyintolerance)
 * section[alergiasIntolerancias].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[alergiasIntolerancias].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -152,7 +148,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAvaliados].title ^short = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
 * section[diagnosticosAvaliados].title ^definition = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
 * section[diagnosticosAvaliados].code ^short = "Classificação da seção da Composition/Document"
-* section[diagnosticosAvaliados].code ^definition = "Classificação da seção da Composition/Document"
+* section[diagnosticosAvaliados].code ^definition = "Classificação da seção da Composition/Document - LOINC 57852-6"
 * section[diagnosticosAvaliados].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAvaliados].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAvaliados].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -165,15 +161,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAvaliados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[diagnosticosAvaliados].code.coding.system ^short = "Identificador da terminologia"
 * section[diagnosticosAvaliados].code.coding.system ^definition = "Identidade da terminologia"
-* section[diagnosticosAvaliados].code.coding.system = $loinc
 * section[diagnosticosAvaliados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAvaliados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAvaliados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[diagnosticosAvaliados].code.coding.code = #57852-6 
+* section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#57852-6"
+* section[diagnosticosAvaliados].code = $loinc#57852-6
 * section[diagnosticosAvaliados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAvaliados].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[diagnosticosAvaliados].code.coding.display = "Problem List"
 * section[diagnosticosAvaliados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAvaliados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[diagnosticosAvaliados].code.text ^short = "Representação em texto do conceito"
@@ -188,8 +182,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[diagnosticosAvaliados].mode ^definition = "Método de processamento da seção"
 * section[diagnosticosAvaliados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[diagnosticosAvaliados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[diagnosticosAvaliados].entry ^short = "Diagnósticos relevantes para o sumário internacional do paciente"
-* section[diagnosticosAvaliados].entry ^definition = "Diagnósticos relevantes para o sumário internacional do paciente"
+* section[diagnosticosAvaliados].entry ^short = "Diagnósticos relevantes para o sumário de alta"
+* section[diagnosticosAvaliados].entry ^definition = "Diagnósticos relevantes para o sumário de alta"
 * section[diagnosticosAvaliados].entry only Reference(br-core-condition)
 * section[diagnosticosAvaliados].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[diagnosticosAvaliados].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -206,7 +200,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[procedimentosRealizados].title ^short = "Título da seção - Fixo em 'Procedimentos Realizados'"
 * section[procedimentosRealizados].title ^definition = "Título da seção - Fixo em 'Procedimentos Realizados'"
 * section[procedimentosRealizados].code ^short = "Classificação da seção da Composition/Document"
-* section[procedimentosRealizados].code ^definition = "Classificação da seção da Composition/Document"
+* section[procedimentosRealizados].code ^definition = "Classificação da seção da Composition/Document - LOINC 47519-4"
 * section[procedimentosRealizados].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[procedimentosRealizados].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[procedimentosRealizados].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -219,15 +213,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[procedimentosRealizados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[procedimentosRealizados].code.coding.system ^short = "Identificador da terminologia"
 * section[procedimentosRealizados].code.coding.system ^definition = "Identidade da terminologia"
-* section[procedimentosRealizados].code.coding.system = $loinc
 * section[procedimentosRealizados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[procedimentosRealizados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[procedimentosRealizados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[procedimentosRealizados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[procedimentosRealizados].code.coding.code = #47519-4
+* section[procedimentosRealizados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#47519-4"
+* section[procedimentosRealizados].code = $loinc#47519-4
 * section[procedimentosRealizados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[procedimentosRealizados].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[procedimentosRealizados].code.coding.display = "History of Procedures Document"
 * section[procedimentosRealizados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[procedimentosRealizados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[procedimentosRealizados].code.text ^short = "Representação em texto do conceito"
@@ -242,8 +234,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[procedimentosRealizados].mode ^definition = "Método de processamento da seção"
 * section[procedimentosRealizados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[procedimentosRealizados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[procedimentosRealizados].entry ^short = "Procedimentos realizados relevantes para o sumário internacional do paciente"
-* section[procedimentosRealizados].entry ^definition = "Procedimentos realizados  relevantes para o sumário internacional do paciente"
+* section[procedimentosRealizados].entry ^short = "Procedimentos realizados relevantes para o sumário de alta"
+* section[procedimentosRealizados].entry ^definition = "Procedimentos realizados  relevantes para o sumário de alta"
 * section[procedimentosRealizados].entry only Reference(br-core-procedure)
 * section[procedimentosRealizados].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[procedimentosRealizados].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -260,7 +252,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].title ^short = "Título da seção - Fixo em 'Prescrição da Alta'"
 * section[prescricaoAlta].title ^definition = "Título da seção - Fixo em 'Prescrição da Alta'"
 * section[prescricaoAlta].code ^short = "Classificação da seção da Composition/Document"
-* section[prescricaoAlta].code ^definition = "Classificação da seção da Composition/Document"
+* section[prescricaoAlta].code ^definition = "Classificação da seção da Composition/Document - LOINC 8654-6"
 * section[prescricaoAlta].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[prescricaoAlta].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -273,15 +265,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[prescricaoAlta].code.coding.system ^short = "Identificador da terminologia"
 * section[prescricaoAlta].code.coding.system ^definition = "Identidade da terminologia"
-* section[prescricaoAlta].code.coding.system = $loinc
 * section[prescricaoAlta].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[prescricaoAlta].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[prescricaoAlta].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[prescricaoAlta].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[prescricaoAlta].code.coding.code = #8654-6
+* section[prescricaoAlta].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#8654-6"
+* section[prescricaoAlta].code = $loinc#8654-6
 * section[prescricaoAlta].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[prescricaoAlta].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[prescricaoAlta].code.coding.display = "Hospital discharge medications"
 * section[prescricaoAlta].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[prescricaoAlta].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[prescricaoAlta].code.text ^short = "Representação em texto do conceito"
@@ -296,8 +286,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[prescricaoAlta].mode ^definition = "Método de processamento da seção"
 * section[prescricaoAlta].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[prescricaoAlta].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[prescricaoAlta].entry ^short = "Prescrição da alta para o sumário internacional do paciente"
-* section[prescricaoAlta].entry ^definition = "Prescrição da alta para o sumário internacional do paciente"
+* section[prescricaoAlta].entry ^short = "Prescrição da alta para o sumário de alta"
+* section[prescricaoAlta].entry ^definition = "Prescrição da alta para o sumário de alta"
 * section[prescricaoAlta].entry only Reference(br-core-medicationrequest)
 * section[prescricaoAlta].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[prescricaoAlta].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -314,7 +304,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[planoCuidados].title ^short = "Título da seção - Fixo em 'Planos de Cuidado'"
 * section[planoCuidados].title ^definition = "Título da seção - Fixo em 'Planos de Cuidado'"
 * section[planoCuidados].code ^short = "Classificação da seção da Composition/Document"
-* section[planoCuidados].code ^definition = "Classificação da seção da Composition/Document"
+* section[planoCuidados].code ^definition = "Classificação da seção da Composition/Document - LOINC 18776-5"
 * section[planoCuidados].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[planoCuidados].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -327,15 +317,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[planoCuidados].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[planoCuidados].code.coding.system ^short = "Identificador da terminologia"
 * section[planoCuidados].code.coding.system ^definition = "Identidade da terminologia"
-* section[planoCuidados].code.coding.system = $loinc
 * section[planoCuidados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[planoCuidados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[planoCuidados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[planoCuidados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[planoCuidados].code.coding.code = #18776-5
+* section[planoCuidados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#18776-5"
+* section[planoCuidados].code = $loinc#18776-5
 * section[planoCuidados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[planoCuidados].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[planoCuidados].code.coding.display = "Plan of care note"
 * section[planoCuidados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[planoCuidados].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[planoCuidados].code.text ^short = "Representação em texto do conceito"
@@ -350,8 +338,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[planoCuidados].mode ^definition = "Método de processamento da seção"
 * section[planoCuidados].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[planoCuidados].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[planoCuidados].entry ^short = "Planos de cuidado relevantes para o sumário internacional do paciente"
-* section[planoCuidados].entry ^definition = "Planos de cuidado relevantes para o sumário internacional do paciente"
+* section[planoCuidados].entry ^short = "Planos de cuidado relevantes para o sumário de alta"
+* section[planoCuidados].entry ^definition = "Planos de cuidado relevantes para o sumário de alta"
 * section[planoCuidados].entry only Reference(br-core-careplan)
 * section[planoCuidados].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[planoCuidados].emptyReason ^definition = "Explicação porquê a secção está vazia"
@@ -368,7 +356,7 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].title ^short = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].title ^definition = "Título da seção - Fixo em 'Capacidade Funcional'"
 * section[capacidadeFuncional].code ^short = "Classificação da seção da Composition/Document"
-* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document"
+* section[capacidadeFuncional].code ^definition = "Classificação da seção da Composition/Document - LOINC 54522-8"
 * section[capacidadeFuncional].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[capacidadeFuncional].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -381,15 +369,13 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].code.coding.extension ^definition = "Conteúdo adicional definido por implementações"
 * section[capacidadeFuncional].code.coding.system ^short = "Identificador da terminologia"
 * section[capacidadeFuncional].code.coding.system ^definition = "Identidade da terminologia"
-* section[capacidadeFuncional].code.coding.system = $loinc
 * section[capacidadeFuncional].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[capacidadeFuncional].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[capacidadeFuncional].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#42347-5 'Admission Diagnosis'"
-* section[capacidadeFuncional].code.coding.code = #54522-8
+* section[capacidadeFuncional].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#54522-8"
+* section[capacidadeFuncional].code = $loinc#54522-8
 * section[capacidadeFuncional].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[capacidadeFuncional].code.coding.display ^definition = "Representação definida pela terminologia"
-* section[capacidadeFuncional].code.coding.display = "Functional status"
 * section[capacidadeFuncional].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[capacidadeFuncional].code.coding.userSelected ^definition = "Se esta codificação foi escolhida diretamente pelo usuário"
 * section[capacidadeFuncional].code.text ^short = "Representação em texto do conceito"
@@ -404,8 +390,8 @@ Description: "Este perfil representa as informações da alta hospitalar, confor
 * section[capacidadeFuncional].mode ^definition = "Método de processamento da seção"
 * section[capacidadeFuncional].orderedBy ^short = "Ordem dos elementos na seção 'entry'"
 * section[capacidadeFuncional].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
-* section[capacidadeFuncional].entry ^short = "Capacidade funcional para o sumário internacional do paciente"
-* section[capacidadeFuncional].entry ^definition = "Capacidade funcional para o sumário internacional do paciente"
+* section[capacidadeFuncional].entry ^short = "Capacidade funcional para o sumário de alta"
+* section[capacidadeFuncional].entry ^definition = "Capacidade funcional para o sumário de alta"
 * section[capacidadeFuncional].entry only Reference(br-core-capacidadefuncional)
 * section[capacidadeFuncional].emptyReason ^short = "Explicação porquê a secção está vazia"
 * section[capacidadeFuncional].emptyReason ^definition = "Explicação porquê a secção está vazia"
