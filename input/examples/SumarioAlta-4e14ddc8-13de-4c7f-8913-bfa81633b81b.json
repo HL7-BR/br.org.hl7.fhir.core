@@ -35,8 +35,8 @@
         "coding": [
           {
             "system": "http://loinc.org",
-            "code": "46241-6",
-            "display": "Hospital admission diagnosis Narrative - Reported" 
+            "code": "42347-5",
+            "display": "Admission diagnosis (narrative)" 
           }
         ],
       "text": "Diagnóstico na Internação"
@@ -95,8 +95,8 @@
         "coding": [
           {
             "system": "http://loinc.org",
-            "code": "10183-2",
-            "display": "Hospital discharge medications Narrative"
+            "code": "8654-6",
+            "display": "Hospital Discharge Medications"
           }
         ],
         "text": "Medicamentos na Alta"

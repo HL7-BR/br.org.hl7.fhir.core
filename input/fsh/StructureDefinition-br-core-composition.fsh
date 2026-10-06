@@ -145,7 +145,7 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * section.title ^definition = "Título da seção"
 * section.code ^short = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção"
 * section.code ^definition = "Um código que identifica o tipo de conteúdo contido dentro da seção. Isso deve ser consistente com o título da seção"
-* section.code from http://hl7.org/fhir/ValueSet/doc-section-codes (required)
+* section.code from http://hl7.org/fhir/ValueSet/doc-section-codes (example)
 * section.author ^short = "Referência à quem e/ou o que foi o autor desta seção"
 * section.author ^definition = "Referência à quem e/ou o que foi o autor desta seção"
 * section.author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)

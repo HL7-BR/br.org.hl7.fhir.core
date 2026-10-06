@@ -34,7 +34,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].title ^short = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
 * section[diagnosticosAvaliados].title ^definition = "Título da seção - Fixo em 'Diagnósticos Avaliados'"
 * section[diagnosticosAvaliados].code ^short = "Classificação da seção da Composition/Document"
-* section[diagnosticosAvaliados].code ^definition = "Classificação da seção da Composition/Document - LOINC 57852-6"
+* section[diagnosticosAvaliados].code ^definition = "Classificação da seção da Composition/Document - LOINC 11450-4"
 * section[diagnosticosAvaliados].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAvaliados].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[diagnosticosAvaliados].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -50,8 +50,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[diagnosticosAvaliados].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[diagnosticosAvaliados].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[diagnosticosAvaliados].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#57852-6"
-* section[diagnosticosAvaliados].code = $loinc#57852-6
+* section[diagnosticosAvaliados].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#11450-4"
+* section[diagnosticosAvaliados].code = $loinc#11450-4
 * section[diagnosticosAvaliados].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[diagnosticosAvaliados].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[diagnosticosAvaliados].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
@@ -186,7 +186,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaObstetrica].title ^short = "Título da seção - Fixo em 'História obstétrica'"
 * section[historiaObstetrica].title ^definition = "Título da seção - Fixo em 'História obstétrica'"
 * section[historiaObstetrica].code ^short = "Classificação da seção da Composition/Document"
-* section[historiaObstetrica].code ^definition = "Classificação da seção da Composition/Document - LOINC 89213-3"
+* section[historiaObstetrica].code ^definition = "Classificação da seção da Composition/Document - LOINC 10162-6"
 * section[historiaObstetrica].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[historiaObstetrica].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[historiaObstetrica].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -202,8 +202,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaObstetrica].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[historiaObstetrica].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[historiaObstetrica].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[historiaObstetrica].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#89213-3"
-* section[historiaObstetrica].code = $loinc#89213-3
+* section[historiaObstetrica].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#10162-6"
+* section[historiaObstetrica].code = $loinc#10162-6
 * section[historiaObstetrica].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[historiaObstetrica].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[historiaObstetrica].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
@@ -390,7 +390,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[medicamentos].title ^short = "Título da seção - Fixo em 'Medicamentos'"
 * section[medicamentos].title ^definition = "Título da seção - Fixo em 'Medicamentos'"
 * section[medicamentos].code ^short = "Classificação da seção da Composition/Document"
-* section[medicamentos].code ^definition = "Classificação da seção da Composition/Document - LOINC 52471-0"
+* section[medicamentos].code ^definition = "Classificação da seção da Composition/Document - LOINC 10160-0"
 * section[medicamentos].code.id ^short = "Identificador exclusivo para referência entre elementos"
 * section[medicamentos].code.id ^definition = "Identificador exclusivo para referência entre elementos"
 * section[medicamentos].code.extension ^short = "Conteúdo adicional definido por implementações"
@@ -406,8 +406,8 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[medicamentos].code.coding.version ^short = "Versão da terminologia - se relevante"
 * section[medicamentos].code.coding.version ^definition = "Versão da terminologia  - se relevante"
 * section[medicamentos].code.coding.code ^short = "Código do conceito na sintaxe definida pela terminologia"
-* section[medicamentos].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#52471-0"
-* section[medicamentos].code = $loinc#52471-0
+* section[medicamentos].code.coding.code ^definition = "Código do conceito na sintaxe definida pela terminologia - fixo em loinc#10160-0"
+* section[medicamentos].code = $loinc#10160-0
 * section[medicamentos].code.coding.display ^short = "Descrição conforme definido pela terminologia"
 * section[medicamentos].code.coding.display ^definition = "Representação definida pela terminologia"
 * section[medicamentos].code.coding.userSelected ^short = "Se esta codificação foi escolhida diretamente pelo usuário"
