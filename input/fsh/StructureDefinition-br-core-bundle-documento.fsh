@@ -12,7 +12,7 @@ Profile: BRCoreBundleDocumento
 Parent: Bundle
 Id: br-core-bundle-documento
 Title: "br-core-bundle-documento"
-Description: "Documento clínico FHIR: Bundle do tipo document cuja primeira entrada é uma br-core-composition (ou perfil derivado, como o br-core-sumarioalta), seguida dos recursos que ela referencia. Segue as regras do clinical-document-bundle do FHIR Clinical Documents (HL7, STU1 1.0.1): identificador persistente, timestamp e Composition como primeira entrada."
+Description: "Documento clínico FHIR: Bundle do tipo document cuja primeira entrada é uma br-core-composition (ou perfil derivado, como os documentos clínicos da RNDS), seguida dos recursos que ela referencia. Segue as regras do clinical-document-bundle do FHIR Clinical Documents (HL7, STU1 1.0.1): identificador persistente, timestamp e Composition como primeira entrada."
 * ^status = #draft
 * obeys br-core-bdoc-1 and br-core-bdoc-2
 * . ^short = "Documento clínico (Bundle document)"

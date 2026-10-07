@@ -37,11 +37,11 @@ A  modelagem  e perfilização do br-core foi realizada para herdar os perfis do
     </tr>
     <tr>
       <td>RAC e SA</td>
-      <td>Remodelados para atender o canônico: br-core-registroatendimentoclinico, br-core-sumarioalta</td>
+      <td>Documentos de caso de uso: perfis da RNDS derivados do br-core-composition, fora do BR-Core</td>
     </tr>
     <tr>
       <td>CMD</td>
-      <td>Informações para compor o CMD foram  incluídas tanto no RAC como no sumário de alta, que foram remodelados e incluíram o encounter, que estava suprimido na RNDS.  O CMD é um resumo de um encounter.</td>
+      <td>As informações do CMD ficam no br-core-encounter, referenciado pelos documentos da RNDS. O CMD é um resumo de um encounter.</td>
     </tr>
   </tbody>
 </table>

@@ -1,6 +1,6 @@
 # BR-Core: StructureDefinitions em JSON (main 9cf1bc9)
 
-47 StructureDefinitions (perfis e extensões) do repositório HL7-BR/br.org.hl7.fhir.core,
+45 StructureDefinitions (perfis e extensões) do repositório HL7-BR/br.org.hl7.fhir.core,
 commit 9cf1bc9 do main, sobre a 1.4.1. Cada arquivo traz differential e snapshot.
 
 Gerado em 06/10/2026 com SUSHI 3.20.1 e IG Publisher 2.3.4, sem servidor de terminologia.

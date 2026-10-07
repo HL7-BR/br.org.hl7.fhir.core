@@ -1,6 +1,6 @@
 ### Escopo/Uso
 
-Este perfil registra a capacidade funcional ou a incapacidade do indivíduo como um achado funcional (Condition). É usado, entre outros, na seção capacidadeFuncional do [br-core-sumarioalta](StructureDefinition-br-core-sumarioalta.html).
+Este perfil registra a capacidade funcional ou a incapacidade do indivíduo como um achado funcional (Condition). É usado, entre outros, na seção de capacidade funcional do Sumário de Alta da RNDS.
 
 ### Codificação
 

@@ -1,6 +1,6 @@
 ### Escopo/Uso
 
-Este perfil define o documento clínico FHIR no BR-Core: um Bundle do tipo `document`, imutável, cuja primeira entrada é uma Composition derivada do [br-core-composition](StructureDefinition-br-core-composition.html), como o [br-core-sumarioalta](StructureDefinition-br-core-sumarioalta.html), seguida de todos os recursos que ela referencia.
+Este perfil define o documento clínico FHIR no BR-Core: um Bundle do tipo `document`, imutável, cuja primeira entrada é uma Composition derivada do [br-core-composition](StructureDefinition-br-core-composition.html), como os documentos clínicos da RNDS (Sumário de Alta, Registro de Atendimento Clínico, comprovante de vacinação), seguida de todos os recursos que ela referencia.
 
 As regras seguem o perfil internacional [clinical-document-bundle](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/StructureDefinition-clinical-document-bundle.html) do FHIR Clinical Documents (HL7, STU1 1.0.1):
 

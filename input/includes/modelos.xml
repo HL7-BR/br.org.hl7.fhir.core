@@ -266,13 +266,6 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
-                    <a href="StructureDefinition-br-core-registroatendimentoclinico.html"
-                        title="StructureDefinition/br-core-registroatendimentoclinico.fsh">br-core-registroatendimentoclinico </a>
-                </td>
-                <td> Esse perfil representa um documento clínico, o registro de atendimento clínico, definido pela PORTARIA Nº 234, DE 18 DE JULHO DE 2022, que institui o Modelo de Informação (MI) Registro de Atendimento Clínico (RAC). </p>
-            </tr>
-            <tr>
-                <td>
                     <a href="StructureDefinition-br-core-relatedperson.html"
                         title="StructureDefinition/br-core-relatedperson.fsh">br-core-relatedperson </a>
                 </td>
@@ -305,13 +298,6 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
                         title="StructureDefinition/br-core-specimen.fsh">br-core-specimen </a>
                 </td>
                 <td> Este perfil representa as características de amostras biológicas no contexto de resultados laboratoriais.   </p>
-            </tr>
-             <tr>
-                <td>
-                    <a href="StructureDefinition-br-core-sumarioalta.html"
-                        title="StructureDefinition/br-core-sumarioalta.fsh">br-core-sumarioalta </a>
-                </td>
-                <td> Este perfil representa as informações da alta hospitalar, conforme a PORTARIA Nº 701, DE 29 DE SETEMBRO DE 2022.   </p>
             </tr>
              <tr>
                 <td>
