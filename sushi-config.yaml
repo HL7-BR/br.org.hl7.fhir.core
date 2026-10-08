@@ -16,7 +16,7 @@ description: Guia de Implementação Core de Interoperabilidade em Saúde Digita
 status: active
 license: CC0-1.0
 date: 2023-05-08
-version: 1.4.1
+version: 1.5.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -113,6 +113,10 @@ resources:
     name: Exemplo de plano de cuidado.
     description: Exemplo de plano de cuidado.  
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careplan
+  Bundle/8f3c2a1e-5b7d-4e2a-9c61-2d4f7a0b9e15:
+    name: Exemplo de documento clínico (Bundle document).
+    description: Documento clínico com a Composition de exemplo e os recursos que ela referencia.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-bundle-documento
   Composition/5c0878bd-a787-489d-82aa-82f4fb55909e:
     name: Exemplo de composition.
     description: Exemplo de composition.    
