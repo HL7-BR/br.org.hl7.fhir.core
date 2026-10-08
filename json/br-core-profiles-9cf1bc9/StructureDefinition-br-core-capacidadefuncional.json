@@ -1169,8 +1169,13 @@
       "isModifier" : false,
       "isSummary" : true,
       "binding" : {
-        "strength" : "preferred",
-        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCapacidadeFuncional"
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ConditionKind"
+        }],
+        "strength" : "example",
+        "description" : "Identification of the condition or diagnosis.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/condition-code"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -2666,11 +2671,7 @@
       "path" : "Condition.code",
       "short" : "Achado funcional (capacidade ou incapacidade)",
       "definition" : "Achado funcional (capacidade ou incapacidade). Preferencialmente SNOMED CT (Functional finding); CID-10 ou CIAP-2 da condição de base podem vir como codificação adicional",
-      "min" : 1,
-      "binding" : {
-        "strength" : "preferred",
-        "valueSet" : "https://terminologia.saude.gov.br/fhir/ValueSet/BRCapacidadeFuncional"
-      }
+      "min" : 1
     },
     {
       "id" : "Condition.subject",

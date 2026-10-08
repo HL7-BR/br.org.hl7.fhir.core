@@ -52,7 +52,8 @@ Description: "Capacidade funcional ou incapacidade do indivíduo (achado funcion
 * code ^definition = "Achado funcional (capacidade ou incapacidade). Preferencialmente SNOMED CT (Functional finding); CID-10 ou CIAP-2 da condição de base podem vir como codificação adicional"
 * code ^short = "Achado funcional (capacidade ou incapacidade)"
 * code 1..1
-* code from https://terminologia.saude.gov.br/fhir/ValueSet/BRCapacidadeFuncional (preferred)
+// Sem binding nacional: vale o example do R4. SNOMED CT (descendentes de 118228005 Functional finding)
+// é o recomendado; o ValueSet BRCapacidadeFuncional depende de o OCL suportar ValueSet intensional.
 * code.text
 * bodySite ^short = "Local anatômico da condição, se relevante" 
 * bodySite ^definition = "Local anatômico da condição, se relevante" 
