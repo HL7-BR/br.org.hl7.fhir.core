@@ -29,7 +29,7 @@
         "code": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubgrupoTabelaSUS",
+              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubGrupoTabelaSUS",
               "code": "0309",
               "display": "Terapias especializadas"
             }
