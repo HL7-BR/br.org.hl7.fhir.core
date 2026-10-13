@@ -10,5 +10,41 @@
   <p align="justify">O Guia br-core oferece diretrizes claras para a adoção e implementação do FHIR no Brasil, promovendo a interoperabilidade semântica e técnica entre sistemas de saúde. Além disso, ele harmoniza dados entre esferas públicas e privadas e alinha o Brasil com padrões globais, assegurando a inserção do país em redes de saúde digital como a Global Digital Health Network (GDHCN).</p>
 
   <p align="justify">Este guia consolida os avanços do Brasil na área de interoperabilidade em saúde, fortalecendo a infraestrutura nacional para alcançar uma troca de informações segura e eficaz, com impacto direto na qualidade do cuidado em saúde.</p>
-  
+
+  <a name="escopo"> </a>
+  <h3>Escopo</h3>
+
+  <p align="justify">O br-core é orientado a recursos. Cada perfil define como um recurso FHIR é usado no Brasil: elementos obrigatórios e de suporte obrigatório (mustSupport), identificadores nacionais, bindings terminológicos e extensões de uso geral. O br-core não define casos de uso.</p>
+
+  <p align="justify">Documentos clínicos normatizados, como o Sumário de Alta, o Registro de Atendimento Clínico e o Registro de Imunobiológico Administrado, são casos de uso. Cada um é publicado em guia próprio, com perfis derivados dos perfis do br-core. É no guia do caso de uso que se fixam o tipo do documento, as seções, o conteúdo obrigatório e as regras de negócio.</p>
+
+  <p align="justify">O br-core mantém dois perfis de estrutura documental, br-core-composition e br-core-bundle-documento. Eles são genéricos: definem o que todo documento clínico brasileiro tem em comum e não fixam tipo de documento, seções nem conteúdo. Esses elementos pertencem ao guia do caso de uso.</p>
+
+  <p align="justify">Critério de inclusão: um perfil entra no br-core quando restringe um recurso para uso em qualquer contexto do sistema de saúde brasileiro. Um perfil que só faz sentido dentro de um fluxo, de uma norma ou de um documento específico pertence ao guia do caso de uso correspondente.</p>
+
+  <a name="mustsupport"> </a>
+  <h4>Suporte obrigatório (mustSupport) no BR-Core</h4>
+
+  <p align="justify">No BR-Core, um elemento marcado como mustSupport tem o seguinte significado:</p>
+  <ul>
+    <li>o sistema emissor deve preencher o elemento sempre que tiver o dado;</li>
+    <li>o sistema receptor deve aceitar, armazenar e processar o elemento quando presente, sem rejeitar a instância;</li>
+    <li>a ausência de um elemento mustSupport opcional não torna a instância inválida;</li>
+    <li>mustSupport não altera a cardinalidade: um elemento 1..1 continua obrigatório.</li>
+  </ul>
+
+  <p align="justify">O BR-Core não usa a extensão obligation. Quando um elemento exigir comportamento diferente desta definição, o perfil o descreve no comentário do elemento ou em uma invariante.</p>
+  <p align="justify">Guias de caso de uso que derivam do BR-Core herdam essa definição. Eles podem torná-la mais estrita, por exemplo exigindo um elemento ou fixando o que o receptor deve exibir, mas não podem enfraquecê-la.</p>
+
+  <a name="dadosausentes"> </a>
+  <h4>Dados ausentes</h4>
+
+  <p align="justify">No BR-Core, a ausência de um dado se expressa com a extensão data-absent-reason (http://hl7.org/fhir/StructureDefinition/data-absent-reason), com o motivo correspondente: unknown quando o dado não é conhecido, asked-declined quando a pessoa se recusou a informar, not-applicable quando o dado não se aplica.</p>
+
+  <p align="justify">Códigos de "sem informação", "ignorado" ou equivalentes em terminologias nacionais, como o 99 do BRRacaCor, representam ausência de dado como se fosse um valor do domínio. Eles não devem ser usados em instâncias novas. Registros históricos com esses códigos devem ser convertidos para data-absent-reason por mapeamento publicado na terminologia nacional. Os códigos devem ser inativados, e não apagados, para que os registros antigos continuem interpretáveis.</p>
+
+  <p align="justify">Quando o elemento é obrigatório no perfil e o dado pode faltar, como em dados autodeclarados, o perfil deve aceitar data-absent-reason nesse elemento.</p>
+
+  <p align="justify">Esse escopo segue a prática de outros guias nacionais. US Core, AU Core, CA Baseline e FR Core não publicam perfis de documento. O CH Core publica apenas Composition e Bundle genéricos, e os documentos suíços, como o documento de vacinação (CH VACD), estão em guias de caso de uso.</p>
+
 </div>
