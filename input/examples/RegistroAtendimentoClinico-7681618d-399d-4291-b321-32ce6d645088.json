@@ -48,7 +48,7 @@
           {
             "system": "http://loinc.org",
             "code": "11450-4",
-            "display": "Problem list - Reported"
+            "display": "Problem list Reported"
           }
         ],
         "text": "Lista de Problemas - Diagnósticos Avaliados"
