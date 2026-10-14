@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
     
-        <h3>O que é o BR-Core?</h3>
+        <h4>O que é o BR-Core?</h4>
    <p align="justify"> 
     O guia de implementação BR-Core é o padrão nacional de interoperabilidade baseado no HL7 FHIR R4, 
     desenvolvido para padronizar e facilitar a troca de informações em saúde no Brasil. Ele funciona 
@@ -15,47 +15,45 @@
     conectada, segura e alinhada às melhores práticas internacionais. O br-core é essencial para transformar a saúde digital no Brasil
     e integrá-la de forma sustentável ao ecossistema global. 
     </p>
-<h2>Etapas de Desenvolvimento</h2>
+<h3>Etapas de Desenvolvimento</h3>
     <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
 <ul> 
         <li>
-            <h3>Repositório Semântico</h3>
+            <h4>Repositório Semântico</h4>
             <ul>
                 <li>Definição das terminologias padronizadas utilizadas no contexto nacional e integração com terminologias internacionais como SNOMED CT, LOINC e Terminologias Internacionais do HL7.</li>
                 <li>Carregamento no Open Concept Lab (OCL), assegurando compatibilidade com o padrão HL7 Common Terminology Services 2 (CTS2).</li>
             </ul>
         </li>
         <li>
-            <h3>Mapeamentos Terminológicos</h3>
+            <h4>Mapeamentos Terminológicos</h4>
             <ul>
                 <li>Mapeamento entre vocabulários nacionais e internacionais, adotando as diretrizes da ABNT ISO TR 12300.</li>
                 <li>Estruturação das equivalências terminológicas para garantir a semântica nos processos de interoperabilidade.</li>
             </ul>
         </li>
         <li>
-            <h3>Modelos e Perfis FHIR</h3>
+            <h4>Modelos e Perfis FHIR</h4>
             <ul>
                 <li>Adaptação e criação de perfis HL7 FHIR para o Brasil, cobrindo aspectos clínicos e administrativos.</li>
                 <li>Incorporação das terminologias padronizadas e seus mapeamentos nos modelos computacionais.</li>
             </ul>
         </li>
         <li>
-            <h3>Desenvolvimento do Guia</h3>
+            <h4>Desenvolvimento do Guia</h4>
             <ul>
                 <li>Geração de documentação técnica e prática para a implementação do br-core.</li>
             </ul>
         </li>
     </ul>
-<h2>Etapas de Desenvolvimento</h2>
-    <p>O desenvolvimento do br-core seguiu etapas estruturadas que garantem sua robustez técnica e aderência aos padrões internacionais:</p>
     <p>O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos, incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar e domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
 
 
-    <h2>Camadas: FHIR R4, BR-Core e guias de caso de uso</h2>
+    <h3>Camadas: FHIR R4, BR-Core e guias de caso de uso</h3>
     <p align="justify">O BR-Core é orientado a recursos. Os guias de caso de uso, como o Sumário de Alta e o Registro de Atendimento Clínico, derivam do br-core-composition e definem o tipo de documento, as seções e o conteúdo obrigatório. Os recursos clínicos usam os perfis do BR-Core.</p>
     <p><img src="br-core-camadas.svg" alt="Camadas: FHIR R4, BR-Core e guias de caso de uso" style="max-width:100%"/></p>
 
-    <h2>Estrutura de um documento clínico</h2>
+    <h3>Estrutura de um documento clínico</h3>
     <p align="justify">O documento é um Bundle (br-core-bundle-documento) com a Composition como primeira entrada e os recursos referenciados nas seções, cada um com o seu perfil do BR-Core.</p>
     <p><img src="br-core-estrutura.svg" alt="Estrutura de um documento clínico sobre o BR-Core" style="max-width:100%"/></p>
 
