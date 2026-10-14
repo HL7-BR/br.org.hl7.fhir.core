@@ -251,10 +251,10 @@ resources:
     name: Exemplo de uma pessoa relacionada ao paciente.
     description: Exemplo de uma pessoa relacionada ao paciente.
     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-relatedperson
-  #RegistroAtendimentoClinico/7681618d-399d-4291-b321-32ce6d645088:
-   # name: Exemplo de registro de atendimento clínico ao paciente.
-    #description: Exemplo de registro de atendimento clínico ao paciente.
-    #exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-registroatendimentoclinico
+  Composition/7681618d-399d-4291-b321-32ce6d645088:
+    name: Exemplo de registro de atendimento clínico ao paciente.
+    description: Exemplo de registro de atendimento clínico ao paciente.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-registroatendimentoclinico
 #  ServiceRequest/f48ffa19-7af8-4377-aab8-2c98ca1ce07b:
 #    name: Exemplo de uma requisição de serviço.
 #    description: Exemplo de uma requisição de serviço.
@@ -263,10 +263,10 @@ resources:
 #     name: Exemplo de amostra.
 #     description: Exemplo de amostra de um paciente fictício.
 #     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-specimen
-#   SumarioAlta/4e14ddc8-13de-4c7f-8913-bfa81633b81b:
-#     name: Exemplo de sumário alta.
-#     description: Exemplo de sumário alta de um paciente fictício.
-#     exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sumarioalta
+  Composition/4e14ddc8-13de-4c7f-8913-bfa81633b81b:
+    name: Exemplo de sumário alta.
+    description: Exemplo de sumário alta de um paciente fictício.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sumarioalta
 #  VitalSigns/07ce5462-f77b-4ad6-af8c-2f67a6500b97:
 #    name: Exemplo de sinal vital.
 #    description: Exemplo de sinal vital de um paciente fictício.
