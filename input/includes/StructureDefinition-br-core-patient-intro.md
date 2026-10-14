@@ -1,14 +1,30 @@
-### Exemplos de cenários de uso:
+### Sobre o perfil
 
-- Consulta por informações demográficas do paciente usando o identificador CPF.
+O br-core-patient representa a pessoa que recebe cuidados de saúde no Brasil. É um perfil de recurso: os documentos clínicos (Sumário de Alta, Registro de Atendimento Clínico, Registro de Imunobiológico Administrado) e os recursos clínicos do BR-Core apontam para ele em `subject` ou `patient`, sem redefini-lo.
 
-### Elementos de dados obrigatórios e que devem estar presentes (must support)  
+Os dados do perfil seguem o Modelo de Informação do Cadastro Nacional de Usuários do SUS (CadSUS), no Anexo XLII da Portaria de Consolidação GM/MS nº 1/2017, na redação da Portaria GM/MS nº 12.263/2026. A tabela [br-core-patient e o Modelo de Informação do CadSUS](#cadsus) mostra onde cada dado do Anexo fica no perfil, e o modelo lógico [br-core-cadsus-ml](StructureDefinition-br-core-cadsus-ml.html) registra as lacunas.
 
-Os seguintes elementos de dados devem estar sempre presentes (definição FHIR [mandatory](https://build.fhir.org/ig/HL7/US-Core/must-support.html)) ou devem ser suportados se os dados estiverem presentes no sistema de envio (definição FHIR [must support](https://build.fhir.org/ig/HL7/US-Core/must-support.html)). 
+### Cenários de uso
+
+- Identificar o paciente de um documento clínico depois de consultar o CadSUS, com CPF, CNS ou ambos.
+- Identificar o recém-nascido sem registro civil e sem CPF pelo CNS provisório gerado no CadSUS. Ver o [exemplo](Patient-7d2e9b41-3c58-4f0a-9e16-5b8a2c7f4d03.html).
+- Consultar dados demográficos do paciente pelo CPF ou pelo CNS.
+
+### Obrigatório e mustSupport
+
+Toda instância deve ter CPF ou CNS (invariante br-core-pat-2) e um nome, ou o motivo da ausência do nome em data-absent-reason (invariante br-core-pat-1).
+
+O CPF e a raça/cor são mustSupport, com o significado definido na seção [Suporte obrigatório (mustSupport) no BR-Core](index.html#mustsupport): o emissor envia o dado sempre que o tem, e o receptor aceita e guarda o dado quando presente. A ausência de um elemento mustSupport opcional não invalida a instância.
+
+A ausência de dado segue a seção [Dados ausentes](index.html#dadosausentes). A raça/cor é a exceção prevista ali: a extensão do IPS Brasil tem binding required e não aceita data-absent-reason no valor, por isso, quando a pessoa não declara, a extensão é omitida. O código 99 do BRRacaCor não é usado em instâncias novas.
+
+### Paciente sem identificação
+
+O br-core-patient não tem extensão de paciente não identificado. Pela Portaria GM/MS nº 12.263/2026, quem chega sem CPF e sem CNS é cadastrado no CadSUS com os dados mínimos e recebe um CNS provisório (Art. 257, § 1º), que depois é vinculado ao CPF (Art. 257, § 3º). Quem não tem nem os dados mínimos é registrado no Conjunto Mínimo de Dados (CMD), e não em documento clínico. O documento clínico é feito depois do atendimento, quando o paciente já está identificado.
 
 ### Identificadores
 
-Cada paciente deve ter obrigatoriamente CPF ou CNS (invariante br-core-pat-2). Crianças e indígenas muitas vezes ainda não têm CPF, mas todos têm CNS. O CNS pode ser definitivo (use = official) ou provisório (use = temp), conforme a invariante br-core-pat-3. Os identificadores são definidos pelas fatias abaixo:
+Os identificadores nacionais são fatias de `identifier`, discriminadas por `system`. O CPF é opcional e mustSupport: deve ser enviado sempre que conhecido. Sem CPF, o CNS é obrigatório. O CNS pode ser definitivo (`use = official`) ou provisório (`use = temp`), conforme a invariante br-core-pat-3.
 
 <table border="1">
   <thead>
@@ -28,7 +44,7 @@ Cada paciente deve ter obrigatoriamente CPF ou CNS (invariante br-core-pat-2). C
     </tr>
     <tr>
       <td>Identifier:cns</td>
-      <td>O CNS também é um identificador do paciente no âmbito do Sistema Único de Saúde (SUS), é composto por 15 dígitos onde os 2 últimos são verificadores do CNS.</td>
+      <td>O CNS identifica o paciente no âmbito do Sistema Único de Saúde (SUS) e tem 15 dígitos, dos quais os 2 últimos são verificadores. Obrigatório quando não há CPF (br-core-pat-2). Definitivo com <code>use = official</code>, provisório com <code>use = temp</code> (br-core-pat-3).</td>
       <td>0..1</td>
       <td><a href="http://terminology.hl7.org/CodeSystem/v2-0203">http://terminology.hl7.org/CodeSystem/v2-0203</a> fixo em ‘HC’</td>
     </tr>
@@ -102,6 +118,52 @@ Cada paciente deve ter obrigatoriamente CPF ou CNS (invariante br-core-pat-2). C
       <td>0..1</td>
       <td><a href="https://terminologia-br-ig.web.app/ValueSet-BRIdentidadeGenero">https://terminologia.saude.gov.br/fhir/ValueSet/BRIdentidadeGenero</a></td>
     </tr>
+  </tbody>
+</table>
+
+<h2>Identificação do paciente no documento clínico</h2>
+
+Fluxo proposto com base na Portaria GM/MS nº 12.263/2026 (Art. 257 e Art. 259, II, da PC nº 1/2017). O sistema do estabelecimento consulta o MPI do CadSUS antes do envio e inclui o paciente no Bundle com referência literal. A exposição do MPI em PDQm e PIXm (FHIR) é recomendação ao Ministério da Saúde e ainda não está disponível.
+
+<p><img src="br-core-identificacao-paciente.svg" alt="Identificação do paciente no documento clínico" style="max-width:100%"/></p>
+
+<a name="cadsus"> </a>
+<h2>br-core-patient e o Modelo de Informação do CadSUS</h2>
+
+Onde cada dado do Anexo XLII da PC nº 1/2017 (Portaria GM/MS nº 12.263/2026) fica no BR-Core 1.6.0. Sensível: Art. 4º, § 2º. As lacunas estão no modelo lógico [br-core-cadsus-ml](StructureDefinition-br-core-cadsus-ml.html).
+
+<table class="grid">
+  <thead><tr><th>Artigo</th><th>Dado do Anexo XLII</th><th>Sensível</th><th>BR-Core 1.6.0</th><th>Situação</th></tr></thead>
+  <tbody>
+    <tr><td colspan="5"><b>Identificação (Art. 3º)</b></td></tr>
+    <tr><td>I</td><td>CPF</td><td></td><td><code>identifier:cpf 0..1, mustSupport</code></td><td><span style="background:#FFEDD5;color:#7C2D12;padding:2px 8px;border-radius:10px;white-space:nowrap">Resolvido na 1.6.0</span></td></tr>
+    <tr><td>II</td><td>CNS</td><td></td><td><code>identifier:cns, official ou temp; br-core-pat-2</code></td><td><span style="background:#FFEDD5;color:#7C2D12;padding:2px 8px;border-radius:10px;white-space:nowrap">Resolvido na 1.6.0</span></td></tr>
+    <tr><td>III</td><td>DNV</td><td></td><td><code>sem fatia</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
+    <tr><td>IV, V</td><td>Nome completo e nome social</td><td></td><td><code>name; sem regra para nome social</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
+    <tr><td>VI, VII</td><td>Gêmeo, data de nascimento</td><td></td><td><code>multipleBirth[x], birthDate</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>VIII</td><td>Filiação</td><td></td><td><code>RelatedPerson ou contact</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
+    <tr><td>IX, X</td><td>Sexo ao nascer, naturalidade</td><td></td><td><code>extensões sexoNascimento, localNascimento</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>XI</td><td>Óbito</td><td></td><td><code>deceased[x]</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td colspan="5"><b>Sensíveis e autodeclarados (Art. 4º)</b></td></tr>
+    <tr><td>I, II</td><td>Identidade de gênero, sexo do paciente</td><td></td><td><code>extensão identidadeGenero, gender</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>III</td><td>Orientação sexual</td><td>Sim</td><td><code>Observation</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td>IV</td><td>Raça/cor</td><td>Sim</td><td><code>extensão raca 0..1 MS; omitida se não declarada</code></td><td><span style="background:#FFEDD5;color:#7C2D12;padding:2px 8px;border-radius:10px;white-space:nowrap">Resolvido na 1.6.0</span></td></tr>
+    <tr><td>IV, a</td><td>Etnia indígena</td><td>Sim</td><td><code>extensão povoIndigena</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>§ 3º</td><td>DSEI, Polo Base, aldeado</td><td></td><td><code>sem representação</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
+    <tr><td>V</td><td>Quilombolas, etnia cigana</td><td>Sim</td><td><code>extensão povoTradicional</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>VI</td><td>Situação de moradia</td><td></td><td><code>Observation</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td>VII</td><td>Tipo sanguíneo</td><td>Sim</td><td><code>Observation</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td>VIII</td><td>Pessoa com deficiência</td><td></td><td><code>Condition ou Observation</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td colspan="5"><b>Endereço e contato (Art. 5º)</b></td></tr>
+    <tr><td>I a IV</td><td>Endereço, e-mails, telefones</td><td></td><td><code>address, telecom; bairro e zona sem regra</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
+    <tr><td colspan="5"><b>Educação, trabalho e renda (Art. 6º)</b></td></tr>
+    <tr><td>I a V</td><td>Escolaridade, CBO, CNAE, trabalho, programas sociais</td><td></td><td><code>Observation</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td colspan="5"><b>Controle (Art. 7º)</b></td></tr>
+    <tr><td>I, II</td><td>Dados protegidos, VIP</td><td></td><td><code>meta.security</code></td><td><span style="background:#E6F1EA;color:#1E5631;padding:2px 8px;border-radius:10px;white-space:nowrap">Coberto</span></td></tr>
+    <tr><td>III</td><td>Situação de prioridade</td><td></td><td><code>Flag</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td colspan="5"><b>Saúde suplementar e APS (Arts. 8º e 9º)</b></td></tr>
+    <tr><td>8º</td><td>Planos de saúde (ANS)</td><td></td><td><code>Coverage, sem persistir</code></td><td><span style="background:#EEF1F5;color:#1F3A5C;padding:2px 8px;border-radius:10px;white-space:nowrap">Fora do Patient</span></td></tr>
+    <tr><td>9º</td><td>UBS, equipe, ACS, área, microárea</td><td></td><td><code>generalPractitioner; área e microárea sem regra</code></td><td><span style="background:#FDE8E8;color:#7F1D1D;padding:2px 8px;border-radius:10px;white-space:nowrap">Lacuna</span></td></tr>
   </tbody>
 </table>
 

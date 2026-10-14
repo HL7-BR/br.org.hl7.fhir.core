@@ -51,4 +51,12 @@
     <p>O br-core é indispensável para a transformação digital da saúde no Brasil. Sua aplicação em todos cenários e usos, incluindo prontuários eletrônicos, regulação, saúde pública, exames, atenção hospitalar e domiciliar, assegura que o sistema de saúde seja eficiente, integrado e alinhado às melhores práticas globais. Ele é um recurso essencial para garantir qualidade, segurança e eficiência em todo o ecossistema de saúde no Brasil.</p>
 
 
+    <h2>Camadas: FHIR R4, BR-Core e guias de caso de uso</h2>
+    <p align="justify">O BR-Core é orientado a recursos. Os guias de caso de uso, como o Sumário de Alta e o Registro de Atendimento Clínico, derivam do br-core-composition e definem o tipo de documento, as seções e o conteúdo obrigatório. Os recursos clínicos usam os perfis do BR-Core.</p>
+    <p><img src="br-core-camadas.svg" alt="Camadas: FHIR R4, BR-Core e guias de caso de uso" style="max-width:100%"/></p>
+
+    <h2>Estrutura de um documento clínico</h2>
+    <p align="justify">O documento é um Bundle (br-core-bundle-documento) com a Composition como primeira entrada e os recursos referenciados nas seções, cada um com o seu perfil do BR-Core.</p>
+    <p><img src="br-core-estrutura.svg" alt="Estrutura de um documento clínico sobre o BR-Core" style="max-width:100%"/></p>
+
 </div>
