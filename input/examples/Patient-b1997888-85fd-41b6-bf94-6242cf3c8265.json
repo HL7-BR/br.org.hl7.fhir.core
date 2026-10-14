@@ -66,7 +66,6 @@
                 "coding": [
                     {
                         "system": "http://snomed.info/sct",
-                        "version": "http://snomed.info/sct/731000124108",
                         "code": "446141000124107",
                         "display": "Identifies as female gender (finding)"
                     }
