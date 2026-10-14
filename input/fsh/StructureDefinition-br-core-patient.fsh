@@ -23,7 +23,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension contains
     $structuredefinition-patient-birthPlace named localNascimento 0..1 and
     $structuredefinition-patient-genderIdentity named identidadeGenero 0..1 and
-    $structuredefinition-patient-racaBRIPS named raca 1..1 and
+    $structuredefinition-patient-racaBRIPS named raca 0..1 MS and
     $structuredefinition-patient-povoIndigenaBRIPS named povoIndigena 0..1 and
     $structuredefinition-patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
     br-core-populacaotradicional named povoTradicional 0..1 and
@@ -34,6 +34,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension[identidadeGenero] ^definition = "Identidade de gênero do paciente" 
 * extension[raca] ^short = "Raça do paciente"
 * extension[raca] ^definition = "Raça do paciente"
+* extension[raca] ^comment = "Dado autodeclarado (Anexo XLII da PC nº 1/2017, Art. 4º, IV). Envia-se sempre que declarada (mustSupport). Quando a pessoa não declara, a extensão é omitida: a extensão raca-br-ips do BR-IPS tem binding required e não aceita data-absent-reason no valor. O código 99 do BRRacaCor não é usado."
 * extension[povoIndigena] ^short = "Etnia indígena do paciente"
 * extension[povoIndigena] ^definition = "Etnia indígena do paciente"
 * extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
@@ -53,9 +54,11 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier 0..*
 * identifier contains
     cns 0..1 and
-    cpf 1..1 and
+    cpf 0..1 MS and
     registroEstrangeiro 0..1 and
     passaporte 0..1
+* obeys br-core-pat-2
+* identifier[cns] obeys br-core-pat-3
 * identifier[cns] ^short = "Identificador do paciente"
 * identifier[cns] ^definition = "Identificador do paciente"
 * identifier[cns].id ^short = "Id lógico do identificador do paciente"
@@ -65,7 +68,6 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].use 1..1
 * identifier[cns].use ^short = "Uso do identificador do paciente"
 * identifier[cns].use ^definition = "usual: identificador usual do paciente. official: identificador oficial do paciente. temp: identificador temporário do paciente. secondary: identificador secundário do paciente"
-* identifier[cns].use = http://hl7.org/fhir/identifier-use#official (exactly)
 * identifier[cns].type 1..1
 * identifier[cns].type ^short = "Tipo do identificador do paciente"
 * identifier[cns].type ^definition = "Código que representa o tipo do identificador do paciente"
@@ -124,6 +126,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].assigner.display ^definition = "Nome da entidade que atribuiu o identificador do paciente"
 * identifier[cpf] ^short = "Identificador do paciente"
 * identifier[cpf] ^definition = "Identificador do paciente"
+* identifier[cpf] ^comment = "Opcional (0..1). O paciente deve ter CPF ou CNS (br-core-pat-2): crianças e indígenas muitas vezes ainda não têm CPF, mas todos têm CNS. O mustSupport segue a definição do BR-Core (seção Escopo): o emissor preenche o CPF sempre que o conhece, e o receptor aceita e processa o CPF quando presente, sem rejeitar instâncias que tragam só o CNS. Sem CPF, o CNS é obrigatório (Art. 257, § 2º, da PC nº 1/2017, na redação da Portaria GM/MS nº 12.263/2026)."
 * identifier[cpf].id ^short = "Id lógico do identificador do paciente"
 * identifier[cpf].id ^definition = "Id lógico do identificador do paciente"
 * identifier[cpf].extension ^short = "Extensões do identificador do paciente"
@@ -486,3 +489,13 @@ Description: "Patient.name.given, Patient.name.family, Patient.name.text or Pati
 Severity: #error
 Expression: "(family.exists() or given.exists() or text.exists()) xor extension.where(url='http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists()"
 XPath: "(/f:extension/@url='http://hl7.org/fhir/StructureDefinition/data-absent-reason' and not(/f:family or /f:given or /f:text)) or (not(/f:extension/@url='http://hl7.org/fhir/StructureDefinition/data-absent-reason') and (/f:family or /f:given or /f:text))"
+
+Invariant: br-core-pat-2
+Description: "Sem CPF, o CNS é obrigatório (Art. 257, § 2º, da PC nº 1/2017, na redação da Portaria GM/MS nº 12.263/2026)."
+Severity: #error
+Expression: "identifier.where(system = 'https://saude.gov.br/fhir/sid/cpf').exists() or identifier.where(system = 'https://saude.gov.br/fhir/sid/cns').exists()"
+
+Invariant: br-core-pat-3
+Description: "O CNS é oficial (definitivo) ou temporário (provisório)."
+Severity: #error
+Expression: "use = 'official' or use = 'temp'"

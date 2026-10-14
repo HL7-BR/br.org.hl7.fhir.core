@@ -325,7 +325,7 @@ Description: "Esse perfil restringe o perfil [br-core-composition](https://br-co
 * section[historiaSocial].orderedBy ^definition = "Ordem dos elementos na seção 'entry'"
 * section[historiaSocial].entry ^short = "História social relevantes para o sumário internacional do paciente"
 * section[historiaSocial].entry ^definition = "História social relevantes para o sumário internacional do paciente"
-* section[historiaSocial].entry only Reference(br-core-observationalcoholuse or br-core-observationtobaccouse) 
+* section[historiaSocial].entry only Reference(br-core-observationalcoholuse or br-core-observationtobaccouse or br-core-observationsubstanceuse) 
 
 //Section alergiasIntolerancias
 * section[alergiasIntolerancias] ^short = "Seção de Resumo de Alergias e Intolerâncias"
