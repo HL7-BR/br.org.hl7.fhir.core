@@ -858,18 +858,6 @@
                         }
                     },
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "system": "http://snomed.info/sct",
-                                    "code": "446151000124109",
-                                    "display": "Identifies as male gender (finding)"
-                                }
-                            ]
-                        }
-                    },
-                    {
                         "url": "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
                         "valueCodeableConcept": {
                             "coding": [
