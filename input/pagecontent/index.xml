@@ -20,6 +20,8 @@
 
   <p align="justify">O br-core mantém dois perfis de estrutura documental, br-core-composition e br-core-bundle-documento. Eles são genéricos: definem o que todo documento clínico brasileiro tem em comum e não fixam tipo de documento, seções nem conteúdo. Esses elementos pertencem ao guia do caso de uso.</p>
 
+  <p align="justify">Os perfis br-core-sumarioalta e br-core-registroatendimentoclinico, publicados em versões anteriores, continuam no br-core até a publicação dos guias de caso de uso do Sumário de Alta e do RAC, que passarão a defini-los.</p>
+
   <p align="justify">Critério de inclusão: um perfil entra no br-core quando restringe um recurso para uso em qualquer contexto do sistema de saúde brasileiro. Um perfil que só faz sentido dentro de um fluxo, de uma norma ou de um documento específico pertence ao guia do caso de uso correspondente.</p>
 
   <a name="mustsupport"> </a>

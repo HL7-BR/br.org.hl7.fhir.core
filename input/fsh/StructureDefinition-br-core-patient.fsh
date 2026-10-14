@@ -23,7 +23,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension contains
     $structuredefinition-patient-birthPlace named localNascimento 0..1 and
     $structuredefinition-patient-genderIdentity named identidadeGenero 0..1 and
-    $structuredefinition-patient-racaBRIPS named raca 1..1 and
+    $structuredefinition-patient-racaBRIPS named raca 0..1 MS and
     $structuredefinition-patient-povoIndigenaBRIPS named povoIndigena 0..1 and
     $structuredefinition-patient-sexoNascimentoBRIPS named sexoNascimento 0..1 and
     br-core-populacaotradicional named povoTradicional 0..1 and
@@ -34,7 +34,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * extension[identidadeGenero] ^definition = "Identidade de gênero do paciente" 
 * extension[raca] ^short = "Raça do paciente"
 * extension[raca] ^definition = "Raça do paciente"
-* extension[raca] ^comment = "Dado autodeclarado (Anexo XLII da PC nº 1/2017, Art. 4º, IV). Quando a pessoa não declara, usar a extensão data-absent-reason em value[x] (asked-declined, asked-unknown ou unknown). O código 99 do BRRacaCor não é usado."
+* extension[raca] ^comment = "Dado autodeclarado (Anexo XLII da PC nº 1/2017, Art. 4º, IV). Envia-se sempre que declarada (mustSupport). Quando a pessoa não declara, a extensão é omitida: a extensão raca-br-ips do BR-IPS tem binding required e não aceita data-absent-reason no valor. O código 99 do BRRacaCor não é usado."
 * extension[povoIndigena] ^short = "Etnia indígena do paciente"
 * extension[povoIndigena] ^definition = "Etnia indígena do paciente"
 * extension[sexoNascimento] ^short = "Sexo do nascimento do paciente"
@@ -126,7 +126,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier[cns].assigner.display ^definition = "Nome da entidade que atribuiu o identificador do paciente"
 * identifier[cpf] ^short = "Identificador do paciente"
 * identifier[cpf] ^definition = "Identificador do paciente"
-* identifier[cpf] ^comment = "Obrigatório quando existir (Lei nº 14.534/2023). O paciente deve ter CPF ou CNS (br-core-pat-2): crianças e indígenas muitas vezes ainda não têm CPF, mas todos têm CNS. O mustSupport segue a definição do BR-Core (seção Escopo): o emissor preenche o CPF sempre que o conhece, e o receptor aceita e processa o CPF quando presente, sem rejeitar instâncias que tragam só o CNS. Sem CPF, o CNS é obrigatório (Art. 257, § 2º, da PC nº 1/2017, na redação da Portaria GM/MS nº 12.263/2026)."
+* identifier[cpf] ^comment = "Opcional (0..1). O paciente deve ter CPF ou CNS (br-core-pat-2): crianças e indígenas muitas vezes ainda não têm CPF, mas todos têm CNS. O mustSupport segue a definição do BR-Core (seção Escopo): o emissor preenche o CPF sempre que o conhece, e o receptor aceita e processa o CPF quando presente, sem rejeitar instâncias que tragam só o CNS. Sem CPF, o CNS é obrigatório (Art. 257, § 2º, da PC nº 1/2017, na redação da Portaria GM/MS nº 12.263/2026)."
 * identifier[cpf].id ^short = "Id lógico do identificador do paciente"
 * identifier[cpf].id ^definition = "Id lógico do identificador do paciente"
 * identifier[cpf].extension ^short = "Extensões do identificador do paciente"

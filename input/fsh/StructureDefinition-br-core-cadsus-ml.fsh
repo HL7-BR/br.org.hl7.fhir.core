@@ -3,6 +3,7 @@ Id: br-core-cadsus-ml
 Title: "Modelo de Informação do CadSUS"
 Description: "Modelo lógico do Modelo de Informação do Cadastro Nacional de Pessoas para a Saúde (CadSUS), Anexo XLII à Portaria de Consolidação GM/MS nº 1, de 28 de setembro de 2017, na redação da Portaria GM/MS nº 12.263, de 1º de outubro de 2026 (DOU de 5/10/2026, Seção 1, Edição Extra A, p. 6). Cada elemento cita o artigo do Anexo. O Anexo não define cardinalidades: todos os elementos são opcionais neste modelo, e as obrigatoriedades ficam nos perfis FHIR que o implementam."
 * ^status = #draft
+* ^type = "https://br-core.saude.gov.br/fhir/StructureDefinition/BRCoreCadSUSML"
 * ^experimental = true
 
 * identificacao 0..1 BackboneElement "Bloco de identificação e dados pessoais" "Art. 2º, I, e Art. 3º do Anexo XLII."
@@ -81,10 +82,10 @@ Source: BRCoreCadSUSML
 Target: "http://hl7.org/fhir/R4"
 Id: cadsus-fhir-r4
 Title: "CadSUS para FHIR R4 (BR-Core)"
-Description: "Destino de cada elemento do Modelo de Informação do CadSUS nos perfis do BR-Core. LACUNA indica elemento sem representação no BR-Core 1.5.0. Códigos LOINC sugeridos devem ser confirmados no OCL."
+Description: "Destino de cada elemento do Modelo de Informação do CadSUS nos perfis do BR-Core. LACUNA indica elemento sem representação no BR-Core 1.6.0. Códigos LOINC sugeridos devem ser confirmados no OCL."
 * identificacao -> "Patient (br-core-patient)"
-* identificacao.cpf -> "Patient.identifier:cpf" "Hoje 1..1; a proposta da INSPIRA-263 é 0..1 MS."
-* identificacao.cns -> "Patient.identifier:cns" "Hoje 0..1, o que impede o histórico de CNS do Art. 3º, II. use official ou temp (proposta br-core-pat-3)."
+* identificacao.cpf -> "Patient.identifier:cpf" "Opcional (0..1), mustSupport. Sem CPF, o CNS é obrigatório (br-core-pat-2)."
+* identificacao.cns -> "Patient.identifier:cns" "use official ou temp (br-core-pat-3). LACUNA: a fatia é 0..1, o que impede o histórico de CNS do Art. 3º, II."
 * identificacao.dnv -> "Patient.identifier" "LACUNA: sem fatia para a DNV."
 * identificacao.nomeCompleto -> "Patient.name (use = official)"
 * identificacao.nomeSocial -> "Patient.name (use = usual)" "LACUNA: o perfil não fixa regra para o nome social."
@@ -99,7 +100,7 @@ Description: "Destino de cada elemento do Modelo de Informação do CadSUS nos p
 * dadosSensiveisAutodeclarados.identidadeGenero -> "Patient.extension:identidadeGenero"
 * dadosSensiveisAutodeclarados.sexoPaciente -> "Patient.gender" "Verificar se o sexo do paciente autodeclarado equivale ao sexo administrativo do FHIR."
 * dadosSensiveisAutodeclarados.orientacaoSexual -> "Observation" "LACUNA: sem perfil. LOINC sugerido 76690-7. O br-core-patient já recomenda coletar a cada evento assistencial."
-* dadosSensiveisAutodeclarados.racaCor -> "Patient.extension:raca" "Hoje 1..1 sem dataAbsentReason, incompatível com dado autodeclarado."
+* dadosSensiveisAutodeclarados.racaCor -> "Patient.extension:raca" "0..1, mustSupport; omitida quando não declarada."
 * dadosSensiveisAutodeclarados.indigena.etnia -> "Patient.extension:povoIndigena"
 * dadosSensiveisAutodeclarados.indigena.dsei -> "LACUNA"
 * dadosSensiveisAutodeclarados.indigena.poloBase -> "LACUNA"

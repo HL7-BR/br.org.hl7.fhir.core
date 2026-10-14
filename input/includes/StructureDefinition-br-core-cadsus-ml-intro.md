@@ -11,7 +11,7 @@ O modelo serve para duas coisas:
 - conferir o [br-core-patient](StructureDefinition-br-core-patient.html) e os demais perfis do BR-Core contra a norma, elemento a elemento;
 - servir de referência para as especificações técnicas que o Art. 12 do Anexo prevê no Portal de Serviços do DATASUS.
 
-O mapeamento para FHIR R4 está na aba de mapeamentos deste artefato. Elementos sem representação no BR-Core 1.5.0 aparecem como LACUNA.
+O mapeamento para FHIR R4 está na aba de mapeamentos deste artefato. Elementos sem representação no BR-Core 1.6.0 aparecem como LACUNA.
 
 ### Regras de identificação da PC nº 1/2017
 
@@ -23,7 +23,6 @@ O mapeamento para FHIR R4 está na aba de mapeamentos deste artefato. Elementos 
 ### Pontos em aberto
 
 - **Recurso de destino.** Educação, trabalho, renda, tipo sanguíneo, orientação sexual e situação de moradia são mapeados para Observation, e não para extensões do Patient. Assim, esses dados não viajam na consulta ao MPI do CadSUS, que devolve só o Patient.
-- **Dados autodeclarados.** Raça/cor é autodeclarada (Art. 4º, IV) e hoje é 1..1 no br-core-patient, sem dataAbsentReason.
 - **Histórico de CNS.** O CNS é identificador "secundário e histórico" (Art. 3º, II), mas a fatia cns do br-core-patient é 0..1.
 - **Dados sensíveis.** O § 2º do Art. 4º não lista pessoa com deficiência como dado sensível, embora seja dado referente à saúde pela LGPD (art. 5º, II). O controle de acesso do § 1º é responsabilidade do servidor e das security labels, não do perfil.
 - **Sexo.** O Anexo distingue sexo ao nascer (Art. 3º, IX) de sexo do paciente autodeclarado (Art. 4º, II). A equivalência do segundo com Patient.gender precisa ser confirmada.

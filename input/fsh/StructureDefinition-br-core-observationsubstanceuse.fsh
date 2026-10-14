@@ -16,17 +16,21 @@ Description: "O perfil [br-core-observationsubstanceuse](StructureDefinition-br-
 * code ^definition = "Substância cujo uso é avaliado. Substância fora do ValueSet vai em code.text, ou em coding de outra terminologia (SNOMED CT), conforme o binding extensible."
 
 // frequência nos últimos 3 meses
-* value[x] 1..1 MS
+* value[x] 0..1 MS
 * value[x] only CodeableConcept
 * valueCodeableConcept from https://terminologia.saude.gov.br/fhir/ValueSet/BRFreqUsoSubstancia (required)
 * valueCodeableConcept ^short = "Frequência de uso nos últimos 3 meses"
-* valueCodeableConcept ^definition = "Frequência de uso da substância nos últimos 3 meses. Quando o dado não é informado, usar data-absent-reason (asked-declined, unknown)."
+* valueCodeableConcept ^definition = "Frequência de uso da substância nos últimos 3 meses. Quando a frequência não é informada, value[x] fica ausente e o motivo vai em dataAbsentReason."
 
 // período avaliado
 * effective[x] MS
 * effective[x] only dateTime or Period
 * effective[x] ^short = "Data da avaliação ou período avaliado"
 * effective[x] ^definition = "Data da avaliação, ou o período de 3 meses a que a frequência se refere. A frequência não vai em effectiveTiming."
+
+* dataAbsentReason MS
+* dataAbsentReason ^short = "Motivo da ausência da frequência"
+* dataAbsentReason ^definition = "Motivo da ausência da frequência de uso (asked-declined, unknown). Só quando value[x] está ausente."
 
 * note ^short = "Observações sobre o uso"
 
@@ -42,4 +46,4 @@ Description: "Uso de bebidas alcoólicas uma ou duas vezes nos últimos 3 meses.
 * subject.reference = "Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617"
 * effectivePeriod.start = "2026-07-13"
 * effectivePeriod.end = "2026-10-13"
-* valueCodeableConcept = https://terminologia.saude.gov.br/fhir/CodeSystem/BRFreqUsoSubstancia#uma-ou-duas "1 ou 2 vezes"
+* valueCodeableConcept = http://loinc.org#LA26460-8 "Once or twice"

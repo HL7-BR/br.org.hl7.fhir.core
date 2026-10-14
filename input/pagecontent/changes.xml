@@ -9,7 +9,7 @@
     <li>Nova seção Escopo na página inicial: o BR-Core é orientado a recursos; documentos clínicos normatizados ficam em guias de caso de uso; br-core-composition e br-core-bundle-documento são genéricos; critério de inclusão de perfil.</li>
     <li>Definição de mustSupport no BR-Core. O BR-Core não usa a extensão obligation.</li>
     <li>Regra de dados ausentes: data-absent-reason no lugar de códigos de "sem informação" das terminologias nacionais.</li>
-    <li>Retirados br-core-sumarioalta e br-core-registroatendimentoclinico. Os documentos são perfis dos guias de caso de uso (Sumário de Alta, RAC), sobre br-core-composition.</li>
+    <li>br-core-sumarioalta e br-core-registroatendimentoclinico continuam no BR-Core (restaurados na 1.5.1) até a publicação dos guias de caso de uso do Sumário de Alta e do RAC.</li>
   </ul>
 
   <h4>br-core-patient</h4>
@@ -18,13 +18,15 @@
     <li>identifier:cpf de 1..1 para 0..1, mustSupport.</li>
     <li>Invariante br-core-pat-2: sem CPF, CNS obrigatório (Art. 257, § 2º).</li>
     <li>Invariante br-core-pat-3: CNS com use official ou temp, para o CNS provisório (Art. 257, § 1º; Art. 259, II).</li>
-    <li>Raça/cor: dado autodeclarado; ausência por data-absent-reason.</li>
+    <li>extension:raca de 1..1 para 0..1, mustSupport: dado autodeclarado, omitido quando a pessoa não declara (a extensão do BR-IPS tem binding required e não aceita data-absent-reason).</li>
+    <li>Novo exemplo de paciente recém-nascido só com CNS provisório (use = temp) e raça/cor não declarada.</li>
   </ul>
 
   <h4>Observation</h4>
   <ul>
     <li>Novo br-core-observationsubstanceuse: substância e frequência de uso nos últimos 3 meses, uma observação por substância.</li>
     <li>br-core-observationtobaccouse: o valor é a situação tabágica (LOINC 72166-2), com o ValueSet do IPS como preferred; retirado o binding de frequência.</li>
+    <li>br-core-registroatendimentoclinico: a seção História Social aceita também o br-core-observationsubstanceuse.</li>
   </ul>
 
   <h4>Modelo lógico</h4>
@@ -33,5 +35,5 @@
   </ul>
 
   <h4>Compatibilidade</h4>
-  <p>Instâncias válidas na versão anterior continuam válidas, exceto as que usem os perfis retirados ou que enviem frequência de uso no br-core-observationtobaccouse.</p>
+  <p>Instâncias válidas na versão anterior continuam válidas, exceto as que enviem frequência de uso no br-core-observationtobaccouse.</p>
 </div>

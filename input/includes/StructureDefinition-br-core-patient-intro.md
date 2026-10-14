@@ -22,7 +22,7 @@ Cada paciente deve ter obrigatoriamente CPF ou CNS (invariante br-core-pat-2). C
   <tbody>
     <tr>
       <td>Identifier:cpf</td>
-      <td>O CPF é um identificador de pessoa física no Brasil, definido como número único e suficiente para identificação do cidadão nos bancos de dados de serviços públicos e é composto por 11 dígitos, sendo os 2 últimos dígitos os verificadores do CPF. O CPF é obrigatório quando existir (mustSupport), conforme a <a href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lei%2014.534-2023?OpenDocument">LEI Nº 14.534, DE 11 DE JANEIRO DE 2023</a>.</td>
+      <td>O CPF é um identificador de pessoa física no Brasil, definido como número único e suficiente para identificação do cidadão nos bancos de dados de serviços públicos e é composto por 11 dígitos, sendo os 2 últimos dígitos os verificadores do CPF. O CPF é opcional e mustSupport: deve ser enviado sempre que conhecido, conforme a <a href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lei%2014.534-2023?OpenDocument">LEI Nº 14.534, DE 11 DE JANEIRO DE 2023</a>.</td>
       <td>0..1</td>
       <td><a href="http://terminology.hl7.org/CodeSystem/v2-0203">http://terminology.hl7.org/CodeSystem/v2-0203</a> fixo em ‘TAX’</td>
     </tr>
@@ -67,8 +67,8 @@ Cada paciente deve ter obrigatoriamente CPF ou CNS (invariante br-core-pat-2). C
     </tr>
     <tr>
       <td>raca</td>
-      <td>Informa a raça do paciente – informação obrigatória conforme <a href="http://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?jornal=1&pagina=62&data=02/02/2017">Portaria nº 344 de 1º de fevereiro de 2017</a>.</td>
-      <td>1..1</td>
+      <td>Informa a raça do paciente, autodeclarada, de coleta obrigatória conforme <a href="http://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?jornal=1&pagina=62&data=02/02/2017">Portaria nº 344 de 1º de fevereiro de 2017</a>. Quando a pessoa não declara, a extensão é omitida.</td>
+      <td>0..1</td>
       <td><a href="https://terminologia-br-ig.web.app/CodeSystem-BRRacaCor.html">https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor</a></td>
     </tr>
     <tr>
