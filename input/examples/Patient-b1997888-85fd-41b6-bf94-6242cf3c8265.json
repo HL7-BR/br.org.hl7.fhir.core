@@ -61,17 +61,6 @@
             }
         },
         {
-            "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
-            "valueCodeableConcept": {
-                "coding": [
-                    {
-                        "system": "http://snomed.info/sct",
-                        "code": "446141000124107"
-                    }
-                ]
-            }
-        },
-        {
             "url": "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
             "valueCodeableConcept": {
                 "coding": [
