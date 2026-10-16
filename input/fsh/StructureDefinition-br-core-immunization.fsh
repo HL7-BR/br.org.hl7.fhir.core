@@ -78,21 +78,21 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * route 1..1
 * doseQuantity ^short = "Quantidade de imunobiológico administrado"
 * doseQuantity ^definition = "Quantidade de imunobiológico administrado"
-* performer ^short = "Profissional de saúde que administrou o imunobiológico"
-* performer ^definition = "Profissional de saúde que administrou o imunobiológico"
-* performer 1..1
+* performer ^short = "Profissionais que participaram do evento: quem administrou (AP), quem prescreveu (OP) e outros"
+* performer ^definition = "Profissionais que participaram do evento de imunização, cada um com a sua função: quem administrou o imunobiológico (AP), quem o prescreveu (OP) e outros papéis, como quem transcreveu a caderneta. A ocupação (CBO) fica no PractitionerRole referenciado em actor."
+* performer 1..*
 * performer.id ^short = "Identificador único para referência cruzada"
 * performer.id ^definition = "Identificador único para referência cruzada"
 * performer.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.modifierExtension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
 * performer.modifierExtension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico"
-* performer.function ^short = "Função do profissional de saúde no evento de administração de imunobiológico"
-* performer.function ^definition = "Função do profissional de saúde no evento de administração de imunobiológico"
-* performer.function from https://terminologia.saude.gov.br/fhir/ValueSet/BROcupacao (extensible)
+* performer.function ^short = "Função no evento: AP (administrou), OP (prescreveu)"
+* performer.function ^definition = "Função do profissional no evento de imunização (immunization-function do FHIR R4: AP, Administering Provider; OP, Ordering Provider). Não é a ocupação: o CBO fica em PractitionerRole.code."
+* performer.function from http://hl7.org/fhir/ValueSet/immunization-function (extensible)
 * performer.function 1..1
-* performer.actor ^short = "Profissional de saúde que administrou o imunobiológico"
-* performer.actor ^definition = "Profissional de saúde que administrou o imunobiológico"
+* performer.actor ^short = "Profissional (br-core-practitionerrole, com o CBO), profissional ou estabelecimento"
+* performer.actor ^definition = "Quem exerceu a função. Use br-core-practitionerrole quando a ocupação (CBO) for necessária."
 * performer.actor only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization)
 * note ^short = "Observações adicionais sobre o evento de administração de imunobiológico"
 * note ^definition = "Observações adicionais sobre o evento de administração de imunobiológico"
@@ -130,10 +130,9 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * education.presentationDate ^short = "Data de apresentação do documento educacional"
 * education.presentationDate ^definition = "Data de apresentação do documento educacional"
 * education.presentationDate 0..0
-* programEligibility ^short = "Informações sobre a elegibilidade do paciente para o programa de imunização"
-* programEligibility ^definition = "Informações sobre a elegibilidade do paciente para o programa de imunização"
+* programEligibility ^short = "Elegibilidade do indivíduo ao programa de imunização (ex.: grupo de atendimento)"
+* programEligibility ^definition = "Critério pelo qual o indivíduo é elegível à dose no programa de imunização, como o grupo de atendimento do PNI."
 * programEligibility from https://terminologia.saude.gov.br/fhir/ValueSet/BRElegibilidadeImunobiologico (example)
-* programEligibility 0..0
 * fundingSource ^short = "Fonte de financiamento do imunobiológico"
 * fundingSource ^definition = "Fonte de financiamento do imunobiológico"
 * fundingSource from http://hl7.org/fhir/ValueSet/immunization-funding-source (example)
