@@ -47,6 +47,8 @@
 
   <p align="justify">Quando o elemento é obrigatório no perfil e o dado pode faltar, como em dados autodeclarados, o perfil deve aceitar data-absent-reason nesse elemento.</p>
 
+  <p align="justify">Exceção: quando o dado está em uma extensão opcional cujo valor tem binding required a um ValueSet sem código de ausência, a extensão não aceita data-absent-reason no valor. Nesse caso a ausência se expressa omitindo a extensão. É o caso da raça/cor no br-core-patient (extensão raca-br-ips do IPS Brasil, 0..1 e mustSupport): quando a pessoa não declara, a extensão não é enviada. Uma extensão obrigatória nessa condição seria débito técnico, porque não teria como registrar a ausência.</p>
+
   <p align="justify">Esse escopo segue a prática de outros guias nacionais. US Core, AU Core, CA Baseline e FR Core não publicam perfis de documento. O CH Core publica apenas Composition e Bundle genéricos, e os documentos suíços, como o documento de vacinação (CH VACD), estão em guias de caso de uso.</p>
 
 </div>

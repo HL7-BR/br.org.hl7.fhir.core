@@ -15,8 +15,8 @@ title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
 license: CC0-1.0
-date: 2026-10-21
-version: 1.7.1
+date: 2026-10-22
+version: 1.7.2
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
