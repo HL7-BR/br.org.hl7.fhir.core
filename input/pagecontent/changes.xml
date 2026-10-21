@@ -1,6 +1,16 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>Mudanças do BR-Core por versão.</p>
 
+  <a name="1.7.0"> </a>
+  <h3>1.7.0 (2026-10-21)</h3>
+  <h4>br-core-organization</h4>
+  <ul>
+    <li>Nova extensão br-core-organization-memberof (memberOf, 0..*), referência a br-core-organization: vínculos do estabelecimento com outras organizações, como os polos-base da saúde indígena. Alguns estabelecimentos (CNES) estão vinculados a mais de um polo-base, o que partOf (0..1, mantenedora) não comporta.</li>
+    <li>Novos exemplos: dois polos-base (Humaitá/AM) e um estabelecimento vinculado aos dois.</li>
+  </ul>
+  <h4>Compatibilidade</h4>
+  <p>Só acréscimos: instâncias válidas na 1.6.1 continuam válidas.</p>
+
   <a name="1.6.1"> </a>
   <h3>1.6.1 (2026-10-15)</h3>
   <p>Mesmo conteúdo da 1.6.0, publicada como milestone para que a 1.6 passe a ser a versão corrente.</p>
