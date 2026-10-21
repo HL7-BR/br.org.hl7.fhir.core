@@ -1,6 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>Mudanças do BR-Core por versão.</p>
 
+  <a name="1.7.1"> </a>
+  <h3>1.7.1 (2026-10-21)</h3>
+  <p>Mesmo conteúdo da 1.7.0, publicada como milestone para que a 1.7 passe a ser a versão corrente.</p>
+
   <a name="1.7.0"> </a>
   <h3>1.7.0 (2026-10-21)</h3>
   <h4>br-core-organization</h4>
