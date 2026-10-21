@@ -15,8 +15,8 @@ title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
 license: CC0-1.0
-date: 2026-10-15
-version: 1.6.1
+date: 2026-10-21
+version: 1.7.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -208,6 +208,18 @@ resources:
      name: Exemplo de uso de álcool.
      description: Exemplo de uso de álcool fictícia.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-observationalcoholuse
+  Organization/a3f0c2d1-6b7e-4c59-8e21-0d4b9f7a1c62:
+    name: Exemplo de polo-base 1720.
+    description: Polo-base da Saúde Indígena (código 1720, Humaitá/AM), usado como alvo de memberOf.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
+  Organization/c81d5e47-9a3b-4f02-b6c8-2e7f1a9d0b34:
+    name: Exemplo de polo-base 1854.
+    description: Polo-base da Saúde Indígena (código 1854, Humaitá/AM), usado como alvo de memberOf.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
+  Organization/5e1a7c93-2d84-4b6f-9a07-c3f81e6d2b45:
+    name: Exemplo de estabelecimento vinculado a dois polos-base.
+    description: Estabelecimento (CNES fictício) vinculado aos polos-base 1720 e 1854 pela extensão memberOf.
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization
   Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995:
      name: Exemplo de organização.
      description: Exemplo de organização de saúde fictícia.

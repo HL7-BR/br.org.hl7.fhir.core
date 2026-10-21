@@ -1,0 +1,62 @@
+{
+    "resourceType": "Organization",
+    "id": "5e1a7c93-2d84-4b6f-9a07-c3f81e6d2b45",
+    "extension": [
+        {
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization-memberof",
+            "valueReference": {
+                "reference": "Organization/a3f0c2d1-6b7e-4c59-8e21-0d4b9f7a1c62",
+                "display": "Polo-base 1720 (exemplo)"
+            }
+        },
+        {
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization-memberof",
+            "valueReference": {
+                "reference": "Organization/c81d5e47-9a3b-4f02-b6c8-2e7f1a9d0b34",
+                "display": "Polo-base 1854 (exemplo)"
+            }
+        }
+    ],
+    "identifier": [
+        {
+            "use": "official",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                        "code": "PRN",
+                        "display": "Provider number"
+                    }
+                ]
+            },
+            "system": "https://saude.gov.br/fhir/sid/cnes",
+            "value": "9876543"
+        }
+    ],
+    "language": "pt-BR",
+    "active": true,
+    "name": "Unidade Básica de Saúde Indígena (exemplo)",
+    "alias": [
+        "UBSI Humaitá"
+    ],
+    "address": [
+        {
+            "extension": [
+                {
+                    "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+                                "code": "1301704"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "city": "Humaitá",
+            "state": "AM",
+            "country": "BRA"
+        }
+    ]
+}

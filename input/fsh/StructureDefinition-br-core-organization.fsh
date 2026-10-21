@@ -18,9 +18,12 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * extension ^definition = "Extensões adicionais que não fazem parte do modelo base"
 * extension contains
-    BRCoreOrganizationSubType named subType 0..1
+    BRCoreOrganizationSubType named subType 0..1 and
+    BRCoreOrganizationMemberOf named memberOf 0..*
 * extension[subType] ^short = "Subtipo do estabelecimento de saúde"
 * extension[subType] ^definition = "Subtipo do estabelecimento de saúde, que detalha o tipo informado em Organization.type"
+* extension[memberOf] ^short = "Organização à qual o estabelecimento está vinculado"
+* extension[memberOf] ^definition = "Organização à qual o estabelecimento está vinculado, por exemplo um Polo-base da Saúde Indígena. Repete-se uma vez por vínculo: alguns estabelecimentos (CNES) estão vinculados a mais de um polo-base."
 * modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * identifier ^short = "Identificadores externos para este recurso"
@@ -383,6 +386,7 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * partOf ^short = "Referência à Organização associada (p.ex. Mantenedora)"
 * partOf ^definition = "Referência à Organização associada (p.ex. Mantenedora)"
 * partOf only Reference(br-core-organization)
+* partOf ^comment = "partOf é 0..1 e representa a mantenedora. Vínculos que podem ser vários, como os polos-base de um estabelecimento, vão na extensão memberOf."
 * contact ^short = "Contato"
 * contact ^definition = "Contato para a organização para uma determinada finalidade"
 * contact.id ^short = "Identificação unívoca da pessoa de contato"
