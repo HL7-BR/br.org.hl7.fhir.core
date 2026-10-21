@@ -25,8 +25,8 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * status ^short = "Status/Situação da Composition"
 * status ^definition = "Status/Situação da Composition: preliminar, definitivo, alterado, inserido com erro"
 * status from http://hl7.org/fhir/ValueSet/composition-status (required)
-* type ^short = "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)"
-* type ^definition = "Tipo da Composition (fixo em 'Sumário Internacional do Paciente)"
+* type ^short = "Tipo do documento"
+* type ^definition = "Tipo do documento clínico. Os perfis derivados fixam o código do seu documento (por exemplo, sumário de alta ou registro de imunização)."
 * type from http://hl7.org/fhir/ValueSet/doc-typecodes (preferred)
 * type.id ^short = "ID exclusivo para referência entre elementos"
 * type.id ^definition = "ID exclusivo para referência entre elementos"
@@ -75,10 +75,10 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * date ^short = "Data de edição da Composition"
 * date ^definition = "Data de edição da Composition"
 * author ^short = "Quem e/ou o que foi o autor desta Composition"
-* author ^definition = "Quem e/ou o que foi o autor desta Compositon"
+* author ^definition = "Quem e/ou o que foi o autor desta Composition"
 * author only Reference(br-core-practitioner or br-core-practitionerrole or Device or br-core-patient or br-core-relatedperson or br-core-organization)
-* title ^short = "Sumário Internacional do Paciente"
-* title ^definition = "Sumário Internacional do Paciente"
+* title ^short = "Título legível do documento"
+* title ^definition = "Título legível do documento. Os perfis derivados indicam o título do seu documento."
 * confidentiality ^short = "Códigos que especificam o nível de confidencialidade da Composition"
 * confidentiality ^definition = "Códigos que especificam o nível de confidencialidade da Composition"
 * confidentiality from http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification (required)
