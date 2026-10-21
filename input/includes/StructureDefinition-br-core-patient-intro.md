@@ -130,10 +130,10 @@ Fluxo proposto com base na Portaria GM/MS nº 12.263/2026 (Art. 257 e Art. 259, 
 <a name="cadsus"> </a>
 <h3>br-core-patient e o Modelo de Informação do CadSUS</h3>
 
-Onde cada dado do Anexo XLII da PC nº 1/2017 (Portaria GM/MS nº 12.263/2026) fica no BR-Core 1.6.0. Sensível: Art. 4º, § 2º. As lacunas estão no modelo lógico [br-core-cadsus-ml](StructureDefinition-br-core-cadsus-ml.html).
+Onde cada dado do Anexo XLII da PC nº 1/2017 (Portaria GM/MS nº 12.263/2026) fica no BR-Core. Sensível: Art. 4º, § 2º. As lacunas estão no modelo lógico [br-core-cadsus-ml](StructureDefinition-br-core-cadsus-ml.html).
 
 <table class="grid">
-  <thead><tr><th>Artigo</th><th>Dado do Anexo XLII</th><th>Sensível</th><th>BR-Core 1.6.0</th><th>Situação</th></tr></thead>
+  <thead><tr><th>Artigo</th><th>Dado do Anexo XLII</th><th>Sensível</th><th>BR-Core</th><th>Situação</th></tr></thead>
   <tbody>
     <tr><td colspan="5"><b>Identificação (Art. 3º)</b></td></tr>
     <tr><td>I</td><td>CPF</td><td></td><td><code>identifier:cpf 0..1, mustSupport</code></td><td><span style="background:#FFEDD5;color:#7C2D12;padding:2px 8px;border-radius:10px;white-space:nowrap">Resolvido na 1.6.0</span></td></tr>
