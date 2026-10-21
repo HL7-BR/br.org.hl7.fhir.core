@@ -1,0 +1,60 @@
+{
+    "resourceType": "Organization",
+    "id": "a3f0c2d1-6b7e-4c59-8e21-0d4b9f7a1c62",
+    "extension": [
+        {
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization-subtype",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/SubtipoEstabelecimento",
+                        "code": "PoloBase",
+                        "display": "Polo-base Saúde Indígena"
+                    }
+                ]
+            }
+        }
+    ],
+    "identifier": [
+        {
+            "use": "official",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                        "code": "PRN",
+                        "display": "Provider number"
+                    }
+                ]
+            },
+            "system": "https://saude.gov.br/fhir/sid/polo-base",
+            "value": "1720"
+        }
+    ],
+    "language": "pt-BR",
+    "active": true,
+    "name": "Polo-base 1720 (exemplo)",
+    "alias": [
+        "Polo-base 1720"
+    ],
+    "address": [
+        {
+            "extension": [
+                {
+                    "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+                                "code": "1301704"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "city": "Humaitá",
+            "state": "AM",
+            "country": "BRA"
+        }
+    ]
+}
