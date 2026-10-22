@@ -72,9 +72,9 @@
         "function": {
           "coding": [
             {
-              "system": "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
-              "code": "223505",
-              "display": "ENFERMEIRO"
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+              "code": "AP",
+              "display": "Administering Provider"
             }
           ]
         },
