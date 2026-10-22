@@ -5,10 +5,10 @@
   <p align="justify">
     O br-core foi projetado como o núcleo padronizado de interoperabilidade para todos os sistemas de saúde no Brasil, e sua aplicação universal é fundamentada em princípios e premissas que garantem eficiência, consistência e alinhamento com padrões globais. 
   </p>
-    <h2><strong>Princípios e Premissas</strong></h2>
+    <h3><strong>Princípios e Premissas</strong></h3>
     <p>O br-core foi projetado como o núcleo padronizado de interoperabilidade para todos os sistemas de saúde no Brasil, e sua aplicação universal é fundamentada em princípios e premissas que garantem eficiência, consistência e alinhamento com padrões globais.</p>
 
-    <h3>Princípios Fundamentais</h3>
+    <h4>Princípios Fundamentais</h4>
   <ul>
     <li>Promover a interoperabilidade técnica e semântica, permitindo que diferentes sistemas e tecnologias se conectem e troquem informações de maneira consistente;</li>
     <li>Ser baseado no HL7 FHIR R4, assegurando a conformidade com os padrões internacionais mais amplamente adotados, como SNOMED CT e LOINC; </li>
@@ -21,7 +21,7 @@
   </ul>
   <p align="justify">Premissas que Fundamentaram o br-core</p>
 
-    <h3>Premissas</h3>
+    <h4>Premissas</h4>
     <ul>
         <li><strong>Adoção de Modelos Abertos:</strong> Diferentemente da abordagem fechada da RNDS, o br-core utiliza modelos abertos do FHIR, alinhando-se com padrões globais e proporcionando maior flexibilidade.</li>
         <li><strong>Centralidade no Paciente:</strong> O br-core prioriza o acesso seguro e integrado às informações de saúde dos pacientes, promovendo cuidados centrados e de alta qualidade.</li>
@@ -31,11 +31,11 @@
         <li><strong>Eficiência e Reuso:</strong> Permite reutilização de dados para múltiplos propósitos, como faturamento e relatórios de saúde pública, otimizando recursos.</li>
         <li><strong>Conformidade e Governança:</strong> Promove governança semântica e técnica, com uso de terminologias padronizadas e processos de validação.</li>
     </ul>
-  <h2>Convenções de Design</h2>
+  <h3>Convenções de Design</h3>
   <p>As convenções e o design do BR-Core são orientados para melhorar a interoperabilidade e a padronização dos dados de saúde no Brasil. Ao adaptar e evoluir os padrões da RNDS, o BR-Core fornece uma base sólida para o desenvolvimento e a integração de sistemas de informação em saúde, promovendo uma melhor comunicação e coordenação entre os diferentes atores do setor de saúde.</p>
   <p>As convenções de design herdam os requisitos dos Guias Nacionais do HL7 e incorporam os registros da recente proposta de Framework de Guias Nacionais do HL7. </p>
   <p>Os Guias Nacionais do HL7 (Health Level Seven) são desenvolvidos para promover a interoperabilidade entre sistemas de informação em saúde, adaptando padrões internacionais às condições locais. Eles abrangem uma ampla gama de áreas, como registros clínicos, administração de saúde, segurança da informação, entre outros.</p>
-<h3>Requisitos dos Guias Nacionais do HL7</h3>
+<h4>Requisitos dos Guias Nacionais do HL7</h4>
 <ul>
 <li><strong>Interoperabilidade:</strong> Os guias nacionais devem garantir que os sistemas de saúde possam trocar informações de maneira eficiente e segura, promovendo a continuidade do cuidado ao paciente.</li>
 <li><strong>Conformidade com Padrões Internacionais:</strong> Adaptação dos padrões internacionais do HL7 às necessidades locais, mantendo a conformidade com as normas globais para garantir a interoperabilidade em um contexto mais amplo.</li>
@@ -44,7 +44,7 @@
 <li><strong>Governança e Atualização Contínua:</strong> Estabelecimento de um processo robusto de governança para garantir que os guias e suas tabelas de referência sejam continuamente atualizados e revisados para atender às necessidades emergentes do sistema de saúde.</li>
 </ul>
 
-<h3>Design Específico para BR-Core</h3>
+<h4>Design Específico para BR-Core</h4>
 
 <li><strong>Modelo de Informação:</strong> Segue o modelo da RNDS e adota o perfil R4 canônico para garantir consistência, versatilidade e conformidade com os padrões. Adota os perfis da RNDS apenas quando há regulamentações nacionais que tornam um elemento obrigatório ou quando é necessário usar Codesystems e ValueSets específicos do Brasil.</li>
 <li><strong>Especialização de Perfis Observation:</strong></li>

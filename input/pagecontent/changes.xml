@@ -1,6 +1,35 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>Mudanças do BR-Core por versão.</p>
 
+  <a name="1.7.2"> </a>
+  <h3>1.7.2 (2026-10-22)</h3>
+  <ul>
+    <li>br-core-patient: texto reescrito (sobre o perfil, cenários de uso, mustSupport, paciente sem identificação, identificadores), fluxo de identificação do paciente no documento clínico e tabela do Modelo de Informação do CadSUS.</li>
+    <li>Página inicial: diagramas das camadas (FHIR R4, BR-Core e guias de caso de uso) e da estrutura de um documento clínico.</li>
+    <li>Dados ausentes: exceção da extensão opcional com binding required (raça/cor omitida quando não declarada).</li>
+    <li>Páginas com um único título de nível superior (acessibilidade).</li>
+    <li>Exemplos: o documento clínico usa o mesmo paciente na Composition e nas entradas; identidade de gênero retirada dos pacientes de exemplo.</li>
+  </ul>
+  <p>Sem mudança de perfis: instâncias válidas na 1.7.1 continuam válidas.</p>
+
+  <a name="1.7.1"> </a>
+  <h3>1.7.1 (2026-10-21)</h3>
+  <p>Mesmo conteúdo da 1.7.0, publicada como milestone para que a 1.7 passe a ser a versão corrente.</p>
+
+  <a name="1.7.0"> </a>
+  <h3>1.7.0 (2026-10-21)</h3>
+  <h4>br-core-organization</h4>
+  <ul>
+    <li>Nova extensão br-core-organization-memberof (memberOf, 0..*), referência a br-core-organization: vínculos do estabelecimento com outras organizações, como os polos-base da saúde indígena. Alguns estabelecimentos (CNES) estão vinculados a mais de um polo-base, o que partOf (0..1, mantenedora) não comporta.</li>
+    <li>Novos exemplos: dois polos-base (Humaitá/AM) e um estabelecimento vinculado aos dois.</li>
+  </ul>
+  <h4>Compatibilidade</h4>
+  <p>Só acréscimos: instâncias válidas na 1.6.1 continuam válidas.</p>
+
+  <a name="1.6.1"> </a>
+  <h3>1.6.1 (2026-10-15)</h3>
+  <p>Mesmo conteúdo da 1.6.0, publicada como milestone para que a 1.6 passe a ser a versão corrente.</p>
+
   <a name="1.6.0"> </a>
   <h3>1.6.0 (2026-10-13)</h3>
 

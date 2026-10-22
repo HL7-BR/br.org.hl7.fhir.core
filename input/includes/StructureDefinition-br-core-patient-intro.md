@@ -63,7 +63,7 @@ Os identificadores nacionais são fatias de `identifier`, discriminadas por `sys
   </tbody>
 </table>
     
-<h2>Extensões adicionais do recurso br-core-patient </h2>
+<h3>Extensões adicionais do recurso br-core-patient </h3>
 
 <table border="1">
     <thead>
@@ -121,14 +121,14 @@ Os identificadores nacionais são fatias de `identifier`, discriminadas por `sys
   </tbody>
 </table>
 
-<h2>Identificação do paciente no documento clínico</h2>
+<h3>Identificação do paciente no documento clínico</h3>
 
 Fluxo proposto com base na Portaria GM/MS nº 12.263/2026 (Art. 257 e Art. 259, II, da PC nº 1/2017). O sistema do estabelecimento consulta o MPI do CadSUS antes do envio e inclui o paciente no Bundle com referência literal. A exposição do MPI em PDQm e PIXm (FHIR) é recomendação ao Ministério da Saúde e ainda não está disponível.
 
 <p><img src="br-core-identificacao-paciente.svg" alt="Identificação do paciente no documento clínico" style="max-width:100%"/></p>
 
 <a name="cadsus"> </a>
-<h2>br-core-patient e o Modelo de Informação do CadSUS</h2>
+<h3>br-core-patient e o Modelo de Informação do CadSUS</h3>
 
 Onde cada dado do Anexo XLII da PC nº 1/2017 (Portaria GM/MS nº 12.263/2026) fica no BR-Core 1.6.0. Sensível: Art. 4º, § 2º. As lacunas estão no modelo lógico [br-core-cadsus-ml](StructureDefinition-br-core-cadsus-ml.html).
 
@@ -167,7 +167,7 @@ Onde cada dado do Anexo XLII da PC nº 1/2017 (Portaria GM/MS nº 12.263/2026) f
   </tbody>
 </table>
 
-<h2> Orientações para implementação </h2>
+<h3> Orientações para implementação </h3>
 
 O endereço do paciente será representado pelo tipo de dados Address do FHIR R4. Observar que: 
 
