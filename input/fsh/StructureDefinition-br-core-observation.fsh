@@ -88,7 +88,6 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * referenceRange.extension ^definition = "Extensões adicionais que não fazem parte do modelo de dados básico" 
 * referenceRange.modifierExtension ^short = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * referenceRange.modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
-* referenceRange.modifierExtension 1..1
 * referenceRange.low ^short = "Limite inferior do intervalo"
 * referenceRange.low ^definition = "Limite inferior do intervalo de valores de referência"
 * referenceRange.high ^short = "Limite superior do intervalo"
