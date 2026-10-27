@@ -47,7 +47,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * encounter ^short = "Referência ao atendimento no qual o imunobiológico foi administrado"
 * encounter ^definition = "Referência ao atendimento no qual o imunobiológico foi administrado"
 * encounter only Reference(br-core-encounter)
-* encounter 0..0
+* encounter 0..1
 * occurrence[x] ^short = "Data em que o imunobiológico foi administrado"    
 * occurrence[x] ^definition = "Data em que o imunobiológico foi administrado"
 * recorded ^short = "Data em que o primeiro registro de vacinação foi feito"
