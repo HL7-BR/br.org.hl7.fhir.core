@@ -29,7 +29,8 @@ Description: "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4
 * operationalStatus ^definition = "O status operacional do local (normalmente apenas para uma cama/quarto)"
 * name ^short = "Nome do local"
 * name ^definition = "Nome do local"
-* name 1..1
+* name 0..1
+* obeys br-core-loc-1
 * alias ^short = "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado"
 * alias ^definition = "Uma lista de nomes alternativos pelos quais o local é conhecido, ou foi conhecido, no passado"
 * description ^short = "Detalhes adicionais sobre o local que podem ser exibidos como informações adicionais para identificar o local além do seu nome"
@@ -85,3 +86,8 @@ Description: "Este perfil restringe o recurso [Location](https://hl7.org/fhir/R4
 * availabilityExceptions ^definition = "Descrição das exceções de disponibilidade"
 * endpoint ^short = "Endpoints técnicos que fornecem acesso aos serviços operados para o local"
 * endpoint ^definition = "Endpoints técnicos que fornecem acesso aos serviços operados para o local"
+
+Invariant: br-core-loc-1
+Description: "O local tem nome ou endereço."
+Severity: #error
+Expression: "name.exists() or address.exists()"
