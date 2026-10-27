@@ -77,7 +77,7 @@ Description: "Este perfil é baseado no perfil [VitalSigns](http://hl7.org/fhir/
 * performer only Reference(br-core-practitioner or br-core-practitionerrole or br-core-organization or CareTeam or br-core-patient or br-core-relatedperson)
 * value[x] ^short = "Valor dos sinais vitais"
 * value[x] ^definition = "Valor dos sinais vitais"
-* value[x] 1..1
+* value[x] 0..1
 * dataAbsentReason ^short = "Por que o resultado não está disponível"
 * dataAbsentReason ^definition = "Por que o resultado não está disponível"
 * interpretation ^short = "Interpretação da observação"
