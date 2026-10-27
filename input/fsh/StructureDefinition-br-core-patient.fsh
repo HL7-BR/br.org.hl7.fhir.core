@@ -53,7 +53,7 @@ Para contemplar uma descrição do paciente com maior equidade, conforme recomen
 * identifier ^slicing.description = "Identificadores nacionais do paciente"
 * identifier 0..*
 * identifier contains
-    cns 0..1 and
+    cns 0..* and
     cpf 0..1 MS and
     registroEstrangeiro 0..1 and
     passaporte 0..1
