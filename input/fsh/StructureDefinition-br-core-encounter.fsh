@@ -160,7 +160,8 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * hospitalization.dischargeDisposition ^short = "Categoria ou tipo de local após a alta"
 * hospitalization.dischargeDisposition ^definition = "Categoria ou tipo de local após a alta"
 * hospitalization.dischargeDisposition from https://terminologia.saude.gov.br/fhir/ValueSet/BRMotivoDesfecho (example)
-* hospitalization.dischargeDisposition 1..1
+* hospitalization.dischargeDisposition 0..1
+* obeys br-core-enc-1
 * location ^short = "Lista de locais onde o paciente esteve"
 * location ^definition = "Lista de locais onde o paciente esteve"
 * location.id ^short = "Identificador único para referência cruzada"
@@ -187,3 +188,8 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * partOf ^short = "Outro atendimento do qual este atendimento faz parte"
 * partOf ^definition = "Outro atendimento do qual este atendimento faz parte"
 * partOf only Reference(br-core-encounter)
+
+Invariant: br-core-enc-1
+Description: "Internação finalizada tem o motivo do desfecho (hospitalization.dischargeDisposition)."
+Severity: #error
+Expression: "(status = 'finished' and hospitalization.exists()) implies hospitalization.dischargeDisposition.exists()"
