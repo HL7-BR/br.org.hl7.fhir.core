@@ -69,10 +69,10 @@ Description: "Este perfil restringe o recurso Specimen para representar as carac
 * collection.duration ^definition = "Duracao da coleta"
 * collection.quantity ^short = "Quantidade de amostra coletada"
 * collection.quantity ^definition = "Quantidade de amostra coletada"
-* collection.quantity 1..1
+* collection.quantity 0..1
 * collection.method ^short = "Método de coleta da amostra"
 * collection.method ^definition = "Método de coleta da amostra"
-* collection.method 1..1
+* collection.method 0..1
 * collection.method from http://hl7.org/fhir/ValueSet/specimen-collection-method (example)
 * collection.bodySite ^short = "Local anatômico de coleta da amostra"
 * collection.bodySite ^definition = "Local anatômico de coleta da amostra"
