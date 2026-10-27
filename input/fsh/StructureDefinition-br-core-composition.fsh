@@ -163,6 +163,6 @@ Description: "Um conjunto de informações relacionadas aos cuidados em sáude q
 * section.entry ^definition = "Uma referência ao recurso a partir do qual a narrativa da seção é derivada"
 * section.emptyReason ^short = "Explicação porquê a seção está vazia"
 * section.emptyReason ^definition = "Explicação porquê a seção está vazia"
-* section.orderedBy from http://hl7.org/fhir/ValueSet/list-empty-reason (preferred)
+* section.emptyReason from http://hl7.org/fhir/ValueSet/list-empty-reason (preferred)
 * section.section ^short = "Uma subseção aninhada dentro desta seção"
 * section.section ^definition = "Uma subseção aninhada dentro desta seção"
