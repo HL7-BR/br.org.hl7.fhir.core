@@ -5,4 +5,4 @@ Description: "Esta extensão representa uma conduta associada ao laudo, fornecen
 Context: DiagnosticReport
 * value[x] 1..1
 * value[x] only CodeableConcept
-* valueCodeableConcept from https://terminologia.saude.gov.br/fhir/ValueSet/BRCondutaColposcopia (extensible)
+* valueCodeableConcept from https://terminologia.saude.gov.br/fhir/ValueSet/BRCondutaColposcopia (example)
