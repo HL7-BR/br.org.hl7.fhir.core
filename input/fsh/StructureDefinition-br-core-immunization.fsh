@@ -104,7 +104,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * reasonReference ^short = "Referência ao motivo pelo qual o imunobiológico foi administrado"
 * reasonReference ^definition = "Referência ao motivo pelo qual o imunobiológico foi administrado"
 * reasonReference only Reference(br-core-condition or br-core-observation or br-core-diagnosticreport)
-* reasonReference 0..1
+* reasonReference 0..*
 * isSubpotent ^short = "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada"
 * isSubpotent ^definition = "Indica se o imunobiológico foi administrado em uma dose menor que a recomendada"
 * isSubpotent 0..0
