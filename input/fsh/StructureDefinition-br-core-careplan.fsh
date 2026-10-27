@@ -42,7 +42,7 @@ Description: "Este perfil restringe o recurso [CarePlan](https://hl7.org/fhir/R4
 * category ^definition = "Tipo de Plano de Cuidado"
 * title ^short = "Nome do Plano de Cuidado"
 * title ^definition = "Nome do Plano de Cuidado"
-* description 1..1
+* description 0..1
 * description ^short = "Descrição do Plano de Cuidado"
 * description ^definition = "Descrição do Plano de Cuidado"
 * subject ^short = "Paciente referenciado pelo Plano de Cuidado"
@@ -73,7 +73,7 @@ Description: "Este perfil restringe o recurso [CarePlan](https://hl7.org/fhir/R4
 * goal ^definition = "Resultado esperado do Plano de Cuidado"
 * activity ^short = "Atividade parte do Plano de Cuidado"
 * activity ^definition = "Atividade parte do Plano de Cuidado"
-* activity 1..1
+* activity 0..*
 * activity.id ^short = "Identificador único para referência cruzada"
 * activity.id ^definition = "Identificador único para referência cruzada"
 * activity.extension ^short = "Extensões adicionais que não fazem parte do modelo de dados básico"
