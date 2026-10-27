@@ -69,7 +69,7 @@ Description: "Este perfil restringe o recurso PractitionerRole que representa um
 * active 1..1
 * period ^short = "Período durante o qual o profissional está autorizado a exercer essa função"
 * period ^definition = "Período durante o qual o profissional está autorizado a exercer essa função"
-* period 1..1
+* period 0..1
 * practitioner ^short = "Referência ao profissional"
 * practitioner ^definition = "Referência ao profissional"
 * practitioner only Reference(br-core-practitioner)

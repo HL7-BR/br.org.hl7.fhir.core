@@ -72,7 +72,7 @@ Description: "Este recurso descreve uma ação que é ou foi realizada em ou par
 * asserter only Reference(br-core-patient or br-core-relatedperson or br-core-practitioner or br-core-practitionerrole)
 * performer ^short = "Executante do procedimento"
 * performer ^definition = "Executante do procedimento"
-* performer 1..1
+* performer 0..1
 * performer.id ^short = "Identificador exclusivo para referência entre elementos"
 * performer.id ^definition = "Identificador exclusivo para referência entre elementos"
 * performer.extension ^short = "Conteúdo adicional definido por implementações"

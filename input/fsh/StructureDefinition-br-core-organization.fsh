@@ -368,12 +368,12 @@ Description: "Este perfil representa um agrupamento formal ou informal reconheci
 * name 1..1
 * name ^short = "Nome da organização"
 * name ^definition = "Nome da organização"
-* alias 1..1
+* alias 0..1
 * alias ^short = "Razão social da organização"
 * alias ^definition = "Razão social da organização"
 * telecom ^short = "Meio de contato" 
 * telecom ^definition = "Meio de contato" 
-* address 1..1
+* address 0..1
 * address ^short = "Endereço"
 * address ^definition = "Endereço"
 * address.extension contains
