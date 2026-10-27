@@ -22,7 +22,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * identifier ^short = "Identificadores para este recurso"
 * identifier ^definition = "Identificadores para este recurso"
-* identifier 1..1
+* identifier 0..1
 * status ^short = "Status atual da requisição de medicamento: ativa,  em espera, cancelada, concluída, registrada por engano, interrompida, rascunho, desconhecido"
 * status ^definition = "Status atual da requisição de medicamento: ativa,  em espera, cancelada, concluída, registrada por engano, interrompida, rascunho, desconhecido"
 * statusReason ^short = "Motivo do status atual"
@@ -127,7 +127,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.timing ^definition = "Quando a medicamento deve ser administrado" 
 * dosageInstruction.timing.repeat ^short = "Quando o evento ocorre"
 * dosageInstruction.timing.repeat ^definition = "Quando o evento ocorre"
-* dosageInstruction.timing.repeat 1..1
+* dosageInstruction.timing.repeat 0..1
 //* dosageInstruction.timing.repeat.bounds[x].count ^short = "Número de repetições"
 //* dosageInstruction.timing.repeat.bounds[x].count ^definition = "Número de repetições"
 //* dosageInstruction.timing.repeat.bounds[x].countMax ^short = "Número de repetições máxima"
@@ -184,7 +184,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.doseAndRate.type ^definition = "O tipo de dose ou taxa de administração especificada" 
 * dosageInstruction.doseAndRate.dose[x] ^short = "Quantidade de medicamento por dose"
 * dosageInstruction.doseAndRate.dose[x] ^definition = "Quantidade de medicamento por dose" 
-* dosageInstruction.doseAndRate.dose[x] 1..1
+* dosageInstruction.doseAndRate.dose[x] 0..1
 * dosageInstruction.doseAndRate.rate[x] ^short = "Quantidade de medicamento por unidade de tempo"
 * dosageInstruction.doseAndRate.rate[x] ^definition = "Quantidade de medicamento por unidade de tempo" 
 * dosageInstruction.maxDosePerPeriod ^short = "Quantidade máxima de medicamento por unidade de tempo"
@@ -217,7 +217,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dispenseRequest.dispenseInterval ^definition = "Período mínimo de tempo entre dispensações de medicamentos autorizado" 
 * dispenseRequest.validityPeriod ^short = "Validade da autorização de fornecimento de medicamentos"
 * dispenseRequest.validityPeriod ^definition = "validade da autorização de fornecimento de medicamentos" 
-* dispenseRequest.validityPeriod 1..1
+* dispenseRequest.validityPeriod 0..1
 * dispenseRequest.validityPeriod.id ^short = "Identificador exclusivo para referência entre elementos"
 * dispenseRequest.validityPeriod.id ^definition = "Identificador exclusivo para referência entre elementos" 
 * dispenseRequest.validityPeriod.start ^short = "Data/Hora do início da validade da autorização(intervalo fechado)"
