@@ -25,7 +25,7 @@ Description: "Este perfil restringe o recurso [Immunization](https://hl7.org/fhi
 * status ^definition = "O status do evento de administração de imunobiológico"
 * statusReason ^short = "O motivo pelo qual o imunobiológico não foi administrado"
 * statusReason ^definition = "O motivo pelo qual o imunobiológico não foi administrado"
-* statusReason 0..0
+* statusReason 0..1
 * vaccineCode ^short = "Imunobiológico administrado"
 * vaccineCode ^definition = "Imunobiológico administrado"
 * vaccineCode from https://terminologia.saude.gov.br/fhir/ValueSet/BRImunobiologico (example)
