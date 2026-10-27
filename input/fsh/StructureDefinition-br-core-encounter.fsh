@@ -123,7 +123,7 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * diagnosis.condition only Reference(br-core-condition or br-core-procedure)
 * diagnosis.use ^short = "Papel deste diagnóstico no atendimento (por exemplo, internação, faturamento, alta…)"
 * diagnosis.use ^definition = "Papel deste diagnóstico no atendimento (por exemplo, internação, faturamento, alta…)"
-* diagnosis.use 1..1
+* diagnosis.use 0..1
 * diagnosis.use from http://hl7.org/fhir/ValueSet/diagnosis-role (preferred)
 * diagnosis.rank ^short = "Classificação do diagnóstico"
 * diagnosis.rank ^definition = "Classificação do diagnóstico"
