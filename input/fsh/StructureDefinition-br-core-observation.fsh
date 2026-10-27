@@ -100,7 +100,7 @@ Description: "O recurso [br-core-Observation](StructureDefinition-br-core-observ
 * referenceRange.age ^definition = "Faixa etária aplicável, se relevante"
 * referenceRange.text ^short = "Intervalo de referência em formato textual"
 * referenceRange.text ^definition = "Intervalo de referência em formato textual"
-* referenceRange.text 1..1
+* referenceRange.text 0..1
 * hasMember ^short = "Referência à Observação/Resposta de questionário associada a esta observação"
 * hasMember ^definition = "Referência à Observação/Resposta de questionário associada a esta observação"
 * hasMember only Reference(br-core-observation or QuestionnaireResponse or MolecularSequence)
