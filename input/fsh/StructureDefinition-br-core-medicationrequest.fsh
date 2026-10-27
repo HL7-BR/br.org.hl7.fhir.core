@@ -108,7 +108,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * note ^definition = "Informações sobre a requisição"
 * dosageInstruction ^short = "Como o medicamento deve ser usado"
 * dosageInstruction ^definition = "Como o medicamento deve ser usado" 
-* dosageInstruction 0..1
+* dosageInstruction 0..*
 * dosageInstruction.id ^short = "Identificador exclusivo para referência entre elementos"
 * dosageInstruction.id ^definition = "Identificador exclusivo para referência entre elementos" 
 * dosageInstruction.extension ^short = "Conteúdo adicional definido pelas implementações"
