@@ -69,20 +69,20 @@ Description: "Este recurso Indica que um medicamento deve ser ou foi dispensado 
 * type ^definition = "Tipo de dispensação do medicamento"
 * quantity ^short = "Quantidade de medicamento dispensada"
 * quantity ^definition = "Quantidade de medicamento dispensada"
-* quantity 0..1
+* quantity 1..1
 * daysSupply ^short = "Número de dias de dispensação do medicamento"
 * daysSupply ^definition = "Número de dias de dispensação do medicamento"
 * whenPrepared ^short = "Quando o produto foi embalado e revisado"
 * whenPrepared ^definition = "Quando o produto foi embalado e revisado"
 * whenHandedOver ^short = "Quando o produto foi distribuído"
 * whenHandedOver ^definition = "Quando o produto foi distribuído"
-* whenHandedOver 0..1
+* whenHandedOver 1..1
 * destination ^short = "Para onde o medicamento foi enviado"
 * destination ^definition = "Para onde o medicamento foi enviado"
 * destination only Reference(br-core-location)
 * receiver ^short = "Referência ao profissional ou ao paciente que recebeu o medicamento"
 * receiver ^definition = "Referência ao profissional ou ao paciente que recebeu o medicamento"
-* receiver 0..*
+* receiver 1..1
 * receiver only Reference(br-core-practitioner or br-core-patient)
 * note ^short = "Informações sobre a dispensação do medicamento"
 * note ^definition = "Informações sobre a dispensação do medicamento"
