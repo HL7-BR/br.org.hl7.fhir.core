@@ -79,7 +79,8 @@ Title: "Resultado com faixa de referência numérica, sem texto (DR-09, DL-31)"
 Description: "Glicose em jejum com referenceRange só por low e high. Até a 1.7.1, referenceRange.text era 1..1."
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory "Laboratory"
-* code = $loinc#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma"
+* code = $loinc#1558-6
+* code.text = "Glicose em jejum"
 * subject = Reference(Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e) "João Carlos Silva"
 * effectiveDateTime = "2026-10-21T07:30:00-03:00"
 * valueQuantity = 92 'mg/dL' "mg/dL"
@@ -107,7 +108,7 @@ Usage: #example
 Title: "Amostra sem quantidade e método de coleta (DL-32)"
 Description: "Swab de nasofaringe com data da coleta, sem collection.quantity e sem collection.method. Até a 1.7.1, os dois eram 1..1."
 * status = #available
-* type = http://snomed.info/sct#258500001 "Nasopharyngeal swab"
+* type = https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoAmostraGAL#SWNAFA "Swab Nasofaríngeo"
 * subject = Reference(Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e) "João Carlos Silva"
 * collection.collectedDateTime = "2026-10-21T10:00:00-03:00"
 
