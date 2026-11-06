@@ -22,7 +22,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * modifierExtension ^definition = "Extensões adicionais que não podem ser ignoradas, mesmo que não reconhecidas"
 * identifier ^short = "Identificadores para este recurso"
 * identifier ^definition = "Identificadores para este recurso"
-* identifier 0..1
+* identifier 0..*
 * status ^short = "Status atual da requisição de medicamento: ativa,  em espera, cancelada, concluída, registrada por engano, interrompida, rascunho, desconhecido"
 * status ^definition = "Status atual da requisição de medicamento: ativa,  em espera, cancelada, concluída, registrada por engano, interrompida, rascunho, desconhecido"
 * statusReason ^short = "Motivo do status atual"
