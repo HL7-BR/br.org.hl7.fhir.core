@@ -171,7 +171,7 @@ Description: "Um pedido ou solicitação para fornecimento do medicamento e inst
 * dosageInstruction.site ^definition = "Local anatômico de administração do medicamento" 
 * dosageInstruction.route ^short = "Via de admiminstração do medicamento"
 * dosageInstruction.route ^definition = "Via de admiminstração do medicamento"
-* dosageInstruction.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration
+* dosageInstruction.route from http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration (preferred)
 * dosageInstruction.method ^short = "Método de administração do medicamento"
 * dosageInstruction.method ^definition = "Método de administração do medicamento" 
 * dosageInstruction.doseAndRate ^short = "Quantidade a ser administrada do medicamento"
