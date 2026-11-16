@@ -280,6 +280,15 @@ A seguir estão os perfis que foram definidos para cada seção. (R) denota uma 
             </tr>
             <tr>
                 <td>
+                    <a href="StructureDefinition-br-core-riskassessment.html"
+                        title="StructureDefinition/br-core-riskassessment.fsh">br-core-riskassessment </a>
+                </td>
+                <td>
+                    <p>Este perfil restringe o recurso FHIR R4 RiskAssessment e registra a avaliação do risco de um desfecho para um paciente ou grupo, com a probabilidade prevista e o método usado.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <a href="StructureDefinition-br-core-servicerequest.html"
                         title="StructureDefinition/br-core-servicerequest.fsh">br-core-servicerequest </a>
                 </td>
