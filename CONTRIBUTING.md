@@ -4,7 +4,7 @@
 
 O BR-Core está em FMM 1. Os artefatos estão em construção e podem mudar.
 
-Enquanto não passar pelo processo abaixo, o BR-Core **não pode ser tomado como o core brasileiro**. O rótulo de release (STU1) indica a sequência de versões, não um padrão de uso experimental aprovado. A mesma regra vale para o IPS Brasil, para o THO Brasil e para os guias da RNDS.
+Até concluir o processo abaixo, o BR-Core é a base nacional em construção, e ainda não o core brasileiro endossado pelo HL7. Pelo Acordo de Afiliada (cláusulas 6.10.2 e 6.10.2.2), declarar o guia core nacional é atribuição do HL7 Brasil, depois do processo de votação. O rótulo de release (STU1) indica a sequência de versões, não um padrão de uso experimental aprovado. O mesmo vale para o IPS Brasil, o THO Brasil e os guias da RNDS.
 
 O caminho segue o modelo de maturidade do FHIR (FMM) e o FHIR Community Process, conduzido pelo HL7 Brasil como afiliada do HL7 International:
 
@@ -17,7 +17,7 @@ O caminho segue o modelo de maturidade do FHIR (FMM) e o FHIR Community Process,
 | FMM 4 e 5 | Implementação em pilotos e depois em produção na RNDS | Base para o status Normativo |
 | Normativo | Decisão do Ministério da Saúde, a partir do padrão estabilizado | Padrão estável e obrigatório |
 
-Nenhum guia é declarado core nacional por publicação direta. O reconhecimento vem do ballot.
+O reconhecimento como core nacional vem do ballot, e não da publicação.
 
 ## Fluxo de versões: merge contínuo, publicação em lote
 
