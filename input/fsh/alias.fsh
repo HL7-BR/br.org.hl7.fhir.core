@@ -2,10 +2,10 @@ Alias: $loinc = http://loinc.org
 
 Alias: $structuredefinition-patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-birthPlace
 
-Alias: $structuredefinition-patient-genderIdentity = https://ips.saude.gov.br/fhir/StructureDefinition/identidade-genero-br-ips
+Alias: $structuredefinition-patient-genderIdentity = https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-identidadegenero
 
-Alias: $structuredefinition-patient-racaBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips
+Alias: $structuredefinition-patient-racaBRIPS = https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-raca
 
-Alias: $structuredefinition-patient-povoIndigenaBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/povo-indigena-br-ips
+Alias: $structuredefinition-patient-povoIndigenaBRIPS = https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-povoindigena
 
-Alias: $structuredefinition-patient-sexoNascimentoBRIPS = https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips
+Alias: $structuredefinition-patient-sexoNascimentoBRIPS = https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sexonascimento

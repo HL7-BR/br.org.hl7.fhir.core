@@ -61,7 +61,7 @@
             }
         },
         {
-            "url": "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-raca",
             "valueCodeableConcept": {
                 "coding": [
                     {
@@ -73,7 +73,7 @@
             }
         },
         {
-            "url": "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
+            "url": "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-sexonascimento",
             "valueCodeableConcept": {
                 "coding": [
                     {
