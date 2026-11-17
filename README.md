@@ -52,6 +52,7 @@ Sua participação é valiosa para o Sistema de Saúde! Algumas *guidelines*:
    - Faça seu `Fork` e isole seu código `git checkout -b feature/SuaFeature`.
    - Inclua no mínimo uma **Instância de Exemplo** atrelando a sua funcionalidade para agir como teste mecânico.
    - Abra seu *Pull Request*.
+3. **Versões:** PRs não alteram a versão do guia. A publicação é feita em lote, num PR próprio. Veja [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 🔗 Links Úteis
 * [HL7 Brasil Oficial](https://hl7.org.br/)
