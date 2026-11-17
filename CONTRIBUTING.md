@@ -15,7 +15,7 @@ O caminho segue o modelo de maturidade do FHIR (FMM) e o FHIR Community Process,
 | FMM 3 | Ballot do HL7 Brasil, com comentários registrados e respondidos | Versão `-ballot` e reconciliação |
 | STU (Trial Use) | Publicação após o ballot | Padrão de uso experimental |
 | FMM 4 e 5 | Implementação em pilotos e depois em produção na RNDS | Base para o status Normativo |
-| Normativo | Decisão do Ministério da Saúde, a partir do padrão estabilizado | Padrão estável e obrigatório |
+| Normativo | Ballot normativo no HL7 Brasil | Padrão estável; a obrigatoriedade na RNDS é decisão do Ministério da Saúde, como parte interessada |
 
 O reconhecimento como core nacional vem do ballot, e não da publicação.
 
