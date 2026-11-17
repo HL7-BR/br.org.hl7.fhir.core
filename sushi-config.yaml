@@ -58,8 +58,11 @@ jurisdiction: urn:iso:std:iso:3166#BR "Brazil"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  br.gov.saude.terminologia.fhir: 1.2.0
-  br.gov.saude.ips.fhir: 1.2.0
+  br.gov.saude.terminologia.fhir:
+    id: br_gov_saude_terminologia_fhir
+    uri: https://terminologia.saude.gov.br/fhir/ImplementationGuide/br.gov.saude.terminologia.fhir
+    version: 1.2.0
+  hl7.fhir.uv.ips: 1.1.0
 
 # The global property corresponds to the IG.global property, but it
 # uses the type as the YAML key and the profile as its value. Since

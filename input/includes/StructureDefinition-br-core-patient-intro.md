@@ -16,7 +16,7 @@ Toda instância deve ter CPF ou CNS (invariante br-core-pat-2) e um nome, ou o m
 
 O CPF e a raça/cor são mustSupport, com o significado definido na seção [Suporte obrigatório (mustSupport) no BR-Core](index.html#mustsupport): o emissor envia o dado sempre que o tem, e o receptor aceita e guarda o dado quando presente. A ausência de um elemento mustSupport opcional não invalida a instância.
 
-A ausência de dado segue a seção [Dados ausentes](index.html#dadosausentes). A raça/cor é a exceção prevista ali: a extensão do IPS Brasil tem binding required e não aceita data-absent-reason no valor, por isso, quando a pessoa não declara, a extensão é omitida. O código 99 do BRRacaCor não é usado em instâncias novas.
+A ausência de dado segue a seção [Dados ausentes](index.html#dadosausentes). A raça/cor é a exceção prevista ali: a extensão br-core-raca tem binding required e não aceita data-absent-reason no valor, por isso, quando a pessoa não declara, a extensão é omitida. O código 99 do BRRacaCor não é usado em instâncias novas.
 
 ### Paciente sem identificação
 
