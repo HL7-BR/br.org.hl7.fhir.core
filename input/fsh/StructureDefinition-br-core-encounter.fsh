@@ -68,7 +68,8 @@ Description: "Uma interação entre um paciente e o(s) prestador(es) de  serviç
 * subject ^short = "Referência ao paciente ou grupo deste atendimento"
 * subject ^definition = "Referência ao paciente ou grupo deste atendimento"
 * subject only Reference(br-core-patient or Group)
-* subject 1..1
+* subject 0..1
+* subject ^comment = "Opcional, como no FHIR R4. Informe o paciente sempre que houver um. Pode ficar ausente quando o atendimento não tem paciente identificado, como na teleconsultoria entre profissionais de saúde (INSPIRA-305)."
 * episodeOfCare ^short = "Referência ao episódio de cuidado relacionado a este atendimento"
 * episodeOfCare ^definition = "Referência ao episódio de cuidado relacionado a este atendimento"
 * basedOn ^short = "Referência ao ServiceRequest que iniciou este atendimento"

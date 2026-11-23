@@ -15,8 +15,8 @@ title: "Guia de implementação do Core do Brasil: Release 1 - BR Realm | STU1"
 description: Guia de Implementação Core de Interoperabilidade em Saúde Digital do Brasil.
 status: active
 license: CC0-1.0
-date: 2026-10-22
-version: 1.7.2
+date: 2026-11-23
+version: 1.7.3
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -129,6 +129,10 @@ resources:
      name: Exemplo de reporte de diagnóstico.
      description: Exemplo de reporte de diagnóstico.
      exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-diagnosticreport
+  Encounter/3b7e2c90-5d41-4a86-9f1e-7c0a2d8e6b14:
+    name: Exemplo de teleconsultoria sem paciente.
+    description: Teleconsultoria entre profissionais de saúde, sem paciente identificado (subject ausente).
+    exampleCanonical: https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-encounter
   Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df:
      name: Exemplo de consulta fictícia.
      description: Exemplo de consultae fictícia.
