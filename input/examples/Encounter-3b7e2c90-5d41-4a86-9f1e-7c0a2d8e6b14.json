@@ -1,0 +1,54 @@
+{
+    "resourceType": "Encounter",
+    "id": "3b7e2c90-5d41-4a86-9f1e-7c0a2d8e6b14",
+    "language": "pt-BR",
+    "status": "finished",
+    "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "VR",
+        "display": "virtual"
+    },
+    "type": [
+        {
+            "text": "Teleconsultoria entre profissionais de saúde"
+        }
+    ],
+    "priority": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+                "code": "R",
+                "display": "routine"
+            }
+        ],
+        "text": "Rotina"
+    },
+    "participant": [
+        {
+            "type": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                            "code": "ADM",
+                            "display": "admitter"
+                        }
+                    ],
+                    "text": "Executor Primário"
+                }
+            ],
+            "individual": {
+                "reference": "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+                "display": "Maria Clara"
+            }
+        }
+    ],
+    "period": {
+        "start": "2026-11-18T14:00:00-03:00",
+        "end": "2026-11-18T14:20:00-03:00"
+    },
+    "serviceProvider": {
+        "reference": "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display": "Hospital Sírio-Libanês"
+    }
+}

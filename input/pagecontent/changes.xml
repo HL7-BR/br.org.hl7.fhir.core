@@ -1,6 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>Mudanças do BR-Core por versão.</p>
 
+  <a name="1.7.3"> </a>
+  <h3>1.7.3 (2026-11-23)</h3>
+  <ul>
+    <li>br-core-encounter: subject de 1..1 para 0..1, como no FHIR R4. O atendimento pode não ter paciente identificado, como na teleconsultoria entre profissionais (INSPIRA-305). Novo exemplo de teleconsultoria sem paciente.</li>
+  </ul>
+  <p>Só afrouxamento: instâncias válidas na 1.7.2 continuam válidas.</p>
+
   <a name="1.7.2"> </a>
   <h3>1.7.2 (2026-10-22)</h3>
   <ul>
