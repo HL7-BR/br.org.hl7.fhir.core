@@ -1,6 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>Mudanças do BR-Core por versão.</p>
 
+  <a name="1.7.4"> </a>
+  <h3>1.7.4 (2026-11-24)</h3>
+  <ul>
+    <li>br-core-practitioner: nova fatia <code>identifier[rms]</code> 0..1 para o Registro Único do Ministério da Saúde (RMS) do médico intercambista do Projeto Mais Médicos (Lei nº 12.871/2013, art. 16; Portaria GM/MS nº 2.477/2013). System <code>https://saude.gov.br/fhir/sid/rms</code>, tipo <code>v2-0203#MD</code> (INSPIRA-290). Novo NamingSystem <code>rms</code>. O exemplo de profissional passa a ter um RMS.</li>
+  </ul>
+  <p>Só acréscimo opcional: instâncias válidas na 1.7.3 continuam válidas.</p>
+
   <a name="1.7.3"> </a>
   <h3>1.7.3 (2026-11-23)</h3>
   <ul>
