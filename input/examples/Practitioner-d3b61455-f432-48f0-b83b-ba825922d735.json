@@ -12,10 +12,31 @@
             "display": "Health Card Number"
           }
         ],
-      "text": "Cartão nacional de saúde"
+        "text": "Cartão nacional de saúde"
       },
       "system": "https://saude.gov.br/fhir/sid/cns",
       "value": "123456789101112"
+    },
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MD",
+            "display": "Medical License number"
+          }
+        ],
+        "text": "Registro Único do Ministério da Saúde (RMS)"
+      },
+      "system": "https://saude.gov.br/fhir/sid/rms",
+      "value": "3305999",
+      "period": {
+        "start": "2025-03-10"
+      },
+      "assigner": {
+        "display": "Ministério da Saúde"
+      }
     }
   ],
   "active": true,
@@ -23,7 +44,10 @@
     {
       "use": "official",
       "family": "Oliveira",
-      "given": ["Maria", "Clara"]
+      "given": [
+        "Maria",
+        "Clara"
+      ]
     }
   ],
   "telecom": [
@@ -43,7 +67,9 @@
       "use": "work",
       "type": "both",
       "text": "Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000",
-      "line": ["Av. Central, 456"],
+      "line": [
+        "Av. Central, 456"
+      ],
       "city": "Rio de Janeiro",
       "state": "RJ",
       "postalCode": "20000-000",

@@ -32,7 +32,8 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
     identificadorFarmaceutico 0..1 and
     identificadorOdontologo 0..1 and
     identificadorEnfermeiro 0..1 and
-    identificadorOutrosProfissionais 0..1
+    identificadorOutrosProfissionais 0..1 and
+    rms 0..1
 * identifier[cns] ^short = "Identificador do profissional (CNS)"
 * identifier[cns] ^definition = "Identificador do profissional"
 * identifier[cns].id ^short = "Id lógico do identificador do profissional"
@@ -501,6 +502,45 @@ Description: "O Profissional é uma pessoa que está direta ou indiretamente env
 * identifier[identificadorOutrosProfissionais].assigner.identifier ^definition = "Referência lógica, quando a referência literal não é conhecida"
 * identifier[identificadorOutrosProfissionais].assigner.display ^short = "Nome da entidade que atribuiu o identificador da organização"
 * identifier[identificadorOutrosProfissionais].assigner.display ^definition = "Nome da entidade que atribuiu o identificador da organização"
+* identifier[rms] ^short = "Registro Único do Ministério da Saúde (RMS)"
+* identifier[rms] ^definition = "Registro Único para o exercício da medicina (RMS), emitido pelo Ministério da Saúde ao médico intercambista do Projeto Mais Médicos para o Brasil (Lei nº 12.871/2013, art. 16, § 3º; Portaria GM/MS nº 2.477/2013)"
+* identifier[rms] ^comment = "Vale só no âmbito do Projeto Mais Médicos e só enquanto o médico estiver no programa: desde a data de início das atividades até o cancelamento, ambos publicados no DOU. Informe o número de 7 dígitos (código IBGE da UF, 0 e 4 dígitos), sem o prefixo 'RMS-UF-'. Informe também o CPF ou o CNS: o RMS não substitui a identificação da pessoa."
+* identifier[rms].id ^short = "Id lógico do identificador do RMS"
+* identifier[rms].id ^definition = "Id lógico do identificador do RMS"
+* identifier[rms].extension ^short = "Extensões do identificador do RMS"
+* identifier[rms].extension ^definition = "Extensões incluídas no identificador do RMS"
+* identifier[rms].use ^short = "Uso do identificador do RMS"
+* identifier[rms].use ^definition = "usual: identificador usual do médico. official: identificador oficial do médico. temp: identificador temporário do médico. secondary: identificador secundário do médico"
+* identifier[rms].use = http://hl7.org/fhir/identifier-use#official (exactly)
+* identifier[rms].use 1..1
+* identifier[rms].type ^short = "Tipo do identificador do RMS"
+* identifier[rms].type ^definition = "Código que representa o tipo do identificador do RMS"
+* identifier[rms].type 1..1
+* identifier[rms].type.coding 1..1
+* identifier[rms].type.coding ^short = "Codificação do tipo do identificador do RMS"
+* identifier[rms].type.coding ^definition = "Codificação que representa o tipo do identificador do RMS"
+* identifier[rms].type.coding.system 1..1
+* identifier[rms].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203" (exactly)
+* identifier[rms].type.coding.system ^short = "Sistema da codificação do tipo do identificador do RMS"
+* identifier[rms].type.coding.system ^definition = "Sistema que identifica a codificação do tipo do identificador do RMS"
+* identifier[rms].type.coding.code 1..1
+* identifier[rms].type.coding.code = http://terminology.hl7.org/CodeSystem/v2-0203#MD (exactly)
+* identifier[rms].type.coding.code ^short = "Código da codificação do tipo do identificador do RMS"
+* identifier[rms].type.coding.code ^definition = "MD (Medical License number): o RMS é a licença para o exercício da medicina no Projeto Mais Médicos"
+* identifier[rms].type.text ^short = "Texto do tipo do identificador do RMS"
+* identifier[rms].type.text ^definition = "Texto que representa o tipo do identificador do RMS"
+* identifier[rms].system 1..1
+* identifier[rms].system = "https://saude.gov.br/fhir/sid/rms" (exactly)
+* identifier[rms].system ^short = "Sistema do identificador do RMS"
+* identifier[rms].system ^definition = "Sistema que identifica o RMS. Nacional: o RMS é emitido pelo Ministério da Saúde e a UF já vem no número"
+* identifier[rms].value 1..1
+* identifier[rms].value ^short = "Número do RMS"
+* identifier[rms].value ^definition = "Número do RMS como publicado no DOU, 7 dígitos (p. ex. 1505848)"
+* identifier[rms].period ^short = "Vigência do RMS"
+* identifier[rms].period ^definition = "Início: data de início das atividades no Projeto Mais Médicos. Fim: cancelamento do RMS ou saída do programa"
+* identifier[rms].assigner ^short = "Organização que emitiu o RMS (Ministério da Saúde)"
+* identifier[rms].assigner ^definition = "Organização que emitiu o RMS (Ministério da Saúde)"
+* identifier[rms].assigner only Reference(br-core-organization)
 * active ^short = "Indica se o registro deste profissional está ativo"
 * active ^definition = "Indica se o registro deste profissional está ativo"
 * active 1..1
